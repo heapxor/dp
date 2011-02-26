@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{XBee}
+{Digi International Inc.}
+\newblock {XBee/XBee-Pro ZB OEM RF Modules product manual}, 2008.
+
+\bibitem{halas}
+B.~Halás.
+\newblock Návrh simulácie bezdrôtovej siete {Z}ig{B}ee 802.15.4 pomocou
+  simulačného systému {OMNeT++}, júl 2006.
+
+\bibitem{Ieee802154}
+{IEEE std. 802.15.4{\texttrademark}-2006}.
+\newblock {Part 15.4: Wireless Medium Access Control (MAC) and Physical Layer
+  (PHY) Specifications for Low-Rate Wireless Personal Area Networks (WPANs)},
+  June 2006.
+
+\bibitem{MIXIMArch}
+{Karl Wessel, Michael Swigulski, Andreas Kopke, Daniel Willmomm}.
+\newblock {MiXiM - The Physical Layer An Architecture Overview}, March 2009.
+
+\bibitem{miletic}
+U.~Miletić.
+\newblock {Simulation of the physical and data link layers of ZigBee networks
+  in OMNeT++}, January 2009.
+
+\bibitem{Omnet2}
+{Varga, A., Horing R.}
+\newblock {An overview of the OMNeT++ simulation environment}, 2008.
+
+\bibitem{INET}
+{INET Framework for OMNeT++ 4.0}.
+\newblock \\ \verb|http://inet.omnetpp.org/|, stav z 2.\,5.\,2009.
+
+\bibitem{MF}
+{Mobility Framework (MF) for OMNeT++}.
+\newblock \\ \verb|http://mobility-fw.sourceforge.net/|, stav z 2.\,5.\,2009.
+
+\bibitem{MF2}
+{Mobility Framework (MF) for OMNeT++ 4}.
+\newblock \\ \verb|http://wiki.github.com/mobility-fw/mf-opp4/|, stav z
+  25\,5.\,2009.
+
+\bibitem{MIXIM}
+{MiXiM}.
+\newblock \\ \verb|http://mixim.sourceforge.net/|, stav z 2.\,5.\,2009.
+
+\bibitem{Omnet}
+{OMNeT++ homepage}.
+\newblock \\ \verb|http://www.omnetpp.org/|, stav z 2.\,5.\,2009.
+
+\bibitem{OmnetApi}
+{OMNeT++ API Reference 4.0}.
+\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/api/|, stav z 2.\,5.\,2009.
+
+\bibitem{OmnetUser}
+{OMNeT++ version 4.0 User Manual}.
+\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/manual/usman.html/|, stav z
+  2.\,5.\,2009.
+
+\bibitem{omnetWorkshop}
+{OMNeT++ WORKSHOP}.
+\newblock \\ \verb|http://www.omnet-workshop.org/2009/|, stav z 2.\,5.\,2009.
+
+\bibitem{TicToc}
+{TicToc Tutorial for OMNeT++ 4.0}.
+\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/tictoc-tutorial/|, stav z
+  2.\,5.\,2009.
+
+\bibitem{ZigBee}
+{ZigBee Alliance}.
+\newblock {ZigBee Specification}, January 2008.
+
+\end{thebibliography}
