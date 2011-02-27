@@ -265,7 +265,7 @@ V tejto časti stručne popíšeme históriu vzniku databázových systémov, z�
 
 V polovici šesťdesiatych rokov 20. storočia bol spoločnosťou IBM vytvorený informačný systém IMS (Information Management System), využívajúci hierarchichký databázový model. IMS je po rokoch vývoja využívaný dodnes. Po krátkej dobe, v roku 1970, publikoval zamestnanec IBM, Dr. Edger F. Codd \cite{Codd} článok pod názvom „A Relational Model of Data for Large Shared Data Banks“, ktorým uviedol relačný databázový model. Prvým databázovým systémom, ktorý tento model implementoval bol System R od IBM. Tento systém používal jazyk pod názvom SEQUEL, ktorý je predchodca dnešného SQL (Structured Query Language) slúžiacého na manipuláciu a definícu dát v relačných databázových systémoch. Tento koncept sa stal základom pre relačné databázové systémy, ktoré vďaka širokej škále vlastností ako napríklad podpora tranzakcií, dotazovací jazyk SQL, patria v dnešnej  dobe medzi najpouživanejšie riešenia na trhu.
 
-V minulosti boli objem dát, s ktorým tieto systémy pracovali a výkon hardvéru mnohonásobne nižšie. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a hlavnou pamäťou. Vznik nových webových aplikácií napr. sociálne siete, zavádzanie cloud computingu vyžadujú od systémov podporu škálovania, ktorá zabezpečuje vysokú dostupnosť a spoľahlivosť. Tieto nové požiadavky efektívne riešia distribuované systémy pod spoločným názvom NoSQL, ktoré popisuje následujúca kapitola.
+V minulosti boli objem dát, s ktorým tieto systémy pracovali a výkon hardvéru mnohonásobne nižšie. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a hlavnou pamäťou. Ako príklad si vezmime bežnú konfiguráciu počítačového systému, ktorá obsahuje pevný disk o veľkosti 2TB a operačnú pamäť veľkosti 64Gb. Napriek týmto vysokým kapacitám tento systém bohužial dokáže v daný moment spracúvať maximálne 64Gb dát, čo je zlomok veľkosti v porovnaní s kapacitou pevného disku. Vznik nových webových aplikácií napr. sociálne siete, zavádzanie cloud computingu vyžadujú od systémov podporu škálovania, ktorá zabezpečuje vysokú dostupnosť, spoľahlivosť a ich nároky na spracovávaný objem dát sa neustále zvyšujú. Tieto nové požiadavky efektívne riešia distribuované systémy pod spoločným názvom NoSQL, ktoré popisuje následujúca kapitola.
 
 
 \section{ACID}
@@ -285,6 +285,7 @@ Implementácia tranzakcií a operácií spojenia (join) je v distribuovaných sy
 
 
 \section{Škálovanie databázového systému}
+Obecná definícia pojmu škálovateľnosť je náročná \cite{scalability} bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto práci budeme škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamických vývoj kladie na databázové systémy viacero požiadavkov. Medzi hlavné patrí neustála potreba zvyšovania diskového priestoru a teda zvyšovanie veľkosti databáze alebo schopnosť obslúžiť čoraz vyšší počet užívateľov aplikácie (zvýšenie počtu operácií pre čítanie a zápis do databázového systému). V tomto prípade pod pojmom škálovatelnosť databázového systému rozumieme vlasnosť, vďaka ktorej je systém schopný spracúvať narastajúce požiadavky webovej aplikácie v definovanom čase intervale. Typicky pridaním nových systémov, čo spôsobuje vznik distribuovaného databázového systému.
 
 Škálovateľnosť delíme na vertikálnu a horizontálnu. Táto metóda dodáva systému nasledujúce vlastnosti [5]:
 \begin{itemize}
@@ -305,8 +306,130 @@ Proces verktikálneho škálovania nad relačnou databázou obsahuje následujú
 
 V tomto prípade je možné naraziť na hranice Moorovho zákona [6] a na rad nastupuje horizontálna škálovateľnosť, ktorá je omnoho komplexnejšia. Horizontálnu škálovateľnosť je možné realizovať pomocou replikácie alebo metódou rozsekávania dát (sharding).
 
+\subsection{Replikácia}
+
+V distribuovaných systémoch sa pod pojmom replikácia rozumie vlastnosť, ktorá má za následok že sa daná informácia nachádza v konzistentnom stave na viacerých uzloch \footnote{Pod pojmom uzol v tomto prípade myslíme samostatný počitačový systém, ktorý je súčasťou distribuovaného systému} tohoto systému. Táto vlastnosť zvyšuje dostupnosť, spoľahlivosť a odolnosť systému voči chybám.
+
+V prípade distribuované databázového systému sa časť informácií uložených v databáze nachádza na viacerých uzloch. Táto vlasnosť môže napríklad zvýšiť výkonnosť operácií, ktoré pristupujú k dátam a to tak, že dochádza k čítavaniu dát z databázy paralelne z viacerých uzlov. V systéme obsahujúcom repliku dát nedochádza k strate informácií v prípade poruchy uzlu. Replikácia a propagácia zmien v systéme sú z pohľadu aplikácie transparentné. Metóda replikácie nezvyšuje pridávaním nových uzlov celkovú kapacita databáze. Problémom tejto techniky je zápis dát, pri ktorom sa zmena musí prejaviť vo všetkých replikách. Existuje viacero metód pomocou, ktorých je možné zabezpečiť túto funkcionalitu:
+\begin{itemize}
+  \item
+      Read one - write all, u tejto metódy sa čítanie dát prevedie z ľubovolné uzlu obsahujúceho repliku. Zápis dát sa vykoná na všetky uzly obsahujúce repliku a v prípade, že každý z nich potvrdí úspech tejto operácie, zmena sa považuje úspešnú. Táto metóda nie je schopná pracovať v prípade, že dôjde k prerušeniu sieťového toku medzi uzlami (network partitioning) alebo v prípade poruchy uzlu.
+  \item
+      Quorum consensus - zápis na jeden uzol a následná asynchrónna propagácia repliky na ostatné uzly. Táto metóda je schopná zvládať stav pri ktorom dojde k prerušeniu sieťového toku alebo poruche uzlu. Implementácie využíva algoritmy pod názvom kôrum konsenzus (quorum consensus). ???
+\end{itemize}
+
+Na základe výberu metódy replikácie určíme výsledné vlastnosti distribuovaného databázového systému. Poďla teórie s názvom CAP (viď. nasledujúca kapitola) nie je možné aby systém disponoval súčasne vlastnosťami ako dostupnosť, konzistencia dát a schopnosť odolávať poruchám v prípade chyby v sieťovej komunikácii.
+
+V relačných databázových systémoch sa replikácia rieši pomocou techniky Master-Slave. Uzol pod názvom master slúži ako jediný databázový stroj, na ktorom sa vykonáva zápis dát a replika týchto dát je následne distribuovaná na zvyšné uzly pod názvom slave. Touto metódou sme schopný mnohonásobne zvýšiť počet operácií, ktoré slúžia pre čítanie dát z databazového systému a v prípade zlyhania niektorého zo systémov máme neustále k dispozícii kópiu dát. Slabinou tejto techniky je uzol v roli master, ktorý znižuje výkonnosť v prípade operácií vykonavajúcich zápis a zároveň môže jeho porucha spôsobiť celkovú nedostupnosť systému.
+
+Druhým riešením je technika Multi-master, kde každý uzol obsahujúci repliku je schopný zápisu dát a následne tieto preposiela zmeny ostatným. Tento mechanizmus predpokláda distribuovanú správu zamykania a vyžaduje algoritmy pre riešenie konfliktov spôsobujúcich nekonzistenciu dát.
+
+
+\subsection{Rozsekávanie dát (sharding)\footnote{“If you can’t split, you cant scale it.” -- Randy Shoup, Distinguished architect Ebay}}
+
+Rozsekávanie dát je metóda založená na princípe, kde dáta obsiahnuté v databáze rozdeľujeme podľa stanovených pravidiel do menších celkov. Tieto celky môžeme následne umiestniť na navzájom rôzne uzly distribuovaného databázového systému. Táto metóda umožňuje zvýšiť výkonnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových uzlov do systému sme schopný zvyšovať celkovú kapacitu databáze. V prípade, že architektúra distribuovaného databázového systému využíva túto techniku, zvýšenie výkonu jeho operácií a objemu uložených dát sa realizuje automaticky bez nutnosti zásahu do aplikácie. 
+%Pri tejto metóde môže byť použitá metóda transformácie kľúčov (hashing), pre vhodný výber úseku do ktorého budú zapisané dáta.
+
+Techniku rozsekávania môžeme považovať za architektúru známu pod názvom zdieľanie ničoho \cite{???} (shared nothing). Táto architektúra sa používa pre návrh systémov využivajúcich multiprocesory. V takomto prípade sa medzi procesormi nezdieľa operačná ani disková pamäť. Táto architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému a využíva ju mnoho NoSQL systémov ako napríklad Google Bigtable, Amazon Dynamo alebo technológia MapRreduce.
+
+Pri návrhu distribuovaných databázových systémov, s využitím tejto techniky, patrí medzi kľúčový problém implementácia funkcie spojenia (join) nad dátami, ktorá sa radšej neimplementuje. V prípade, že sa dáta nad ktorými by sme chceli túto operáciu vykonať, nachádzajú na dvoch rozdielnych uzloch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému a viedlo by k zvýšeniu sieťového toku a záťaži systémových zdrojov. 
+
+Keďže dáta sa nachádzajú na viacerých uzloch systému, hrozí zvýšená pravdepodobnosť hardverového zlyhania, poprípade prerušenie sieťového spojenia a preto sa táto technika často kombinuje s pomocou využitia replikácie.
+
+V prípade použitia tejto techniky v relačných databázach, je nutný zásah do logiky aplikácie. Dáta uložené v tabuľkách relačnej databáze zachytávajú vzájomné relácie. Týmto spôsobom dochádza k celkovému narušeniu tohoto konceptu. Príkladom môže byť tabuľka obsahujúca zoznam zamestnancov, ktorú rozdelíme na samostatné celky. Každá tabuľka bude reprezentovať mená zamestnancov, ktorých priezvisko začína rovnakým písmenom abecedy a zároveň sa bude nachádzať na samostatnom databázovom systéme. Táto technika so sebou prináša problém, v ktorom je potrebné nájsť vhodný kľúč podľa, ktorého budeme dáta rozsekávať a zabezpečíme tak rovnomerné zaťaženie uzlov daného systému. Existuje viacero metód \cite{cassandraBook} a to:
+\begin{itemize}
+ \item 
+      tvorba databázových tabuliek podľa funkcie dát - dáta popisujúce tú istú vlasnosť v jednej tabuľke, napr. samostatná tabuľka užívateľov, produktov atď. Túto metódu spracoval Randy Shoup \cite{ebayShard}, architekt spoločnosti eBay.
+    
+  \item
+      rozsekávanie podľa kľúča - v datách hľadáme kľúč, podľa ktorého sme schopný ich rovnomernej distribúcie. Následne na tento kľúč aplikujeme hašovaciu funkciu a na základe je výsledku tieto dáta umiestňujeme na jednotlivé uzly.
+  \item
+      vyhľadávacia tabuľka - jeden uzlol v systéme slúži ako katalóg, ktorý určuje na ktorom uzle sa nachádzajú dané dáta. Tento uzol zároveň spôsobuje zníženie výkonu a v prípade jeho havárie spôsobuje nedostupnosť celého systému.
+\end{itemize}
+
+Replikácia a rozsekávanie dát patria medzi kľúcové vlastnosti využívané v NoSQL systémoch.
+
+\section{BASE (dostupnost)}
+
+Pojem BASE [9] bol prykrát zadefinovaný v roku 1997 na SOSP (ACM Symposium on Operating Systems Principles). BASE je akroným od slov v podstate dostupný (basically available), zmiernený stav (soft state) a čiastočná konzistencia (eventually consistent). Tento model poľavil na požiadavku konzistencie, s tým že dosiahol vyššiu dostupnosť aj v prípade čiastočného zlyhania. U relačných databázy a týmto umožnil ich škálovateľnosť. Jedna z možných implementácií tejto architektúry využíva metódu rozsekávanie dát pomocou tvorby tabuliek podľa funkcie dát, ďalej využíva perzistentné fronty a princípy událosťami riadenej architektúry (event driven architekture). Poľavením na požiadavku konzistencie dát sa v tomto prípade myslí stav, že dáta budú konzistentné po uplynutí určitého časového intervalu. = Bankomaty?
+
+BASE mnohonasobne ulahcuje implementaciu fault=tolerant a dostupnosti. Base model dokaze spracovat ciastocne vypadky (partial failure) v klastrovom rieseni za cenu nizsej komplexity ako ACID.
+
 
 Aplikácia týchto techník na relačné databázové systémy je netrivialnou úlohou. Relačný model, je spôsob reprezentácie dát, ktorý umožnuje efektívne riešit určité typy problémov, preto snaha prispôsobiť tento model každému problému je nezmyselná. V tomto prípade, musíme uvažovať alternatívne riešenia, medzi ktoré patria systémy NoSQL.
+
+\section{CAP}
+
+Odpoveďou na otázku škálovatelnosti je architektrúra využivajúca distribuovanú paralelizáciu namiesto snahy o tvorbu superpočítačov. U distribuovaných systémov sa očakáva odolnosť voči poruchám napríklad hardwarová porucha (nefunkčnosť časti systému spôsobí jeho celkovú nedostupnosť) alebo sieťový problém. Aplikácie sú v dnešnej dobe čoraz viac založené na distribuovaných web-technológiách a reálny svet na nich kladie požiadavky ako dostupnosť, konzistentnosť a schopnosť odolávať čiastočným poruchám.
+
+CAP teória [10] spracovaná Dr. Brewerom v roku 2002 tvrdí, že u distribuovaných aplikácií, ktoré pristupujú k dátam je mozne dosiahnut len dvojicu z tychto vlastnosti a nikdy nie je možné dosiahnúť súčastne všetky tri vlasnosti sucasne. Platnosť tejto teórie bola matematicky dokázana pre asyncchrónnu sieť (def. splňuje sieť Internet)v roku 2002 Lynch a Gilbert. [11]
+
+Aplikácie sa v dnešnej dobe snažia zabezpečit konzistenciu dát. Množstvo distribuovaných frameworkov využíva pre túto vlasnosť databáze, ktorých vlastnosť ACID tento fakt zaručuje.
+
+C - Každá operácia musí byť kompletne vykonanná a to ako jedna inštancia (tj. operácia je atomická) Musi existovat moznost linearneho usporiadania vsetkych operacii aj napriek tomu ze su distribuovane.---- Kazda cast celkoveho systemu, v pripade, poziadavku hodnotu dat vracia tu istu odpoved.
+
+A - Distribuovaný systém je dostupný ak každý jeho systém, ktorý korektne pracuje pri prijatí požiadavku je schopný zaslať odpoveď. Vsetky casti systemu vykonavaju nepretrzite svoju cinnost a lubovolna komponenta je schopna spracovat lubovolny poziadavok.
+
+P - V pripade distribuovanych systemov, ak casti aplikacie bezia na roznych systemoch hrozi prerusenie sieťovej komunikacie medzi tymyto systemami. V prípade prerušenia tejto komunikácie systémy medzi sebou navzajom nedokazu komunikovat. Táto vlasnosť podľa definície viď. Gilbert & Lynch [11] tvrdí, že žiadna podmnozina zlyhaní sieťovej komunikácie nemoze sposobit nekorektnost funkcie systemu v pripade ze sa nejedna o celkové zlyhanie komunikácie.  
+
+???Popis distrib komunikacie 2 nodov
+
+CA (databaza na jednom stroji, klustrova DB (narocne), xfs)
+
+V prípade, že systém nebude schopný zvládať čiastočné sieťové alebo hw poruchy, tak takýto systém bude spľnovať požiadavok konzistencie a dostupnosti. Jedná sa väčsinou o systém pracujúci na jednom HW, poprípade klusterové riešenie v jednom racku (avšak u takéhoto systému nie je 100% možné zaručiť jeho bezporuchovosť). U takéhoto systému môžeme naraziť na problém škálovateľnosti.
+
+AP (DNS)
+
+V prípade, že upustíme od konzistencie tak takýto systém je bude vždy dostupný aj napriek čiastočným sieťovým poprípade hardwarovým zlyhaniam. Je možné, že časť dát takéhoto systému bude nekonzistentná. Vhodná implementácia vedie na čiastočnú konzistenciu viď. následujúca kapitola, ktorá pre určité aplikácie nie je problémom.
+
+CP (distribuovana DB, distribuovane zamykanie)
+
+Systém, u ktorého budeme tolerovať nedostupnosť zaručí konzistentnosť a zároveň bude schopný pracovať v prípade sieťovej alebo hw poruchy jeho časti. U takéhoto systému, možeme pre škálovanie využiť techniku rozsekávania dát s tým, že akceptujeme nebezpečenstvo nedostupnosti časti systému.
+
+P = tolerance to network partitions
+
+R +W > N  popisat
+
+Je potrebne vhodne vybrat jednu z dvojic na zaklade poziadavkov na nase data a model aplikacie.
+
+STAV (nie vsetky lokacie su rovnake) => konzistencia vs. dostupnost
+
+Trojuholnik CAP  a typy db na hrany
+Čiastočná konzistencia
+
+V ideálnom svete je predstava konzistencie následovná, v prípade, že sa v systéme vykoná update, všetci pozorovatelia vidia túto zmenu rovnako. Kedže podľa CAP teórie, distribuovaný systém nemôže spĺňať všetky tieto tri požiadavky súčastne je na zvážení zadávateľa problému a programátora, pre ktorú vlasnosť sa spraví kompromis. V dnešne dobe existuje mnoho aplikácií, u ktorých je možné poľaviť na konzistencii a funkčnosť systému nebude v tomto prípade ohrozená ak sa určitá zmena prejavý s miernym oneskorením (napr. FB indikátor, že niekto komentoval status...). Takáto konzistencia je odlišná od def. pre ACID, kde ukončenie tranzakcie spôsobí, že systém sa nachádza v konzistentom stave (prevod medzi bankovými účtami). Pri návrhu aplikácií preto môžeme konzistenciu chápať z pohľadu zadávateľa problému/programátora alebo z pohľadu systemového, tj. ako ju rieši samotný systém.
+
+Konzistencia na strane klienta []
+
+V tomto prípade uvažujme komponentu, ktorá tvorí úložisko dát a tri nezávislé procesy, ktoré do daného úložiska môžu zapisovať a čítať dáta. Na základe toho ako dané procesy pozorujú navzájom nezávisle zmeny delíme konzistenciu na:
+
+Silná konzistencia - v prípade, že sa vykoná zmena v úložisku dát, všetky tri procesy v prípade, že pristúpia k dátam v akomkoľvek poradí vidia túto zmenu rovnako
+
+Slabá konzistencia - v prípade, ľubovoľného poradia prístupu k datám, systém nezaručuje, že tieto procesy zobrazia zmenu. Avšak definujeme pojem “nekonzistentné okno”, ktorý garantuje, že po uplynutí určitej doby sa táto zmena prejaví vo všetkých procesoch.
+
+Čiastočná konzistencia - je to špecifická forma slabej konzistencie, ktorá definuje, že v prípade ak od poslednej zmeny dát nedošlo k žiadnej inej operácií časom všetky procesy vrátia rovnakú hodnotu tejto poslednej zmeny. Tento model ma viacero variacií medzi ktoré patrí napríklad:
+
+    *
+
+      Read-your-write consistency - v prípade, že proces A vykoná zmenu tak v každom ďalšom prístupe k dátam vidí dáta poslednej zmeny, ktorú vykonal, nikdy nie staršie.
+    *
+
+      Session consistency - je to obdoba predchádzajúceho modelu, kde proces pristupuje k dátam v session, počas ktorej platí def. predchádzajúceho modelu. V prípade, že dôjde k prerušeniu session proces, môže znova vrátiť pôvodné nekonzistentné dáta.
+    *
+
+      Monotonic read - v prípade, že proces vrátil  určitú hodnotu dát, tak v každom ďalšom prístupe k týmto dátam, nemôže nastať situácia, kde by vrátil predchádzajúcu hodnotu týchto dát.
+
+
+Konzistencia na strane servera
+
+Na riešenie konzistencie sa využíva quorum protocol.
+
+def. N,W, R popísať možné stavy
+
+Nekonzistentnosť dát, môže byť tolerovaná v distribuovaných systémoch, ktoré sú vysoko škálovateľné za cieľom dosiahnutia lepšieho výkonu operácií, ktoré slúžia pre zápis a čítanie dat, celkovej výkonnosti a dostupnosti systému. Hranica do akej miery je možné dovoliť nekonzistenciu je určená požiadavkom klientskej aplikácie a vyššie spomínané modely sa ju snažia riešiť.
+
+… tieto modely následne implementujú noSQL systémy
+
 
 
 

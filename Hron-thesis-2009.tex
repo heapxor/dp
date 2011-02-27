@@ -265,7 +265,7 @@ V tejto časti stručne popíšeme históriu vzniku databázových systémov, z�
 
 V polovici šesťdesiatych rokov 20. storočia bol spoločnosťou IBM vytvorený informačný systém IMS (Information Management System), využívajúci hierarchichký databázový model. IMS je po rokoch vývoja využívaný dodnes. Po krátkej dobe, v roku 1970, publikoval zamestnanec IBM, Dr. Edger F. Codd \cite{Codd} článok pod názvom „A Relational Model of Data for Large Shared Data Banks“, ktorým uviedol relačný databázový model. Prvým databázovým systémom, ktorý tento model implementoval bol System R od IBM. Tento systém používal jazyk pod názvom SEQUEL, ktorý je predchodca dnešného SQL (Structured Query Language) slúžiacého na manipuláciu a definícu dát v relačných databázových systémoch. Tento koncept sa stal základom pre relačné databázové systémy, ktoré vďaka širokej škále vlastností ako napríklad podpora tranzakcií, dotazovací jazyk SQL, patria v dnešnej  dobe medzi najpouživanejšie riešenia na trhu.
 
-V minulosti boli objem dát, s ktorým tieto systémy pracovali a výkon hardvéru mnohonásobne nižšie. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a hlavnou pamäťou. Vznik nových webových aplikácií napr. sociálne siete, zavádzanie cloud computingu vyžadujú od systémov podporu škálovania, ktorá zabezpečuje vysokú dostupnosť a spoľahlivosť. Tieto nové požiadavky efektívne riešia distribuované systémy pod spoločným názvom NoSQL, ktoré popisuje následujúca kapitola.
+V minulosti boli objem dát, s ktorým tieto systémy pracovali a výkon hardvéru mnohonásobne nižšie. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a hlavnou pamäťou. Ako príklad si vezmime bežnú konfiguráciu počítačového systému, ktorá obsahuje pevný disk o veľkosti 2TB a operačnú pamäť veľkosti 64Gb. Napriek týmto vysokým kapacitám tento systém bohužial dokáže v daný moment spracúvať maximálne 64Gb dát, čo je zlomok veľkosti v porovnaní s kapacitou pevného disku. Vznik nových webových aplikácií napr. sociálne siete, zavádzanie cloud computingu vyžadujú od systémov podporu škálovania, ktorá zabezpečuje vysokú dostupnosť, spoľahlivosť a ich nároky na spracovávaný objem dát sa neustále zvyšujú. Tieto nové požiadavky efektívne riešia distribuované systémy pod spoločným názvom NoSQL, ktoré popisuje následujúca kapitola.
 
 
 \section{ACID}
@@ -285,6 +285,7 @@ Implementácia tranzakcií a operácií spojenia (join) je v distribuovaných sy
 
 
 \section{Škálovanie databázového systému}
+Obecná definícia pojmu škálovateľnosť je náročná \cite{scalability} bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto práci budeme škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamických vývoj kladie na databázové systémy viacero požiadavkov. Medzi hlavné patrí neustála potreba zvyšovania diskového priestoru a teda zvyšovanie veľkosti databáze alebo schopnosť obslúžiť čoraz vyšší počet užívateľov aplikácie (zvýšenie počtu operácií pre čítanie a zápis do databázového systému). V tomto prípade pod pojmom škálovatelnosť databázového systému rozumieme vlasnosť, vďaka ktorej je systém schopný spracúvať narastajúce požiadavky webovej aplikácie v definovanom čase intervale. Typicky pridaním nových systémov, čo spôsobuje vznik distribuovaného databázového systému.
 
 Škálovateľnosť delíme na vertikálnu a horizontálnu. Táto metóda dodáva systému nasledujúce vlastnosti [5]:
 \begin{itemize}
@@ -305,48 +306,47 @@ Proces verktikálneho škálovania nad relačnou databázou obsahuje následujú
 
 V tomto prípade je možné naraziť na hranice Moorovho zákona [6] a na rad nastupuje horizontálna škálovateľnosť, ktorá je omnoho komplexnejšia. Horizontálnu škálovateľnosť je možné realizovať pomocou replikácie alebo metódou rozsekávania dát (sharding).
 
-\section{Replikácia}
+\subsection{Replikácia}
 
-V distribuovaných systémoch sa pod pojmom replikácia rozumie vlastnosť, kde sa daná informácia nachádza v rovnakom stave súčasne vo viacerých systémoch. V prípade, že sa jedná napríklad o databázový kluster časť informácií uložených v databáze sa nachádza na viacerých počítačoch. Táto vlastnosť je vhodná z dôvodu, že zvyšuje výkonnosť operácií, ktoré čítajú teda pristupujú k dátam, je možné dané dáta čítať z viacerých miest systému súčasne. Kedže zaručuje paralelnú kópiu dát v prípade, že dôjde k poruche niektorého zo systémov, dáta sa nahradia prekopírovaním na nový, z toho vyplýva, že v systéme neexistuje bod, ktorý by spôsobil jeho celkové zlyhanie. Problémom u tejto techniky je zápis dát v takomto distribuovanom systéme. Dáta musia byť zapisané na všetky systémy, ktoré obsahujú danú repliku. Existuje viacero metód pomocou, ktorých je možné zabezpečiť túto vlastnosť:
+V distribuovaných systémoch sa pod pojmom replikácia rozumie vlastnosť, ktorá má za následok že sa daná informácia nachádza v konzistentnom stave na viacerých uzloch \footnote{Pod pojmom uzol v tomto prípade myslíme samostatný počitačový systém, ktorý je súčasťou distribuovaného systému} tohoto systému. Táto vlastnosť zvyšuje dostupnosť, spoľahlivosť a odolnosť systému voči chybám.
 
-    *
+V prípade distribuované databázového systému sa časť informácií uložených v databáze nachádza na viacerých uzloch. Táto vlasnosť môže napríklad zvýšiť výkonnosť operácií, ktoré pristupujú k dátam a to tak, že dochádza k čítavaniu dát z databázy paralelne z viacerých uzlov. V systéme obsahujúcom repliku dát nedochádza k strate informácií v prípade poruchy uzlu. Replikácia a propagácia zmien v systéme sú z pohľadu aplikácie transparentné. Metóda replikácie nezvyšuje pridávaním nových uzlov celkovú kapacita databáze. Problémom tejto techniky je zápis dát, pri ktorom sa zmena musí prejaviť vo všetkých replikách. Existuje viacero metód pomocou, ktorých je možné zabezpečiť túto funkcionalitu:
+\begin{itemize}
+  \item
+      Read one - write all, u tejto metódy sa čítanie dát prevedie z ľubovolné uzlu obsahujúceho repliku. Zápis dát sa vykoná na všetky uzly obsahujúce repliku a v prípade, že každý z nich potvrdí úspech tejto operácie, zmena sa považuje úspešnú. Táto metóda nie je schopná pracovať v prípade, že dôjde k prerušeniu sieťového toku medzi uzlami (network partitioning) alebo v prípade poruchy uzlu.
+  \item
+      Quorum consensus - zápis na jeden uzol a následná asynchrónna propagácia repliky na ostatné uzly. Táto metóda je schopná zvládať stav pri ktorom dojde k prerušeniu sieťového toku alebo poruche uzlu. Implementácie využíva algoritmy pod názvom kôrum konsenzus (quorum consensus). ???
+\end{itemize}
 
-      read one - write all, u tejto metódy sa čítanie dát prevedie čítaním z ľubovoľného systému, ktorý obsahuje danú repliku. V prípade zápisu dát, je zápis uskutočnený na všetky časti systému, obsahujúce repliku a až v prípade, že každý z nich potvrdí uspešný zápis je správa poslaná klientovi. Táto metóda nie je schopná pracovať v prípade, že dôjde k prerušeniu sieťového toku medzi systémami (network partitioning)
-    *
+Na základe výberu metódy replikácie určíme výsledné vlastnosti distribuovaného databázového systému. Poďla teórie s názvom CAP (viď. nasledujúca kapitola) nie je možné aby systém disponoval súčasne vlastnosťami ako dostupnosť, konzistencia dát a schopnosť odolávať poruchám v prípade chyby v sieťovej komunikácii.
 
-      ďalšou metódou môže byť zápis na jeden systém a následná asynchrónna propagácia replikácie, táto metóda je schopná zvládať stav pri ktorom dojde k prerušeniu sieťového toku, vedie na zložitejšie implementácie ako kôrum konsenzus (quorum consensus)
+V relačných databázových systémoch sa replikácia rieši pomocou techniky Master-Slave. Uzol pod názvom master slúži ako jediný databázový stroj, na ktorom sa vykonáva zápis dát a replika týchto dát je následne distribuovaná na zvyšné uzly pod názvom slave. Touto metódou sme schopný mnohonásobne zvýšiť počet operácií, ktoré slúžia pre čítanie dát z databazového systému a v prípade zlyhania niektorého zo systémov máme neustále k dispozícii kópiu dát. Slabinou tejto techniky je uzol v roli master, ktorý znižuje výkonnosť v prípade operácií vykonavajúcich zápis a zároveň môže jeho porucha spôsobiť celkovú nedostupnosť systému.
 
-Výber vhodnej metódy ďalej určí výsledné vlastnosti celkového systému a to konzistenciu, dostupnosť a schopnosť odolávať chybám v prípade chyby v sieťovej komunikácii medzi systémami. Tieto vlastnosti popisuje v následujúcej časti teória s názvom CAP.
-
-V relačných databázových systémoch sa táto technika najčastejšie rieši pomocou pridávania nových systémov (počítačov), ktoré vystupujú v úlohe otroka (slave). Hlavný databázový stroj, slúži ako jediný pre zápis dát, následne tieto dáta distribuje na ostatné systémy. Touto metódou sme schopný mnohonásobne zvýšiť počet operácií, ktoré slúžia pre čítanie dát z databazového systému, taktiež v prípade, zlyhania niektorého zo systémov máme neustále k dispozícii aktuálnu kópiu dát. Obmedzením tohoto systému je počet operácií, ktoré slúžia pre zápis dát a vykonávajú sa len na jednom systéme (je to bod, v ktorom môže nastať celkové zlyhanie systému), odkiaľ sa ďalej zmena propaguje na systémy v úlohe otroka. V prípade jeho poruchy môže dôjsť k chvíľkovej nedostupnosti celého systému. Taktiež touto metódou sa, pridávaním nových počítačov nezvyšuje celková kapacita databázového systému.
-
-Distribucia dat na slave moze byt aj asynchronna, co sposobi v pripade, padu mastra a nasledneho citania zo slave nekonzistenciu dat =:: eventually consistent...
-
-
-
-\section{Rozsekávanie dát (sharding)}
-“If you can’t split, you cant scale it.” -- Randy Shoup, Distinguished architect Ebay
-
-Rozsekávanie dát je metóda, ktorá je založená na princípe, kde dáta rozsekávame podľa stanovených pravidiel do menších celkov. Tieto celky následne môžeme v prípade klustrového riešenia rozdistribuovať na jeho jednotlivé systémy. Touto metódou umožníme škalovateľnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových systémov sme schopný zvyšovať celkovú kapacitu klustra. V prípade, že databázový systém využíva túto architektúru, zvýšenie jeho výkonu a objemu uložených dát sa realizuje automaticky bez nutnosti zásahu do aplikácie. Pri tejto metóde môže byť použitá metóda transformácie kľúčov (hashing), pre vhodný výber úseku do ktorého budú zapisané dáta.
-
-Technika rozsekávania sa čiastočne považuje za architektúru pod názvom “zdieľanie ničoho “ (shared nothing). Táto architektúra sa používa pre návrh systémov využivajúcich multiprocesory. V takomto prípade, sa medzi procesormi nezdieľa operačná ani disková pamäť. Táto architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému [??? shared nothing] a využíva ju mnoho noSQL systémov ako napríklad Google Bigtable, Cassandra alebo technológia MapRreduce.
-
-Pri návrhu distribuovaných databázových systémov, s využitím tejto techniky, patrí medzi kľúčový problém implementácia funkcie spojenia nad dátami (join), ktorú tieto databáze radšej neimplementujú. V prípade, že sa dáta nad, ktorými by sme chceli túto operáciu vykonať nachádzajú na dvoch rozdielnych systémoch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému. Kedže sa dáta nachádzajú na viacerých systémoch, hrozí zvýšená pravdepodobnosť hardwarového zlyhania systému, poprípade prerušenie sieťového spojenia, preto sa táto technika kombinuje s replikáciou.
-
-V prípade použitia tejto techniky, z dôvodu horizontálneho škálovania v relačných databázach dochádza k zásahu do logiky aplikácie. Data relačných databázy zároveň zachytávajú navzájom vzajájomné relácie, týmto spôsobom dochádza k celkovému narušeniu tohoto konceptu. Príkladom môže byť tabuľka obsahujúca zoznam zamestnancov, ktorú rozdelíme na samostatné tabuľky, každá bude reprezentovať písmeno abecedy a zároveň sa bude nachádzať na samostatnom databázovom systéme. Hlavným problémom, je zabezpečiť aby boli dáta rovnomerne rozdistribuované na jednotlive systémy, ktoré tvoria kluster. Existuje viacero metód a to:
-
-    *
-
-      tvorba tabuliek podľa funkcie dát (dáta popisujúce tú istú vlasnosť v jednej tabuľke, napr. samostatná tabuľka užívateľov, produktov atď.)
-    *
-
-      rozsekávanie podľa kľúča
-    *
-
-      vyhľadávacia tabuľka
+Druhým riešením je technika Multi-master, kde každý uzol obsahujúci repliku je schopný zápisu dát a následne tieto preposiela zmeny ostatným. Tento mechanizmus predpokláda distribuovanú správu zamykania a vyžaduje algoritmy pre riešenie konfliktov spôsobujúcich nekonzistenciu dát.
 
 
-Replikácia a rozsekávanie dát zabezpečujú hlavne charakteristiky distribuovaných databázových systémov, ktoré popisem v nasledujúcich odstavcoch
+\subsection{Rozsekávanie dát (sharding)\footnote{“If you can’t split, you cant scale it.” -- Randy Shoup, Distinguished architect Ebay}}
+
+Rozsekávanie dát je metóda založená na princípe, kde dáta obsiahnuté v databáze rozdeľujeme podľa stanovených pravidiel do menších celkov. Tieto celky môžeme následne umiestniť na navzájom rôzne uzly distribuovaného databázového systému. Táto metóda umožňuje zvýšiť výkonnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových uzlov do systému sme schopný zvyšovať celkovú kapacitu databáze. V prípade, že architektúra distribuovaného databázového systému využíva túto techniku, zvýšenie výkonu jeho operácií a objemu uložených dát sa realizuje automaticky bez nutnosti zásahu do aplikácie. 
+%Pri tejto metóde môže byť použitá metóda transformácie kľúčov (hashing), pre vhodný výber úseku do ktorého budú zapisané dáta.
+
+Techniku rozsekávania môžeme považovať za architektúru známu pod názvom zdieľanie ničoho \cite{???} (shared nothing). Táto architektúra sa používa pre návrh systémov využivajúcich multiprocesory. V takomto prípade sa medzi procesormi nezdieľa operačná ani disková pamäť. Táto architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému a využíva ju mnoho NoSQL systémov ako napríklad Google Bigtable, Amazon Dynamo alebo technológia MapRreduce.
+
+Pri návrhu distribuovaných databázových systémov, s využitím tejto techniky, patrí medzi kľúčový problém implementácia funkcie spojenia (join) nad dátami, ktorá sa radšej neimplementuje. V prípade, že sa dáta nad ktorými by sme chceli túto operáciu vykonať, nachádzajú na dvoch rozdielnych uzloch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému a viedlo by k zvýšeniu sieťového toku a záťaži systémových zdrojov. 
+
+Keďže dáta sa nachádzajú na viacerých uzloch systému, hrozí zvýšená pravdepodobnosť hardverového zlyhania, poprípade prerušenie sieťového spojenia a preto sa táto technika často kombinuje s pomocou využitia replikácie.
+
+V prípade použitia tejto techniky v relačných databázach, je nutný zásah do logiky aplikácie. Dáta uložené v tabuľkách relačnej databáze zachytávajú vzájomné relácie. Týmto spôsobom dochádza k celkovému narušeniu tohoto konceptu. Príkladom môže byť tabuľka obsahujúca zoznam zamestnancov, ktorú rozdelíme na samostatné celky. Každá tabuľka bude reprezentovať mená zamestnancov, ktorých priezvisko začína rovnakým písmenom abecedy a zároveň sa bude nachádzať na samostatnom databázovom systéme. Táto technika so sebou prináša problém, v ktorom je potrebné nájsť vhodný kľúč podľa, ktorého budeme dáta rozsekávať a zabezpečíme tak rovnomerné zaťaženie uzlov daného systému. Existuje viacero metód \cite{cassandraBook} a to:
+\begin{itemize}
+ \item 
+      segmentácia poďla funkcionality - dáta, ktoré sme schopný popísať spoločnou vlasnosťou ukladáme na samostatné uzly systému. Príkladom može byť samostatný uzol spravujúci dáta pre užívateľov a iný uzol pre produkty. Túto metódu spracoval Randy Shoup \cite{ebayShard}, architekt spoločnosti eBay.    
+  \item
+      rozsekávanie podľa kľúča - v datách hľadáme kľúč, podľa ktorého sme schopný ich rovnomernej distribúcie. Následne na tento kľúč aplikujeme hašovaciu funkciu a na základe je výsledku tieto dáta umiestňujeme na jednotlivé uzly.
+  \item
+      vyhľadávacia tabuľka - jeden uzlol v systéme slúži ako katalóg, ktorý určuje na ktorom uzle sa nachádzajú dané dáta. Tento uzol zároveň spôsobuje zníženie výkonu a v prípade jeho havárie spôsobuje nedostupnosť celého systému.
+\end{itemize}
+
+Replikácia a rozsekávanie dát patria medzi kľúcové vlastnosti využívané v NoSQL systémoch.
 
 \section{BASE (dostupnost)}
 
