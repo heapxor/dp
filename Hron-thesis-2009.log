@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.26)  27 FEB 2011 00:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.26)  27 FEB 2011 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -436,26 +436,11 @@ Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
 Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
 t (HO)
 ))
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\spacefactor' on input line 2864.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@m' on input line 2864.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\spacefactor' on input line 2864.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@m' on input line 2864.
-
 Package hyperref Info: Option `bookmarks' set `true' on input line 2864.
 Package hyperref Info: Option `colorlinks' set `true' on input line 2864.
 Package hyperref Info: Option `breaklinks' set `true' on input line 2864.
 Package hyperref Info: Option `unicode' set `true' on input line 2864.
+
 (/usr/share/texmf-texlive/tex/latex/hyperref/puenc.def
 File: puenc.def 2009/10/09 v6.79a Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -581,16 +566,16 @@ LaTeX Info: Redefining \pageref on input line 124.
 ************************************************
 Zvolen\IeC {\'y} jazyk: sloven\IeC {\v c}ina
 Typ pr\IeC {\'a}ce: Diplomov\IeC {\'a} pr\IeC {\'a}ca
-\IeC {\v S}tudijn\IeC {\'y} program: Softwarov\IeC {\'e} technologie a manageme
-nt, Bakal\IeC {\'a}\IeC {\v r}sk\IeC {\'y}
-Obor: Softwarov\IeC {\'e} in\IeC {\v z}en\IeC {\'y}rstv\IeC {\'\i }
+\IeC {\v S}tudijn\IeC {\'y} program: Otvoren\IeC {\'a} informatika, Magistersk\
+IeC {\'y}
+Obor: Softwarov\IeC {\'e} in\IeC {\v z}inierstvo
 Meno: Patrik Len\IeC {\'a}rt
-N\IeC {\'a}zov pr\IeC {\'a}ce: Implement\IeC {\'a}cia r\IeC {\'a}diovej vrstvy 
-modelu 802.15.4 (ZigBee) pomocou simula\IeC {\v c}n\IeC {\'e}ho n\IeC {\'a}stro
-ja OMNeT\spacefactor \@m +\spacefactor \@m + a Mobility Frameworku
-Ved\IeC {\'u}ci pr\IeC {\'a}ce: Ing. Alexandru Mihnea MOUCHA
+N\IeC {\'a}zov pr\IeC {\'a}ce: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\Ie
+C {\v z}isko emailov
+Ved\IeC {\'u}ci pr\IeC {\'a}ce: Ing. J\IeC {\'a}n \IeC {\v S}ediv\IeC {\'y} CSc
+.
 ***************************************************
-<figures/LogoCVUT.pdf, id=215, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=231, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3
@@ -630,7 +615,7 @@ File: figures/LogoCVUT.pdf Graphic file (type pdf)
 ]
 Kapitola 1.
 
-LaTeX Warning: Citation `digitalUniverse' on page 1 undefined on input line 254
+LaTeX Warning: Citation `digitalUniverse' on page 1 undefined on input line 251
 .
 
 [1
@@ -640,289 +625,339 @@ LaTeX Warning: Citation `digitalUniverse' on page 1 undefined on input line 254
 ]
 Kapitola 2.
 
-LaTeX Warning: Citation `Codd' on page 3 undefined on input line 270.
+LaTeX Warning: Citation `Codd' on page 3 undefined on input line 266.
 
+[3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 276.
 
-Overfull \hbox (2.6132pt too wide) in paragraph at lines 270--271
-\T1/cmr/m/n/10.95 sys-tÈm IMS (In-for-ma-tion Man-age-ment Sys-tem), vyu∫Ì-va-j
-˙ci hi-er-ar-chichk˝ datab·-zov˝ model.
- []
-
-[3] [4
-
-]
-Kapitola 3.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 286.
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+ (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 286.
- [5] [6]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 276.
+ [4] [5]
+Overfull \hbox (1.2872pt too wide) in paragraph at lines 332--333
+[]\T1/cmr/m/n/10.95 Technika rozsek·-va-nia sa £i-as-to£ne po-va∫uje za ar-chit
+ek-t˙ru pod n·zvom ^^Pzdie©anie ni£oho
+ []
+
+
+Overfull \hbox (6.8501pt too wide) in paragraph at lines 334--335
+\T1/cmr/m/n/10.95 medzi k©˙£ov˝ prob-lÈm im-ple-men-t·-cia funkcie spo-je-nia n
+ad d·-tami (join), ktor˙ ti-eto datab·ze
+ []
+
+
+Overfull \hbox (16.19547pt too wide) in paragraph at lines 336--337
+[]\T1/cmr/m/n/10.95 V prÌ-pade pou∫i-tia tejto tech-niky, z dÙvodu hor-i-zon-t·
+l-neho ≤k·lo-va-nia v re-la£n˝ch datab·zach
+ []
+
+
+Overfull \hbox (6.00046pt too wide) in paragraph at lines 336--337
+\T1/cmr/m/n/10.95 doch·dza k z·sahu do logiky ap-lik·-cie. Data re-la£n˝ch data
+b·zy z·rove¨ zachyt·-vaj˙ navz·jom
+ []
+
+
+Overfull \hbox (3.6992pt too wide) in paragraph at lines 336--337
+\T1/cmr/m/n/10.95 tabu©ky, ka∫d· bude reprezen-to-va¥ pÌs-meno abecedy a z·rove
+¨ sa bude nach·dza¥ na samostat-
+ []
+
+[6]
+Overfull \hbox (0.13344pt too wide) in paragraph at lines 349--350
+[]\T1/cmr/m/n/10.95 Replik·cia a rozsek·-vanie d·t zabezpe£uj˙ hlavne charak-te
+r-is-tiky dis-tribuo-van˝ch datab·-
+ []
+
+[7]
+! Misplaced alignment tab character &.
+l.372 ...asnos≈• podƒæa defin√≠cie viƒè. Gilbert &
+                                                   Lynch [11] tvrd√≠, ≈æe ≈æ...
+
+? ?
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? R
+OK, entering \nonstopmode...
+[8]
+Overfull \hbox (0.23566pt too wide) in paragraph at lines 407--408
+[]\T1/cmr/m/n/10.95 Slab· konzis-ten-cia - v prÌ-pade, ©ubovo©nÈho po-ra-dia pr
+Ìs-tupu k dat·m, sys-tÈm nezaru£uje,
+ []
+
+[9] [10
+
+]
+Kapitola 3.
+[11] [12]
 Kapitola 4.
 
-Overfull \hbox (5.9219pt too wide) in paragraph at lines 299--300
+Overfull \hbox (5.9219pt too wide) in paragraph at lines 469--470
 []\T1/cmr/m/n/10.95 Fyzick· vrstva pracuje s frekven-ci-ami 868/915 MHz a 2450 
 MHz, ktorÈ posky-tuj˙ prenosovÈ
  []
 
-[7
+[13
 
-] <./figures/topologies802154.png, id=423, 724.7075pt x 408.52625pt>
+] <./figures/topologies802154.png, id=474, 724.7075pt x 408.52625pt>
 File: ./figures/topologies802154.png Graphic file (type png)
 
-<use ./figures/topologies802154.png> [8 <./figures/topologies802154.png (PNG co
-py)>] [9] <./figures/layers802154.png, id=435, 508.90125pt x 372.39125pt>
+<use ./figures/topologies802154.png> [14 <./figures/topologies802154.png (PNG c
+opy)>] [15] <./figures/layers802154.png, id=486, 508.90125pt x 372.39125pt>
 File: ./figures/layers802154.png Graphic file (type png)
 
-<use ./figures/layers802154.png> [10 <./figures/layers802154.png (PNG copy)>]
+<use ./figures/layers802154.png> [16 <./figures/layers802154.png (PNG copy)>]
 Kapitola 5.
 
-Overfull \hbox (6.9588pt too wide) in paragraph at lines 390--391
+Overfull \hbox (6.9588pt too wide) in paragraph at lines 560--561
 \T1/cmr/m/n/10.95 Aliancia Zig-Bee stojÌ za v˝vo-jom ko-mu-nika£nÈho ≤tan-dardu
 , ktor˝ je charak-ter-i-zo-van˝ nÌzkymi
  []
 
-<./figures/ZigBeeLayers.png, id=441, 529.98pt x 504.88625pt>
+<./figures/ZigBeeLayers.png, id=492, 529.98pt x 504.88625pt>
 File: ./figures/ZigBeeLayers.png Graphic file (type png)
 
 <use ./figures/ZigBeeLayers.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11
+[17
 
-] [12 <./figures/ZigBeeLayers.png (PNG copy)>] [13] [14
+] [18 <./figures/ZigBeeLayers.png (PNG copy)>] [19] [20
 
 ]
 Kapitola 6.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 481.
+(hyperref)                than one, level fixed on input line 651.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--484
+Underfull \hbox (badness 10000) in paragraph at lines 652--654
 
  []
 
-[15] <./figures/RSM.png, id=467, 687.56876pt x 233.87375pt>
+[21] <./figures/RSM.png, id=518, 687.56876pt x 233.87375pt>
 File: ./figures/RSM.png Graphic file (type png)
 
-<use ./figures/RSM.png> [16 <./figures/RSM.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+<use ./figures/RSM.png> [22 <./figures/RSM.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
  []
 
-[17] <./figures/xbeeWhipGain.png, id=485, 637.38126pt x 698.61pt>
+[23] <./figures/xbeeWhipGain.png, id=536, 637.38126pt x 698.61pt>
 File: ./figures/xbeeWhipGain.png Graphic file (type png)
 
 <use ./figures/xbeeWhipGain.png>
-<./figures/zoslabenie.png, id=486, 363.3575pt x 190.7125pt>
+<./figures/zoslabenie.png, id=537, 363.3575pt x 190.7125pt>
 File: ./figures/zoslabenie.png Graphic file (type png)
 
-<use ./figures/zoslabenie.png> [18 <./figures/xbeeWhipGain.png (PNG copy)> <./f
+<use ./figures/zoslabenie.png> [24 <./figures/xbeeWhipGain.png (PNG copy)> <./f
 igures/zoslabenie.png>]
 Kapitola 7.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 588.
+(hyperref)                than one, level fixed on input line 758.
 
-[19
+[25
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 601.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 771.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (0.17943pt too wide) in paragraph at lines 613--613
+Overfull \hbox (0.17943pt too wide) in paragraph at lines 783--783
 []\T1/cmtt/m/n/10.95 (spracovanie udalosti mÙ∫e prida¥ nov˙ udalos¥ alebo zmaza
 ¥ existuj˙cu z FES)[] 
  []
 
-[20] [21] [22
+[26] [27] [28
 
 ]
 Kapitola 8.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 632.
+(hyperref)                than one, level fixed on input line 802.
 
-[23] [24]
+[29] [30]
 Kapitola 9.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 679.
+(hyperref)                than one, level fixed on input line 849.
 
-[25
+[31
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 686.
+(hyperref)                than one, level fixed on input line 856.
 
-[26] <./figures/FSPL.png, id=549, 741.77126pt x 444.66125pt>
+[32] <./figures/FSPL.png, id=598, 741.77126pt x 444.66125pt>
 File: ./figures/FSPL.png Graphic file (type png)
 
-<use ./figures/FSPL.png> [27] [28 <./figures/FSPL.png>]
-<./figures/host.png, id=564, 337.26pt x 358.33875pt>
+<use ./figures/FSPL.png> [33] [34 <./figures/FSPL.png>]
+<./figures/host.png, id=613, 337.26pt x 358.33875pt>
 File: ./figures/host.png Graphic file (type png)
  <use ./figures/host.png>
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+Underfull \hbox (badness 10000) in paragraph at lines 978--979
 
  []
 
-[29 <./figures/host.png (PNG copy)>]
-Overfull \hbox (1.06372pt too wide) in paragraph at lines 822--823
+[35 <./figures/host.png (PNG copy)>]
+Overfull \hbox (1.06372pt too wide) in paragraph at lines 992--993
 []\T1/cmr/m/it/10.95 handleLowerMsgEnd \T1/cmr/m/n/10.95 - sl˙∫i na samotnÈ odo
 slanie spr·vy vy≤≤ej vrstve a z·rove¨ prip·ja
  []
 
 
-Overfull \hbox (6.01328pt too wide) in paragraph at lines 828--829
+Overfull \hbox (6.01328pt too wide) in paragraph at lines 998--999
 \T1/cmr/m/n/10.95 tento modul len rozho-duje, £i sa dan· spr·va za-hodÌ alebo p
 re-po≤le vy≤≤ej vrstve. Rozhodovanie
  []
 
-[30] <./figures/nic.png, id=576, 428.60126pt x 374.39874pt>
+[36] <./figures/nic.png, id=625, 428.60126pt x 374.39874pt>
 File: ./figures/nic.png Graphic file (type png)
 
 <use ./figures/nic.png>
-<./figures/snrEval.png, id=577, 865.2325pt x 798.985pt>
+<./figures/snrEval.png, id=626, 865.2325pt x 798.985pt>
 File: ./figures/snrEval.png Graphic file (type png)
 
 <use ./figures/snrEval.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31 <./figures/nic.png (PNG copy)>] [32 <./figures/snrEval.png (PNG copy)>]
+[37 <./figures/nic.png (PNG copy)>] [38 <./figures/snrEval.png (PNG copy)>]
 Kapitola 10.
-[33
+[39
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 896.
+(hyperref)                than one, level fixed on input line 1066.
 
-[34]
+[40]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 901.
+(hyperref)                than one, level fixed on input line 1071.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--906
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 906--908
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1076
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 916--917
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1078
 
  []
 
-[35] <./figures/modelKolizie.png, id=606, 586.19pt x 496.85625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1087
+
+ []
+
+[41] <./figures/modelKolizie.png, id=655, 586.19pt x 496.85625pt>
 File: ./figures/modelKolizie.png Graphic file (type png)
 
 <use ./figures/modelKolizie.png>
-<./figures/kolizia.png, id=607, 1246.6575pt x 815.045pt>
+<./figures/kolizia.png, id=656, 1246.6575pt x 815.045pt>
 File: ./figures/kolizia.png Graphic file (type png)
 
 <use ./figures/kolizia.png>
 
-LaTeX Warning: Float too large for page by 50.79271pt on input line 932.
+LaTeX Warning: Float too large for page by 50.79271pt on input line 1102.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36 <./figures/modelKolizie.png (PNG copy)>] [37 <./figures/kolizia.png (PNG co
-py)>] [38
+[42 <./figures/modelKolizie.png (PNG copy)>] [43 <./figures/kolizia.png (PNG co
+py)>] [44
 
 ]
 Kapitola 11.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 939.
+(hyperref)                than one, level fixed on input line 1109.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 940--941
-
- []
-
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 976--977
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1111
 
  []
 
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
 
-Overfull \hbox (9.95178pt too wide) in paragraph at lines 986--992
+ []
+
+
+Overfull \hbox (9.95178pt too wide) in paragraph at lines 1156--1162
  [] 
  []
 
-<./figures/results/5m-1mw.png, id=635, 811.03pt x 532.99126pt>
+<./figures/results/5m-1mw.png, id=684, 811.03pt x 532.99126pt>
 File: ./figures/results/5m-1mw.png Graphic file (type png)
 
 <use ./figures/results/5m-1mw.png>
-<./figures/results/5m-10mw.png, id=636, 811.03pt x 530.98375pt>
+<./figures/results/5m-10mw.png, id=685, 811.03pt x 530.98375pt>
 File: ./figures/results/5m-10mw.png Graphic file (type png)
 
 <use ./figures/results/5m-10mw.png>
-<./figures/results/250-10mw.png, id=637, 811.03pt x 533.995pt>
+<./figures/results/250-10mw.png, id=686, 811.03pt x 533.995pt>
 File: ./figures/results/250-10mw.png Graphic file (type png)
 
 <use ./figures/results/250-10mw.png>
-<./figures/results/250-1mw-rotace.png, id=638, 812.03375pt x 532.99126pt>
+<./figures/results/250-1mw-rotace.png, id=687, 812.03375pt x 532.99126pt>
 File: ./figures/results/250-1mw-rotace.png Graphic file (type png)
 
-<use ./figures/results/250-1mw-rotace.png> [40] [41 <./figures/results/5m-1mw.p
-ng (PNG copy)>] [42 <./figures/results/5m-10mw.png (PNG copy)> <./figures/resul
-ts/250-10mw.png (PNG copy)>] [43 <./figures/results/250-1mw-rotace.png (PNG cop
-y)>] [44
+<use ./figures/results/250-1mw-rotace.png> [46] [47 <./figures/results/5m-1mw.p
+ng (PNG copy)>] [48 <./figures/results/5m-10mw.png (PNG copy)> <./figures/resul
+ts/250-10mw.png (PNG copy)>] [49 <./figures/results/250-1mw-rotace.png (PNG cop
+y)>] [50
 
 ]
 Kapitola 12.
-(./Hron-thesis-2009.bbl [45] [46
+(./Hron-thesis-2009.bbl [51] [52
 
-] [47]) [48]
+] [53]) [54]
 Dodatok A.
-[49
+[55
 
-] [50]
+] [56]
 Dodatok B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1121.
+(hyperref)                than one, level fixed on input line 1291.
 
 
-Overfull \hbox (39.8537pt too wide) in paragraph at lines 1144--1145
+Overfull \hbox (39.8537pt too wide) in paragraph at lines 1314--1315
 []\T1/cmr/m/n/10.95 Stiahnutie s˙borov Mo-bil-ity frame-worku z svn http://my-s
 vn.assembla.com/svn/mframework/,
  []
 
 
-Overfull \hbox (14.7884pt too wide) in paragraph at lines 1147--1148
+Overfull \hbox (14.7884pt too wide) in paragraph at lines 1317--1318
 []\T1/cmr/m/n/10.95 Po spustenÌ ap-lik·-cie Om-net, klikneme na oblas¥ ^^RProje
 ct ex-plorer^^P, prav˝m tla£Ìtkom
  []
 
 
-Overfull \hbox (16.92145pt too wide) in paragraph at lines 1149--1150
+Overfull \hbox (16.92145pt too wide) in paragraph at lines 1319--1320
 []\T1/cmr/m/n/10.95 V polo∫ke ^^RSe-lect root di-rec-tory^^P, zvolÌme cestu k a
 dres·ru mf2o4, tj. /usr/local/mf2o4 
  []
 
-[51
+[57
 
-] [52]
+] [58]
 Dodatok C.
-<./figures/zoznamCD.png, id=716, 729.72626pt x 253.94875pt>
+<./figures/zoznamCD.png, id=765, 729.72626pt x 253.94875pt>
 File: ./figures/zoznamCD.png Graphic file (type png)
 
-<use ./figures/zoznamCD.png> [53
+<use ./figures/zoznamCD.png> [59
 
  <./figures/zoznamCD.png (PNG copy)>]
 (./Hron-thesis-2009.aux)
@@ -934,18 +969,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7299 strings out of 495046
- 96918 string characters out of 1181936
- 173181 words of memory out of 3000000
- 10130 multiletter control sequences out of 15000+50000
+ 7317 strings out of 495046
+ 97104 string characters out of 1181936
+ 172902 words of memory out of 3000000
+ 10135 multiletter control sequences out of 15000+50000
  25970 words of font info for 62 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
  38i,10n,39p,1655b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/he
 ap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/heap/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/heap/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ecrm0800.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecbx1200.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl08
+r/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/heap/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecsl0800.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecrm0900.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm08
 00.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095.600pk> </
 home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk> </home/heap/.t
 exmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/heap/.texmf-var/fon
@@ -961,9 +996,9 @@ cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb
 ></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
 texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on Hron-thesis-2009.pdf (67 pages, 931764 bytes).
+Output written on Hron-thesis-2009.pdf (73 pages, 955391 bytes).
 PDF statistics:
- 1499 PDF objects out of 1728 (max. 8388607)
- 190 named destinations out of 1000 (max. 500000)
- 515 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1557 PDF objects out of 1728 (max. 8388607)
+ 203 named destinations out of 1000 (max. 500000)
+ 547 words of extra memory for PDF output out of 10000 (max. 10000000)
 
