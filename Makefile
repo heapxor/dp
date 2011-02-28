@@ -2,7 +2,7 @@ DVIPS = dvips
 LATEX = latex
 PDFLATEX = pdflatex
 BIBTEX = bibtex
-PROJECT = Hron-thesis-2009
+PROJECT = Lenart-thesis-2011
 EDITOR = vim # nebo jiny oblibeny editor
 GV = evince # nebo ghostview
 

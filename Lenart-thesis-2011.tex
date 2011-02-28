@@ -365,7 +365,7 @@ Akroným BASE \cite{BASE} bol prykrát použitý v roku 1997 na sympóziu SOSP (
 
 Tento model poľavil na požiadavku zodpovednom za konzistenciu dát, s tým že dosiahol vyššiu dostupnosť v distribuovanom databázovom systéme aj v prípade čiastočného zlyhania. Prakticky môžeme každý systém klasifikovať ako systém spĺňajúci vlasnosti ACID alebo BASE.
 
-BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných tranzakcií. Použitie tejto metódy je možné vďaka rozsekávaniu dát s využitím metódy segmentácie dát podľa funkcionality, ďalej sa využívajú perzistentné fronty a princípy událosťami riadenej architektúry (event driven architekture) \cite{clanokoBASE}. Poľavením na požiadavku konzistencie dát sa v tomto prípade myslí stav, že dáta budú konzistentné po uplynutí určitého časového intervalu. Príkladom systémov obsahujúcich čiastočnú konzistenciu dát je napríklad bankomatový systém. Po vybraní určitej čiastky z účtu, sa informácia o aktuálnom zastatku účtu môže zobraziť až za niekoľko dní, kdežto tranzakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID.
+BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných tranzakcií. Použitie tejto metódy je možné vďaka rozsekávaniu dát s využitím metódy segmentácie dát podľa funkcionality, ďalej sa využívajú perzistentné fronty a princípy událosťami riadenej architektúry (event driven architekture) \cite{clanokBASE}. Poľavením na požiadavku konzistencie dát sa v tomto prípade myslí stav, že dáta budú konzistentné po uplynutí určitého časového intervalu. Príkladom systémov obsahujúcich čiastočnú konzistenciu dát je napríklad bankomatový systém. Po vybraní určitej čiastky z účtu, sa informácia o aktuálnom zastatku účtu môže zobraziť až za niekoľko dní, kdežto tranzakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID.
 
 Aplikácia vyššie popísaných techník na relačné databázové systémy môže byť netrivialnou úlohou. Relačný model, je spôsob reprezentácie dát, ktorý umožnuje efektívne riešit určité typy problémov, preto snaha prispôsobiť tento model každému problému je nezmyselná. V tomto prípade, musíme uvažovať alternatívne riešenia, medzi ktoré patria systémy NoSQL.
 
@@ -399,6 +399,7 @@ Aplikácia vyššie popísaných techník na relačné databázové systémy mô
 
 
 \section{CAP}
+
 
 % Odpoveďou na otázku škálovatelnosti je architektrúra využivajúca distribuovanú paralelizáciu namiesto snahy o tvorbu superpočítačov. U distribuovaných systémov sa očakáva odolnosť voči poruchám napríklad hardwarová porucha (nefunkčnosť časti systému spôsobí jeho celkovú nedostupnosť) alebo sieťový problém. Aplikácie sú v dnešnej d obe čoraz viac založené na distribuovaných web-technológiách a reálny svet na nich kladie požiadavky ako dostupnosť, konzistentnosť a schopnosť odolávať čiastočným poruchám.
 % 
