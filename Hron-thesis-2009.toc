@@ -5,10 +5,10 @@
 \contentsline {chapter}{\numberline {2}Datab\IeC {\'a}zov\IeC {\'e} syst\IeC {\'e}my}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Hist\IeC {\'o}ria}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}ACID}{4}{section.2.2}
-\contentsline {section}{\numberline {2.3}BASE}{4}{section.2.3}
-\contentsline {section}{\numberline {2.4}\IeC {\v S}k\IeC {\'a}lovanie datab\IeC {\'a}zov\IeC {\'e}ho syst\IeC {\'e}mu}{5}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Replik\IeC {\'a}cia}{6}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Rozsek\IeC {\'a}vanie d\IeC {\'a}t (sharding)}{7}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.3}\IeC {\v S}k\IeC {\'a}lovanie datab\IeC {\'a}zov\IeC {\'e}ho syst\IeC {\'e}mu}{4}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Replik\IeC {\'a}cia}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Rozsek\IeC {\'a}vanie d\IeC {\'a}t (sharding)}{6}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}BASE}{7}{section.2.4}
 \contentsline {section}{\numberline {2.5}CAP}{8}{section.2.5}
 \contentsline {chapter}{\numberline {3}test}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Vymedzenie cie\IeC {\v l}ov}{9}{section.3.1}

@@ -1,53 +1,64 @@
 \begin{thebibliography}{10}
 
+\bibitem{BASE}
+{Armando Fox, Steven D. Gribble, Yatin Chawathe, Eric A. Brewer, Paul
+  Gauthier}.
+\newblock {Cluster-base scalable network services}, 1997.
+
+\bibitem{scalability}
+A.~B. Bondi.
+\newblock {Characteristics of Scalability and Their Impact on Performance},
+  2000.
+
 \bibitem{XBee}
 {Digi International Inc.}
 \newblock {XBee/XBee-Pro ZB OEM RF Modules product manual}, 2008.
+
+\bibitem{CoddRelational}
+{E. F. Codd}.
+\newblock {A Relational Model of Data for Large Shared Data Banks}, Jún, 1970.
+\newblock \\ \verb|www.seas.upenn.edu/~zives/03f/cis550/codd.pdf|.
+
+\bibitem{cassandraBook}
+{Eben Hewitt}.
+\newblock {Cassandra: The Definitive Guide}, November 2010.
 
 \bibitem{halas}
 B.~Halás.
 \newblock Návrh simulácie bezdrôtovej siete {Z}ig{B}ee 802.15.4 pomocou
   simulačného systému {OMNeT++}, júl 2006.
 
-\bibitem{Ieee802154}
-{IEEE std. 802.15.4{\texttrademark}-2006}.
-\newblock {Part 15.4: Wireless Medium Access Control (MAC) and Physical Layer
-  (PHY) Specifications for Low-Rate Wireless Personal Area Networks (WPANs)},
-  June 2006.
+\bibitem{digitalUniverse}
+{John F. Gantz, David Reinsel, Christopher Chute, Wolfgang Schlichting, John
+  McArthur, Stephen Minton, Irida Xheneti, Anna Toncheva, Alex Manfrediz}.
+\newblock {The Expanding Digital Universe, A Forecast of Worldwide Information
+  Growth Throught 2010}, Marec 2007.
+\newblock \\ \verb|http://www.emc.com/|, stav z 28.\,2.\,2011.
 
-\bibitem{MIXIMArch}
-{Karl Wessel, Michael Swigulski, Andreas Kopke, Daniel Willmomm}.
-\newblock {MiXiM - The Physical Layer An Architecture Overview}, March 2009.
+\bibitem{sharedNothing}
+{Michael Stonebraker}.
+\newblock {The Case for Shared Nothing Architecture}, 1986.
+\newblock \\ \verb|http://db.cs.berkeley.edu/papers/hpts85-nothing.pdf|, stav z
+  28.\,2.\,2011.
 
-\bibitem{miletic}
-U.~Miletić.
-\newblock {Simulation of the physical and data link layers of ZigBee networks
-  in OMNeT++}, January 2009.
+\bibitem{clanokBASE}
+D.~Pritchet.
+\newblock {BASE: An Acid Alternative}.
 
-\bibitem{Omnet2}
-{Varga, A., Horing R.}
-\newblock {An overview of the OMNeT++ simulation environment}, 2008.
+\bibitem{ebayShard}
+R.~Shoup.
+\newblock {The eBay Architecture, Striking a balance between site stability,
+  feature velocity, performance, and cost}, November 2006.
+\newblock \\ \verb|www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|,
+  stav z 28.\,2.\,2011.
 
 \bibitem{INET}
 {INET Framework for OMNeT++ 4.0}.
 \newblock \\ \verb|http://inet.omnetpp.org/|, stav z 2.\,5.\,2009.
 
-\bibitem{MF}
-{Mobility Framework (MF) for OMNeT++}.
-\newblock \\ \verb|http://mobility-fw.sourceforge.net/|, stav z 2.\,5.\,2009.
-
-\bibitem{MF2}
-{Mobility Framework (MF) for OMNeT++ 4}.
-\newblock \\ \verb|http://wiki.github.com/mobility-fw/mf-opp4/|, stav z
-  25\,5.\,2009.
-
 \bibitem{MIXIM}
 {MiXiM}.
 \newblock \\ \verb|http://mixim.sourceforge.net/|, stav z 2.\,5.\,2009.
-
-\bibitem{Omnet}
-{OMNeT++ homepage}.
-\newblock \\ \verb|http://www.omnetpp.org/|, stav z 2.\,5.\,2009.
 
 \bibitem{OmnetApi}
 {OMNeT++ API Reference 4.0}.
@@ -66,9 +77,5 @@ U.~Miletić.
 {TicToc Tutorial for OMNeT++ 4.0}.
 \newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/tictoc-tutorial/|, stav z
   2.\,5.\,2009.
-
-\bibitem{ZigBee}
-{ZigBee Alliance}.
-\newblock {ZigBee Specification}, January 2008.
 
 \end{thebibliography}

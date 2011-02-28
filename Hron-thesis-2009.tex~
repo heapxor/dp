@@ -263,7 +263,7 @@ V tejto časti stručne popíšeme históriu vzniku databázových systémov, z�
 
 \section{História}
 
-V polovici šesťdesiatych rokov 20. storočia bol spoločnosťou IBM vytvorený informačný systém IMS (Information Management System), využívajúci hierarchichký databázový model. IMS je po rokoch vývoja využívaný dodnes. Po krátkej dobe, v roku 1970, publikoval zamestnanec IBM, Dr. Edger F. Codd \cite{Codd} článok pod názvom „A Relational Model of Data for Large Shared Data Banks“, ktorým uviedol relačný databázový model. Prvým databázovým systémom, ktorý tento model implementoval bol System R od IBM. Tento systém používal jazyk pod názvom SEQUEL, ktorý je predchodca dnešného SQL (Structured Query Language) slúžiacého na manipuláciu a definícu dát v relačných databázových systémoch. Tento koncept sa stal základom pre relačné databázové systémy, ktoré vďaka širokej škále vlastností ako napríklad podpora tranzakcií, dotazovací jazyk SQL, patria v dnešnej  dobe medzi najpouživanejšie riešenia na trhu.
+V polovici šesťdesiatych rokov 20. storočia bol spoločnosťou IBM vytvorený informačný systém IMS (Information Management System), využívajúci hierarchichký databázový model. IMS je po rokoch vývoja využívaný dodnes. Po krátkej dobe, v roku 1970, publikoval zamestnanec IBM, Dr. Edger F. Codd článok pod názvom „A Relational Model of Data for Large Shared Data Banks“ \cite{CoddRelational}, ktorým uviedol relačný databázový model. Prvým databázovým systémom, ktorý tento model implementoval bol System R od IBM. Tento systém používal jazyk pod názvom SEQUEL, ktorý je predchodca dnešného SQL (Structured Query Language) slúžiacého na manipuláciu a definícu dát v relačných databázových systémoch. Tento koncept sa stal základom pre relačné databázové systémy, ktoré vďaka širokej škále vlastností ako napríklad podpora tranzakcií, dotazovací jazyk SQL, patria v dnešnej  dobe medzi najpouživanejšie riešenia na trhu.
 
 V minulosti boli objem dát, s ktorým tieto systémy pracovali a výkon hardvéru mnohonásobne nižšie. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a hlavnou pamäťou. Ako príklad si vezmime bežnú konfiguráciu počítačového systému, ktorá obsahuje pevný disk o veľkosti 2TB a operačnú pamäť veľkosti 64Gb. Napriek týmto vysokým kapacitám tento systém bohužial dokáže v daný moment spracúvať maximálne 64Gb dát, čo je zlomok veľkosti v porovnaní s kapacitou pevného disku. Vznik nových webových aplikácií napr. sociálne siete, zavádzanie cloud computingu vyžadujú od systémov podporu škálovania, ktorá zabezpečuje vysokú dostupnosť, spoľahlivosť a ich nároky na spracovávaný objem dát sa neustále zvyšujú. Tieto nové požiadavky efektívne riešia distribuované systémy pod spoločným názvom NoSQL, ktoré popisuje následujúca kapitola.
 
@@ -281,35 +281,13 @@ Relačné databázové systémy poskytujú veľkú množinu operácií, ktoré s
 
 Implementácia vlastností ACID, ktoré zaručujú konzistenciu, zvyčajne využíva u relačných databázových systémoch metódu zamykania. Tranzakcia uzamkne dáta pred ich spracovaním a spôsobí ich nedostupnosť až do jej úspešného ukončenia, poprípade zlyhania. Pre databázový systém, od ktoréhu požadujeme vysokú dostupnosť alebo prácu pod zvýšenou záťažou, tento model nie je vyhovujúci. Zámky spôsobujú stavy, kedy ostatné operácie musia čakať na ich uvoľnenie. Jeho náhradou je Multiversion concurrency control, ktorý využívajú aj niektoré NoSQL databázové systémy.
 
-Implementácia tranzakcií a operácií spojenia (join) je v distribuovaných systémoch \footnote{Distribuované databázové systémy sú tvorené pomocou viacerých samostatne operujúcich databázových systémov, ktoré môžu komunikovať pomocou sieti a užívateľovi alebo aplikácii sa javia ako jeden celok [ref].} náročná. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností, čo spôsobilo vznik nových modelov viď. následujúca čásť textu.
+% a operácií spojenia (join) 
+Tranzakcie splňujúce vlastnosti ACID využívajú v distribuovaných databázových systémoch \footnote{Distribuované databázové systémy sú tvorené pomocou viacerých samostatne operujúcich databázových systémov, ktoré nazývame uzly a môžu komunikovať pomocou sieti a užívateľovi alebo aplikácii sa javia ako jeden celok [ref].} dvojfázový potvrdzovací protokol (two-phase commit protocol). Distribuovaný databázový systém využívajúci tento protokol, ktorého tranzakcie splňujú vlasnosť ACID zaručuje konzistentnosť a je schopný odolávať čiastočným poruchám na sieti alebo v prípade čiastočnej poruchy systému. Vlastnosti ACID nekladú žiadnu záruku na dostupnosť systému. Takéto systémy su vhodné pre Internetové tranzakcie, aplikácie využívajúce platby apod. Existuje množstvo aplikácií, u ktorých má dostupnosť prednosť pred konzistenciou. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností, čo spôsobilo vznik nového modelu pod názvom BASE.
 
 %ACID makes no guarantees regarding availability; indeed, it is preferable for an ACID service to be unavailable than to function in a way that relaxes the ACID constraints. ACID semantics are well suited for Internet commerce transactions, billing users, or maintaining user profile information for personalized services
 
-\section{BASE} %dostupnost?
-
-Akroným BASE \cite{BASE} bol prykrát použitý v roku 1997 na sympóziu SOSP (ACM Symposium on Operating Systems Principles). BASE tvoria následujúce slovné spojenia: v podstate dostupný (basically available), zmiernený stav (soft state) a čiastočná konzistencia (eventually consistent). Tento model poľavil na požiadavku zodpovednom za konzistenciu dát, s tým že dosiahol vyššiu dostupnosť databázového systému aj v prípade čiastočného zlyhania.
-
-BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných tranzakcií. Použitie tejto metódy je možné vďaka rozsekávaniu dát s využitím metódy segmentácie dát podľa funkcionality, ďalej sa využívajú perzistentné fronty a princípy událosťami riadenej architektúry (event driven architekture). Poľavením na požiadavku konzistencie dát sa v tomto prípade myslí stav, že dáta budú konzistentné po uplynutí určitého časového intervalu. Príkladom takejto konzistencie je napríklad bankomatový systém. Po vybraní určitej čiastky z účtu, sa informácia o zmene celkového zastatku môže zobraziť až za niekoľko dní, kdežto tranzakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID.
-
-%BASE mnohonasobne ulahcuje implementaciu fault=tolerant a dostupnosti. Base model dokaze spracovat ciastocne vypadky (partial failure) v klastrovom rieseni za cenu nizsej komplexity ako ACID.
-
-%BASE semantics allow us to handle partial failure in clusters with less complexity and cost. 
-
-
-Aplikácia vyššie popísaných techník na relačné databázové systémy môže byť netrivialnou úlohou. Relačný model, je spôsob reprezentácie dát, ktorý umožnuje efektívne riešit určité typy problémov, preto snaha prispôsobiť tento model každému problému je nezmyselná. V tomto prípade, musíme uvažovať alternatívne riešenia, medzi ktoré patria systémy NoSQL.
-
-
-%In practice, it is simplistic to categorize every service as either
-ACID or BASE; instead, different components of services demand
-varying data semantics. Directories such as Yahoo! [64] maintain a
-database of soft state with BASE semantics, but keep user customi-
-zation profiles in an ACID database.
-
-%A. Fox, S. D. Gribble, Y. Chawathe, E. A. Brewer, and P. Gauthier. Cluster-Based Scalable Network Services. In Proceedings of the 16th ACM Symposium on Operating Sys-tems Principles, St.-Malo, France, October 1997.
-
-
-\section{Škálovanie databázového systému}
-Obecná definícia pojmu škálovateľnosť je náročná \cite{scalability} bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto práci budeme škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamických vývoj kladie na databázové systémy viacero požiadavkov. Medzi hlavné patrí neustála potreba zvyšovania diskového priestoru a teda zvyšovanie veľkosti databáze alebo schopnosť obslúžiť čoraz vyšší počet užívateľov aplikácie (zvýšenie počtu operácií pre čítanie a zápis do databázového systému). V tomto prípade pod pojmom škálovatelnosť databázového systému rozumieme vlasnosť, vďaka ktorej je systém schopný spracúvať narastajúce požiadavky webovej aplikácie v definovanom čase intervale. Typicky pridaním nových systémov, čo spôsobuje vznik distribuovaného databázového systému.
+\section{Škálovanie databázového systému} %scalepub04.pdf
+Obecná definícia pojmu škálovateľnosť \cite{scalability} je náročná  bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto práci budeme škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamických vývoj kladie na databázové systémy viacero požiadavkov. Medzi hlavné patrí neustála potreba zvyšovania diskového priestoru a teda zvyšovanie veľkosti databáze alebo schopnosť obslúžiť čoraz vyšší počet užívateľov aplikácie (zvýšenie počtu operácií pre čítanie a zápis do databázového systému). V tomto prípade pod pojmom škálovatelnosť databázového systému rozumieme vlasnosť, vďaka ktorej je systém schopný spracúvať narastajúce požiadavky webovej aplikácie v definovanom čase intervale. Typicky pridaním nových systémov, čo spôsobuje vznik distribuovaného databázového systému.
 
 Škálovateľnosť delíme na vertikálnu a horizontálnu. Táto metóda dodáva systému nasledujúce vlastnosti [5]:
 \begin{itemize}
@@ -354,7 +332,7 @@ Druhým riešením je technika Multi-master, kde každý uzol obsahujúci replik
 Rozsekávanie dát je metóda založená na princípe, kde dáta obsiahnuté v databáze rozdeľujeme podľa stanovených pravidiel do menších celkov. Tieto celky môžeme následne umiestniť na navzájom rôzne uzly distribuovaného databázového systému. Táto metóda umožňuje zvýšiť výkonnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových uzlov do systému sme schopný zvyšovať celkovú kapacitu databáze. V prípade, že architektúra distribuovaného databázového systému využíva túto techniku, zvýšenie výkonu jeho operácií a objemu uložených dát sa realizuje automaticky bez nutnosti zásahu do aplikácie. 
 %Pri tejto metóde môže byť použitá metóda transformácie kľúčov (hashing), pre vhodný výber úseku do ktorého budú zapisané dáta.
 
-Techniku rozsekávania môžeme považovať za architektúru známu pod názvom zdieľanie ničoho \cite{???} (shared nothing). Táto architektúra sa používa pre návrh systémov využivajúcich multiprocesory. V takomto prípade sa medzi procesormi nezdieľa operačná ani disková pamäť. Táto architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému a využíva ju mnoho NoSQL systémov ako napríklad Google Bigtable, Amazon Dynamo alebo technológia MapRreduce.
+Techniku rozsekávania môžeme považovať za architektúru známu pod názvom zdieľanie ničoho \cite{sharedNothing} (shared nothing). Táto architektúra sa používa pre návrh systémov využivajúcich multiprocesory. V takomto prípade sa medzi procesormi nezdieľa operačná ani disková pamäť. Táto architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému a využíva ju mnoho NoSQL systémov ako napríklad Google Bigtable, Amazon Dynamo alebo technológia MapRreduce.
 
 Pri návrhu distribuovaných databázových systémov, s využitím tejto techniky, patrí medzi kľúčový problém implementácia funkcie spojenia (join) nad dátami, ktorá sa radšej neimplementuje. V prípade, že sa dáta nad ktorými by sme chceli túto operáciu vykonať, nachádzajú na dvoch rozdielnych uzloch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému a viedlo by k zvýšeniu sieťového toku a záťaži systémových zdrojov. 
 
@@ -376,12 +354,53 @@ Replikácia a rozsekávanie dát patria medzi kľúčové vlastnosti využívan�
 
 
 % spotrebny HARDWARE !!! u distrib db
+\section{BASE} %dostupnost?
+
+Akroným BASE \cite{BASE} bol prykrát použitý v roku 1997 na sympóziu SOSP (ACM Symposium on Operating Systems Principles). BASE tvoria následujúce slovné spojenia: 
+\begin{itemize}
+  \item bežne dostupný (Basically Available) - systém je schopný zvládať jeho čiastočné zlyhanie za cenu nižšej komplexity.
+  \item zmiernený stav (Soft State) - systém nezaručuje trvácnosť dát za cieľom zvýšenia výkonu.
+  \item čiastočná konzistencia (Eventually Consistent) - je možné na určitú dobu tolerovať nekorektnosť dát, ktoré musia byť po určitom časovom intervale konzistentné.
+\end{itemize}
+
+Tento model poľavil na požiadavku zodpovednom za konzistenciu dát, s tým že dosiahol vyššiu dostupnosť v distribuovanom databázovom systéme aj v prípade čiastočného zlyhania. Prakticky môžeme každý systém klasifikovať ako systém spĺňajúci vlasnosti ACID alebo BASE.
+
+BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných tranzakcií. Použitie tejto metódy je možné vďaka rozsekávaniu dát s využitím metódy segmentácie dát podľa funkcionality, ďalej sa využívajú perzistentné fronty a princípy událosťami riadenej architektúry (event driven architekture) \cite{clanokoBASE}. Poľavením na požiadavku konzistencie dát sa v tomto prípade myslí stav, že dáta budú konzistentné po uplynutí určitého časového intervalu. Príkladom systémov obsahujúcich čiastočnú konzistenciu dát je napríklad bankomatový systém. Po vybraní určitej čiastky z účtu, sa informácia o aktuálnom zastatku účtu môže zobraziť až za niekoľko dní, kdežto tranzakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID.
+
+Aplikácia vyššie popísaných techník na relačné databázové systémy môže byť netrivialnou úlohou. Relačný model, je spôsob reprezentácie dát, ktorý umožnuje efektívne riešit určité typy problémov, preto snaha prispôsobiť tento model každému problému je nezmyselná. V tomto prípade, musíme uvažovať alternatívne riešenia, medzi ktoré patria systémy NoSQL.
 
 
+%BASE mnohonasobne ulahcuje implementaciu fault=tolerant a dostupnosti. Base model dokaze spracovat ciastocne vypadky (partial failure) v klastrovom rieseni za cenu nizsej komplexity ako ACID.
+%BASE semantics allow us to handle partial failure in clusters with less complexity and cost. 
 
-% \section{CAP}
+%In practice, it is simplistic to categorize every service as either
+%ACID or BASE; instead, different components of services demand
+%varying data semantics. Directories such as Yahoo! [64] maintain a
+%database of soft state with BASE semantics, but keep user customi-
+%zation profiles in an ACID database.
+
+
+% • By scalability, we mean that when the load offered to the
+% service increases, an incremental and linear increase in
+% hardware can maintain the same per-user level of service.
+% • By availability, we mean that the service as a whole must be
+% available 24x7, despite transient partial hardware or software
+% failures.
+% • By cost effectiveness, we mean that the service must be
+% economical to administer and expand, even though it
+% potentially comprises many workstation nodes
 % 
-% Odpoveďou na otázku škálovatelnosti je architektrúra využivajúca distribuovanú paralelizáciu namiesto snahy o tvorbu superpočítačov. U distribuovaných systémov sa očakáva odolnosť voči poruchám napríklad hardwarová porucha (nefunkčnosť časti systému spôsobí jeho celkovú nedostupnosť) alebo sieťový problém. Aplikácie sú v dnešnej dobe čoraz viac založené na distribuovaných web-technológiách a reálny svet na nich kladie požiadavky ako dostupnosť, konzistentnosť a schopnosť odolávať čiastočným poruchám.
+% Vyhoda clustrov: incremental scalability, high availability, and the cost/per-formance and maintenance benefits of commodity PC’s
+%Fundamentálne požiadavky škálovateľných sieťových aplikácií sú: inkremenalna škálovateľnosť, dostupnosť 24x7, schopnosť odolávať chybám a rentabilita.
+
+
+%A. Fox, S. D. Gribble, Y. Chawathe, E. A. Brewer, and P. Gauthier. Cluster-Based Scalable Network Services. In Proceedings of the 16th ACM Symposium on Operating Sys-tems Principles, St.-Malo, France, October 1997.
+
+
+
+\section{CAP}
+
+% Odpoveďou na otázku škálovatelnosti je architektrúra využivajúca distribuovanú paralelizáciu namiesto snahy o tvorbu superpočítačov. U distribuovaných systémov sa očakáva odolnosť voči poruchám napríklad hardwarová porucha (nefunkčnosť časti systému spôsobí jeho celkovú nedostupnosť) alebo sieťový problém. Aplikácie sú v dnešnej d obe čoraz viac založené na distribuovaných web-technológiách a reálny svet na nich kladie požiadavky ako dostupnosť, konzistentnosť a schopnosť odolávať čiastočným poruchám.
 % 
 % CAP teória [10] spracovaná Dr. Brewerom v roku 2002 tvrdí, že u distribuovaných aplikácií, ktoré pristupujú k dátam je mozne dosiahnut len dvojicu z tychto vlastnosti a nikdy nie je možné dosiahnúť súčastne všetky tri vlasnosti sucasne. Platnosť tejto teórie bola matematicky dokázana pre asyncchrónnu sieť (def. splňuje sieť Internet)v roku 2002 Lynch a Gilbert. [11]
 % 
@@ -449,21 +468,60 @@ Replikácia a rozsekávanie dát patria medzi kľúčové vlastnosti využívan�
 % 
 % Nekonzistentnosť dát, môže byť tolerovaná v distribuovaných systémoch, ktoré sú vysoko škálovateľné za cieľom dosiahnutia lepšieho výkonu operácií, ktoré slúžia pre zápis a čítanie dat, celkovej výkonnosti a dostupnosti systému. Hranica do akej miery je možné dovoliť nekonzistenciu je určená požiadavkom klientskej aplikácie a vyššie spomínané modely sa ju snažia riešiť.
 % 
-% … tieto modely následne implementujú noSQL systémy
+% % … tieto modely následne implementujú noSQL systémy
+% % 
+% % 
+% % 
+% % 
+% % 
+% % 
+% % 
+% % 
+% % 
+% % 
+% % Cielom tejto casti bolo pochopit ako zvladaju pracu relac db s velkym objemom dat a identifikovat dovody preco nieje vhodne pouzit na nase riesenie
+% % 
+% 
+% 
+% MapReduce
+% 
+% Nárast diskových kapacít a množstva dát, ktoré na nich ukladáme spôsobuje jeden z ďalších problémov, ktorým je analýza týchto dát. Kapacita pevných diskov sa za posledné roky mnohonásobne zvýšila v porovnaní s dobou prístupu a prenosových rýchlosti pre čítanie a zápis dát na tieto zariadenia. Pre jednoduchosť uvažujme nasledujúci príklad, v ktorom chceme spracovať pomocou jedného počítačového systému 1TB dát, pri prenosovej rýchlosti diskových zariadení 100Mb/s. Za ideálnych podmienok by čas prečítania týchto dát presahoval dve a pol hodiny. Tento čas ja neprípustný pre analýzu veľkého objemu dát.
+% 
+% V prípade, že by sme tento 1TB dát vhodne rozdelili na sto počítačov a na každom z nich tento úsek spracovali, celková doba spracovania by sa znížila za ideálnych podmienok na necelé tri minúty. Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce[???], ktorý rieši tento problém pomocou paralelizácie výpočtu.
+% 
+% MapReduce je programovací model, ktorý slúži na spracovanie a generovanie veľkého objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovanýpre beh na klastri, tvorenom vysokým počtom (tisícky) spotrebných počítačov. Jeho cieľom je pre programátora zastrieť všetky problémy, ktoré spôsobuje paralelizácia, poruchovosť, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami. Poskytuje rozhranie pre automatickú paralelizáciu a rozsiahly distribuovaný výpočet.
+% 
+% Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom map a reduce. Funkcia map, spracuje vstupné data na základe priradenia kľúč1/hodnota a následne z nich vygeneruje medzivýsledok vo forme kľúč2/hodnota. V tomto medzikroku sú zoskupené všetky hodnoty, ktoré prináležia pre daný kľúč2 a tieto sú následne predané funkcii reduce. Užívateľom definovaná funkcia reduce následne nad hodnotami priradenými pre kľúč2 prevedie operáciu, ktorej typickým výsledkom je jedna výsledná hodnota.
+% Príklad
+% 
+% ???
+% Architektúra
+% 
+% ???
+% Použitie
+% 
+% Výhodou tohoto modelu je, že dokáže pracovať aj s neštrukturovanými dátami. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém GFS nie je verejna. V rámci noSQL hnutia vzniklo open-source riešenie pod názvom Hadoop, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme HFS. Okrem toho vznikli frameworky ako HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce, majú syntax podobnú  jazyku SQL a využívajú ich noSql databáze pre spracovanie dát. (s ktorými v tejto práci budeme pracovat?)
 % 
 % 
 % 
-% 
-% 
-% 
-% 
-% 
-% 
-% 
-% Cielom tejto casti bolo pochopit ako zvladaju pracu relac db s velkym objemom dat a identifikovat dovody preco nieje vhodne pouzit na nase riesenie
 % 
 
-
+% [3] http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql/Home%20Page
+% [4] http://www.google.com/trends?q=noSQL
+% [5] cassandra book
+% [6] http://storagemojo.com/2010/11/29/moores-wall-the-end-of-moores-law/
+% 7 The Transaction Concept:Virtues and Limitations
+% 8 THEO HAERDER Principles of Transaction-Oriented Database Recovery
+% 9 Base - The ACID alternative
+% 10 Eric A. Brewer. Towards robust distributed systems. (Invited Talk)
+% Principles of Distributed Computing, Portland, Oregon, July 2000.
+% 11 Brewer’s Conjecture and the Feasibility of
+% Consistent, Available, Partition-Tolerant Web
+% Services
+% 12 Eventually Consistent - Werner Vogels
+% 13 C-Store: A Column-oriented DBMS
+% 14 Column-Oriented Database Systems
+% 
 
 
 
@@ -852,7 +910,7 @@ Jeho podpora pre bezdrôtové a mobilných siete bola pôvodom prevzatá a modif
 \subsection{MiXiM}
 Projekt MiXiM, ktorý bol iniciovaný v roku 2007, sa snaží zjednotiť aktuálne frameworky pre OMNeT++, s hlavným zameraním na mobilné a bezdrôtové simulácie. Jeho predchodcovia, z ktorých vychádza sú nasledujúce frameworky: ChSim, MacSimulator, Mobility Framework, Positif Framework. Jednou z najzaujímavejších vlastností toho projektu, je modelovanie reálneho prostredia, ktoré je v bezdrôtových sietiach zodpovedné za zmenu vysielaného signálu. K dispozícii je reálny 3D model prostredia, ďalej model stien a prekážok, ktoré obmedzujú mobilitu zariadení a tak spôsobujú zoslabenie vysielaného signálu, rôzne frekvencie a vysielacie média (rádiové vlny, ultrazvukové vlny), podpora multi-kanálov a iné. Súčasne pracuje s piatimi rozmermi a to 3D priestor, čas a frekvencia.
 
-Aktuálne nebola stále uvoľnená žiadna oficiálna verzia projektu, čo je dôvodom, prečo nebol tento framework použitý pre moju prácu. K dispozícia sú zdrojové kódy, na ktorých vývoji sa neustále pracuje a jedným z hlavných nedostatkov je aktuálne chýbajúca dokumentácia. Architektúra \cite{MIXIMArch} tohoto frameworku, ktorá bola prezentovaná na posledom OMNeT++ seminári \cite{omnetWorkshop}, vyzerá veľmi zaujímavo a zdá sa, že bude kvalitným nástupcom aktuálnych frameworkov a súčasne prinesie mnoho zlepšení, vďaka, ktorým bude možné čoraz viac priblížiť simulácie bezdrôtových a mobilných zariadení reálnym podmienkam.
+Aktuálne nebola stále uvoľnená žiadna oficiálna verzia projektu, čo je dôvodom, prečo nebol tento framework použitý pre moju prácu. K dispozícia sú zdrojové kódy, na ktorých vývoji sa neustále pracuje a jedným z hlavných nedostatkov je aktuálne chýbajúca dokumentácia. Architektúra ma tohoto frameworku, ktorá bola prezentovaná na posledom OMNeT++ seminári \cite{omnetWorkshop}, vyzerá veľmi zaujímavo a zdá sa, že bude kvalitným nástupcom aktuálnych frameworkov a súčasne prinesie mnoho zlepšení, vďaka, ktorým bude možné čoraz viac priblížiť simulácie bezdrôtových a mobilných zariadení reálnym podmienkam.
 
 
 
@@ -864,7 +922,7 @@ Aktuálne nebola stále uvoľnená žiadna oficiálna verzia projektu, čo je d�
 \chapter{Analýza a návrh riešenia}
 %Analýza a návrh implementace (včetně diskuse různých alternativ a volby implementačního prostředí).
 
-Práca sa snaží naviazať na predchádzajúce študentské práce, ktoré vznikli na fakulte (práca študenta U. Miletiča \cite{miletic} a B. Halása \cite{halas}) a boli zamerané na tému simulácii ZigBee sieti. Mojou snahou je priblížiť model simulácie ZigBee zariadení (na fakulte prebieha ich neustály výskum), konkrétne jeho časť definovanú štandardom IEEE 802.15.4, podporovanú Mobility frameworkom reálnym podmienkam, ktoré boli v mojom prípade popísané výsledkami meraní z anténnej komory.
+Práca sa snaží naviazať na predchádzajúce študentské práce, ktoré vznikli na fakulte (práca študenta U. Miletiča a B. Halása \cite{halas}) a boli zamerané na tému simulácii ZigBee sieti. Mojou snahou je priblížiť model simulácie ZigBee zariadení (na fakulte prebieha ich neustály výskum), konkrétne jeho časť definovanú štandardom IEEE 802.15.4, podporovanú Mobility frameworkom reálnym podmienkam, ktoré boli v mojom prípade popísané výsledkami meraní z anténnej komory.
 
 Čo najdôveryhodnejšia simulácia bezdrôtovej komunikácie vyžaduje dokonalý model reálneho prostredia, rádiových kanálov a samotnej fyzickej vrstvy. Simulátory oboch predchádzajúcich študentských prác boli konštruované za účelom simulácie v ideálnych podmienkach (takzvané izotropné prostredie, kde nauvažujeme žiadne straty, rušenie a mobilitu zariadení). Modely teda vôbec nebrali v úvahu faktory prostredia a nauvažovali žiaden model antén, ktoré zariadenia využívajú pre vzájomnú komunikáciu. Takýto model simulácie však nie je uspokojujúci. K modelovaniu simulácie som zvolil MF, pretože predchádzajúce modely neboli jednak vhodne architektonicky navrhnuté pre podporu mobility a taktiež neimplementovali vhodnú funkcionalitu štandardu IEEE 802.15.4, u ktorého ma bude zaujímať hlavne fyzická vrstva.
 
