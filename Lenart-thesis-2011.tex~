@@ -433,7 +433,7 @@ Ak od daného systému tolerujúceho sieťove prerušenia požadujem konzistenci
 
 V prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V tomto prípade sa jedná o model AP. Je možné, že v takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vraciať nekorektné výsledky. Tieto problémy s konzistenciou sa v distribuovaných databázových systémoch riešia napríklad pomocou metódy vektorový časovač (Vector clock) alebo na aplikačnej úrovni. Príkladom systému patriaceho do tejto kategórie je služba DNS. 
 
-V prípade, že systém nebude schopný zvládať sieťové prerušenia tak takýto systém bude spľnovať požiadavok konzistencie a dostupnosti, varianta CA. Jedná sa o nedistribuované systémy pracujúce na jednom fyzickom hardvéri.
+V prípade, že systém nebude schopný zvládať sieťové prerušenia tak takýto systém bude spľnovať požiadavok konzistencie a dostupnosti, varianta CA. Jedná sa o nedistribuované systémy pracujúce na jednom fyzickom hardvéri využivajúce tranzakcie.
 
 Vyššie popísané vlasnosti nám umožnia vhodný výber distribuovaného databázového systému podľa požiadavkov našej aplikácie.
 
@@ -446,76 +446,68 @@ Vyššie popísané vlasnosti nám umožnia vhodný výber distribuovaného data
 
 %???Trojuholnik CAP  a typy db na hrany
 
+% Gilbert , S., Lynch, N. 2002. Brewer’s conjecture and the feasibility of consistent, available, partition-tolerant Web services. ACM SIGACT News 33(2).
 
-\section{Čiastočná konzistencia}
+\section{Eventuálna konzistencia}
 
-V ideálnom svete je predstava konzistencie následovná, v prípade, že sa v systéme vykoná update, všetci pozorovatelia vidia túto zmenu rovnako. Kedže podľa CAP teórie, distribuovaný systém nemôže spĺňať všetky tieto tri požiadavky súčastne je na zvážení zadávateľa problému a programátora, pre ktorú vlasnosť sa spraví kompromis. V dnešne dobe existuje mnoho aplikácií, u ktorých je možné poľaviť na konzistencii a funkčnosť systému nebude v tomto prípade ohrozená ak sa určitá zmena prejavý s miernym oneskorením (napr. FB indikátor, že niekto komentoval status...). Takáto konzistencia je odlišná od def. pre ACID, kde ukončenie tranzakcie spôsobí, že systém sa nachádza v konzistentom stave (prevod medzi bankovými účtami). Pri návrhu aplikácií preto môžeme konzistenciu chápať z pohľadu zadávateľa problému/programátora alebo z pohľadu systemového, tj. ako ju rieši samotný systém.
+V ideálnom svete je predstava konzistencie v distribuovaných systémoch následovná: v prípade, že sa v systéme vykoná zmena (zápis dát), na všetkych uzloch sa táto zmena prejaví súčasne s rovnakým výsledkom. Konzistencia v distribuovanom databázovom systéme je úzko spojená s replikáciou. Keďže podľa CAP teórie distribuovaný systém  nemôže súčastne spĺňať požiadavok dostupnosti, konzistencie v prostredí s možným sieťovým prerušením, je na našom zvážení ktorú z týchto vlasností uprednostníme pri návrhu a tvorbe aplikácií. Väčšina NoSQL systémov poskytuje eventuálnu konzistenciu. V následujúcej časti preto popíšeme rôzne typy konzistencie.
 
-Konzistencia na strane klienta []
-
-V tomto prípade uvažujme komponentu, ktorá tvorí úložisko dát a tri nezávislé procesy, ktoré do daného úložiska môžu zapisovať a čítať dáta. Na základe toho ako dané procesy pozorujú navzájom nezávisle zmeny delíme konzistenciu na:
-
-Silná konzistencia - v prípade, že sa vykoná zmena v úložisku dát, všetky tri procesy v prípade, že pristúpia k dátam v akomkoľvek poradí vidia túto zmenu rovnako
-
-Slabá konzistencia - v prípade, ľubovoľného poradia prístupu k datám, systém nezaručuje, že tieto procesy zobrazia zmenu. Avšak definujeme pojem “nekonzistentné okno”, ktorý garantuje, že po uplynutí určitej doby sa táto zmena prejaví vo všetkých procesoch.
-
-Čiastočná konzistencia - je to špecifická forma slabej konzistencie, ktorá definuje, že v prípade ak od poslednej zmeny dát nedošlo k žiadnej inej operácií časom všetky procesy vrátia rovnakú hodnotu tejto poslednej zmeny. Tento model ma viacero variacií medzi ktoré patrí napríklad:
-
-    *
-
-      Read-your-write consistency - v prípade, že proces A vykoná zmenu tak v každom ďalšom prístupe k dátam vidí dáta poslednej zmeny, ktorú vykonal, nikdy nie staršie.
-    *
-
-      Session consistency - je to obdoba predchádzajúceho modelu, kde proces pristupuje k dátam v session, počas ktorej platí def. predchádzajúceho modelu. V prípade, že dôjde k prerušeniu session proces, môže znova vrátiť pôvodné nekonzistentné dáta.
-    *
-
-      Monotonic read - v prípade, že proces vrátil  určitú hodnotu dát, tak v každom ďalšom prístupe k týmto dátam, nemôže nastať situácia, kde by vrátil predchádzajúcu hodnotu týchto dát.
+V predchádzajúcom texte sme už spomínali, že v dnešne dobe existuje mnoho aplikácií, u ktorých je možné poľaviť na požiadavku konzistencie a funkčnosť systému nebude v tomto prípade ohrozená, ak sa určitá zmena prejaví s miernym oneskorením. Takáto konzistencia je odlišná od definície vlastností ACID, kde ukončenie tranzakcie spôsobí, že systém sa nachádza v konzistentom stave. Na konzistenciu sa môžeme pozerať z dôch pohľadov. Prvým je klientský pohľad na strane zadávateľa problému resp. programátora, ktorý rozhodne aká je závažnosť zmien, ktoré sa budú vykonávať v systéme. Druhý pohľad je serverový, ktorý zabezpečuje technické riešenie a implementáciu techník  zodpovedných za konzistenciu v distribuovaných databázových systémoch.
 
 
-Konzistencia na strane servera
+\subsection{Konzistencia z pohľadu klienta}
+
+Pre potrebu následujúcich definíc uvažujme distribuovaný databázový systém, ktorý tvorí úložisko dát a tri nezávislé procesy {A,B,C}, ktoré možu v danom systéme zmeniť hodnotu dátovej jednotky, tj. vykonať zápis. Tieto procesy môžu zároveň zo systému hodnotu dátovej jednotku prečítať. Na základe toho ako dané procesy pozorujú nezávisle zmeny systému delíme konzistenciu \cite{amazonVogel} na:
+
+\noindent Silná konzistencia (Strong consistency) - proces A vykoná zápis. Po jeho ukončení je nová hodnota dátovej jednotky dostupná všetkým procesom {A, B, C}, ktoré k nej následne pristúpia - vykonajú operáciu čítania. Túto konzistenciu zabezpečujú tranzakcie s vlasnosťami ACID.
+
+\noindent Slabá konzistencia (Weak consistency) - proces A vykoná zápis novej hodnoty do dátovej jednotky. V takomto prípade systém negarantuje, že následne pristupujúce procesy {A, B, C} k tejto jednotke vrátia jej novú hodnotu. Definujeme pojem \uv{nekonzistentné okno} zabezpečujúci, že po uplynutí určitej doby sa táto nová hodnota dátovej jednotky prejaví vo všetkých procesoch, ktoré k nej pristúpia.
+
+\noindent Eventuálna konzistencia (Eventual consistency) - je to špecifická forma slabej konzistencie. V tomto prípade systém garantuje, že ak sa nevykoná žiadná nová zmena hodnoty dátovej jednotky, po určitom čase budu všetky procesy pristupujúce k tejto jednotke schopné vrátiť jej korektnú hodnotu. Tento model ma viacero variacií, niektoré z nich popíšeme v nasledujúcej časti textu.
+
+\noindent Read-your-write consistency - v prípade, že proces A zapíše novú hodnotu do dátovej jednotky, žiadny z jeho následujúcich prístupov k tejto jednotke nevráti staršiu hodnotu ako jeho posledný zápis.
+
+\noindent Session consistency - v tomto prípade pristupuje proces k systému v kontexte relácií. Po dobu trvania relácie platí predchádzajúci typ konzistencie. V prípade zlyhania relácie sa vytvorí nová, v ktorej môže systém vraciať hodnotu dátovej jednotky, zápisanú pred vznikom predchádzajúcej relácie.
+
+\noindent Monotonic read consistency - v prípade, že proces vrátil určitú hodnotu dátovej jednotky, tak v každom ďalšom prístupe, nemôže nastať situácia, kde by vrátil predchádzajúcu hodnotu dátovej jednotky.
+
+Tieto typy konzistencie je možné navzájom kombinovať a ich hlavným cieľom je zvýšiť dostupnosť distribuovaného systému na úkor toho, že poľavíme na požiadavkoch konzistencie. Príkladom môže byť asynchrónna replikácia v modernom relačnom databázovom systéme, ktorá spôsobí, že systém bude eventuálne konzistentný.
+
+\subsection{Konzistencia na strane servera}
 
 Na riešenie konzistencie sa využíva quorum protocol.
 
 def. N,W, R popísať možné stavy
 
-Nekonzistentnosť dát, môže byť tolerovaná v distribuovaných systémoch, ktoré sú vysoko škálovateľné za cieľom dosiahnutia lepšieho výkonu operácií, ktoré slúžia pre zápis a čítanie dat, celkovej výkonnosti a dostupnosti systému. Hranica do akej miery je možné dovoliť nekonzistenciu je určená požiadavkom klientskej aplikácie a vyššie spomínané modely sa ju snažia riešiť.
+Nekonzistentnosť dát, môže byť tolerovaná v distribuovaných systémoch , ktoré sú vysoko škálovateľné za cieľom dosiahnutia lepšieho výkonu operácií, ktoré slúžia pre zápis a čítanie dat, celkovej výkonnosti a dostupnosti systému. Hranica do akej miery je možné dovoliť nekonzistenciu je určená požiadavkom klientskej aplikácie a vyššie spomínané modely sa ju snažia riešiť. Väčšinu z týchto modelov implementujú NoSQL systémy.
 
-% % … tieto modely následne implementujú noSQL systémy
-% % 
-% % 
-% % 
-% % 
-% % 
-% % 
-% % 
-% % 
-% % 
-% % 
-% % Cielom tejto casti bolo pochopit ako zvladaju pracu relac db s velkym objemom dat a identifikovat dovody preco nieje vhodne pouzit na nase riesenie
-% % 
-% 
-% 
-% MapReduce
-% 
-% Nárast diskových kapacít a množstva dát, ktoré na nich ukladáme spôsobuje jeden z ďalších problémov, ktorým je analýza týchto dát. Kapacita pevných diskov sa za posledné roky mnohonásobne zvýšila v porovnaní s dobou prístupu a prenosových rýchlosti pre čítanie a zápis dát na tieto zariadenia. Pre jednoduchosť uvažujme nasledujúci príklad, v ktorom chceme spracovať pomocou jedného počítačového systému 1TB dát, pri prenosovej rýchlosti diskových zariadení 100Mb/s. Za ideálnych podmienok by čas prečítania týchto dát presahoval dve a pol hodiny. Tento čas ja neprípustný pre analýzu veľkého objemu dát.
-% 
-% V prípade, že by sme tento 1TB dát vhodne rozdelili na sto počítačov a na každom z nich tento úsek spracovali, celková doba spracovania by sa znížila za ideálnych podmienok na necelé tri minúty. Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce[???], ktorý rieši tento problém pomocou paralelizácie výpočtu.
-% 
-% MapReduce je programovací model, ktorý slúži na spracovanie a generovanie veľkého objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovanýpre beh na klastri, tvorenom vysokým počtom (tisícky) spotrebných počítačov. Jeho cieľom je pre programátora zastrieť všetky problémy, ktoré spôsobuje paralelizácia, poruchovosť, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami. Poskytuje rozhranie pre automatickú paralelizáciu a rozsiahly distribuovaný výpočet.
-% 
-% Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom map a reduce. Funkcia map, spracuje vstupné data na základe priradenia kľúč1/hodnota a následne z nich vygeneruje medzivýsledok vo forme kľúč2/hodnota. V tomto medzikroku sú zoskupené všetky hodnoty, ktoré prináležia pre daný kľúč2 a tieto sú následne predané funkcii reduce. Užívateľom definovaná funkcia reduce následne nad hodnotami priradenými pre kľúč2 prevedie operáciu, ktorej typickým výsledkom je jedna výsledná hodnota.
-% Príklad
-% 
-% ???
-% Architektúra
-% 
-% ???
-% Použitie
-% 
-% Výhodou tohoto modelu je, že dokáže pracovať aj s neštrukturovanými dátami. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém GFS nie je verejna. V rámci noSQL hnutia vzniklo open-source riešenie pod názvom Hadoop, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme HFS. Okrem toho vznikli frameworky ako HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce, majú syntax podobnú  jazyku SQL a využívajú ich noSql databáze pre spracovanie dát. (s ktorými v tejto práci budeme pracovat?)
-% 
-% 
-% 
+
+\section{MapReduce}
+
+Nárast diskových kapacít a množstva dát, ktoré na nich ukladáme spôsobuje jeden z ďalších problémov, ktorým je analýza týchto dát. Kapacita pevných diskov sa za posledné roky mnohonásobne zvýšila v porovnaní s dobou prístupu a prenosových rýchlosti pre čítanie a zápis dát na tieto zariadenia. Pre jednoduchosť uvažujme nasledujúci príklad, v ktorom chceme spracovať pomocou jedného počítačového systému 1TB dát, pri prenosovej rýchlosti diskových zariadení 100Mb/s. Za ideálnych podmienok by čas prečítania týchto dát presahoval dve a pol hodiny. Tento čas ja neprípustný pre analýzu veľkého objemu dát.
+
+V prípade, že by sme tento 1TB dát vhodne rozdelili na sto počítačov a na každom z nich tento úsek spracovali, celková doba spracovania by sa znížila za ideálnych podmienok na necelé tri minúty. Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce[???], ktorý rieši tento problém pomocou paralelizácie výpočtu.
+
+MapReduce je programovací model, ktorý slúži na spracovanie a generovanie veľkého objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovanýpre beh na klastri, tvorenom vysokým počtom (tisícky) spotrebných počítačov. Jeho cieľom je pre programátora zastrieť všetky problémy, ktoré spôsobuje paralelizácia, poruchovosť, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami. Poskytuje rozhranie pre automatickú paralelizáciu a rozsiahly distribuovaný výpočet.
+
+Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom map a reduce. Funkcia map, spracuje vstupné data na základe priradenia kľúč1/hodnota a následne z nich vygeneruje medzivýsledok vo forme kľúč2/hodnota. V tomto medzikroku sú zoskupené všetky hodnoty, ktoré prináležia pre daný kľúč2 a tieto sú následne predané funkcii reduce. Užívateľom definovaná funkcia reduce následne nad hodnotami priradenými pre kľúč2 prevedie operáciu, ktorej typickým výsledkom je jedna výsledná hodnota.
+Príklad
+
+???
+Architektúra
+
+???
+Použitie
+
+Výhodou tohoto modelu je, že dokáže pracovať aj s neštrukturovanými dátami. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém GFS nie je verejna. V rámci noSQL hnutia vzniklo open-source riešenie pod názvom Hadoop, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme HFS. Okrem toho vznikli frameworky ako HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce, majú syntax podobnú  jazyku SQL a využívajú ich noSql databáze pre spracovanie dát. (s ktorými v tejto práci budeme pracovat?)
+
+
+
+\noindent Cieľom tejto časti bolo pochopiť základné princípy, ktoré platia v distribuovaných databázových systémoch a identifikovať problémy, ktoré môžu nastať v prípade tvorby distribuovaných relačných databázových systémov.
+
+
+\chapter{NoSQL}
+
 % 
 
 % [3] http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql/Home%20Page
@@ -1165,11 +1157,7 @@ Vykonal som následujúce testy:
 %*****************************************************************************
 \chapter{Záver}
 
-Práca na tejto téme bola plná úskalí, ktoré sa mi na jej konci podarilo úspešne prekonať. Počas jej spracúvania som sa oboznámil s relatívne mladým štandardom IEEE 802.15.4 a technológiou ZigBee, ktorá ho využíva. Ďalej som sa oboznámil a vyskúšal si prácu so simulátorom OMNeT++, ktorý je v dnešnej dobe značne využívaný akademickou ale aj komerčnou sférou. V začiatkoch práce som pracoval s jeho staršou verziou 3.x, no neskôr som prešiel na verziu 4.0, ktorá sa medzičasom stala stabilnou a priniesla mnoho výhod, ktoré boli zužitkované pri simulovaní modelu, spracúvaní výsledkov a ladení simulácie. Po teoretickej stránke som sa oboznámil s mnohými vlastnosťami antén a zákonmi, ktoré platia pri prenose signálu u bezdrôtových zariadení. Dúfam, že sa mi podarí poznatky v tejto problematike naďalej prehlbovať.
 
-Jednou z najťažších úloh bola práca s Mobility frameworkom, ktorý disponuje nepostačujúcou dokumentáciou, počas práce sa neustále vyvíjal a aktuálne sa stále nachádza v beta štádiu. Z toho dôvodu som sa v analýze práce zameral aj na detailný popis funkcie modulov, ktoré som využíval a neboli vôbec zdokumentované. Bohužiaľ po analýze Miletičovej práce nebolo možné naviazať na jeho model z dôvodov kódovej nekompatibility na vyššiu verziu Omnetu a nevhodnej architektúre modelu pre podporu mobility. Implementácia antén do toho frameworku sa úspešne podarila a taktiež bol úspešne zrealizovaný celý model, ktorým som následne bol schopný simulovať fyzickú vrstvu ZigBee zariadení v reálnych podmienkach, ktoré boli popísané na základe výstupov z reálnych meraní. Modelom som dokázal simulovať útlm signálu na základe vzdialenosti a chybovosť rámcov, ktorú som modeloval pomocou generátora šumu. Počas analýzy kódu Mobility frameworku sa mi podarilo odhaliť dve chyby, ktoré boli následne po upovedomení autora opravené v produkčnom kóde.
-
-Paralelne počas písania mojej práce, prebiehala na fakulte diplomová práca zameraná na tvorbu modelu, ktorý bude simulovať vrstvy patriace ZigBee štandardu. Architektonicky sú obe práce pripravené na vzájomné prepojenie, čo môže byť vhodným podnetom na ďalšie pokračovanie a spojenie týchto práci v kvalitný simulátor ZigBee zariadení.
 
 
 %\item Zhodnocení splnění cílů DP/BP a  vlastního přínosu práce (při formulaci je třeba vzít v potaz zadání práce).
