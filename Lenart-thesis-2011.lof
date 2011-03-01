@@ -4,28 +4,28 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Topol\IeC {\'o}gie \IeC {\v s}tandardu 802.15.4}}{18}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra \IeC {\v s}tandardu 802.15.4}}{19}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra \IeC {\v s}tandardu ZigBee}}{20}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Topol\IeC {\'o}gie \IeC {\v s}tandardu 802.15.4}}{22}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra \IeC {\v s}tandardu 802.15.4}}{23}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra \IeC {\v s}tandardu ZigBee}}{24}{figure.4.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Model r\IeC {\'a}diov\IeC {\'e}ho syst\IeC {\'e}mu}}{24}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Charakteristika zisku ant\IeC {\'e}ny Whip}}{26}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Model zoslabenia sign\IeC {\'a}lu}}{26}{figure.5.3}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Model r\IeC {\'a}diov\IeC {\'e}ho syst\IeC {\'e}mu}}{28}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Charakteristika zisku ant\IeC {\'e}ny Whip}}{30}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Model zoslabenia sign\IeC {\'a}lu}}{30}{figure.5.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Popis v\IeC {\'y}konov a zisku u ant\IeC {\'e}n pre vysiela\IeC {\v c} a prij\IeC {\'\i }ma\IeC {\v c}}}{31}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra stanice v OMNeT++}}{32}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra NIC v OMNeT++}}{34}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Prechody medzi stavmi v module snrEval}}{35}{figure.6.4}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Popis v\IeC {\'y}konov a zisku u ant\IeC {\'e}n pre vysiela\IeC {\v c} a prij\IeC {\'\i }ma\IeC {\v c}}}{35}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra stanice v OMNeT++}}{36}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra NIC v OMNeT++}}{38}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Prechody medzi stavmi v module snrEval}}{39}{figure.6.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Model kol\IeC {\'\i }zie}}{40}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Kol\IeC {\'\i }zia na MAC vrstve}}{41}{figure.7.2}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Model kol\IeC {\'\i }zie}}{44}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Kol\IeC {\'\i }zia na MAC vrstve}}{45}{figure.7.2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW}}{45}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{46}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{46}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW, rot\IeC {\'a}cia okolo vlastnej osi}}{47}{figure.8.4}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW}}{49}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{50}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{50}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW, rot\IeC {\'a}cia okolo vlastnej osi}}{51}{figure.8.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces V\IeC {\'y}pis prilo\IeC {\v z}en\IeC {\'e}ho CD}}{57}{figure.C.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces V\IeC {\'y}pis prilo\IeC {\v z}en\IeC {\'e}ho CD}}{61}{figure.C.1}
