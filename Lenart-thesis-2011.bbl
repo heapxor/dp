@@ -10,6 +10,10 @@ A.~B. Bondi.
 \newblock {Characteristics of Scalability and Their Impact on Performance},
   2000.
 
+\bibitem{BrewerCAP}
+{Brewer}.
+\newblock {Towards robust distributed systems.}, 2000.
+
 \bibitem{XBee}
 {Digi International Inc.}
 \newblock {XBee/XBee-Pro ZB OEM RF Modules product manual}, 2008.
@@ -22,11 +26,6 @@ A.~B. Bondi.
 \bibitem{cassandraBook}
 {Eben Hewitt}.
 \newblock {Cassandra: The Definitive Guide}, November 2010.
-
-\bibitem{halas}
-B.~Halás.
-\newblock Návrh simulácie bezdrôtovej siete {Z}ig{B}ee 802.15.4 pomocou
-  simulačného systému {OMNeT++}, júl 2006.
 
 \bibitem{digitalUniverse}
 {John F. Gantz, David Reinsel, Christopher Chute, Wolfgang Schlichting, John
@@ -51,31 +50,5 @@ R.~Shoup.
   feature velocity, performance, and cost}, November 2006.
 \newblock \\ \verb|www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|,
   stav z 28.\,2.\,2011.
-
-\bibitem{INET}
-{INET Framework for OMNeT++ 4.0}.
-\newblock \\ \verb|http://inet.omnetpp.org/|, stav z 2.\,5.\,2009.
-
-\bibitem{MIXIM}
-{MiXiM}.
-\newblock \\ \verb|http://mixim.sourceforge.net/|, stav z 2.\,5.\,2009.
-
-\bibitem{OmnetApi}
-{OMNeT++ API Reference 4.0}.
-\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/api/|, stav z 2.\,5.\,2009.
-
-\bibitem{OmnetUser}
-{OMNeT++ version 4.0 User Manual}.
-\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/manual/usman.html/|, stav z
-  2.\,5.\,2009.
-
-\bibitem{omnetWorkshop}
-{OMNeT++ WORKSHOP}.
-\newblock \\ \verb|http://www.omnet-workshop.org/2009/|, stav z 2.\,5.\,2009.
-
-\bibitem{TicToc}
-{TicToc Tutorial for OMNeT++ 4.0}.
-\newblock \\ \verb|http://omnetpp.org/doc/omnetpp40/tictoc-tutorial/|, stav z
-  2.\,5.\,2009.
 
 \end{thebibliography}
