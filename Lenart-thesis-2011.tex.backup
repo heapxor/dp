@@ -547,49 +547,76 @@ Cieľom tejto časti bolo pochopiť základné princípy, ktoré platia v distri
 
 \chapter{NoSQL}
 
-Názov NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databázy, ktorej implementácia bola prevažne v interpretovaných programovacích jazykoch a neobsahovala jazyk SQL. V druhej polovici roku 2009 \cite{nosqlGoogle} sa názov NoSQL začal používať v spojení s databázovými systémami, ktoré nepouživajú SQL dotazovací jazyk a tradičný relačný model, sú schopné horizontálneho škálovania pracujú na bežných spotrebných počítačoch, vyznačujú sa vysokou dostupnosťou a používajú jednoduchú schému.
+Názov NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databázy, ktorej implementácia bola prevažne v interpretovaných programovacích jazykoch a neobsahovala jazyk SQL. V druhej polovici roku 2009 \cite{nosqlGoogle} sa názov NoSQL začal používať v spojení s databázovými systémami, ktoré nepouživajú SQL dotazovací jazyk a tradičný relačný model, sú schopné horizontálneho škálovania pracujú na bežných spotrebných počítačoch, vyznačujú sa vysokou dostupnosťou, odolávajú chybám (hw sw siet) a používajú jednoduchý alebo bezschémový dátový model.
 
 Novo vznikajúce webové aplikácie ako napríklad sociálne siete spracúvajú čoraz väčší objem dát, musia byť schopné v daný moment obslúžiť čoraz väčší počet užívateľov a neustále dostupné. Pôvodným cieľom hnutia NoSql, bolo vytvoriť koncept, pre tvorbu moderných databáz, ktoré by boli schopné riešiť tieto nové požiadavky. Idea týchto systémov je založená na filozofii, ktorá tvrdí, že nemá zmysel sa za každú cenu snažiť prispôsobiť dáta modelu relačnej databáze. Cieľom je vybrať systém, ktorý bude čo najvhodnejšie opovedať požiadavkom na uloženie a spracovanie našich dát. NoSQL obecne nepopisuje, žiaden konkrétny databázový systém, namiesto toho je to obecný názov pre nerelačné (non-relational) databázové systémy, ktoré majú odlišné vlastnosti a umožnujú prácu s rôznými dátovými modelmi. Medzi ich ďalšie znaky patrí slabá konzistencia, možnosť spracúvať obrovské objemy dát (PB), jednoduché API a možnosť asynchrónného zápisu dát. Tieto systémy nepodporujú operáciu databázového spojenia z dôvodu, že znižuje výkonnosť a zvýšuje zaťaženie siete (v prípade, že by sa táto operácia mala vykonať nad dátami, ktoré sa nachádzajú na rôznych uzloch). Pre tieto databázove systémy ďalej platí, že sú distribuované, podporujú automatickú replikáciu a rozsekávanie dát. Kedže sa jedná o relatívne mladé systémy, jedným z ich nedostatkov je malá podpora frameworkov, neustále sa meniace API a taktiež u mnohých chýbajúce rôzne grafické utility pre ich správu a monitoring. Medzi dátami, ktoré do nich ukladáme, je možné vytvárať vzájomné závislosti až na aplikačnej vrstve. Cieľom tohoto konceptu je riešiť spomínané novo vznikajúce problémy a zároveň koexistovať s relačnými databázovými  systémami.
 
 %v pripade relac db sa snazime navrhnut datovy model a nasledne na nom vytvorit vhodne poziadavky v SQL, u tychto systemov vsak plati, ze na zaklade toho ako budu vyzerat dotazy na data namodelujeme datovy model (scheme free)
 
-% \section{Typy NoSQL databázových systémov}
-% 
-% 
-% blabla
-% 
-% \subsection{Key-value}
-% 
-% Tento model pre ukladanie dát využíva jednoduchý princíp. Dáta v ľubovoľnej forme sú uložené v databáze pod kľúčom, ktorý môžeme reprezentovať ľubovoľným reťazcom, celočíselným typom a pod. V relačnom modeli dáta reprezentujeme pomocou tabuliek, pre ktoré definujeme ich štruktúru (názvy stĺpcov) a ktoré sú následne normalizované aby sme predišli duplikácii dát. Pre zabezpečenie integrity jednotlivých entít a referenčnej integrity využívame primárne a cudzie kľúče. Tabuľky s popisom názvov ich stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované, vzťahy medzi nimi sa riešia až na aplikačnej úrovni. Pre vkladané data a k nim asociované kľúče sa nedefinujú žiadne obmedzenia.
-% 
-% Tento model sa často kombinuje so stĺpcovým modelom, kde sa na dáta pozeráme ako na viacdimenzionálnu hash-mapu.
-% 
-% Daný model využívajú databáze ako Dynamo, Tokyo Cabinet, Redis a iné.
-% 
-% \subsection{Stĺpcové databáze}
-% 
-% Množstvo databáz využíva pre reprezentáciu dát tabuľky, ktoré sú tvorené stĺpcami a presne popísané schémou (tj. názvy stĺpcov, tabuliek). Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na disk. Tento model, nazývaný riadkový, je vhodný pre systémy, ktoré mnozštvo operácií využivajúcich zápis - relačné databáze sú teda optimalizované pre zápis.  Pre efektívny prístup k dátam sa využívajú indexy.
-% 
-% V dnešnej dobe existuje veľký počet aplikácií, ktoré nie su až tak kritické pre zápis a na ich dátach sa vykonáva množstvo operácií, ktoré dáta čítajú a následne spracúvajú. Patria sem data warehouse, customer relationship management (CRM) systémy, systémy pre vyťažovanie dát alebo analytické aplikácie aplikované na obrovské objemy dát. Pre túto potrebu vznikol stĺpcový model [13][14] reprezentácie dát, ktorý je optimalizovaný pre čítanie dát a je vhodný pre OLAP. Dáta sú uložené v stĺpcoch a súvisle uložené na disku. Načítanie podobných dát (stĺpec) do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databázy, kde je potrebné načítať celý záznam obsahujúci hodnoty stĺpcov, ktoré pre nás sú v daný moment irelevantné.
-% 
-% Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci sú si podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií za cenu CPU.
-% 
-% Tento model v spojení s následujúcim modelom kľúč-hodnota využívajú hlavne databázové systémy ako Google BigTable, Hadoop Hbase alebo Cassandra.
-% 
-% =zlozity update - load do ram, mergovanie... 
-% 
-% =priklad pre ulozenie riad-stlpcovy model
-% 
-% \subsection{Dokumentové}
-% 
-% Dokumentové databáze využívajú princípy predchádzajúceho úložiska typu kľúč-hodnota. Dáta sú reprezentované pomocou dokumentov. Dokument obsahuje neobmedzený počet polí, ku ktorým priradzujeme rôzne hodnoty. Štruktúra dokumentu môže byť popísaná pomocou XML, JSON, YAML atď.a vďaka nej sme schopný v týchto dokumentoch efektívne vyhľadávať.
-% 
-% Medzi databáze reprezentujúce tento typ úložiska patrí napríklad CouchDB a MongoDB.
-% 
-% \subsection{Grafové}
-% 
-% Tento typ databáz využíva pre ukladanie dát matematickú štruktúru - graf. Dáta sú reprezentované pomocou uzlov, hran a ich atribútov. Uzol je základný samostatný a nezávislý objekt. Pomocou hran medzi uzlami modelujeme závislosti, ktoré popisujeme pomocou atribútov. Medzi hlavné výhody patrí možnosť prechádzania týchto štruktúr s využitím známych grafových algoritmov. Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre sémantický web. Patria sem databáze ako Neo4j alebo FlockDB.
-% 
+\section{Typy NoSQL databázových systémov}
+
+Medzi nerelačné databázové systémy patria objektové, dokumentové, grafové, stĺpcové a databázové systémy s dátovým modelom kľúč-hodnota (key-value). V následujúcej časti stručne popíšeme štvoricu najpopulárnejšich.
+
+\subsection{Kľúč-hodnota (Key-value)}
+%http://ayende.com/Blog/archive/2010/03/29/that-no-sql-thing-keyvalue-stores.aspx
+Tento model využíva pre ukládanie dát jednoduchý princíp. Blok dát, ktorý môže mať ľubovoľnú štruktúru je v databáze uložený pod názvom kľúča, ktorým zvykne byť reprezentovaný ako textový reťazec. Databázové systémy, využívajúce tento model majú jednoduché API rozhranie:
+
+\begin{verbatim}
+void Put(string kluc, byte[] data);
+byte[] Get(string key);
+void Remove(string key);
+\end{verbatim}
+
+Výhodou tohoto modelu je, že databázový systém je možné ľahko škálovať a o štruktúru uložených dát sa musí starať klient, čo umožnuje dosahovať vysokú výkonnosť na strane systému. Tento model existuje v mnohých modifikáciach.
+
+Relačný databázový model reprezentuje dáta pomocou tabuliek, pre ktoré definujeme ich štruktúru a ktoré sú normalizované aby sme predišli duplikácii dát. Pre zabezpečenie integrity jednotlivých entít a referenčnej integrity využívame primárne a cudzie kľúče. Tabuľky s popisom názvov ich stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. 
+
+Najväčšou nevýhodou je, že databázový systém nie je schopný medzi uloženými dátami zachytiť ich vzájomné relácie. Táto vlasnosť je základ pri modelovaní dát. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované,vzťahy a integrita medzi nimi sa riešia až na aplikačnej úrovni. Pre vkladané data a k nim asociované kľúče sa nedefinujú žiadne obmedzenia.
+
+Tento model sa často kombinuje so stĺpcovo orientovaným modelom, kde sa na dáta pozeráme ako na viacdimenzionálnu hešovú-mapu.
+
+Daný model využívajú databáze ako Dynamo, Tokyo Cabinet, Voldemort, Redis a iné.
+
+\subsection{Stĺpcovo orientovaný model (Column [Family] Oriented)}
+%10.1.1.151.2270.pdf
+
+\subsection{Riadkový model}
+Množstvo databázových systémov využíva pre reprezentáciu dát tabuľky, ktoré sú tvorené stĺpcami a presne popísané schémou (tj. názvy stĺpcov, tabuliek). Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na disk. Tento model, nazývaný riadkový, je vhodný pre systémy, u ktorých sú dominantou operácie vykonávajúce zápis. Relačné databázové systémy, využívajúce tento model sú teda optimalizované pre zápis. Pre efektívny prístup k dátam sa využívajú indexy.
+
+%obrazok?
+
+%abadiph.pdf
+\subsection{Stĺpcový model}
+V dnešnej dobe existuje veľký počet aplikácií, u ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, customer relationship management (CRM) systémy, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s obrovským objemom dát. Pre potreby týchto aplikácií je množné použiť stĺpcový model [13][14] reprezentácie dát, ktorý je zároveň optimalizovaný pre čítanie dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v samostatných a súvislých blokoch. Načítanie podobných dát (stĺpec) do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databázy, kde je potrebné načítať celý záznam obsahujúci hodnoty stĺpcov, ktoré sú pre nás v daný moment irelevantné.
+
+Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci sú si podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýdou tohoto modelu je zápis dát, ktorý je v porovnaní s riadkovým modelom omnoho náročnejší.
+
+% obrazok ?
+
+\subsection{Stĺpcovo orientovaný model}
+ 
+Tento model v spojení s následujúcim modelom kľúč-hodnota využívajú hlavne databázové systémy ako Google BigTable, Hadoop Hbase alebo Cassandra.
+
+=zlozity update - load do ram, mergovanie... 
+
+=priklad pre ulozenie riad-stlpcovy model
+
+\subsection{Dokumentový model}
+
+Dokumentové databáze sú založené na predchádzajúcom modeli typu kľúč-hodnota. Požiadavkom na ukládané data je, že musia byť v tvare ktorému rozumie databázový systém. Štruktúra vkládaných dát môže byť popísaná napríklad pomocou XML, JSON, YAML. Táto štruktúra nám následne umožnuje okrem jednoduchého vyhľadávania pomocou kľúč-hodnota vytvárať s využitím indexov zložitejšie dotazy nad dátami na strane databázového systému. 
+
+Medzi databáze reprezentujúce tento typ úložiska patrí napríklad CouchDB a MongoDB.
+
+\subsection{Grafový model}
+%http://highscalability.com/neo4j-graph-database-kicks-buttox
+%http://blog.neo4j.org/2009/04/current-database-debate-and-graph.html
+Tento typ databáz využíva pre prácu s dátami matematickú štruktúru - graf. Dáta sú reprezentované pomocou uzlov, hran a ich atribútov. Uzol je základný samostatný a nezávislý objekt. Pomocou hran medzi uzlami modelujeme závislosti, ktoré popisujeme pomocou atribútov. Nad uzlami a hranami sa využíva model kľúč-hodnota. Medzi hlavné výhody patrí možnosť prechádzania týchto štruktúr s využitím známych grafových algoritmov. 
+
+Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre sémantický web. Patria sem databáze ako Neo4j alebo FlockDB.
+
+
+
+graf = komplexnost problemu narast data = a podla neho ze nepotrebujem key-value a doc riesi barina 
 % 
 % % ???Konflikty v distribuovanych DB ??? (vector clock)
 % % ???? Výhody noSQL v porovnaní s modelovaním dát u relačných
@@ -632,16 +659,17 @@ V následujúcej časti popíšeme vlastnosti systému, ktorý bude slúžiť na
 \subsection{Obecne vlastnosti}
 
 Primárnym požiadavkom na systém je jeho rozšíriteľnosť, dostupnosť a nízkonakladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky TB (terabyte). Takúto kapacitu dát nie je možne uchovať na bežne prístupnom spotrebnom hardvéri (commodity hardware). Systém musí byť neustále dostupný a dáta zalohované v prípade vzniku havárie niektorej z jeho časti. Nad uloženými dátami, je potrebné vykonávať výpočtovo náročné operácie napr. generovanie štatistík. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopný vyriešiť patria NoSQL databázové systémy, ktorých zrovnanie popíšeme v následujúcej kapitole.
-Rozšíriteľnosť
 
+\subsubsection{Rozšíriteľnosť}
 Predpokladáme použitie bežne dostupného spotrebného hardvéru, namiesto superpočítačov. Systém musí byť schopný horizontálneho škálovania, ktoré využijeme pre zvýšenie celkovej kapacity dátového úložiska systému a na prípadné efektívnejšie spracovanie dát pomocou techniky MapReduce. U databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude nutné riešiť zálohovanie systému pomocou externého riešenia.
-Dostupnosť
 
+\subsubsection{Dostupnosť}
 Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťovej komunikácií (ang. network partitions), preto je vhodné aby sa dáta replikovali vo vnútry datacentra a následne aspoň medzi dvoma datacentrami, ktoré budú umiestnené na geograficky odlišných miestach.
-Nízkonákladová administrácia
 
+\subsubsection{Nízkonákladová administrácia}
 Bolo by vhodné ak by systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu.
-Funkčné požiadavky
+
+\subsubsection{Funkčné požiadavky}
 
 Uložené dáta je potrebné vhodne štruktúrovať aby bolo s nimi možné efektívne pracovať. Od systému požadujeme následujúce funkcie:
 
