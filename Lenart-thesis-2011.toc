@@ -18,54 +18,60 @@
 \contentsline {subsection}{\numberline {2.7.1}Pr\IeC {\'\i }klad}{13}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Architekt\IeC {\'u}ra}{13}{subsection.2.7.2}
 \contentsline {subsection}{\numberline {2.7.3}Pou\IeC {\v z}itie}{13}{subsection.2.7.3}
-\contentsline {section}{\numberline {2.8}Zhrnutie}{13}{section.2.8}
-\contentsline {chapter}{\numberline {3}NoSQL}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{15}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota (Key-value)}{16}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model (Column [Family] Oriented)}{16}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{17}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Dokumentov\IeC {\'y} model}{17}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Grafov\IeC {\'y} model}{17}{subsection.3.1.5}
-\contentsline {chapter}{\numberline {4}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{19}{section.4.1}
-\contentsline {section}{\numberline {4.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{20}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Obecne vlastnosti}{20}{subsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.1.1}Roz\IeC {\v s}\IeC {\'\i }rite\IeC {\v l}nos\IeC {\v t}}{20}{subsubsection.4.2.1.1}
-\contentsline {subsubsection}{\numberline {4.2.1.2}Dostupnos\IeC {\v t}}{20}{subsubsection.4.2.1.2}
-\contentsline {subsubsection}{\numberline {4.2.1.3}N\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'a} administr\IeC {\'a}cia}{21}{subsubsection.4.2.1.3}
-\contentsline {subsubsection}{\numberline {4.2.1.4}Funk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{21}{subsubsection.4.2.1.4}
-\contentsline {chapter}{\numberline {5}test}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Komponenty IEEE 802.15.4}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{24}{section.5.2}
-\contentsline {section}{\numberline {5.3}Architekt\IeC {\'u}ra}{24}{section.5.3}
-\contentsline {subsubsection}{\numberline {5.3.0.5}Typy r\IeC {\'a}mcov}{24}{subsubsection.5.3.0.5}
-\contentsline {section}{\numberline {5.4}Architekt\IeC {\'u}ra}{25}{section.5.4}
-\contentsline {section}{\numberline {5.5}Sie\IeC {\v t}ov\IeC {\'e} komponenty}{25}{section.5.5}
-\contentsline {section}{\numberline {5.6}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{26}{section.5.6}
-\contentsline {section}{\numberline {5.7}XBee Series 1}{26}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}Technick\IeC {\'e} parametre}{27}{subsection.5.7.1}
-\contentsline {chapter}{\numberline {6}Te\IeC {\'o}ria ant\IeC {\'e}n}{29}{chapter.6}
-\contentsline {subsection}{\numberline {6.0.2}Defin\IeC {\'\i }cia pojmov}{29}{subsection.6.0.2}
-\contentsline {subsection}{\numberline {6.0.3}Propag\IeC {\'a}cia r\IeC {\'a}diov\IeC {\'e}ho sign\IeC {\'a}lu}{30}{subsection.6.0.3}
-\contentsline {subsubsection}{\numberline {6.0.3.1}Pojmy}{30}{subsubsection.6.0.3.1}
-\contentsline {subsection}{\numberline {6.0.4}Typy ant\IeC {\'e}n}{31}{subsection.6.0.4}
-\contentsline {subsection}{\numberline {6.0.5}Stratovos\IeC {\v t} vo\IeC {\v l}n\IeC {\'e}ho priestoru (Free-space path loss)}{31}{subsection.6.0.5}
-\contentsline {subsection}{\numberline {6.0.6}Ant\IeC {\'e}ny a simul\IeC {\'a}cia}{32}{subsection.6.0.6}
-\contentsline {chapter}{\numberline {7}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{35}{chapter.7}
-\contentsline {subsubsection}{\numberline {7.0.6.1}V\IeC {\'y}konov\IeC {\'a} z\IeC {\'a}vislos\IeC {\v t}}{35}{subsubsection.7.0.6.1}
-\contentsline {subsection}{\numberline {7.0.7}\IeC {\v S}trukt\IeC {\'u}ra MF}{37}{subsection.7.0.7}
-\contentsline {subsubsection}{\numberline {7.0.7.1}\IeC {\v S}trukt\IeC {\'u}ra modulu NIC}{38}{subsubsection.7.0.7.1}
-\contentsline {chapter}{\numberline {8}Realiz\IeC {\'a}cia}{43}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.8}Model kol\IeC {\'\i }zie}{44}{subsection.8.0.8}
-\contentsline {subsubsection}{\numberline {8.0.8.1}Popis kol\IeC {\'\i }zie}{45}{subsubsection.8.0.8.1}
-\contentsline {chapter}{\numberline {9}Testovanie}{49}{chapter.9}
-\contentsline {subsection}{\numberline {9.0.9}Testy zameran\IeC {\'e} na pohyb XBee zariaden\IeC {\'\i }}{49}{subsection.9.0.9}
-\contentsline {subsection}{\numberline {9.0.10}Testy s kol\IeC {\'\i }ziou}{50}{subsection.9.0.10}
-\contentsline {chapter}{\numberline {10}Z\IeC {\'a}ver}{55}{chapter.10}
-\contentsline {chapter}{Literat\'ura}{57}{chapter*.5}
-\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{59}{appendix.A}
-\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{61}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.11}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{61}{subsection.B.0.11}
-\contentsline {subsection}{\numberline {B.0.12}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{61}{subsection.B.0.12}
-\contentsline {subsection}{\numberline {B.0.13}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{62}{subsection.B.0.13}
-\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{63}{appendix.C}
+\contentsline {section}{\numberline {2.8}Zhrnutie kapitoly}{13}{section.2.8}
+\contentsline {chapter}{\numberline {3}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Obecne vlastnosti}{16}{subsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Roz\IeC {\v s}\IeC {\'\i }rite\IeC {\v l}nos\IeC {\v t}}{16}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Dostupnos\IeC {\v t}}{16}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}N\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'a} administr\IeC {\'a}cia}{17}{subsubsection.3.2.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.4}Funk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{17}{subsubsection.3.2.1.4}
+\contentsline {chapter}{\numberline {4}NoSQL}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{19}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota (Key-value)}{20}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model (Column [Family] Oriented)}{20}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}St\IeC {\'l}pcovo orientovan\IeC {\'y} model v NoSQL}{21}{subsubsection.4.1.2.1}
+\contentsline {subsection}{\numberline {4.1.3}Dokumentov\IeC {\'y} model}{21}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Grafov\IeC {\'y} model}{21}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Defin\IeC {\'\i }cia krit\IeC {\'e}rii pre porovnanie NoSQL syst\IeC {\'e}mov}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Porovnanie NoSQL syst\IeC {\'e}mov}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}Hadoop}{22}{section.4.4}
+\contentsline {section}{\numberline {4.5}Cassandra}{22}{section.4.5}
+\contentsline {section}{\numberline {4.6}Hadoop vs. Cassandra}{22}{section.4.6}
+\contentsline {chapter}{\numberline {5}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{23}{chapter.5}
+\contentsline {chapter}{\numberline {6}ZMAZAT}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Komponenty IEEE 802.15.4}{25}{section.6.1}
+\contentsline {section}{\numberline {6.2}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{26}{section.6.2}
+\contentsline {section}{\numberline {6.3}Architekt\IeC {\'u}ra}{26}{section.6.3}
+\contentsline {subsubsection}{\numberline {6.3.0.1}Typy r\IeC {\'a}mcov}{26}{subsubsection.6.3.0.1}
+\contentsline {section}{\numberline {6.4}Architekt\IeC {\'u}ra}{27}{section.6.4}
+\contentsline {section}{\numberline {6.5}Sie\IeC {\v t}ov\IeC {\'e} komponenty}{27}{section.6.5}
+\contentsline {section}{\numberline {6.6}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{28}{section.6.6}
+\contentsline {section}{\numberline {6.7}XBee Series 1}{28}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Technick\IeC {\'e} parametre}{29}{subsection.6.7.1}
+\contentsline {chapter}{\numberline {7}Te\IeC {\'o}ria ant\IeC {\'e}n}{31}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.2}Defin\IeC {\'\i }cia pojmov}{31}{subsection.7.0.2}
+\contentsline {subsection}{\numberline {7.0.3}Propag\IeC {\'a}cia r\IeC {\'a}diov\IeC {\'e}ho sign\IeC {\'a}lu}{32}{subsection.7.0.3}
+\contentsline {subsubsection}{\numberline {7.0.3.1}Pojmy}{32}{subsubsection.7.0.3.1}
+\contentsline {subsection}{\numberline {7.0.4}Typy ant\IeC {\'e}n}{33}{subsection.7.0.4}
+\contentsline {subsection}{\numberline {7.0.5}Stratovos\IeC {\v t} vo\IeC {\v l}n\IeC {\'e}ho priestoru (Free-space path loss)}{33}{subsection.7.0.5}
+\contentsline {subsection}{\numberline {7.0.6}Ant\IeC {\'e}ny a simul\IeC {\'a}cia}{34}{subsection.7.0.6}
+\contentsline {chapter}{\numberline {8}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{37}{chapter.8}
+\contentsline {subsubsection}{\numberline {8.0.6.1}V\IeC {\'y}konov\IeC {\'a} z\IeC {\'a}vislos\IeC {\v t}}{37}{subsubsection.8.0.6.1}
+\contentsline {subsection}{\numberline {8.0.7}\IeC {\v S}trukt\IeC {\'u}ra MF}{39}{subsection.8.0.7}
+\contentsline {subsubsection}{\numberline {8.0.7.1}\IeC {\v S}trukt\IeC {\'u}ra modulu NIC}{40}{subsubsection.8.0.7.1}
+\contentsline {chapter}{\numberline {9}Realiz\IeC {\'a}cia}{45}{chapter.9}
+\contentsline {subsection}{\numberline {9.0.8}Model kol\IeC {\'\i }zie}{46}{subsection.9.0.8}
+\contentsline {subsubsection}{\numberline {9.0.8.1}Popis kol\IeC {\'\i }zie}{47}{subsubsection.9.0.8.1}
+\contentsline {chapter}{\numberline {10}Testovanie}{51}{chapter.10}
+\contentsline {subsection}{\numberline {10.0.9}Testy zameran\IeC {\'e} na pohyb XBee zariaden\IeC {\'\i }}{51}{subsection.10.0.9}
+\contentsline {subsection}{\numberline {10.0.10}Testy s kol\IeC {\'\i }ziou}{52}{subsection.10.0.10}
+\contentsline {chapter}{\numberline {11}Z\IeC {\'a}ver}{57}{chapter.11}
+\contentsline {chapter}{Literat\'ura}{59}{chapter*.5}
+\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{61}{appendix.A}
+\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{63}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.11}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{63}{subsection.B.0.11}
+\contentsline {subsection}{\numberline {B.0.12}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{63}{subsection.B.0.12}
+\contentsline {subsection}{\numberline {B.0.13}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{64}{subsection.B.0.13}
+\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{65}{appendix.C}
