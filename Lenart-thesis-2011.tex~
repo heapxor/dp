@@ -547,111 +547,118 @@ Cieľom tejto časti bolo pochopiť základné princípy, ktoré platia v distri
 
 \chapter{NoSQL}
 
-Pojem NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databázy, ktorej implementácia bola prevažne v interpretovaných programovacích jazykoch a neobsahovala SQL interprét. NoSQL (interpretovaný taktiež ako Not Only SQL), sa v druhej polovici roku 2009 [4] začal používať v spojení s databázovými systémami, ktoré nepouživajú SQL dotazovací jazyk a tradičný relačný model, sú schopné horizontálneho rozširovania (tj. distribuovaný systém), pracujú na bežných spotrebných počítačoch a vyznačujú sa vysokou dostupnosťou.
+Názov NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databázy, ktorej implementácia bola prevažne v interpretovaných programovacích jazykoch a neobsahovala jazyk SQL. V druhej polovici roku 2009 \cite{nosqlGoogle} sa názov NoSQL začal používať v spojení s databázovými systémami, ktoré nepouživajú SQL dotazovací jazyk a tradičný relačný model, sú schopné horizontálneho škálovania pracujú na bežných spotrebných počítačoch, vyznačujú sa vysokou dostupnosťou a používajú jednoduchú schému.
 
-Túto generáciu databáz je možné charakterizovať pojmamy ako non-relational, distribuovaný, open-source a horizontálne škálovateľný systém. 
+Novo vznikajúce webové aplikácie ako napríklad sociálne siete spracúvajú čoraz väčší objem dát, musia byť schopné v daný moment obslúžiť čoraz väčší počet užívateľov a neustále dostupné. Pôvodným cieľom hnutia NoSql, bolo vytvoriť koncept, pre tvorbu moderných databáz, ktoré by boli schopné riešiť tieto nové požiadavky. Idea týchto systémov je založená na filozofii, ktorá tvrdí, že nemá zmysel sa za každú cenu snažiť prispôsobiť dáta modelu relačnej databáze. Cieľom je vybrať systém, ktorý bude čo najvhodnejšie opovedať požiadavkom na uloženie a spracovanie našich dát. NoSQL obecne nepopisuje, žiaden konkrétny databázový systém, namiesto toho je to obecný názov pre nerelačné (non-relational) databázové systémy, ktoré majú odlišné vlastnosti a umožnujú prácu s rôznými dátovými modelmi. Medzi ich ďalšie znaky patrí slabá konzistencia, možnosť spracúvať obrovské objemy dát (PB), jednoduché API a možnosť asynchrónného zápisu dát. Tieto systémy nepodporujú operáciu databázového spojenia z dôvodu, že znižuje výkonnosť a zvýšuje zaťaženie siete (v prípade, že by sa táto operácia mala vykonať nad dátami, ktoré sa nachádzajú na rôznych uzloch). Pre tieto databázove systémy ďalej platí, že sú distribuované, podporujú automatickú replikáciu a rozsekávanie dát. Kedže sa jedná o relatívne mladé systémy, jedným z ich nedostatkov je malá podpora frameworkov, neustále sa meniace API a taktiež u mnohých chýbajúce rôzne grafické utility pre ich správu a monitoring. Medzi dátami, ktoré do nich ukladáme, je možné vytvárať vzájomné závislosti až na aplikačnej vrstve. Cieľom tohoto konceptu je riešiť spomínané novo vznikajúce problémy a zároveň koexistovať s relačnými databázovými  systémami.
 
-Novo vznikajúce systémy ako napríklad sociálne siete spracúvajú čoraz väčší objem dát a zároveň musia byť schopné v daný moment obslúžiť čoraz väčší počet užívateľov. Pôvodným cieľom hnutia nosql, bolo vytvoriť koncept, pre tvorbu moderných web-scale databáz, ktoré by boli schopné riešiť tieto nové požiadavky.  Idea týchto systémov je založená filozofii, ktorá hovorí, že nemá zmysel sa za každú cenu snažiť prispôsobiť vstupné dáta modelu relačnej databáze. Cieľom je vybrať systém, ktorý bude čo najvhodnejšie opovedať požiadavkom na uloženie a spracovanie našich dát. NoSQL obecne nepopisuje, žiaden konkrétny databázový systém, namiesto toho je to obecný pojem pre non-relational databázové systémy, ktoré majú rôzne charakteristiky, architektúru a umožnujú prácu s rôznými dátovými modelmi. Medzi ich hlavné znaky patrí vysoká dostupnosť, škálovateľnosť, čiastočná konzistencia, možnosť spracúvať obrovské objemy dát (PB), bezschémová reprezentácia dát a jednoduché API. Tieto systémy nepodporujú operáciu join z architektonických dôvodov (preco?). Medzi dátami, ktoré do nich ukladáme, je možné riešiť vzájomné závislosti až na aplikačnej vrstve. Cieľom tohoto konceptu je riešiť spomínané novo vznikajúce problémy a zároveň koexistovať s relačnými databázovými  systémami.
+%v pripade relac db sa snazime navrhnut datovy model a nasledne na nom vytvorit vhodne poziadavky v SQL, u tychto systemov vsak plati, ze na zaklade toho ako budu vyzerat dotazy na data namodelujeme datovy model (scheme free)
 
-neposkytuju mozost modelovat zavislosti medzi ulozenými datami, toto je nutne riesit na aplikacnej vrstve. kazda z nich je urcena na riesenie specifickeho problemu podla architektury db stroja.
-
-v pripade relac db sa snazime navrhnut datovy model a nasledne na nom vytvorit vhodne poziadavky v SQL, u tychto systemov vsak plati, ze na zaklade toho ako budu vyzerat dotazy na data namodelujeme datovy model (scheme free)
-
-Typy NoSQL databázových systémov
-
-Obecne pre tieto db platí, že sú distribuované a natívne podporují replikáciu. Kedže sa jedná o relatívne mladé systémy, jedným z ich nedostatkov je malá podpora frameworkov, neustále sa meniace API a taktiež u mnohých chýbajúce rôzne grafické utility pre ich správu a monitoring.
-Key-value
-
-Tento model pre ukladanie dát využíva jednoduchý princíp. Dáta v ľubovoľnej forme sú uložené v databáze pod kľúčom, ktorý môžeme reprezentovať ľubovoľným reťazcom, celočíselným typom a pod. V relačnom modeli dáta reprezentujeme pomocou tabuliek, pre ktoré definujeme ich štruktúru (názvy stĺpcov) a ktoré sú následne normalizované aby sme predišli duplikácii dát. Pre zabezpečenie integrity jednotlivých entít a referenčnej integrity využívame primárne a cudzie kľúče. Tabuľky s popisom názvov ich stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované, vzťahy medzi nimi sa riešia až na aplikačnej úrovni. Pre vkladané data a k nim asociované kľúče sa nedefinujú žiadne obmedzenia.
-
-Tento model sa často kombinuje so stĺpcovým modelom, kde sa na dáta pozeráme ako na viacdimenzionálnu hash-mapu.
-
-Daný model využívajú databáze ako Dynamo, Tokyo Cabinet, Redis a iné.
-Stĺpcové databáze
-
-Množstvo databáz využíva pre reprezentáciu dát tabuľky, ktoré sú tvorené stĺpcami a presne popísané schémou (tj. názvy stĺpcov, tabuliek). Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na disk. Tento model, nazývaný riadkový, je vhodný pre systémy, ktoré mnozštvo operácií využivajúcich zápis - relačné databáze sú teda optimalizované pre zápis.  Pre efektívny prístup k dátam sa využívajú indexy.
-
-V dnešnej dobe existuje veľḱy počet aplikácií, ktoré nie su až tak kritické pre zápis a na ich dátach sa vykonáva množstvo operácií, ktoré dáta čítajú a následne spracúvajú. Patria sem data warehouse, customer relationship management (CRM) systémy, systémy pre vyťažovanie dát alebo analytické aplikácie aplikované na obrovské objemy dát. Pre túto potrebu vznikol stĺpcový model [13][14] reprezentácie dát, ktorý je optimalizovaný pre čítanie dát a je vhodný pre OLAP. Dáta sú uložené v stĺpcoch a súvisle uložené na disku. Načítanie podobných dát (stĺpec) do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databázy, kde je potrebné načítať celý záznam obsahujúci hodnoty stĺpcov, ktoré pre nás sú v daný moment irelevantné.
-
-Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci sú si podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií za cenu CPU.
-
-Tento model v spojení s následujúcim modelom kľúč-hodnota využívajú hlavne databázové systémy ako Google BigTable, Hadoop Hbase alebo Cassandra.
-
-=zlozity update - load do ram, mergovanie...
-
-=priklad pre ulozenie riad-stlpcovy model
-Dokumentové
-
-Dokumentové databáze využívajú princípy predchádzajúceho úložiska typu kľúč-hodnota. Dáta sú reprezentované pomocou dokumentov. Dokument obsahuje neobmedzený počet polí, ku ktorým priradzujeme rôzne hodnoty. Štruktúra dokumentu môže byť popísaná pomocou XML, JSON, YAML atď.a vďaka nej sme schopný v týchto dokumentoch efektívne vyhľadávať.
-
-Medzi databáze reprezentujúce tento typ úložiska patrí napríklad CouchDB a MongoDB.
-Grafové
-
-Tento typ databáz využíva pre ukladanie dát matematickú štruktúru - graf. Dáta sú reprezentované pomocou uzlov, hran a ich atribútov. Uzol je základný samostatný a nezávislý objekt. Pomocou hran medzi uzlami modelujeme závislosti, ktoré popisujeme pomocou atribútov. Medzi hlavné výhody patrí možnosť prechádzania týchto štruktúr s využitím známych grafových algoritmov. Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre sémantický web. Patria sem databáze ako Neo4j alebo FlockDB.
-
-Konflikty v distribuovanych DB ??? (vector clock)
-
-
-
-???? Výhody noSQL v porovnaní s modelovaním dát u relačných
-Štruktúra dát
-
-Použitím relačných databáz podlieha návrh štruktúry dát predom známym návrhovým vzorom a normalizácií. Vyžaduje sa komplexná analýza vstupných dát a presná štrutúra dátového modelu tj. definovanie tabuliek, počet ich stĺpcov. Vývoj takýchto aplikácií sa prvotne zameriava na určenie štrukúry dát.
-
-U množstva nových problémov ako napríklad grafy sociálnych sieti alebo vyhľadávače je komplikované predom určiť a popísať komplexne model dát, ktorý  sa môže časom  meniť, z dôvodu neustálej zmeny vstupných dát. V tomto prípade, nachádzame množstvo výhod u dátového modelu noSQL systémov, ktorý dokáže pracovať s neštrukturovanými alebo čiastočne štrukturovanými dátami.
-
-Definícia problému
-
-Množstvo digitálnych informácii, každým rokom prudko narastá. Podľa štatistík spoločnosti IDC [1] v roku 2006 dosahovala kapacita digitálneho univerza veľkosť 161 exabytov. Podiel elektronickej pošty, bez spamu, tvoril 3% z tohoto objemu. Podľa odhadov na rok 2010, mala kapacita digitálneho univerza dosiahnuť veľkosť 988 EB (exabyte), čo je takmer šesťnásobok nárastu pôvodnej kapacity v období štyroch rokov. V rozmedzí rokov 1998 až 2006 sa mal počet schránok elektronickej pošty zvýšiť z 253 miliónov na 1.6 miliardy. Predpoveď IDC ďalej uvádzala, že po ukončení roku 2010 tento počet presiahne hodnotu dvoch miliard. Počas obdobia medzi rokmi 1998 až 2006 celkový počet odoslaných správ elektronickej pošty rástol trikrát rýchlejšie ako počet jej užívateľov, dôvodom tohoto prudkého nárastu bola nevyžiadaná elektronická pošta, nazývaná spam. Predpokladá sa, že až 85% dát z celkového odhadovaného objemu 988 EB budú spracovávať, prenášať alebo zabezpečovať organizácie. Napriek tejto explózii digitálnych informácii je potrebné správne porozumieť hodnote týchto dát, nájsť vhodné metódy pre ich ukladanie do pamäti počitačových systémov, ich archiváciu a to tak aby sme ich mohli ďalej spracúvať a efektívne využiť. Táto časť práce si preto kladie za cieľ pochopiť štruktúru dát, ktoré reprezentujú elektronickú poštu tj. emaily a následne pomocou využitia vhodných databázových technológií popísať a navrhnúť model systému pre ich archiváciu.
-Archivácia elektronickej pošty
-
-    S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zároveň zvyšuje objem dát, ktorý reprezentuje elektronickú poštu. Je preto potrebné porozumieť štruktúre emailových správ a následne ich vhodne spracovať. Tieto dáta je potrebné uložiť tak aby sme dosiahli úsporu diskového priestoru, boli sme nad nimi schopný vykonávať operácie ako fultextové vyhľadávanie, zber údajov pre tvorbu štatistík alebo ich opätovné sprístupnenie. Emaily obsahujú čoraz viac podnikových obchodných infomácií a iný dôležitý obsah, z tohoto dôvodu musia byť organizácie všetkých rozmerov schopné uchovávať tento obsah pomocou vhodných archivačných nástrojov. S problémom archivácie zároveň úzko súvisí problém bezpečnosti. Pod pojmom bezpečnosti v tejto oblasti máme na mysli hlavne ochranu proti nevyžiadanej pošte tj. spamu, spyware, malware a phishingu. Na boj proti týmto hrozbám využívajú organizácie anti-spamové a anti-vírusové systémy. Možné dôvody prečo archivovať elektronickú poštu sú následovne:
-
-    * súkromie dát
-    * regulatory compliance
-    * e-discovery  ??? strucne popisat jednotlive pojmy
-    * knowledge management
-    * self-service for end users
-    * disaster recovery
+% \section{Typy NoSQL databázových systémov}
+% 
+% 
+% blabla
+% 
+% \subsection{Key-value}
+% 
+% Tento model pre ukladanie dát využíva jednoduchý princíp. Dáta v ľubovoľnej forme sú uložené v databáze pod kľúčom, ktorý môžeme reprezentovať ľubovoľným reťazcom, celočíselným typom a pod. V relačnom modeli dáta reprezentujeme pomocou tabuliek, pre ktoré definujeme ich štruktúru (názvy stĺpcov) a ktoré sú následne normalizované aby sme predišli duplikácii dát. Pre zabezpečenie integrity jednotlivých entít a referenčnej integrity využívame primárne a cudzie kľúče. Tabuľky s popisom názvov ich stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované, vzťahy medzi nimi sa riešia až na aplikačnej úrovni. Pre vkladané data a k nim asociované kľúče sa nedefinujú žiadne obmedzenia.
+% 
+% Tento model sa často kombinuje so stĺpcovým modelom, kde sa na dáta pozeráme ako na viacdimenzionálnu hash-mapu.
+% 
+% Daný model využívajú databáze ako Dynamo, Tokyo Cabinet, Redis a iné.
+% 
+% \subsection{Stĺpcové databáze}
+% 
+% Množstvo databáz využíva pre reprezentáciu dát tabuľky, ktoré sú tvorené stĺpcami a presne popísané schémou (tj. názvy stĺpcov, tabuliek). Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na disk. Tento model, nazývaný riadkový, je vhodný pre systémy, ktoré mnozštvo operácií využivajúcich zápis - relačné databáze sú teda optimalizované pre zápis.  Pre efektívny prístup k dátam sa využívajú indexy.
+% 
+% V dnešnej dobe existuje veľký počet aplikácií, ktoré nie su až tak kritické pre zápis a na ich dátach sa vykonáva množstvo operácií, ktoré dáta čítajú a následne spracúvajú. Patria sem data warehouse, customer relationship management (CRM) systémy, systémy pre vyťažovanie dát alebo analytické aplikácie aplikované na obrovské objemy dát. Pre túto potrebu vznikol stĺpcový model [13][14] reprezentácie dát, ktorý je optimalizovaný pre čítanie dát a je vhodný pre OLAP. Dáta sú uložené v stĺpcoch a súvisle uložené na disku. Načítanie podobných dát (stĺpec) do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databázy, kde je potrebné načítať celý záznam obsahujúci hodnoty stĺpcov, ktoré pre nás sú v daný moment irelevantné.
+% 
+% Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci sú si podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií za cenu CPU.
+% 
+% Tento model v spojení s následujúcim modelom kľúč-hodnota využívajú hlavne databázové systémy ako Google BigTable, Hadoop Hbase alebo Cassandra.
+% 
+% =zlozity update - load do ram, mergovanie... 
+% 
+% =priklad pre ulozenie riad-stlpcovy model
+% 
+% \subsection{Dokumentové}
+% 
+% Dokumentové databáze využívajú princípy predchádzajúceho úložiska typu kľúč-hodnota. Dáta sú reprezentované pomocou dokumentov. Dokument obsahuje neobmedzený počet polí, ku ktorým priradzujeme rôzne hodnoty. Štruktúra dokumentu môže byť popísaná pomocou XML, JSON, YAML atď.a vďaka nej sme schopný v týchto dokumentoch efektívne vyhľadávať.
+% 
+% Medzi databáze reprezentujúce tento typ úložiska patrí napríklad CouchDB a MongoDB.
+% 
+% \subsection{Grafové}
+% 
+% Tento typ databáz využíva pre ukladanie dát matematickú štruktúru - graf. Dáta sú reprezentované pomocou uzlov, hran a ich atribútov. Uzol je základný samostatný a nezávislý objekt. Pomocou hran medzi uzlami modelujeme závislosti, ktoré popisujeme pomocou atribútov. Medzi hlavné výhody patrí možnosť prechádzania týchto štruktúr s využitím známych grafových algoritmov. Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre sémantický web. Patria sem databáze ako Neo4j alebo FlockDB.
+% 
+% 
+% % ???Konflikty v distribuovanych DB ??? (vector clock)
+% % ???? Výhody noSQL v porovnaní s modelovaním dát u relačných
+% 
+% Štruktúra dát
+% 
+% Použitím relačných databáz podlieha návrh štruktúry dát predom známym návrhovým vzorom a normalizácií. Vyžaduje sa komplexná analýza vstupných dát a presná štrutúra dátového modelu tj. definovanie tabuliek, počet ich stĺpcov. Vývoj takýchto aplikácií sa prvotne zameriava na určenie štrukúry dát.
+% 
+% U množstva nových problémov ako napríklad grafy sociálnych sieti alebo vyhľadávače je komplikované predom určiť a popísať komplexne model dát, ktorý  sa môže časom  meniť, z dôvodu neustálej zmeny vstupných dát. V tomto prípade, nachádzame množstvo výhod u dátového modelu noSQL systémov, ktorý dokáže pracovať s neštrukturovanými alebo čiastočne štrukturovanými dátami.
 
 
-Požiadavky na systém
+\chapter{Definícia problému}
 
-    V následujúcej časti popíšeme vlastnosti systému, ktorý bude umožnovať archiváciu veľkého objemu emailových správ.
-Obecne vlastnosti
+Množstvo digitálnych informácii, každým rokom prudko narastá. Podľa štatistík spoločnosti IDC \cite{digitalUniverse} v roku 2006 dosahovala kapacita digitálneho univerza veľkosť 161 exabytov. Podiel elektronickej pošty bez spamu, tvoril 3\% z tohoto objemu. Podľa odhadov na rok 2010 mala kapacita digitálneho univerza dosiahnuť veľkosť 988 EB (exabyte), čo je takmer šesťnásobok nárastu pôvodnej kapacity v období štyroch rokov. V rozmedzí rokov 1998 až 2006 sa mal počet schránok elektronickej pošty zvýšiť z 253 miliónov na 1.6 miliardy. Predpoveď IDC ďalej uvádzala, že po ukončení roku 2010 tento počet presiahne hodnotu dvoch miliard. Počas obdobia medzi rokmi 1998 až 2006 celkový počet odoslaných správ elektronickej pošty rástol trikrát rýchlejšie ako počet jej užívateľov, dôvodom tohoto prudkého nárastu bola nevyžiadaná elektronická pošta, nazývaná spam. Predpokladá sa, že až 85\% dát z celkového odhadovaného objemu 988 EB budú spracovávať, prenášať alebo zabezpečovať organizácie. Napriek tejto explózii digitálnych informácii je potrebné správne porozumieť hodnote týchto dát, nájsť vhodné metódy pre ich ukladanie do pamäti počitačových systémov, ich archiváciu a to tak aby sme ich mohli ďalej spracúvať a efektívne využiť. Táto časť práce si preto kladie za cieľ pochopiť štruktúru dát, ktoré reprezentujú elektronickú poštu tj. emaily a následne pomocou využitia vhodných databázových technológií popísať a navrhnúť model systému pre ich archiváciu.
 
-Primárnym požiadavkom na systém je jeho rozšíriteľnosť, dostupnosť a nízkonakladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky TB (terabyte). Takúto kapacitu dát nie je možne uchovať na bežne prístupnom spotrebnom hardware (ang. commodity hardware). Systém musí byť neustále dostupný a dáta zalohované v prípade vzniku havárie niektorej z jeho časti. Nad uloženými dátami, je potrebné vykonávať výpočtovo náročné operácie napr. generovanie štatistík. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopný vyriešiť patria noSQL databázové systémy, ktorých zrovnanie popíšeme v následujúcej kapitole.
-Rozšíriteľnosť
+\section{Archivácia elektronickej pošty}
 
-Predpokladáme použitie bežne dostupného spotrebného hardware, namiesto superpočítačov. Systém musí byť schopný horizontálneho škálovania, ktoré využijeme pre zvýšenie celkovej kapacity dátového úložiska systému a na prípadné efektívnejšie spracovanie dát pomocou techniky MapReduce. U databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude nutné riešiť zálohovanie systému pomocou externého riešenia.
+S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zároveň zvyšuje objem dát, ktorý reprezentuje elektronickú poštu. Je preto potrebné porozumieť štruktúre emailových správ a následne ich vhodne spracovať. Tieto dáta je potrebné uložiť tak aby sme dosiahli úsporu diskového priestoru, boli sme nad nimi schopný vykonávať operácie ako fultextové vyhľadávanie, zber údajov pre tvorbu štatistík alebo ich opätovné sprístupnenie. Emaily obsahujú čoraz viac podnikových obchodných infomácií a iný dôležitý obsah, z tohoto dôvodu musia byť organizácie všetkých rozmerov schopné uchovávať tento obsah pomocou vhodných archivačných nástrojov. S problémom archivácie zároveň úzko súvisí problém bezpečnosti. Pod pojmom bezpečnosti v tejto oblasti máme na mysli hlavne ochranu proti nevyžiadanej pošte tj. spamu, spyware, malware a phishingu. Na boj proti týmto hrozbám využívajú organizácie anti-spamové a anti-vírusové systémy. Možné dôvody prečo archivovať elektronickú poštu sú následovne:
+??? strucne popisat jednotlive pojmy
+\begin{itemize}
+ \item 
+ súkromie dát
+ \item
+ regulatory compliance
+ \item
+ e-discovery
+ \item
+ knowledge management
+ \item 
+ self-service for end users
+ \item
+ disaster recovery
+\end{itemize}
+
+
+\section{Požiadavky na systém}
+
+V následujúcej časti popíšeme vlastnosti systému, ktorý bude slúžiť na archiváciu veľkého objemu emailových správ.
+
+\subsection{Obecne vlastnosti}
+
+Primárnym požiadavkom na systém je jeho rozšíriteľnosť, dostupnosť a nízkonakladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky TB (terabyte). Takúto kapacitu dát nie je možne uchovať na bežne prístupnom spotrebnom hardvéri (commodity hardware). Systém musí byť neustále dostupný a dáta zalohované v prípade vzniku havárie niektorej z jeho časti. Nad uloženými dátami, je potrebné vykonávať výpočtovo náročné operácie napr. generovanie štatistík. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopný vyriešiť patria NoSQL databázové systémy, ktorých zrovnanie popíšeme v následujúcej kapitole.
+
+\subsubsection{Rozšíriteľnosť}
+Predpokladáme použitie bežne dostupného spotrebného hardvéru, namiesto superpočítačov. Systém musí byť schopný horizontálneho škálovania, ktoré využijeme pre zvýšenie celkovej kapacity dátového úložiska systému a na prípadné efektívnejšie spracovanie dát pomocou techniky MapReduce. U databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude nutné riešiť zálohovanie systému pomocou externého riešenia.
+
 Dostupnosť
-
 Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťovej komunikácií (ang. network partitions), preto je vhodné aby sa dáta replikovali vo vnútry datacentra a následne aspoň medzi dvoma datacentrami, ktoré budú umiestnené na geograficky odlišných miestach.
-Nízkonákladová administrácia
 
+Nízkonákladová administrácia
 Bolo by vhodné ak by systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu.
 Funkčné požiadavky
 
 Uložené dáta je potrebné vhodne štruktúrovať aby bolo s nimi možné efektívne pracovať. Od systému požadujeme následujúce funkcie:
 
-    *
+\begin{itemize}
+ \item
+  vyhľadávanie emailov podľa údajov tvoriacich obálku, podľa hlavičiek (predmet, odosielateľ, príjemca), podľa textu obsiahnutom v tele správy a podľa názvu prílohy
+ \item
+  prístup koncových užívateľov k archívu, jeho prehľadávanie, export vybraných emailov
+ \item
+  tvorba štatistík (ich konkrétny popis)
+ \item
+  expirácia emailov uložených v databáze po predom určenej dobe
+ \item
+  unikátne ukladanie príloh emailov z dôvodu úspory diskového priestoru
+\end{itemize}
 
-      vyhľadávanie emailov podľa údajov tvoriacich obálku, podľa hlavičiek (predmet, odosielateľ, príjemca), podľa textu obsiahnutom v tele správy a podľa názvu prílohy
-    *
-
-      prístup koncových užívateľov k archívu, jeho prehľadávanie, export vybraných emailov
-    *
-
-      tvorba štatistík (ich konkrétny popis)
-    *
-
-      expirácia emailov uložených v databáze po predom určenej dobe
-    *
-
-      unikátne ukladanie príloh emailov z dôvodu úspory diskového priestoru
-
-
-Poďla popisu databázových syśtémov v prechádzajúcej kapitole vidím, že použitie relačnej databáze nie je vhodné pre riešenie nášho problému. Medzi základné problémy patrí náročné horizontálne škalovanie a problémy s dostupnosťou. Emailová správa je štruktúrovaný objekt, časť z našich funkcií systému bude s touto štruktúrou a jej časťami pracovať, rozhodli sme sa, že náš výber noSQL systému zúžime na tie systémy, ktoré využívajú stĺpcový dátový model.
+Poďla popisu databázových syśtémov v prechádzajúcej kapitole vidíme, že použitie relačnej databáze nie je vhodné pre riešenie nášho problému. Medzi základné problémy patrí náročné horizontálne škalovanie a problémy s dostupnosťou. Emailová správa je štruktúrovaný objekt, časť z našich funkcií systému bude s touto štruktúrou a jej časťami pracovať, rozhodli sme sa, že náš výber noSQL systému zúžime na tie systémy, ktoré využívajú stĺpcový dátový model.
 
 
 
