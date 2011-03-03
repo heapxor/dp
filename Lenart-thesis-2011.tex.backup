@@ -586,7 +586,7 @@ Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťov
 \subsubsection{Nízkonákladová administrácia}
 Bolo by vhodné ak by systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu.
 
-\subsubsection{Funkčné požiadavky}
+\subsection{Funkčné požiadavky}
 
 Uložené dáta je potrebné vhodne štruktúrovať aby bolo s nimi možné efektívne pracovať. Od systému požadujeme následujúce funkcie:
 
@@ -655,7 +655,7 @@ Predchodcom tohto nového prístupu k stĺpcovému modelu v NoSQL systémoch je 
 
 %-- a na dáta pozeráme ako na viacdimenzionálnu hešovú-mapu.
 %??? obrazok
-Tento model sa používa v databázových systémoch ako Google BigTable, Hadoop Hbase alebo Cassandra.
+Tento model sa používa v databázových systémoch ako Google BigTable, Hbase, Hypertable alebo Cassandra.
 
 \subsection{Dokumentový model}
 
@@ -707,26 +707,6 @@ V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov. V pre
 
 
 \chapter{ZMAZAT}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Komponenty IEEE 802.15.4}
 Zariadenia delíme na dva druhy a to zariadenie poskytujúce úplnú funkčnosť FFD (Full-function device) a redukované zariadenia RFD (Reduced-function device). Zariadenie FFD môže operovať v troch módoch, ktorými sú PAN (Personal area network) koordinátor, koordinátor, alebo koncové zriadenie. Zariadenie FFD ďalej dokáže komunikovať so zariadeniami typu RFD alebo FFD a zariadenie RFD je schopné komunikácie len so zariadením FFD. Výhodou RFD zariadení, je že neposielajú veľké objemy dát a teda na ich realizáciu je potrebná minimálna pamäťová kapacita. 
 Samotná WPAN je tvorená dvoma alebo viacerými zariadeniami, ktoré komunikujú na tom istom fyzickom kanály.

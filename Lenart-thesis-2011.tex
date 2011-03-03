@@ -586,7 +586,7 @@ Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťov
 \subsubsection{Nízkonákladová administrácia}
 Bolo by vhodné ak by systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu.
 
-\subsubsection{Funkčné požiadavky}
+\subsection{Funkčné požiadavky}
 
 Uložené dáta je potrebné vhodne štruktúrovať aby bolo s nimi možné efektívne pracovať. Od systému požadujeme následujúce funkcie:
 
@@ -655,7 +655,7 @@ Predchodcom tohto nového prístupu k stĺpcovému modelu v NoSQL systémoch je 
 
 %-- a na dáta pozeráme ako na viacdimenzionálnu hešovú-mapu.
 %??? obrazok
-Tento model sa používa v databázových systémoch ako Google BigTable, Hadoop Hbase alebo Cassandra.
+Tento model sa používa v databázových systémoch ako Google BigTable, Hbase, Hypertable alebo Cassandra.
 
 \subsection{Dokumentový model}
 
@@ -675,8 +675,10 @@ Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre s
 % kriteria na porovnanie nosql
 
 
-\section{Porovnanie NoSQL systémov}
-V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov. V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a porovnanie systémov, ktoré reprezentujú jednotlivé kategórie by bol nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}. Podľa analýzy požiadavkov na našu aplikáciu, ktorú popíšeme v následujúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom. V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model a model kľúč-hodnota. 
+\section{Porovnanie vlastností NoSQL systémov}
+V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov. V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a porovnanie systémov, ktoré reprezentujú jednotlivé kategórie by bol nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme. 
+Podľa analýzy požiadavkov na našu aplikáciu, ktorú popíšeme v následujúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom a modelom kľúč-hodnota. PRECO???
+V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto voľne dostupné systémy patria Hadoop, Cassandra, Hypertable a Amazon SimpleDB.
 
 %porovnavane systemy sme vybrali podla citu , a taktiez spravyme benchmark od yahoo na 2 vybrane
 
