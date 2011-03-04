@@ -672,8 +672,11 @@ Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre s
 
 
 \section{Porovnanie NoSQL systémov}
+%http://www.rackspace.com/cloud/blog/2009/11/09/nosql-ecosystem/
+%http://www.infoq.com/articles/graph-nosql-neo4j
+
 % kriteria na porovnanie nosql
-V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov, ktoré majú odlišné schopnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. Snaha porovnať tieto systémy na globálnej úrovni je nerealizovateľná a spôsobuje zmätok. Cieľom tejto sekcie je definovať základné body vďaka, ktorým je možné tieto systémy kategorizovať a vrámci danej kategórie porovánať. Tieto zistenia nám následne môžu pomôcť pri výbere vhodného systému odpovedajúceho našim požiadavkom.
+V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov, ktoré majú odlišné vlasnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. Snaha porovnať tieto systémy na globálnej úrovni je nerealizovateľná a často vedie k omylu. Cieľom tejto sekcie je definovať základné body vďaka, ktorým je možné tieto systémy kategorizovať a vrámci danej kategórizácie porovánať. Tieto zistenia nám následne môžu pomôcť pri výbere vhodného systému odpovedajúceho našim požiadavkom.
 
 %Systémy NoSQL majú odlišné schopnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. V predchádzajúcej sekcii sme vykonali základnú kategorizáciu poďla dátového modelu, ktorý tieto systémy poskytujú a ktorý do istej miery definuje ich vyjadrovaciu silu. V tejto časti popíšeme ďalšie vlastnosti, ktoré nám umožnia užšiu kategorizáciu týchto systémov.
 %Tieto dátové modely sú navzájom izomorfné \cite{Web1}. Našim cieľom však nemá byť snaha za každú cenu prispôsobiť dáta k danému modelu. Prítomnosť týchto modelov nám naopak dáva možnosť výberu, ktorý zaručí pre našu aplikáciu 
@@ -690,11 +693,15 @@ Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto syst
  \item 
   schopnosť odolávať chýbam (failure handling)
  \item 
+  konzistencia dát
+ \item
   typ perzistentného úložiska
+ \item 
+  výkonnosť
 \end{enumerate}
 
 \subsection{Dátový a dotazovací model}
-Dátový model definuje štruktúru, ktorá slúži na ukladanie dát v databázovom systéme. Dotazovací model následne definuje obmedzenia a operácie, ktoré sme schopný nad uloženými dátami vykonávať. V predchádzajúcej sekcii sme popísali základnú kategorizáciu NoSQL systémov poďla dátového modelu. Dátový a dotazovací model do určitej miery popisuje výkonnosť, komplexnosť a vyjadrovaciu silu databázového systému.
+Dátový model definuje štruktúru, ktorá slúži na ukladanie dát v databázovom systéme. Dotazovací model následne definuje obmedzenia a operácie, ktoré sme schopný nad uloženými dátami vykonávať. V predchádzajúcej sekcii sme popísali základnú kategorizáciu NoSQL systémov poďla dátového modelu. Dátový a dotazovací model do určitej miery popisuje výkonnosť, komplexnosť a vyjadrovaciu silu databázového systému. Dotazovací model popisuje API.
 
 Pre výber vhodného dátového modelu pre našu aplikáciu je dôležité porozumieť štruktúre dát a definovať operácie, ktoré nad týmito dátami budeme vykonávať.
 
@@ -707,28 +714,46 @@ Táto vlasnosť kladie na systém požiadavky ako podpora replikácie a rozseká
   možnosť pridania nového uzlu do distribuovaného databázového systému, bez nutnosti zásahu do aplikácie
 \end{itemize}
 
-Počet uzlov, na ktorých sa vykonáva replika dát a konfigurácia databázového systému, ktorá podporuje geograficky oddelené dátové centrá zároveň určujú do akej miery je náš systém schopný odolávať chybám, medzi ktoré môžeme zaradiť poruchu uzlu alebo sieťové problémy.
+Počet uzlov, na ktorých sa vykonáva replika dát a konfigurácia databázového systému, ktorá podporuje geograficky oddelené dátové centrá zároveň určujú do akej miery je systém schopný odolávať chybám, medzi ktoré môžeme zaradiť poruchu uzlu alebo sieťové prerušenia.
 
 Častým požiadavkom webových aplikácií, z dôvodu neustáleho nárastu dát, na databázový systém je podpora škálovania s cieľom zvýšenia veľkosti databáze. S neustálym vývojom nových aplikácií musíme uvažovať potrebu škálovania z pohľadu komplexnosti. V tomto prípade predpokladáme, že štruktúra dát ktoré do databázového systému ukladáme sa môže s postupom času meniť. Pojem škálovanie z pohľadu komplexnosti je popísaný v knihe... Schopnosť škálovania z pohľadu komplexnosti ovplyvňuje výber dátového modelu.
 
-Obrázok XY zachytáva pozíciu NoSQL dátových modelov, z pohľadu škálovania komplexnosti a veľkosti dát.
+%http://blogs.neotechnology.com/emil/2009/11/nosql-scaling-to-size-and-scaling-to-complexity.html
+Obrázok XY zachytáva pozíciu NoSQL dátových modelov z pohľadu škálovania komplexnosti a veľkosti dát.
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=14cm]{./figures/nosqldatamodels.png}
+ \includegraphics[width=16cm]{./figures/nosqldatamodels.png}
  % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{????}
+ \caption{Pozícia dátového modelu z pohľadu jeho škálovania podľa veľkosti a komplexnosti. Zdroj: Neo4J a NOSQL overview and the benefits of graph databases, Emil Eifrem, prezentacia.}
  \label{fig:scalling}
 \end{figure}
+
+Dátový model typu kľuč-hodnota a stĺpcovo orientovaný model (Bigtable clones) majú jednoduchú štruktúru, ktorá sa dá horizontálne škálovať. Nevýhodou tohoto prístupu je naopak to, že všetká práca s dátami a ich štruktúrou sa prenáša do vyšších vrstiev, o ktoré sa musí starať programátor. Naopak dokumentový a grafový model poskytuje bohatšiu štruktúru na prácu s dátami, ktorá spôsobuje komplikovanejšie škálovanie vhľadom na veľkosť dát. Podľa odhadov spoločnosti Neotechnology až 90\% aplikáci, v prípade že sa nejedná o projekty spoločností Google, Amazon atď., spadá do rozmedia kde sa veľkosť záznamov pohybuje rádovo v miliardách. Za zmienku stojí fakt, že aj napriek tomu, že tieto dátové modely sú si navzájom izomorfné, vhodnosť ich použitia závisí na konkrétnom príklade a požiadavkoch na aplikáciu. 
+
+%one size fits all?
+
+\subsection{Konzistencia dát}
+Poďla teórie CAP platí, že v prípade výskytu sieťových prerušení, ktoré sú súčasťou distribuovaného databázového systému nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. NoSQL systémy preto môžeme rozdeliť podľa tohoto modelu.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=16cm]{./figures/capDatabases.png}
+ % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
+ \caption{}
+ \label{fig:scalling}
+\end{figure}
+
+Umiestnenie niektorých NoSQL datázových systémvo sa môže meniť podľa ich konfigurácie.
 
 \subsection{Perzistentné úložisko}
 Typ perzistentného úložiska popisuje interný spôsob ukládania dát v databázovom systéme. NoSQL systémy môžu používať na ukládanie dát následujúce štruktúry: 
 \begin{itemize}
  \item B-stromy
  \item distribuované hešové tabuľky
- \item Memtable / SSTable \note{}
+ \item Memtable / SSTable \footnote{Tieto štruktúry popíšeme v následujúcej sekcii}
  \item spojové zoznamy
- \item operačná pämeť v pravidelných intervaloch ukládana na pevný disk
+ \item operačná pämeť, ktorej obsah je pravidelných intervaloch ukládaný na pevný disk
 \end{itemize}
  
 Podľa požiadavkov na našu aplikáciu sme čiastočne schopný odhadnúť pomocou, ktorej štruktúry by sme mohli dosiahnúť čo najefektívnejšiu výkonnosť.
@@ -738,9 +763,11 @@ Podľa požiadavkov na našu aplikáciu sme čiastočne schopný odhadnúť pomo
 %V následujúcej sekcii využijeme Yahoo! Cloud Serving Benchmark pre porovnanie nami vybraných kandidátov.
 
 \section{Výber NoSQL systémov}
-V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a porovnanie systémov, ktoré reprezentujú jednotlivé kategórie by bol nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme. 
-Podľa analýzy požiadavkov na našu aplikáciu, ktorú popíšeme v následujúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom a modelom kľúč-hodnota. PRECO???
-V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto voľne dostupné systémy patria Hadoop, Cassandra, Hypertable a Amazon SimpleDB.
+%http://themindstorms.blogspot.com/2009/05/quick-reference-to-alternative-data.html
+%http://www.metabrew.com/article/anti-rdbms-a-list-of-distributed-key-value-stores
+% V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a porovnanie systémov, ktoré reprezentujú jednotlivé kategórie by bol nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme. 
+% Podľa analýzy požiadavkov na našu aplikáciu, ktorú popíšeme v následujúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom a modelom kľúč-hodnota. PRECO???
+% V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto voľne dostupné systémy patria Hadoop, Cassandra, Hypertable a Amazon SimpleDB.
 
 %porovnavane systemy sme vybrali podla citu , a taktiez spravyme benchmark od yahoo na 2 vybrane
 
