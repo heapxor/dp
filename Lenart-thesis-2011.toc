@@ -37,12 +37,15 @@
 \contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{21}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{22}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Konzistencia d\IeC {\'a}t}{23}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{24}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{23}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{24}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{24}{subsection.4.2.5}
 \contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{25}{section.4.3}
-\contentsline {section}{\numberline {4.4}Hadoop}{25}{section.4.4}
-\contentsline {section}{\numberline {4.5}Cassandra}{25}{section.4.5}
-\contentsline {section}{\numberline {4.6}Hadoop vs. Cassandra}{25}{section.4.6}
+\contentsline {section}{\numberline {4.4}Cassandra}{26}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}D\IeC {\'a}tov\IeC {\'y} model}{26}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}ARchitekt\IeC {\'u}ra}{26}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}Hadoop}{26}{section.4.5}
+\contentsline {section}{\numberline {4.6}Hadoop vs. Cassandra}{26}{section.4.6}
 \contentsline {chapter}{\numberline {5}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{27}{chapter.5}
 \contentsline {chapter}{\numberline {6}ZMAZAT}{29}{chapter.6}
 \contentsline {section}{\numberline {6.1}Komponenty IEEE 802.15.4}{29}{section.6.1}
