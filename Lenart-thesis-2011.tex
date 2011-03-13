@@ -773,13 +773,13 @@ Podľa požiadavkov na našu aplikáciu sme čiastočne schopný odhadnúť pomo
 %http://themindstorms.blogspot.com/2009/05/quick-reference-to-alternative-data.html
 %http://www.metabrew.com/article/anti-rdbms-a-list-of-distributed-key-value-stores
 
-V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch hlavných kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a výkonnostné porovnanie NoSQL systémov, ktoré reprezentujú jednotlivé kategórie by boli nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme. 
+V predchádzajúcej sekcii sme tieto systémy rozdelili do štyroch hlavných kategórií podľa ich dátového modelu, ktorý je kľúčový pri výbere vhodného databázového systému podľa požiadavkov aplikácie. Popis a výkonnostné porovnanie NoSQL systémov, ktoré reprezentujú jednotlivé kategórie by boli nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme.
+
+NoSQL systémy môžeme rozdeliť podľa toho v akom prostredí pracujú. Väčšina týchto systémov vyžaduje ich inštaláciu na počítačové systémy, patria sem napríklad Voldemort, Cassandra, Riak, Hbase. Tieto systémy sú open-source. Okrem nich existujú distribuované databázové systémy, ktoré sú poskytované ako cloudové riešenie a to Amazon SimpleDB,  Microsoft Azure SQL, Yahoo! YQL a prostredie od spoločnosti Google AppEngine. Tieto systémy poskytujú priamo rozhranie na prácu s dátami a funkčnosť perzistentného úložiska zabezpečujú poskytovatelia týchto služieb. Ich hlavným cieľom je zefektívnenie vývoja a nasadzovania aplikácií.
 
 Podľa analýzy požiadavkov na našu aplikáciu a štruktúry dát, ktoré budeme do databázového systému ukládať nie je vhodné použitie databázových systémov s grafovým modelom a modelom kľúč-hodnota. Systémy s grafovým modelom sú určené na diametrálne odlišnú úlohu problémov naopak v prípade, použita systémov kľúč-hodnota by bola práca na strane aplikácie zbytočne náročna. Našim požiadavkom najlepšie vyhovuje stĺpcovo orientovaný model, ktorý sme sa rozhodli použiť pre návrh našej aplikácie.
 
 V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto voľne dostupné (open-source) systémy patria HBase, Cassandra a Hypertable. Aj napriek totožnému dátovemu modelu, majú tieto systémy odlišné vlasnosti. Následujúca tabuľka zobrazuje popis vlasností, na ktoré sme sa zamerali pri výbere víťaznej dvojice.
-
-
 
 \begin{table}
     \begin{tabular}{|l|l|l|l|}
@@ -811,22 +811,42 @@ Z porovania je vidieť, že systémy obsahuju množstvo spoločných vlastností
 
 \section{Cassandra}
 
-Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte, poskytovala úložisko pre indexy. Hlavnými požiadavkami na tento systém bolo zvládať miliardu zápisov denne, schopnosť škálovania podľa narástajúceho počtu použivateľov, beh na spotrebných počítačoch a podpora replikácie medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bolo aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému, teda systém bez SPOF. Cassandra je teda decentralizovaný systém, kde každý uzol je schopný vykonávať tie isté operácie. V roku 2008 bola zverejnená ako open-source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo vytvoreného spoločnosťou Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému BigTable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy tohoto systému.
+Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte, poskytovala úložisko pre indexy. Hlavnými požiadavkami na tento systém bolo zvládať miliardu zápisov denne, schopnosť škálovania podľa narástajúceho počtu použivateľov, beh na spotrebných počítačoch a podpora replikácie medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, teda aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je teda decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open-source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo vytvoreného spoločnosťou Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému BigTable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy tohoto systému. 
 
 \subsection{Dátový model}
 
-Základný dátový model bol prebraný podľa Google Bigtable. Cassandra k nemu pridala ... 
+Základný dátový model bol prebraný od systému Google Bigtable. Cassandra k nemu pridala štruktúru super-stĺpec.
 
 
-Základnou jednotkou dátového modelu je stĺpec. Stĺpec je tvorený názvom, hodnotou a časovým odtlačkom, ktorý využíva Cassandra pri riešení konfliktov. Stĺpce sa zoskupujú do rodiny stĺpcov (Column family). Hodnoty zoskupených stĺpcov reprezentujú jeden záznam, ktorý identifikuje unikátny kľúč. Pomocou tohoto kľúča a názvu stĺpca sme schopný pristúpiť k hodnote ktorú reprezentuje. Pri vytváraní dátového modelu stačí vytvoriť rodinu stĺpcov a každý záznam, ktorý do nej vkládame môže obsahovať ľubovoľný počet stĺpcov. Tabuľkou je teda distribuovaná multidimenzionálna mapa, ktorá je indexovaná pomocou kľúčov. Operácie nad stĺpcami, ktoré identifikuje daný kľúč sú atomické. Ďalej platí, že vo v rámci rodiny stĺpcov sú stĺpce zoradené. Každá rodina stĺpcov je uložená v samostatnom súbore a je zoradená podľa kľúčov. Je preto vhodné do danej rodiny stĺpcov ukládať dáta, ku ktorým budeme pristupovať spoločne, čim sa vyhneme zbytočným diskovým operáciam.
+Základnou jednotkou dátového modelu je stĺpec. Stĺpec je tvorený názvom, hodnotou a časovým odtlačkom, ktorý využíva Cassandra pri riešení konfliktov. Stĺpce sa zoskupujú do rodiny stĺpcov (Column family). Hodnoty zoskupených stĺpcov reprezentujú jeden záznam, ktorý identifikuje unikátny kľúč. Pomocou tohoto kľúča a názvu stĺpca sme schopný pristúpiť k hodnote ktorú reprezentuje. Pri vytváraní dátového modelu stačí vytvoriť rodinu stĺpcov a každý záznam, ktorý do nej vkládame môže obsahovať ľubovoľný počet stĺpcov. Tabuľkou je teda distribuovaná multidimenzionálna mapa, ktorá je indexovaná pomocou kľúčov. Operácie nad stĺpcami, ktoré identifikuje daný kľúč sú atomické v rámci repliky. Ďalej platí, že vo v rámci rodiny stĺpcov sú stĺpce zoradené. Každá rodina stĺpcov je uložená v samostatnom súbore a je zoradená podľa kľúčov. Je preto vhodné do danej rodiny stĺpcov ukládať dáta, ku ktorým budeme pristupovať spoločne, čim sa vyhneme zbytočným diskovým operáciam.
 
-Štruktúra super-stĺpec je špecialny typ stĺpca, ktorý je tvorenými obyčajnými stĺpcami. Stĺpec typu super má názov a jeho hodnota je tvorená zoznamom názvov obyčajných stĺpcov. Tento prístup pridáva ďalšiu úroveň v dátovej štruktúre. Tieto super stĺpce je možne združit do podobnej štruktúry a to super-rodiny stĺpcov. 
+Štruktúra super-stĺpec (Super column family) je špecialny typ stĺpca, ktorý je tvorenými obyčajnými stĺpcami. Stĺpec typu super má názov a jeho hodnota je tvorená zoznamom názvov obyčajných stĺpcov. Tento prístup pridáva ďalšiu úroveň v štruktúre. Super stĺpce je možne združit do podobnej štruktúry pod názvom super-rodina stĺpcov (Super Column Family).
 
-Uzol distribuovaného databázového systému obsahuje štruktúry pod názvom keyspace. U týchto štruktúr môžeme napríklad definovať faktor replikácie, môžeme sa na nich pozerať ako na databázu u relačných databázových systémov. Do štruktúry keyspace vkladáme rodiny stĺpcov, ktoré môžeme prirovnať k tabuľkám v relačných databázach. 
+Distribuovaného databázového systému obsahuje štruktúry pod názvom keyspace. U týchto štruktúr môžeme napríklad definovať faktor replikácie, môžeme sa na nich pozerať ako na databázu u relačných databázových systémov. Do štruktúry keyspace vkladáme rodiny stĺpcov, ktoré môžeme prirovnať k tabuľkám v relačných databázach. 
 
 
-\subsection{ARchitektúra}
+keyspace:CF:stlpec
+keyspace:CF:SC:stlpec
 
+Nad týmto dátovým modelom je možné vykonávať nasledujúce operácie:
+insert...
+get..
+delete...
+
+\subsection{Rozsekávanie dát a replikácia}
+
+\subsection{Konzistencia}
+
+\subsection{Mechanizmy pre správu chýb}
+
+\subsection{Perzistentné úložisko}
+
+
+
+perzistentn=e uloziskoa
+Tento systém bol primárne navrhnutý tak aby spracúval vysoký tok pre zápis, s tým že čo najmenej ovlplyvní efektívnosť operácií na čítanie. Hlavné vlastnosti popíšeme v následujúcej časti textu.
+
+Rodina stlpcov - last 100 emails , je automaticky zotriedena podla datumu, co podporuje samotna Cassandra.
 
 
 
@@ -840,6 +860,12 @@ Uzol distribuovaného databázového systému obsahuje štruktúry pod názvom k
 % dovod preco sme vybrali column.familly - graf = komplexnost problemu narast data = a podla neho ze nepotrebujem key-value - zlozita praca so strukt. datami...  a popis 2 vybranych
 
 \section{Hadoop vs. Cassandra}
+
+Obecné výkonové porovnanie NoSQL systémov je zložitá úloha. Žiadny systém nie je navrhnutý tak aby ním bolo možné dosiahnúť optimálne výsledky v prípade, že ho použijeme pre rôzne typy aplikácií. Niektoré systémy sú optimalizované pre zápis iné pre čítane dát. Výkon týchto systémov ďalej ovlyvňuje faktor replikácie, spôsob rozsekávania dát, ich umiestnenie a iné. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. 
+
+Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
+
+
 
 %???Konflikty v distribuovanych DB ??? (vector clock)
 %???? Výhody noSQL v porovnaní s modelovaním dát u relačných
