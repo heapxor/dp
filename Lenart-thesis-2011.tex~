@@ -834,25 +834,55 @@ get..
 delete...
 
 \subsection{Rozsekávanie dát a replikácia}
+%vuh1093.pdf
+Kľúčovým požiadavkom systému Cassandra je jeho schopnosť škálovania do šírky, čo vyžaduje pridávanie nových uzlov. Tento požiadavok vyžaduje mechanizmus, ktorý zabezpečí dynamické rozdeľovanie dát medzi uzlami systému. Uvažujme príklad, kde máme k dispozícii jeden server obsahujúci veľké množstvo objektov, ku ktorým pristupujú klienti. Medzi server a klientov vložíme vrstvu kešovacích systémov, kde každý z týchto systémov bude zodpovedný pre rýchly prístup k danej časti objektov nachádzajúcich sa na serveri. Klient teda musí byť schopný určiť, ku ktorém kešovaciemu systému musí pristúpiť v prípade, že chce daný objekt. Predpokladajme, že klientom zabezpečíme výber jednotlivých kešovacím systémom pomocou hešovania s využitím lineárnej hešovacej funkciek (x -> ax + b (mod p), kde p je počet kešovacích systémov). Pridanie nového kešovacieho systému alebo jeho zlyhanie bude mať katastrofálny dopad na funkčnosť systému. V prípade, že sa zmení parameter p, teda počet kešovacích systémov každá položka bude odpovedať novej a zároveň chybnej lokácii. Tento problém rieši elegantne technika pod názvom úplné hašovanie (consistent hashing) \ref{}, ktorá sa využíva v distribuovaných systémoch pre prácu s distribuovanými hašovacími tabuľkami. Túto techniku taktiež využíva systém Cassandra.
+
+Výstup hašovacej funkcie je pevne stanovený rozsah, ktorý sme schopný reprezentovať pomocou kruhu. Každý uzlol v systéme má pridelenú náhodnu hodnotu z tohoto rozsahu, ktorá určuje jeho pozíciu v kruhu. Identifikácia dát v systéme sa vykoná pomocou aplikovania hašovacej funkcie na hodnotu ich kľúča, ktorá určí ich polohu v kruhu. Podľa tejto polohy následne vyhľadáme v kruhu v smere hodinových ručiek prvý prvý uzol, ktorého poloha je väčšia ako poloha identifikujúca dáta. Výhodou tohoto systému je, že každý uzol je zodpovedný za hodnotu kľúčov, ktorých poloha sa nachádza medzi ním a jeho predchodcom. V prípade pridania nového uzlu alebo jeho odobratia, sa zmena prejaví len u jeho susedov. 
+
+Táto technika zároveň prináša nevýhody ako rovnomerná distribúcia dát a vyváženie záťaže. V systéme Cassandra, je možné u každého uzlu stanoviť jeho polohu na kruhu pomocou zadania jeho identifikátora. Tento spôsob je vhodný v prípade, ak vieme predom určiť koľko uzlov bude obsahovať náš systém. V prípade zvyšovania počtu uzlov je možné tieto identifikátory a teda ich polohu v kruhu zmeniť za chodu systému, čím sme schopný opäť dosiahnúť jeho rovnomerné vyváženie. Identifikátor polohy uzlov vieme určiť pomocou následujúceho programu, kde K je počet uzlov v systéme.
+
+\begin{verbatim}
+RING_SIZE = 2**127
+def tokens(n):
+  rv = []
+  for x in xrange(n):
+    rv.append(RING_SIZE / n * x)
+  return rv
+
+print tokens(K)
+\end{verbatim}
+
+S úplným hašovaním úzko súvisý replikácia, ktorá zabezpečuje vysokú dostupnosť a odolnosť dát proti ich stráte. Každá dátová jednotka vložená do systému je replikovaná na N uzlov, kde počet N je možné nastaviť pre daný keyspace. Každý uzol sa v prípade replikácie N > 1 stáva koordinátorom, zodpovedným za replikáciu kľúčov z rozsahu ktorý mu pripadá v kruhu. V prípade zápisu koordinátor replikuje dané dáta na N - 1 uzlov v smere hodinových ručičiek. Tento fakt spôsobí, že každý uzol je zodpovedný za svoj rozsah kľúčov a rozsah kľúčov, ktoré spravuje jeho N predchodcov.
+
+Priklad...
+
 
 \subsection{Konzistencia}
 
-\subsection{Mechanizmy pre správu chýb}
+Konzistencia systému je maximálne konfigurovateľná a využíva princípy techník založených na kôrum protokoch. Klient si môže nastaviť hodnotu R určujúcu z koľkých replík majú byť načítané dáta identifikované kľúčom. Hodnotu W, určuje na koľko replík je potrebné vykonať zápis a následne vrátit potvrdenie o jeho úspešnosti klientovi. V prípade, že platí vzťah R + W > N, kde N je počet replík tak sa jedná o silne konzistentný systém, naopak v prípade voľby klienta, kde R + W < N, sa jedná o slabú konzistenciu a zaručíme vysokú dostupnosť.
+
+\subsection{Členstvo uzlov v systéme}
+
+Distribuovaný systém musí byť schopný odolávať chybám ako porucha uzlov alebo sieťové prerušenia. Podpora decentralizácie a detekcia chýb využíva Gosship protokol. Tento protokol slúži na vzájomnú komunikáciu uzlov, ktoré tvoria kruh a vymnieňajú si navzájom informácie o svojom stave. Periodicky v sekundových intervaloch každý uzol kontaktuje náhodne vybraný uzol, kde si overí či je tento uzol dostupný.
+
+Pridávanie novýchu uzlov, identifikátory popisujúce umiestnenie uzlov v kruhu, presun uzlov v rámci kruhu a iné operácie sa taktiež dejú pomocou Gosship protokolu. Tento protokol zabezpečuje, že každý uzol obsahuje informácie o tom, ktorý uzol je zodpovedný za daný rozsah kľúčov v kruhu. Ak sa vykonáva operácia čítania alebo zápisu dát na uzol, ktorý nie je zodpovedný za tento kľúč, dáta sú automaticky preposlané na správny uzol.
 
 \subsection{Perzistentné úložisko}
 
+Tento systém bol primárne navrhnutý tak aby spracúval vysoký tok pre zápis, s tým že čo najmenej ovlplyvní efektívnosť operácií na čítanie. Cassandra využíva ako perzistentné úložisko dát lokálny súborový systém. 
+
+\subsubsection{Zápis dát}
+Ak uzol obrží požiadavok pre zápis, dáta sú zapísané do štruktúry pod názvom commit log, ktorá je uložená na lokálnom súborovom systéme a zabezpečí trvácnosť dát. Zápis do tejto štruktúry je vykonávaný sekvenčne čo umožnuje dosiahnúť vysokú priepusnosť pre zápis. Dáta sú následne nahrané do štruktúry pod názvom memtable, ktorá sa nachádza v operačnej pamati a v prípade, že by tento zápis zlyhal, je neustále možne ich obnovenie z commit logu. Po dosiahnutí určitéh prahu, tj. počtu dát uložených v memtable sú tieto štruktúry zapísané do štruktúr pod názvom SSTable, ktoré už nie je možné modifikovať pomocou aplikácie. Tieto operácie sú neblokujúce. štruktúry SSTables sa následne zlievajú v pravidelných intervaloch a  ... . Indexy???
+
+Keď vykonáme operáciu reprezentujúcu zmazanie dát, tieto dáta sa nevymažú okamžite. Namiesto toho sa vykoná operácia, ktorá dané dáta označkuje príznakom pod názvom tombstone. Po uplynutí doby, ktorá je štandardne nastavená na desať dní, sa tieto dáta odstránia pri procese zlievajúcom SSTables štruktúry.
+
+\subsubsection{Čítanie dát}
+V prípade požiadavku na načitanie dát, sa požadované dáta najprv hľadajú v štruktúrach memtable, ktoré sú uložené v operačnej pamati. Ak sa dané data nenachádzajú v operačnej pamati, vyhľadávanie sa uskutočnuje podľa kľúča v diskových štruktúrach SSTable. Kedže snahou systému je čo najefektívnejšie vyhľadávanie, využívajú sa bloom filtre. Bloom filtre sú nedeterministické algoritmy, ktoré dokážu otestovať či element patrí do množiny. Napriek ich nedeterminizmu generujú len falošné pozitíva. Pomocou nich je možné namapovať kľúče zo štruktúr SSTables do bitových polí, ktoré je možné uchovať v operačnej pamati. Vďaka tomu sa redukuje prístup na disk, keď hľadáme súbor, ktorý obsahuje dáta odpovedajúce hľadanému kľúču. 
 
 
-perzistentn=e uloziskoa
-Tento systém bol primárne navrhnutý tak aby spracúval vysoký tok pre zápis, s tým že čo najmenej ovlplyvní efektívnosť operácií na čítanie. Hlavné vlastnosti popíšeme v následujúcej časti textu.
 
-Rodina stlpcov - last 100 emails , je automaticky zotriedena podla datumu, co podporuje samotna Cassandra.
-
-
-
-
-
-
+%2 disky  = 1 pre commit 2 pre data v applikacii ... 
+%Rodina stlpcov - last 100 emails , je automaticky zotriedena podla datumu, co podporuje samotna Cassandra.
 
 \section{Hadoop}
 
