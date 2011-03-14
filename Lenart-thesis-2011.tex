@@ -498,6 +498,8 @@ Rôzna konfigurácia týchto parametrov zabezpečí rozdielnu výkonnosť a dost
 Nekonzistentnosť dát, môže byť tolerovaná v distribuovaných systémoch , ktoré sú vysoko škálovateľné za cieľom dosiahnutia lepšieho výkonu operácií, ktoré slúžia pre zápis a čítanie dát, celkovej výkonnosti a dostupnosti systému. Hranica do akej miery je možné dovoliť nekonzistenciu je určená požiadavkom klientskej aplikácie a vyššie spomínané modely sa ju snažia riešiť. Väčšinu z týchto modelov implementujú NoSQL systémy.
 
 
+
+
 \section{MapReduce}
 %http://horicky.blogspot.com/2008/11/hadoop-mapreduce-implementation.html
 %http://horicky.blogspot.com/2009/11/what-hadoop-is-good-at.html
@@ -735,7 +737,7 @@ Dátový model typu kľuč-hodnota a stĺpcovo orientovaný model (Bigtable clon
 
 %one size fits all?
 \subsection{Elastickosť}
-Vďaka škálovaniu sa snažime o zýšenie kapacity celkového dátového úložiska. Elastickosť popisuje ako sa daný systém dokáže vysporiadať s pridaním nového uzlu.
+Vďaka horizontálnemu škálovaniu sa snažime o zýšenie kapacity celkového dátového úložiska. Elastickosť škálovania popisuje ako sa daný systém dokáže vysporiadať s pridaním alebo odobraním uzlu. U tejto vlastnosti sledujeme či je potrebné manuálne rebalancovanie dát, reštartovanie celého systému alebo zmena v uživateľskej aplikácii. Táto vlastnosť by ideálne mala zabezpečiť lineárne zvyšovanie výkonu u operácií ako je čítanie alebo zapisovanie dát.
 
 
 \subsection{Konzistencia dát}
@@ -788,7 +790,7 @@ V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie
         Distribuovaný systém	& áno  & áno & áno \\ \hline 
         Dátový model		& Bigtable \footnote{lala} & Bigtable & Bigtable \\ \hline
         Dotazovací model	& ~  & ~ &  \\ \hline
-	API 			& Thrift, REST  & Thrift, Avro & Thrift, C++ \\ \hline
+	Klient 			& Thrift, REST  & Thrift, Avro & Thrift, C++ \\ \hline
         Perzistentné úložisko	& HDFS  & LSS\footnote{lokálny súborový systém} & HDFS, KFS, LSS \\ \hline
         SPOF \footnote{SPOF - uzol, ktorého nedostupnosť spôsobí nedostupnosť celého systému}	& áno  & nie & áno \\ \hline
 	Pridanie uzlu do živého systému & áno  & áno & ~ \\ \hline
@@ -852,10 +854,12 @@ def tokens(n):
 print tokens(K)
 \end{verbatim}
 
+
 S úplným hašovaním úzko súvisý replikácia, ktorá zabezpečuje vysokú dostupnosť a odolnosť dát proti ich stráte. Každá dátová jednotka vložená do systému je replikovaná na N uzlov, kde počet N je možné nastaviť pre daný keyspace. Každý uzol sa v prípade replikácie N > 1 stáva koordinátorom, zodpovedným za replikáciu kľúčov z rozsahu ktorý mu pripadá v kruhu. V prípade zápisu koordinátor replikuje dané dáta na N - 1 uzlov v smere hodinových ručičiek. Tento fakt spôsobí, že každý uzol je zodpovedný za svoj rozsah kľúčov a rozsah kľúčov, ktoré spravuje jeho N predchodcov.
 
 Priklad...
 
+Typy replikacie >???
 
 \subsection{Konzistencia}
 
@@ -872,7 +876,10 @@ Pridávanie novýchu uzlov, identifikátory popisujúce umiestnenie uzlov v kruh
 Tento systém bol primárne navrhnutý tak aby spracúval vysoký tok pre zápis, s tým že čo najmenej ovlplyvní efektívnosť operácií na čítanie. Cassandra využíva ako perzistentné úložisko dát lokálny súborový systém. 
 
 \subsubsection{Zápis dát}
-Ak uzol obrží požiadavok pre zápis, dáta sú zapísané do štruktúry pod názvom commit log, ktorá je uložená na lokálnom súborovom systéme a zabezpečí trvácnosť dát. Zápis do tejto štruktúry je vykonávaný sekvenčne čo umožnuje dosiahnúť vysokú priepusnosť pre zápis. Dáta sú následne nahrané do štruktúry pod názvom memtable, ktorá sa nachádza v operačnej pamati a v prípade, že by tento zápis zlyhal, je neustále možne ich obnovenie z commit logu. Po dosiahnutí určitéh prahu, tj. počtu dát uložených v memtable sú tieto štruktúry zapísané do štruktúr pod názvom SSTable, ktoré už nie je možné modifikovať pomocou aplikácie. Tieto operácie sú neblokujúce. štruktúry SSTables sa následne zlievajú v pravidelných intervaloch a  ... . Indexy???
+Ak uzol obrží požiadavok pre zápis, dáta sú zapísané do štruktúry pod názvom commit log, ktorá je uložená na lokálnom súborovom systéme a zabezpečí trvácnosť dát. Zápis do tejto štruktúry je vykonávaný sekvenčne čo umožnuje dosiahnúť vysokú priepusnosť. Dáta sú následne nahrané do štruktúry pod názvom memtable, ktorá sa nachádza v operačnej pamati a v prípade, že by tento zápis zlyhal alebo by došlo k neočakávanému zlyhaniu inštancie Cassandri je možné ich obnovenie z commit logu. 
+Po dosiahnutí určitéh prahu, tj. počtu dát uložených v memtable sú tieto štruktúry asynchrónne zapísané do štruktúr pod názvom SSTable (Sorted String Tables), ktoré už nie je možné modifikovať pomocou aplikácie. štruktúry SSTables sa následne zlievajú v pravidelných intervaloch na pozadí počas behu systému a sú neblokujúce. Počas zlievania SSTables dochádza k zlievaniu dát, kľúčov, odtraňovaniu dát určených na vymazanie a generovaniu nových indexov. Zlievané dáta sa zároveň zoradzujú. 
+
+%sstable data,index,filter?
 
 Keď vykonáme operáciu reprezentujúcu zmazanie dát, tieto dáta sa nevymažú okamžite. Namiesto toho sa vykoná operácia, ktorá dané dáta označkuje príznakom pod názvom tombstone. Po uplynutí doby, ktorá je štandardne nastavená na desať dní, sa tieto dáta odstránia pri procese zlievajúcom SSTables štruktúry.
 
