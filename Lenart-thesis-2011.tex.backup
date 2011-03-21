@@ -568,44 +568,94 @@ S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zár
  self-service for end users
  \item
  disaster recovery
+ \item
+ legislatíva (zákon ukladá povninnosť niektorým subjektom archiváciu)
+ \item
+ corporate policy (nutnost skladovat skutecnou kopii emailove komunikace mimo pusobnost uzivatele pripadne technicky prostredku) ???
+ \item
+ datamining 
 \end{itemize}
 
 
 \section{Požiadavky na systém}
 
-V následujúcej časti popíšeme vlastnosti systému, ktorý bude slúžiť na archiváciu veľkého objemu emailových správ.
+V následujúcej časti popíšeme vlastnosti systému, ktorý bude slúžiť na archiváciu veľkého objemu emailových správ. Primárnym požiadavkom na systém je jeho rozšíriteľnosť, dostupnosť a nízkonakladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky TB (terabyte). Takúto kapacitu dát nie je možne uchovať na bežne prístupnom spotrebnom hardvéri (commodity hardware). Systém musí byť neustále dostupný a dáta zalohované v prípade vzniku havárie niektorej z jeho časti. Nad uloženými dátami, je potrebné vykonávať výpočtovo náročné operácie ako generovanie štatistík. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopný vyriešiť patria NoSQL databázové systémy, ktorých zrovnanie popíšeme v následujúcej kapitole.
 
-\subsection{Obecne vlastnosti}
-
-Primárnym požiadavkom na systém je jeho rozšíriteľnosť, dostupnosť a nízkonakladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky TB (terabyte). Takúto kapacitu dát nie je možne uchovať na bežne prístupnom spotrebnom hardvéri (commodity hardware). Systém musí byť neustále dostupný a dáta zalohované v prípade vzniku havárie niektorej z jeho časti. Nad uloženými dátami, je potrebné vykonávať výpočtovo náročné operácie napr. generovanie štatistík. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopný vyriešiť patria NoSQL databázové systémy, ktorých zrovnanie popíšeme v následujúcej kapitole.
+\subsection{Nefunkčné požiadavky}
 
 \subsubsection{Rozšíriteľnosť}
-Predpokladáme použitie bežne dostupného spotrebného hardvéru, namiesto superpočítačov. Systém musí byť schopný horizontálneho škálovania, ktoré využijeme pre zvýšenie celkovej kapacity dátového úložiska systému a na prípadné efektívnejšie spracovanie dát pomocou techniky MapReduce. U databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude nutné riešiť zálohovanie systému pomocou externého riešenia.
+Predpokladáme použitie bežne dostupného spotrebného hardvéru, namiesto superpočítačov. Z dôvodu neustalého nárastu objemu elektronickej pošty, musí byť systém schopný horizontálneho škálovania, ktoré využijeme pre zvýšenie celkovej kapacity dátového úložiska (stovky terabajtov). Pridávaním nových uzlov do systému zároveň získame vyšší vypočetný výkon, ktorý využijeme na spracovanie dát pomocou techniky MapReduce. U databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude potrebné riešiť externé zálohovanie systému.
 
 \subsubsection{Dostupnosť}
-Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťovej komunikácií (ang. network partitions), preto je vhodné aby sa dáta replikovali vo vnútry datacentra a následne aspoň medzi dvoma datacentrami, ktoré budú umiestnené na geograficky odlišných miestach.
+Systém musí byť neustále dostupný a schopný odolávať poruchám v sieťovej komunikácií (network partitions), krátkodobej neodstupnosti uzlov, úplným zlyhaniam jednotlivých uzlov a umožnovať spracúvať tok v rozmedzí 10Mbps až 1Gbps. Je vhodné aby sa dáta replikovali vo vnútry datacentra na dva uzly a tretia replika bola umiestnená v datacentre, ktoré sa bude nachádzať na geograficky odlišnom mieste. Vyžadujeme aby systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu a je kedykoľvek nahraditeľná.
 
 \subsubsection{Nízkonákladová administrácia}
-Bolo by vhodné ak by systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentrelizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu.
+Prevádzkovanie systému a jeho administrácia by mala byť čo najmenej náročná. Výmena alebo pridanie uzlu by mali trvať maximálne 24hod.
+
+\subsubsection{Bezpečnosť}
+Osoby s oprávnením pre prístup k systému budú schopné oprerovať s jeho celým obsahom. Nekladieme žiadne požiadavky na uživateľské role. 
+
+\subsubsection{Implementačné požiadavky}
+Cieľom je implementácia systému s využitím open source technologíí. 
+
+%???
+\begin{table}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        Požiadavok & Popis požiadavku & Riziko & Priorita \\  \hline
+	%& & & \\ \hline
+    \end{tabular}
+\end{table}
 
 \subsection{Funkčné požiadavky}
 
-Uložené dáta je potrebné vhodne štruktúrovať aby bolo s nimi možné efektívne pracovať. Od systému požadujeme následujúce funkcie:
+\subsubsection{Ukladanie emailov}
+Systém musí umožnovať uloženie emailu a jeho obálky do databáze v pôvodnej podobe. Klúčovým požiadavkom je ukladanie príloh emailov, kde požadujeme aby sa unikátne prílohy ukladali do systému len raz. Dôvodom je vysoká úspora dátového priestoru. Požadujeme aby bolo možné globálne nastaviť pre emaily patriace do špecifickej domény dobu počas, ktorej budú v systéme archivované.
 
+???
 \begin{itemize}
  \item
-  vyhľadávanie emailov podľa údajov tvoriacich obálku, podľa hlavičiek (predmet, odosielateľ, príjemca), podľa textu obsiahnutom v tele správy a podľa názvu prílohy
+  čas prijatia emailu
  \item
-  prístup koncových užívateľov k archívu, jeho prehľadávanie, export vybraných emailov
+  obálka emailu
  \item
-  tvorba štatistík (ich konkrétny popis)
+  predmet správy
  \item
-  expirácia emailov uložených v databáze po predom určenej dobe
+  identifikátor emailu (message ID)
  \item
-  unikátne ukladanie príloh emailov z dôvodu úspory diskového priestoru
-\end{itemize}
+  názvy príloh a ich veľkosti
+ \item
+  celková veľkosť emailu
+ \item
+  doba spracovania emailu pomocou antivýrových a antispamových aplikácií
 
-Poďla popisu databázových syśtémov v prechádzajúcej kapitole vidíme, že použitie relačnej databáze nie je vhodné pre riešenie nášho problému. Medzi základné problémy patrí náročné horizontálne škalovanie a problémy s dostupnosťou. Emailová správa je štruktúrovaný objekt, časť z našich funkcií systému bude s touto štruktúrou a jej časťami pracovať, rozhodli sme sa, že náš výber noSQL systému zúžime na tie systémy, ktoré využívajú stĺpcový dátový model.
+\subsubsection{Export emailov}
+Systém musí umožnovať prístup k ľubovoľnému uloženému emailu v jeho pôvodnej podobe.
+
+\subsubsection{Vyhľadávanie emailov}
+Vyžadujeme fultextové vyhľadávanie emailov podľa údajov nachádzajúcich sa v obálke, podľa hlavičiek (predmet správy, odosielateľ, príjemca), podľa textu obsiahnutom v tele správy a podľa názvu prílohy.
+
+Hľadanie je potrebné realizovať nad všetkými emailovými správami uloženými v systéme, nad správami podľa danej domény a nad správami, ktoré prináležia danému uživateľovi.
+
+\subsubsection{Štatistiky}
+Nad uloženými správami budeme generov
+
+% \begin{itemize}
+%  \item
+%   vyhľadávanie emailov podľa údajov tvoriacich obálku, podľa hlavičiek (predmet, odosielateľ, príjemca), podľa textu obsiahnutom v tele správy a podľa názvu prílohy
+%  \item
+%   prístup koncových užívateľov k archívu, jeho prehľadávanie, export vybraných emailov
+%  \item
+%   tvorba štatistík (ich konkrétny popis)
+%  \item
+%   expirácia emailov uložených v databáze po predom určenej dobe
+%  \item
+%   unikátne ukladanie príloh emailov z dôvodu úspory diskového priestoru
+% \end{itemize}
+
+Poďla popisu databázových syśtémov v prechádzajúcej kapitole vidíme, že použitie relačnej databáze nie je vhodné pre riešenie nášho problému. Medzi základné problémy patrí náročné horizontálne škalovanie a problémy s dostupnosťou. V nasledujúcej časti sa budeme preto zaoberať popisom NoSQL a po ich analýze vyberieme dvoch kandidátov, ktorých použijeme pre implementáciu riešenia.
+
+%Emailová správa je štruktúrovaný objekt, časť z našich funkcií systému bude s touto štruktúrou a jej časťami pracovať, rozhodli sme sa, že náš výber noSQL systému zúžime na tie systémy, ktoré využívajú stĺpcový dátový model.
 
 
 
@@ -854,6 +904,7 @@ def tokens(n):
 print tokens(K)
 \end{verbatim}
 
+
 S úplným hašovaním úzko súvisý replikácia, ktorá zabezpečuje vysokú dostupnosť a odolnosť dát proti ich stráte. Každá dátová jednotka vložená do systému je replikovaná na N uzlov, kde počet N je možné nastaviť pre daný keyspace. Každý uzol sa v prípade replikácie N > 1 stáva koordinátorom, zodpovedným za replikáciu kľúčov z rozsahu ktorý mu pripadá v kruhu. V prípade zápisu koordinátor replikuje dané dáta na N - 1 uzlov v smere hodinových ručičiek. Tento fakt spôsobí, že každý uzol je zodpovedný za svoj rozsah kľúčov a rozsah kľúčov, ktoré spravuje jeho N predchodcov.
 
 Priklad...
@@ -875,7 +926,8 @@ Pridávanie novýchu uzlov, identifikátory popisujúce umiestnenie uzlov v kruh
 Tento systém bol primárne navrhnutý tak aby spracúval vysoký tok pre zápis, s tým že čo najmenej ovlplyvní efektívnosť operácií na čítanie. Cassandra využíva ako perzistentné úložisko dát lokálny súborový systém. 
 
 \subsubsection{Zápis dát}
-Ak uzol obrží požiadavok pre zápis, dáta sú zapísané do štruktúry pod názvom commit log, ktorá je uložená na lokálnom súborovom systéme a zabezpečí trvácnosť dát. Zápis do tejto štruktúry je vykonávaný sekvenčne čo umožnuje dosiahnúť vysokú priepusnosť pre zápis. Dáta sú následne nahrané do štruktúry pod názvom memtable, ktorá sa nachádza v operačnej pamati a v prípade, že by tento zápis zlyhal alebo by došlo k neočakávanému zlyhaniu inštancie Cassandri neustále možne ich obnovenie z commit logu. Po dosiahnutí určitéh prahu, tj. počtu dát uložených v memtable sú tieto štruktúry zapísané do štruktúr pod názvom SSTable, ktoré už nie je možné modifikovať pomocou aplikácie. štruktúry SSTables sa následne zlievajú v pravidelných intervaloch na pozadí počas behu systému a sú neblokujúce. Počas zlievania SSTables dochádza k zlievaniu dát, kľúčov, odtraňovaniu dát určených na vymazanie a generovaniu nových indexov. Zlievané dáta sa zároveň zoradzujú. 
+Ak uzol obrží požiadavok pre zápis, dáta sú zapísané do štruktúry pod názvom commit log, ktorá je uložená na lokálnom súborovom systéme a zabezpečí trvácnosť dát. Zápis do tejto štruktúry je vykonávaný sekvenčne čo umožnuje dosiahnúť vysokú priepusnosť. Dáta sú následne nahrané do štruktúry pod názvom memtable, ktorá sa nachádza v operačnej pamati a v prípade, že by tento zápis zlyhal alebo by došlo k neočakávanému zlyhaniu inštancie Cassandri je možné ich obnovenie z commit logu. 
+Po dosiahnutí určitéh prahu, tj. počtu dát uložených v memtable sú tieto štruktúry asynchrónne zapísané do štruktúr pod názvom SSTable (Sorted String Tables), ktoré už nie je možné modifikovať pomocou aplikácie. štruktúry SSTables sa následne zlievajú v pravidelných intervaloch na pozadí počas behu systému a sú neblokujúce. Počas zlievania SSTables dochádza k zlievaniu dát, kľúčov, odtraňovaniu dát určených na vymazanie a generovaniu nových indexov. Zlievané dáta sa zároveň zoradzujú. 
 
 %sstable data,index,filter?
 
