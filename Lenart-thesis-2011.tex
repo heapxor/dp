@@ -982,12 +982,106 @@ V prípade požiadavku na načitanie dát, sa požadované dáta najprv hľadaj�
 % U množstva nových problémov ako napríklad grafy sociálnych sieti alebo vyhľadávače je komplikované predom určiť a popísať komplexne model dát, ktorý  sa môže časom  meniť, z dôvodu neustálej zmeny vstupných dát. V tomto prípade, nachádzame množstvo výhod u dátového modelu noSQL systémov, ktorý dokáže pracovať s neštrukturovanými alebo čiastočne štrukturovanými dátami.
 
 
-\chapter{Analýza a návrh riešenia}
+=== Porovnanie vykonnosti systemov 
+
+nastroj na naplnenie systemov 
+
+meranie 
+
+write - read 
+
+
+
+
+\chapter{Návrh systému}
+
+V tejto kapitole popíšeme návrh systému, ktorý bude slúžiť na archiváciu emailov a spĺňať požiadavky, ktoré sme pre tento systém definovali. V prvej časti sa zameriame na výber vhodných open source nástrojov pre implementáciu prototypu a následne popíšeme dosiahnuté výsledky v testovacom prostredí, ktoré preukážu vhodnosť využitia NoSQL systému Cassandra pre riešenie tejto úlohy.
+
+\subsection{Zdroj dát}
+%http://www.fi.muni.cz/~kas/p090/referaty/2011-jaro/ut/email.html
+Základným prvkom, ktorý budeme v našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{}. Tento objekt pozostáva z SMTP obálky a samotnej emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerý príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z roku 2001 pod názvom Formát Internetovej správy (angl. Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z roku 1982 (angl. Standard for the Fromat of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v hlavičke rožšírujú štandardy, pod názvom MIME (ang. Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046, RFC 2047, RFC 2048 a RFC 2049 \cite{}. Tieto štandardy pridávajú možnosť použitia iných znakových sád ako US-ASCII, ďalej umožnujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
+
+Zber emailových objektov je realizovaný na unixových serveroch, ktoré budú používať emailový server QMAIL\footnote{http://cr.yp.to/qmail.html}. Tento server bude zároveň realizovať antispamovú kontrolu kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný QMAIL-om, ktorý volá modul qmail-scanner a následne dokončí obsluhu doručenia. Tento modul sme vhodne modifikovali pre potreby nášho systému. Modifikovaný súbor je súčasťou zdrojových kódov tejto práce. Výstupom je dvojica súborov a to obálka, ktorá obsahuje viacero štatistických údajov a samotný textový súbor reprezentujúci emailovú správu v pôvodnej podobe. Príklad obálky znázorňuje obrázok \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese http://qmail-scanner.sourceforge.net/.
+
+\begin{figure}[h]
+
+\begin{verbatim}
+Tue, 15 Mar 2011 10:12:09 CET	Clear:RC:1(88.208.65.55):SA:1	0.007811	9508	odosielatel@server	prinemca@server2	predmet	<1300180228103914546@aq>	
+1300180329.16836-0.forid1:5987	priloha1:134
+\end{verbatim}
+ \caption{Obsah obálky}
+ \label{fig:envelope}
+\end{figure}
+
+
+\subsection{Analýza dát}
+Jedný z hlavých požiadavkov systému je deduplikácia príloh emailových správ z dôvodu úspory diskovej kapacity. Hlavička s názvom \uv{Content-Type}, ktorú definuje RFC 2045 špecifikuje typ dát v tele MIME správy. Jej hodnota je tvorená z dvoch častí a to názov typu média (angl. media type) a bližšie špecifikovaný podtyp, napríklad \uv{image/gif}. Norma definuje základných päť typov médií a to text, image, audio, video a application. V prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typ s výnimkou typu \uv{text/plain}, kde predpokladáme, že sa jedná o bežnú textovú správu napísanú uživateľom.
+
+Program pre analýzu a deduplikáciu emailovej správy bol napísaný v programovacom jazyku Python\footnote{http://python.org}. Tento program dodržiaval špecifikáciu RFC 2822 a RFC2045. 
+Medzi povinné polia hlavičky emailu patria pole \uv{From} a {Date}. Aj napriek tomu, že tieto polia sú definované už od roku 1982 v RFC 1982 analýza nášho datasetu ukázala, že XY \% emailov tento požiadavok nespĺňa. Z celkovej množiny emailov o veľkosti 98000 bolo 0.022\% emailov, ktoré nespĺňali štruktúru definovanú normou RFC 2045. Metódu deduplikácie sme riešili nasledujúcim spôsobom:
+
+\begin{itemize}
+ \item analýzou emailu sme určili časti, v ktorých sa nachádzajú prílohy
+ \item nad dátami reprezentujúcimi prílohu sme pomocou kryptografickej funkcie SHA2-256 spočítali heš (H), ktorú sme použili ako unikátny identifikátor
+ \item dáta reprezentujúce prílohu v emaile sme nahradili jedinečnou značkou v tvare MARK:H
+ \item dáta reprezentujúce prílohu sme do databáze uložili pod kľúčom H
+\end{itemize}
+
+%ukazka tela s prilohami?
+
+\subsection{Databázová schéma}
+
+Databázovú schému sme navrhli s ohľadom na to aké operácie nad danými dátami budeme vykonávať a taktiež sme pri návhru využili poznatky získané štúdiom architektúry tejto databáze. Schéma je tvorená pomocou štyroch Column families a to:
+
+\begin{itemize}
+ \item messagesMetaData obsahuje meta informácie identifikované v obálke emailového objektu a emailovej správy, nad ktorými budeme vykonávať štatistické výpočty pomocou metódy Mapreduce
+ \item messagesContent obsahuje obálku, hlavičku a telo správy
+ \item messagesAttachment slúži na ukladanie deduplikovaných príloh emailov  
+ \item lastInbox v chronologickom časovom poradí, podľa hodnoty Date v hlavičke emailu, zaznamenáva emaily daného užívateľa
+\end{itemize}
+
+%Operácie nad dátami
+
+
+
+V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (ang. blob), ktorých veľkosť prevyšuje 5MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512KB. Preto prílohy a samotné dáta emailu v prípade, že ich veľkosť presahuje 1MB zapisujeme do samostatných stĺpcov o veľkosti 512KB na aplikačnej úrovni. Názvy stĺpcov číslujeme vzostupne v rozmedzí 0 až n. Spätnú rekoštrukciu pri načitaní dát je potrebné zabezpečiť taktiež pomocou klienta. 
+
+
+\subsection{Schéma pre fultextové vyhľadávanie}
+
+
+implementacia
+
+\chapter{BBB}
+
+komponenty (celery, pycassa...)
+
+
+
+
+popis Klient DB , ES - 
 
 
 
 
 
+Testovacie prostredie
+= naplnenie datami
+-- analyza datasetu HIstogram..
+= mapreduce - PIG
+
+test integrity dat
+
+=?
+popis vysledkov
+
+kolko % deduplikacia
+kolko tvorili indexy
+kolko MB metadata - attacch
+ES rychlost 
+
+
+====== zaver 
 
 
 \chapter{ZMAZAT}

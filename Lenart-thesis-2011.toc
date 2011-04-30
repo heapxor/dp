@@ -57,39 +57,44 @@
 \contentsline {subsubsection}{\numberline {4.4.5.2}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{29}{subsubsection.4.4.5.2}
 \contentsline {section}{\numberline {4.5}Hadoop}{29}{section.4.5}
 \contentsline {section}{\numberline {4.6}Hadoop vs. Cassandra}{29}{section.4.6}
-\contentsline {chapter}{\numberline {5}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{31}{chapter.5}
-\contentsline {chapter}{\numberline {6}ZMAZAT}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Komponenty IEEE 802.15.4}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Architekt\IeC {\'u}ra}{34}{section.6.3}
-\contentsline {subsubsection}{\numberline {6.3.0.3}Typy r\IeC {\'a}mcov}{34}{subsubsection.6.3.0.3}
-\contentsline {section}{\numberline {6.4}Architekt\IeC {\'u}ra}{35}{section.6.4}
-\contentsline {section}{\numberline {6.5}Sie\IeC {\v t}ov\IeC {\'e} komponenty}{35}{section.6.5}
-\contentsline {section}{\numberline {6.6}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{36}{section.6.6}
-\contentsline {section}{\numberline {6.7}XBee Series 1}{36}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Technick\IeC {\'e} parametre}{37}{subsection.6.7.1}
-\contentsline {chapter}{\numberline {7}Te\IeC {\'o}ria ant\IeC {\'e}n}{39}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.2}Defin\IeC {\'\i }cia pojmov}{39}{subsection.7.0.2}
-\contentsline {subsection}{\numberline {7.0.3}Propag\IeC {\'a}cia r\IeC {\'a}diov\IeC {\'e}ho sign\IeC {\'a}lu}{40}{subsection.7.0.3}
-\contentsline {subsubsection}{\numberline {7.0.3.1}Pojmy}{40}{subsubsection.7.0.3.1}
-\contentsline {subsection}{\numberline {7.0.4}Typy ant\IeC {\'e}n}{41}{subsection.7.0.4}
-\contentsline {subsection}{\numberline {7.0.5}Stratovos\IeC {\v t} vo\IeC {\v l}n\IeC {\'e}ho priestoru (Free-space path loss)}{41}{subsection.7.0.5}
-\contentsline {subsection}{\numberline {7.0.6}Ant\IeC {\'e}ny a simul\IeC {\'a}cia}{42}{subsection.7.0.6}
-\contentsline {chapter}{\numberline {8}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{45}{chapter.8}
-\contentsline {subsubsection}{\numberline {8.0.6.1}V\IeC {\'y}konov\IeC {\'a} z\IeC {\'a}vislos\IeC {\v t}}{45}{subsubsection.8.0.6.1}
-\contentsline {subsection}{\numberline {8.0.7}\IeC {\v S}trukt\IeC {\'u}ra MF}{47}{subsection.8.0.7}
-\contentsline {subsubsection}{\numberline {8.0.7.1}\IeC {\v S}trukt\IeC {\'u}ra modulu NIC}{48}{subsubsection.8.0.7.1}
-\contentsline {chapter}{\numberline {9}Realiz\IeC {\'a}cia}{53}{chapter.9}
-\contentsline {subsection}{\numberline {9.0.8}Model kol\IeC {\'\i }zie}{54}{subsection.9.0.8}
-\contentsline {subsubsection}{\numberline {9.0.8.1}Popis kol\IeC {\'\i }zie}{55}{subsubsection.9.0.8.1}
-\contentsline {chapter}{\numberline {10}Testovanie}{59}{chapter.10}
-\contentsline {subsection}{\numberline {10.0.9}Testy zameran\IeC {\'e} na pohyb XBee zariaden\IeC {\'\i }}{59}{subsection.10.0.9}
-\contentsline {subsection}{\numberline {10.0.10}Testy s kol\IeC {\'\i }ziou}{60}{subsection.10.0.10}
-\contentsline {chapter}{\numberline {11}Z\IeC {\'a}ver}{65}{chapter.11}
-\contentsline {chapter}{Literat\'ura}{67}{chapter*.5}
-\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{69}{appendix.A}
-\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{71}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.11}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{71}{subsection.B.0.11}
-\contentsline {subsection}{\numberline {B.0.12}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{71}{subsection.B.0.12}
-\contentsline {subsection}{\numberline {B.0.13}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{72}{subsection.B.0.13}
-\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{73}{appendix.C}
+\contentsline {chapter}{\numberline {5}N\IeC {\'a}vrh syst\IeC {\'e}mu}{31}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Zdroj d\IeC {\'a}t}{31}{subsection.5.0.1}
+\contentsline {subsection}{\numberline {5.0.2}Anal\IeC {\'y}za d\IeC {\'a}t}{32}{subsection.5.0.2}
+\contentsline {subsection}{\numberline {5.0.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{32}{subsection.5.0.3}
+\contentsline {subsection}{\numberline {5.0.4}Sch\IeC {\'e}ma pre fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{33}{subsection.5.0.4}
+\contentsline {chapter}{\numberline {6}BBB}{35}{chapter.6}
+\contentsline {chapter}{\numberline {7}ZMAZAT}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}Komponenty IEEE 802.15.4}{37}{section.7.1}
+\contentsline {section}{\numberline {7.2}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{38}{section.7.2}
+\contentsline {section}{\numberline {7.3}Architekt\IeC {\'u}ra}{38}{section.7.3}
+\contentsline {subsubsection}{\numberline {7.3.0.1}Typy r\IeC {\'a}mcov}{38}{subsubsection.7.3.0.1}
+\contentsline {section}{\numberline {7.4}Architekt\IeC {\'u}ra}{39}{section.7.4}
+\contentsline {section}{\numberline {7.5}Sie\IeC {\v t}ov\IeC {\'e} komponenty}{39}{section.7.5}
+\contentsline {section}{\numberline {7.6}Sie\IeC {\v t}ov\IeC {\'a} topol\IeC {\'o}gia}{40}{section.7.6}
+\contentsline {section}{\numberline {7.7}XBee Series 1}{40}{section.7.7}
+\contentsline {subsection}{\numberline {7.7.1}Technick\IeC {\'e} parametre}{41}{subsection.7.7.1}
+\contentsline {chapter}{\numberline {8}Te\IeC {\'o}ria ant\IeC {\'e}n}{43}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.2}Defin\IeC {\'\i }cia pojmov}{43}{subsection.8.0.2}
+\contentsline {subsection}{\numberline {8.0.3}Propag\IeC {\'a}cia r\IeC {\'a}diov\IeC {\'e}ho sign\IeC {\'a}lu}{44}{subsection.8.0.3}
+\contentsline {subsubsection}{\numberline {8.0.3.1}Pojmy}{44}{subsubsection.8.0.3.1}
+\contentsline {subsection}{\numberline {8.0.4}Typy ant\IeC {\'e}n}{45}{subsection.8.0.4}
+\contentsline {subsection}{\numberline {8.0.5}Stratovos\IeC {\v t} vo\IeC {\v l}n\IeC {\'e}ho priestoru (Free-space path loss)}{45}{subsection.8.0.5}
+\contentsline {subsection}{\numberline {8.0.6}Ant\IeC {\'e}ny a simul\IeC {\'a}cia}{46}{subsection.8.0.6}
+\contentsline {chapter}{\numberline {9}Anal\IeC {\'y}za a n\IeC {\'a}vrh rie\IeC {\v s}enia}{49}{chapter.9}
+\contentsline {subsubsection}{\numberline {9.0.6.1}V\IeC {\'y}konov\IeC {\'a} z\IeC {\'a}vislos\IeC {\v t}}{49}{subsubsection.9.0.6.1}
+\contentsline {subsection}{\numberline {9.0.7}\IeC {\v S}trukt\IeC {\'u}ra MF}{51}{subsection.9.0.7}
+\contentsline {subsubsection}{\numberline {9.0.7.1}\IeC {\v S}trukt\IeC {\'u}ra modulu NIC}{52}{subsubsection.9.0.7.1}
+\contentsline {chapter}{\numberline {10}Realiz\IeC {\'a}cia}{57}{chapter.10}
+\contentsline {subsection}{\numberline {10.0.8}Model kol\IeC {\'\i }zie}{58}{subsection.10.0.8}
+\contentsline {subsubsection}{\numberline {10.0.8.1}Popis kol\IeC {\'\i }zie}{59}{subsubsection.10.0.8.1}
+\contentsline {chapter}{\numberline {11}Testovanie}{63}{chapter.11}
+\contentsline {subsection}{\numberline {11.0.9}Testy zameran\IeC {\'e} na pohyb XBee zariaden\IeC {\'\i }}{63}{subsection.11.0.9}
+\contentsline {subsection}{\numberline {11.0.10}Testy s kol\IeC {\'\i }ziou}{64}{subsection.11.0.10}
+\contentsline {chapter}{\numberline {12}Z\IeC {\'a}ver}{69}{chapter.12}
+\contentsline {chapter}{Literat\'ura}{71}{chapter*.5}
+\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{73}{appendix.A}
+\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{75}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.11}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{75}{subsection.B.0.11}
+\contentsline {subsection}{\numberline {B.0.12}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{75}{subsection.B.0.12}
+\contentsline {subsection}{\numberline {B.0.13}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{76}{subsection.B.0.13}
+\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{77}{appendix.C}

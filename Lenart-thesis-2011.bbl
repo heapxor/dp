@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{Resnick:2001:IMF:RFC2822}
+Internet message format, 2001.
+
 \bibitem{BASE}
 {Armando Fox, Steven D. Gribble, Yatin Chawathe, Eric A. Brewer, Paul
   Gauthier}.
@@ -50,5 +53,10 @@ R.~Shoup.
   feature velocity, performance, and cost}, November 2006.
 \newblock \\ \verb|www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|,
   stav z 28.\,2.\,2011.
+
+\bibitem{Udell}
+J.~Udell.
+\newblock {\em Practical Internet GroupWare}.
+\newblock O'Reilly \& Associates, Inc., Sebastopol, CA, USA, 1st edition, 1999.
 
 \end{thebibliography}
