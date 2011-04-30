@@ -997,24 +997,23 @@ write - read
 
 V tejto kapitole popíšeme návrh systému, ktorý bude slúžiť na archiváciu emailov a spĺňať požiadavky, ktoré sme pre tento systém definovali. V prvej časti sa zameriame na výber vhodných open source nástrojov pre implementáciu prototypu a následne popíšeme dosiahnuté výsledky v testovacom prostredí, ktoré preukážu vhodnosť využitia NoSQL systému Cassandra pre riešenie tejto úlohy.
 
-\subsection{Zdroj dát}
+\section{Zdroj dát}
 %http://www.fi.muni.cz/~kas/p090/referaty/2011-jaro/ut/email.html
 Základným prvkom, ktorý budeme v našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{}. Tento objekt pozostáva z SMTP obálky a samotnej emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerý príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z roku 2001 pod názvom Formát Internetovej správy (angl. Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z roku 1982 (angl. Standard for the Fromat of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v hlavičke rožšírujú štandardy, pod názvom MIME (ang. Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046, RFC 2047, RFC 2048 a RFC 2049 \cite{}. Tieto štandardy pridávajú možnosť použitia iných znakových sád ako US-ASCII, ďalej umožnujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
 
 Zber emailových objektov je realizovaný na unixových serveroch, ktoré budú používať emailový server QMAIL\footnote{http://cr.yp.to/qmail.html}. Tento server bude zároveň realizovať antispamovú kontrolu kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný QMAIL-om, ktorý volá modul qmail-scanner a následne dokončí obsluhu doručenia. Tento modul sme vhodne modifikovali pre potreby nášho systému. Modifikovaný súbor je súčasťou zdrojových kódov tejto práce. Výstupom je dvojica súborov a to obálka, ktorá obsahuje viacero štatistických údajov a samotný textový súbor reprezentujúci emailovú správu v pôvodnej podobe. Príklad obálky znázorňuje obrázok \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese http://qmail-scanner.sourceforge.net/.
 
 \begin{figure}[h]
-
 \begin{verbatim}
 Tue, 15 Mar 2011 10:12:09 CET	Clear:RC:1(88.208.65.55):SA:1	0.007811	9508	odosielatel@server	prinemca@server2	predmet	<1300180228103914546@aq>	
 1300180329.16836-0.forid1:5987	priloha1:134
 \end{verbatim}
- \caption{Obsah obálky}
+ \caption{Obsah obálky z programu qmail-scanner}
  \label{fig:envelope}
 \end{figure}
 
 
-\subsection{Analýza dát}
+\section{Analýza dát}
 Jedný z hlavých požiadavkov systému je deduplikácia príloh emailových správ z dôvodu úspory diskovej kapacity. Hlavička s názvom \uv{Content-Type}, ktorú definuje RFC 2045 špecifikuje typ dát v tele MIME správy. Jej hodnota je tvorená z dvoch častí a to názov typu média (angl. media type) a bližšie špecifikovaný podtyp, napríklad \uv{image/gif}. Norma definuje základných päť typov médií a to text, image, audio, video a application. V prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typ s výnimkou typu \uv{text/plain}, kde predpokladáme, že sa jedná o bežnú textovú správu napísanú uživateľom.
 
 Program pre analýzu a deduplikáciu emailovej správy bol napísaný v programovacom jazyku Python\footnote{http://python.org}. Tento program dodržiaval špecifikáciu RFC 2822 a RFC2045. 
@@ -1022,14 +1021,14 @@ Medzi povinné polia hlavičky emailu patria pole \uv{From} a {Date}. Aj napriek
 
 \begin{itemize}
  \item analýzou emailu sme určili časti, v ktorých sa nachádzajú prílohy
- \item nad dátami reprezentujúcimi prílohu sme pomocou kryptografickej funkcie SHA2-256 spočítali heš (H), ktorú sme použili ako unikátny identifikátor
- \item dáta reprezentujúce prílohu v emaile sme nahradili jedinečnou značkou v tvare MARK:H
+ \item nad dátami reprezentujúcimi prílohu sme pomocou kryptografickej funkcie SHA2-256 spočítali heš (H), ktorú sme použili ako unikátny identifikátor prílohy
+ \item dáta reprezentujúce prílohu v emaile sme nahradili značkou v tvare MARK:H
  \item dáta reprezentujúce prílohu sme do databáze uložili pod kľúčom H
 \end{itemize}
 
 %ukazka tela s prilohami?
 
-\subsection{Databázová schéma}
+\section{Databázová schéma}
 
 Databázovú schému sme navrhli s ohľadom na to aké operácie nad danými dátami budeme vykonávať a taktiež sme pri návhru využili poznatky získané štúdiom architektúry tejto databáze. Schéma je tvorená pomocou štyroch Column families a to:
 
@@ -1040,38 +1039,106 @@ Databázovú schému sme navrhli s ohľadom na to aké operácie nad danými dá
  \item lastInbox v chronologickom časovom poradí, podľa hodnoty Date v hlavičke emailu, zaznamenáva emaily daného užívateľa
 \end{itemize}
 
-%Operácie nad dátami
+Tradičné techniky pre popis databázových schémat nie je možné aplikovať na databázové systémy ako napríklad Bigtable alebo Dynamo. Jedným z dôvodom je, že na tieto schémy sa aplikuje denormalizácia, duplikácia dát a klúče sú často komplexného charakteru. Dodnes neexistuje, žiadny štandard, ktorý by definoval popis týchto schémat. Článok pod názvom techniky pre definíciu štruktúr pomocou diagramov v cloude a návrhové vzory (angl. Cloud data structure diagramming techniques and design patterns \cite{CloudDataStructureDiag}) navrhuje stereotypy pre diagramy v jazyku UML a obsahuje vzory pre popis štruktúry týchto dát. Obrázok \ref{fig:Cschema} znázorňujúci databázovú schému nášho modelu aplikuje tieto techniky.
+
+Ako jedinečný identifikátor emailovej správy v databáze využivame nasledujúcu schému:
+\begin{verbatim}
+ emailID = sha256(uid + MessageId + date)
+\end{verbatim}
+
+V tejto schéme reprezentuje:
+\begin{itemize}
+ \item uid emailovú adresu príjemcu, v tvare jan@mak.com
+ \item MessageId je ide identifikátor z hlavičky daného emailu
+ \item date je časová značka reprezentujúca čas kedy bol email prijatý emailovým serverom (formát: rok, mesiac, deň, hodina, minúta, sekunda)
+ \item emailID je heš funkcie SHA2 v hexadecimálnom tvare
+\end{itemize}
+
+%= paritioner
+
+V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (ang. blob), ktorých veľkosť prevyšuje 5MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512KB. Preto prílohy a samotné dáta emailu v prípade, že ich veľkosť presahuje 1MB zapisujeme do samostatných stĺpcov o veľkosti 512KB na aplikačnej úrovni. Názvy stĺpcov číslujeme vzostupne v rozmedzí 0 až n. Spätnú rekoštrukciu pri načitaní dát je potrebné zabezpečiť taktiež pomocou klienta.
+
+\section{Fultextové vyhľadávanie}
+
+Fultextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému Elasticsearch. Archív reprezentujeme pomocou jedného indexu s názvom emailArchive, ktorý obsahuje dva typy s názvom email a envelope. Schéma týchto typov obsahuje polia poďla, ktorých chceme v emailov vyhľadávať a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
+
+\begin{figure}[h]
+\begin{verbatim}
+mappingsEmail = {
+  "inbox": {"type": "string"},
+  "from": {"type": "string"},
+  "subject": {"type": "string"},
+  "date" :{"type": "date"},
+  "messageID" :{"type": "string", "index": "not_analyzed"},
+  "attachments":{"type": "string"},
+  "size": {"type": "long", "index": "not_analyzed"},
+  "body": {"type": "string"}
+}   
+            
+mappingsEnvelope = {
+  "sender": {"type": "string"},
+  "recipient": {"type": "string"},
+  "ip": {"type": "ip"},
+  "date": {"type": "date"}
+}     
+\end{verbatim}
+ \caption{JSON schéma pre fultextové vyhľadávanie}
+ \label{fig:ESschema}
+\end{figure}      
+
+
+\section{Implementácia}
+
+%Consistent rad - write    W  + R > RF
+V programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a ElasticSearch. Jednou z najdoležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme úroveň QUORUM, ktorá zabezpečí zápis dát na N / 2 + 1 replík a klient následne obdrží potvrdenie o úspešnosti zápisu, inak zápis opakujeme. Klient, ktorý slúži na čítanie dát z databáze využíva taktiež úroveň QUORUM. Tieto vlastnosti nám zabezpečujú, v prípade použitia faktoru replikácie tri (dáta sa v databázovom systéme nachádzajú trikrát), silnú úroveň konzistencie na strane klienta a databáze. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahuju viacero jadier, tento fakt môžeme využiť pre paralelizované spracúvanie emailov, teda každé jadro CPU bude spracúvať súčasne jednu emailovú správu.
+
+\subsection*{Celery}
+Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (ang. distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (angl. workers) reprezentujú samostatné procesy v našom prípade proces pre analýzu a deduplikáciu emailu, ktoré môžu bežať paralelne. Broker v našom prípade aplikácia RabbitMQ\footnote{http://www.rabbitmq.com} obdrží správu, ktorá sa uloží do fronty. Táto správa je následne zaslaná ľubovoľnému pracovníkovy (v našom prípade proces pre analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná, dokáže odolávať chybám (napr. v prípade výpadku elektrickej energie správy nadalej pretrvávajú vo fronte). 
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=10cm]{./figures/Celery.jpg}
+ % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
+ \caption{Architektúra Celery, zdroj: http://ask.github.com/celery/getting-started/introduction.html}
+ \label{fig:Celery}
+\end{figure}
+
+
+\subsection{Klient}
+
+Proces spracovania nového emailu je znázornený pomocou UML diag... Pri príchode nového emailu, ktorý je spracovaný emailovým serverom QMAIL, je vytvorená nová úloha pomocou aplikácie Celery, ktorá uloží identifikátor emailu, v našom prípade cesta k súboru, ktorý reprezentuje emailovú spravú. Ak je v daný okamžik k dispozícií ľubovoľný pracovník 
 
 
 
-V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis dát, ktorých veľkosť prevyšuje 5MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512KB. Preto prílohy a samotné dáta emailu v prípade, že ich veľkosť presahuje 1MB zapisujeme do samostatných stĺpcov o veľkosti 512KB na aplikačnej úrovni. Názvy stĺpcov číslujeme vzostupne v rozmedzí 0 až n. Spätnú rekoštrukciu pri načitaní dát je potrebné zabezpečiť taktiež pomocou klienta. 
+
+%pycassa ?
 
 
-\subsection{Schéma pre fultextové vyhľadávanie}
 
+
+PIG
+
+web IFACE -- pristup koncovych uservo k archivu
+
+ 
+component diagramom
 
 
 \chapter{BBB}
 
-komponenty (celery, pycassa...)
-
-
-
-
-popis Klient DB , ES - 
-
-
-
-
-
 Testovacie prostredie
-= naplnenie datami
 -- analyza datasetu HIstogram..
+
+
+deployment diagram ( oddelene datacentra - na tretej replikacii pocitat MR)ty?
+
+
+= naplnenie datami
+  test integrity dat
+
 = mapreduce - PIG
 
-test integrity dat
-
-=?
+=
 popis vysledkov
 
 kolko % deduplikacia
