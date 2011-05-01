@@ -17,9 +17,10 @@ A.~B. Bondi.
 {Brewer}.
 \newblock {Towards robust distributed systems.}, 2000.
 
-\bibitem{XBee}
-{Digi International Inc.}
-\newblock {XBee/XBee-Pro ZB OEM RF Modules product manual}, 2008.
+\bibitem{CloudDataStructureDiag}
+{David Salmen, Tatiana Malyuta, Rhonda Fetters, Normert antunes}.
+\newblock {Cloud Data Structure Diagramming Techniques and Design Patterns},
+  2010.
 
 \bibitem{CoddRelational}
 {E. F. Codd}.
@@ -29,6 +30,13 @@ A.~B. Bondi.
 \bibitem{cassandraBook}
 {Eben Hewitt}.
 \newblock {Cassandra: The Definitive Guide}, November 2010.
+
+\bibitem{Gates:2009:BHD:1687553.1687568}
+A.~F. Gates, O.~Natkovich, S.~Chopra, P.~Kamath, S.~M. Narayanamurthy,
+  C.~Olston, B.~Reed, S.~Srinivasan, and U.~Srivastava.
+\newblock Building a high-level dataflow system on top of map-reduce: the pig
+  experience.
+\newblock {\em Proc. VLDB Endow.}, 2:1414--1425, August 2009.
 
 \bibitem{digitalUniverse}
 {John F. Gantz, David Reinsel, Christopher Chute, Wolfgang Schlichting, John

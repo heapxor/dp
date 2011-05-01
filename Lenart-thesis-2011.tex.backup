@@ -139,7 +139,7 @@ unicode=true,
 	 \typeout{Zvolený jazyk: slovenčina}
 	 \typeout{Typ práce: \TypeOfWork}
 	 \typeout{Študijný program: \StudProgram}
-	 \typeout{Obor: \StudBranch}
+	 \typeout{Odbor: \StudBranch}
 	 \typeout{Meno: \FirstandFamilyName}
 	 \typeout{Názov práce: \WorkTitle}
 	 \typeout{Vedúci práce: \Supervisor}
@@ -149,7 +149,7 @@ unicode=true,
 	 \newcommand\University{České vysoké učení technické v Praze}
 	 \newcommand\labelSupervisor{Vedúci práce}
 	 \newcommand\labelStudProgram{Študijný program}
-	 \newcommand\labelStudBranch{Obor}
+	 \newcommand\labelStudBranch{Odbor}
 }{
 	 \typeout{************************************************}
 	 \typeout{Language: english}
@@ -880,7 +880,7 @@ V tejto časti práce sa zameriame na stručný prehľad a vzájomné porovnanie
 Z porovania je vidieť, že systémy obsahuju množstvo spoločných vlastností. Pri výbere systémov sme zohľadnili aj ich praktické využitie spoločnostiami pôsobiacimi na trhu v produkčných podmienkách. Systém Cassandra je používaný spoločnosťou Facebook v aplikácii na súkromnú poštu. Medzi ďalšie požiadavky patrili podpora komunity, dokumentácia a vývojový cyklus týchto systémov. Z týchto systémov sme následne vybrali dva a to HBase a Cassandru. Dôvodom prečo sme zavrhli systém Hypertable je nepostačujúca dokumentácia, málo aktívna komunita a pomalý vývojový cyklus. V následujúcej sekcii popíšeme ich detaily.
 
 
-\section{Cassandra}
+\chapter{Cassandra}
 
 Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte, poskytovala úložisko pre indexy. Hlavnými požiadavkami na tento systém bolo zvládať miliardu zápisov denne, schopnosť škálovania podľa narástajúceho počtu použivateľov, beh na spotrebných počítačoch a podpora replikácie medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, teda aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je teda decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open-source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo vytvoreného spoločnosťou Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému BigTable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy tohoto systému. 
 
@@ -960,12 +960,15 @@ V prípade požiadavku na načitanie dát, sa požadované dáta najprv hľadaj�
 %2 disky  = 1 pre commit 2 pre data v applikacii ... 
 %Rodina stlpcov - last 100 emails , je automaticky zotriedena podla datumu, co podporuje samotna Cassandra.
 
-\section{Hadoop}
+\chapter{Hadoop}
 
 % podla porovnania vybereme 2 a tie dosledne popiseme 
 % dovod preco sme vybrali column.familly - graf = komplexnost problemu narast data = a podla neho ze nepotrebujem key-value - zlozita praca so strukt. datami...  a popis 2 vybranych
 
-\section{Hadoop vs. Cassandra}
+\chapter{Hadoop vs. Cassandra}
+
+
+
 
 % Obecné výkonové porovnanie NoSQL systémov je zložitá úloha. Žiadny systém nie je navrhnutý tak aby ním bolo možné dosiahnúť optimálne výsledky v prípade, že ho použijeme pre rôzne typy aplikácií. Niektoré systémy sú optimalizované pre zápis iné pre čítane dát. Výkon týchto systémov ďalej ovlyvňuje faktor replikácie, spôsob rozsekávania dát, ich umiestnenie a iné. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. 
 % 
@@ -1055,8 +1058,18 @@ V tejto schéme reprezentuje:
 \end{itemize}
 
 %= paritioner
+%TODO lexikograf usporiadanie stlpcov pre zapis meta info o prilohach
+%TODO v obrazku schemy fixnut u MEssagesAttachment typ links: na TypeLong
 
 V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (ang. blob), ktorých veľkosť prevyšuje 5MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512KB. Preto prílohy a samotné dáta emailu v prípade, že ich veľkosť presahuje 1MB zapisujeme do samostatných stĺpcov o veľkosti 512KB na aplikačnej úrovni. Názvy stĺpcov číslujeme vzostupne v rozmedzí 0 až n. Spätnú rekoštrukciu pri načitaní dát je potrebné zabezpečiť taktiež pomocou klienta.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=17cm]{./figures/cassandra.png}
+ % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
+ \caption{Databázová schéma}
+ \label{fig:Cschema}
+\end{figure}
 
 \section{Fultextové vyhľadávanie}
 
@@ -1098,7 +1111,6 @@ Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónne
 \begin{figure}[h]
  \centering
  \includegraphics[width=10cm]{./figures/Celery.jpg}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
  \caption{Architektúra Celery, zdroj: http://ask.github.com/celery/getting-started/introduction.html}
  \label{fig:Celery}
 \end{figure}
@@ -1106,48 +1118,72 @@ Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónne
 
 \subsection{Klient}
 
-Proces spracovania nového emailu je znázornený pomocou UML diag... Pri príchode nového emailu, ktorý je spracovaný emailovým serverom QMAIL, je vytvorená nová úloha pomocou aplikácie Celery, ktorá uloží identifikátor emailu, v našom prípade cesta k súboru, ktorý reprezentuje emailovú spravú. Ak je v daný okamžik k dispozícií ľubovoľný pracovník 
+Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu\ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do brokera identifikátor emailu, v našom prípade cesta k súboru, ktorý reprezentuje emailovú spravú. V prípade, že je v daný okamžik k dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou nášho analyzátora a následne zapísaná do databáze Cassandra a fultextového systému Elasticsearch. Na testovacie účely sme nemali k dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvájúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailový správ.
 
 
 
-
-%pycassa ?
-
-
-
-
-PIG
-
-web IFACE -- pristup koncovych uservo k archivu
-
- 
-component diagramom
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=16cm]{./figures/emailProcessing.png}
+ % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
+ \caption{Spracovanie emailu}
+ \label{fig:Cseq}
+\end{figure}
 
 
-\chapter{BBB}
-
-Testovacie prostredie
--- analyza datasetu HIstogram..
-
-
+Návrh realizácie
 deployment diagram ( oddelene datacentra - na tretej replikacii pocitat MR)ty?
 
+\subsection{Výpočet štatistík}
 
-= naplnenie datami
-  test integrity dat
+%TODO PIG = kecy okolo 
 
-= mapreduce - PIG
+Cassandra podporuje spoluprácu so systémom Hadoop, čo nám dáva do rúk mocný nástroj na masívne paralelné spracovanie dát pomocou techniky Mapreduce. Samotné písanie aplikácii v je náročné a okrem toho programový model Mapreduce obsahuje viaceo problémov. Model napríklad neobsahuje primitíva na filtrovanie, agregáciu, join (je potrebná ich vlastná implementácia) a nepodporuje možnosť definície viackrokového dátového toku \cite{Gates:2009:BHD:1687553.1687568}. Tieto nedostatky rieši nástroj Pig vďaka, ktorému sme boli schopný spracúvať meta dáta uložené v databáze. Obrázok \ref{fig:PigExample} zobrazuje programovú ukážku, ktorá slúži na výpočet najvačsieho emailu pre každú doménu, pre jednoduchosť sme vynechali časti, ktoré slúžia na načítanie dát z databáze a obsahujú uživateľsky definovanú funkciu v programovacom jazyku Java, ktorá slúži na predspracovanie vstupných dát do vhodného formátu. Podpora uživateľom definovaných funkcií je jednou z ďalších výhod nástroja Pig.
 
-=
+\begin{figure}[h]
+\begin{verbatim}
+notSpam = FILTER grp BY group.spam == 1;
+maxSize = foreach grp {
+  size = rows.size;
+  generate group, MAX(size);
+};
+STORE maxSize into 'biggestEmailPerDomainDomain' using PigStorage(',');
+\end{verbatim}
+ \caption{Programová ukážka v jazyku Pig}
+ \label{fig:PigExample}
+\end{figure}  
+
+
+
+\subsection{Webové rozhranie}
+TODO
+web IFACE -- pristup koncovych uservo k archivu a diskusia ohladne bezpecnosti
+
+
+
+\section{Overenie návrhu}
+
+Pomocou vyšie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u aplikácií Celery a RabbiMQ vyplynula počas písania a ladenia samotnej aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov so samotnými autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s verziou 0.7.0. Počas ukončovania tejto práce je aktuálna verzia 0.7.5 a medzitým vznikala kvalitná dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
+
+\subsection*{Konfigurácia}
+Hardverová konfigurácia obsahovala 9 serverov, kde konfigurácia každého servera bola totožná a obsahovala štvorjádrový procesor o frekvencii 2Ghz, 4 GB RAM, pevné disky 5x1TB (RAID0) 7200 RPM SATA. Všetky serveri obsahovali inštaláciu Linux Debian Lenny x64, java 1.6.0\_+88. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu, Celery 2.6 a posledný server obsahoval inštaláciu RabbitMQ 2.1.1. 
+%TODO-- analyza datasetu HIstogram.. === do analyzy poziadavkov
+
+\subsection*{Overenie integrity dát}
+Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o objeme 300GB. Následne sme nasimulovali prípad obnovy dát z archívu, kde sme všetky emaily v náhodnom poradí z databázy načítali, zostavili ich do pôvodného tvaru (klientskou aplikáciou) a porovnali sme ich odtlačok pomocou hešovacej funkcie MD5 s odtlačkom pôvodných dáta. Tento test prebehol bez akejkoľvek chyby. 
+
+\subsection*{Pozorovanie}
+Zaujímavým pozorovaním bol samotný fakt, že z celkového objemu emailových správ 300GB sa po deduplikácií príloh tento objem znížil na 99GB, teda došlo k 30\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z celkového objemu dát, čo je zanedbateľná položka.
+
+
+\chapter{Záver}
+%kolko deduplikacia
+%kolko MB attacch
+mapreduce - PIG
 popis vysledkov
-
-kolko % deduplikacia
 kolko tvorili indexy
-kolko MB metadata - attacch
 ES rychlost 
 
-
-====== zaver 
 
 
 \chapter{ZMAZAT}
@@ -1167,64 +1203,6 @@ Samotná WPAN je tvorená dvoma alebo viacerými zariadeniami, ktoré komunikuj�
  \label{fig:80215topologies}
 \end{figure}
 
-
-\section{Architektúra}
-Architektúra IEEE 802.15.4 viď. obrázok \ref{fig:802154layers} je tvorená pomocou vrstiev. Každá vrstva je zodpovedná za časť štandardu a poskytuje služby vyšším vrstvám. Vrstvy sú zavedené z dôvodu aby bol štandard ľahko popísateľný modelom ISO-OSI. 
-
-LR-WPAN zariadenie je tvorené fyzickou vrstvou, ktorá zahŕňa rádiofrekvenčný vysielač, prijímač a mechanizmus potrebný na jeho obsluhu. Ďalšiu vrstvu tvorí linková vrstva, ktorá je zodpovedná za prístup všetkých prenosov ku komunikačnému kanálu. Jednotlivé vrstvy medzi sebou komunikujú pomocou prístupových bodov SAP (Service access point). Medzi vyššie vrstvy patrí sieťová vrstva a aplikačná vrstva, ktoré poskytujú zamýšľanú funkcionalitu zariadenia a patria do štandardu ZigBee. Architektúra LR-WPAN môže byť implementovaná u embeded zariadení a taktiež aj u zariadení vyžadujúcich pre svoj chod PC.
-
-
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=10cm]{./figures/layers802154.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Štruktúra štandardu 802.15.4}
- \label{fig:802154layers}
-\end{figure}
-
-\subsubsection{Typy rámcov}
-Štruktúry rámcov boli navrhnuté aby zostala komplexnosť na minime, pri súčasnom zachovaní robustnosti pri posielaní dát na kanáli obsahujúcom šum.
-Štandard definuje štyri druhy rámcov a to:
-\begin{itemize}
-\item beacon rámec
-\item dátový rámec, ktorý sa používa pre prenos všetkých dát
-\item potvrdzovací rámec, použitý k potvrdeniu úspešne prijatého rámca
-\item MAC rámec, ktorý sa používa k spracovaniu všetkých servisných MAC prenosov
-\end{itemize}
-
-%TODO:
-%?Režim spánku
-%security page 24.
-
-
-
-%  čím sa redukuje ich dopad na environmentálne prostredia a zaraďujeme ich do triedy zariadení, ktoré sa nazývajú Smart Energy. 
-\section{Architektúra}
-Architektúra štandardu ZigBee je tvorená viacerými blokmi, ktoré nazývame vrstvy. Každá z vrstiev vykonáva špecifickú množinu operácii, ktoré následne využívajú nadradené vrstvy. Ďalej sú použité dátové jednotky, ktoré sú zodpovedné za prenos dát a riadiace jednotky vykonávajúce všetky ostatné služby. Každá jednotka poskytuje svoje funkcie vyšším vrstvám pomocou rozhrania, ktoré sa nazýva SAP. Každé SAP rozhranie poskytuje množstvo servisných primitív, pomocou ktorých sa dosahuje požadovaná funkcionalita.
-ZigBee aliancia stavia na základoch štandardu IEEE 802.15.4-2003, ktorý definuje dve vrstvy a to fyzickú vrstvu (PHY) a spojovú vrstvu (MAC), viď. predošlá kapitola. Nadstavbu týchto vrstiev tvorí sieťová vrstva (NWK) a framework aplikačnej vrstvy. Tento framework je ďalej tvorený vrstvou APS (Aplication support sub-layer) a vrstvou nazývanou ZDO (ZigBee device objects). Špecifické aplikácie daných výrobcov následne využívajú daný framework, vrstvy APS a objekty ZDO. Samotná architektúra je zobrazená na obrázku \ref{fig:ZigBeeLayers}
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=10cm]{./figures/ZigBeeLayers.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Štruktúra štandardu ZigBee}
- \label{fig:ZigBeeLayers}
-\end{figure}
-
-\section{Sieťové komponenty}
-U sieti typu ZigBee rozoznávame nasledujúce tri druhy zariadení:
-\begin{itemize}
-\item ZigBee koordinátor, odpovedá PAN koordinátoru štandardu IEEE 802.15.4-2003
-\item koncové zariadenie ZigBee, FFD alebo RFD zariadenie štandardu IEEE 802.15.4-2003, ktoré v ZigBee sieti nevystupuje ako ZigBee koordinátor alebo ZigBee smerovač
-\item ZigBee smerovač, FFD zariadenie štandardu IEEE 802.15.4-2003, ktoré nemôže vystupovať v sieti ako ZigBee koordinátor, ale vystupuje ako koordinátor štandardu IEEE 802.15.4-2003, ktorý smeruje správy medzi zariadeniami a umožňuje asociáciu
-\end{itemize}
-
-\section{Sieťová topológia}
-Sieťová vrstva štandardu ZigBee podporuje topológiu hviezda, ďalej stromovú a mesh (je to topológia používaná hlavne u bezdrôtových sieti, pri ktorej je každé sieťové zariadenie prepojené so všetkými ostatnými zariadeniami v danej sieti) topológiu.
-
-\section{XBee Series 1}
-Konkrétnu implementáciu predchádzajúcich štandardov tvoria moduly XBee/XBee PRO OEM od spoločnosti Digi, ktorá patrí do zoznamu certifikovaných výrobcov. V tejto práci som použil modul XBee Series 1, ktorý implementuje len štandard 802.15.4. Tento modul bol použitý pri meraniach v anténnej komore a jeho popisujúce parametre v samotnej simulácii. Linková vrstva modelu, ktorý som použil, pracovala s parametrami modulu TI CC1100, keď som chcel tieto parametre nahradiť, kontaktoval som spoločnosť Digi, ktorá mi však tieto parametre nebola schopná poskytnúť z dôvodu, že časť modulu, ktorá je zodpovedná za hodnoty týchto parametrov tvorí Ember 3.1 Stack, ktorý dodáva spoločnosť Ember. Spoločnosť Ember, však na moju žiadosť o sprístupnenie týchto parametrov (čas medzi prechodom z režimu spánku do režimu vysielania/prijímania, čas pri prechode zo stavu vysielania do stavu prijímania a opačne) vôbec nezareagovala.
 
 \subsection{Technické parametre}
 Modul popisujú následujúce parametre\cite{XBee}.
@@ -1300,19 +1278,6 @@ H rovina, je rovina v ktorej sa šíri vektor magnetického poľa a sleduje sa v
 
 %smerovost = http://people.seas.harvard.edu/~jones/es151/prop_models/propagation.html#fsl
 
-\subsection{Propagácia rádiového signálu}
-
-Následujúci obrázok \ref{fig:RSP} zachytáva typický rádiový systém. Informácie vstupujú do vysielača. Informácie sú následne 
-vysielané anténou, ktorá konvertuje rádiofrekvenčný signál na elektromagnetické vlny. Médium na prenos elektromagnetických vĺn je voľný priestor. Následne sú elektromagnetické vlny odchytené pomocou prijímacej antény, ktorá ich konvertuje spätne na rádiofrekvenčný signál. Ideálny stav je ak tento signál odpovedá signálu generovanému vysielačom. Originálna informácia, ktorá vstupovala do vysielača je následne demodulovaná na svoju pôvodnú formu.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=10cm]{./figures/RSM.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Model rádiového systému}
- \label{fig:RSP}
-\end{figure}
-
 \subsubsection{Pojmy}
 \begin{itemize}
  \item dB - je skratka pre decibel. Je to matematické vyjadrenie používané na zobrazenie závislosti medzi dvoma hodnotami. 
@@ -1361,52 +1326,6 @@ FSPL(dB) &= 10 \log_{10}\left(\dfrac{4 \pi df}{c} \right)^{2} \\
 &= 20 \log_{10}\left(\dfrac{4 \pi df }{c} \right) \\
 &= 20 \log_{10}(d) + 20 \log_{10}(f) + 20 \log_{10} \left(\dfrac{4 \pi}{c}\right)
 \end{align*}
-
-
-\subsection{Antény a simulácia}
-Jednotlivé antény, na ktorých bolo vykonané meranie v anténne komore, boli popísané hodnotami výkonu (v dBm a W) v rozmedzí 0-360 stupňov pre každý stupeň. Z týchto hodnôt som pre každý stupeň spočítal hodnotu zisku. Samotný XML súbor, ktorý popisuje anténu a je použitý k simulácii potom obsahuje hodnoty ziskov po 10 stupňov, ktoré som spočítal ako priemer z hodnôt z meraní, čo samozrejme spôsobí ďalšiu odchýlku od reality. \\
-
-%popis pocitania?
-
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=9cm]{./figures/xbeeWhipGain.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Charakteristika zisku antény Whip}
- \label{fig:xbeeWhipGain}
-\end{figure}
-
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=8cm]{./figures/zoslabenie.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Model zoslabenia signálu}
- \label{fig:zoslab}
-\end{figure}
-
-
-%%TODO:
-%% 2 obrázky
-
-
-
-%%%
-\begin{verbatim}
-inicializácia - vybudovanie modelu a vloženie prvých udalosti do FES
-
-while(FES nie je prázdna a simulácia neskončila) 
-{
-	vyber prvú udalosť z FES
-	t:= sprav časovú značku tejto udalosti
-	spracuj udalosť
-	(spracovanie udalosti môže pridať novú udalosť alebo zmazať existujúcu z FES)
-}
-
-ukončenie simulácie (zápis výsledkov, atď.)
-\end{verbatim}
-%%%
 
 
 
@@ -1499,41 +1418,6 @@ Daný vzťah uvažuje straty, ktoré vznikajú na konektoroch antén, prepojovac
  \label{fig:FSPL}
 \end{figure}
 
-
-\subsection{Štruktúra MF}
-V tejto časti sa zameriam na detailný popis funkcie modulov a ich následnú implementáciu. Obrázok \ref{fig:Host} zachytáva štruktúru stanice, ktorú popisujeme pomocou jazyka NED. Na základe konvencie musí názov súboru vo svojom názve obsahovať reťazec \uv{host}. Ako môžeme vidieť daná stanica sa skladá z jednotlivých podmodulov a to aplikačná vrstva, sieťová vrstva a vrstva NIC, ktoré navzájom komunikujú. Stanica taktiež obsahuje modul \textit{Mobility}, ktorý zabezpečuje pohyb a geografickú pozíciu uzlu. 
-
-Podmoduly modulu stanica majú spoločného predka, ktorým je trieda \textit{BasicModule}. Táto trieda je ďalej potomkom triedy \textit{cSimpleModule}, ktorá je súčasťou Omnetu. Trieda \textit{BasicModule}, obsahuje dvojfázovú inicializáciu, ktorá je vhodná aj v prípade použitia modulu \textit{Blackbox} \footnote{Je to modul umožňujúci medzivrstvovú komunikáciu, bez nutnosti zasielania správ}, ktorý v tomto texte nebudem popisovať. Medzi ďalšie vlastnosti patrí napríklad metóda \textit{logName}, ktorá vracia názov NED modulu, čo je možné využiť pri ladení za pomoci makra EV, ktoré slúži pre výpis ladiacich správ. 
-
-Samotná komunikácia medzi jednotlivými podmodulmi modulu stanice je zabezpečená pomocou metód:
-\begin{itemize}
- \item \textit{handleUpperMsg} - táto metóda je volaná zakaždým, keď modul obdrží správu z vyššej vrstvy, následne ju spracuje a predá nižšej vrstve
- \item \textit{handleLowerMsg} - metóda je volaná po príchode správy z nižšej vrstvy, správu ďalej spracuje a predá nadradenej vrstve
-\end{itemize}
-
-Ďalej sú k dispozícii pomocné metódy slúžiace k enkapsulácii a dekapsulácii správy predávanej medzi vrstvami (\textit{encapsMsg, decapsMsg}) a metódy na opozdenie správy pri jej vysielaní na kanál.
-
-Keďže model poskytuje enkapsuláciu a dekapsuláciu správ, z toho vyplýva, že pre každú vrstvu definujeme osobitný typ správy, ktorej štruktúra je popísaná pomocou súboru s príponou .msg. K dispozícii sú napríklad správy typu \textit{AirFrame} (správa pre komunikáciu na fyzickej vrstve), \textit{MacPkt} (správa pre komunikáciu na linkovej vrstve), \textit{NtwPkt} (správa pre sieťovú vrstvu) a \textit{ApplPkt} (správa pre vrstvu aplikačnú). Všetky typy správ sú rozšíriteľné, resp. si pomocou nich môžeme odvodiť vlastný typ správy. Pre potreby mojej simulácie bola najdôležitejšia správa typu \textit{AirFrameRadioAccNoise3}, zdedená z triedy \textit{AirFrame}, ktorej štruktúra obsahuje následujúce položky
-
-\begin{itemize}
- \item pSend - výkon, ktorým bol rámec odoslaný
- \item channelId - kanál, na ktorý bola správa zaslaná
- \item duration - čas, ktorý bol spotrebovaný na zaslanie rámcu (v sekundách)
- \item hostMode - štruktúra popisujúca pozíciu stanice, jej rýchlosť, smer pohybu, čas kedy sa pohyb začal
- \item SnrControlInfo - trieda, ktorá obsahuje pomocné informácie SNR (Signal to noise ratio), ktoré sa predávajú modulu \textit{Decider}
-\end{itemize}
-
-%snr infor z MSG decideru a z nich spocitame bit errors
-
-Danú správu som ďalej rozšíril o parameter moduleId, ktorý obsahuje globálny identifikátor modulu, z ktorého bola správa odoslaná.
-
-\begin{figure}[h]
- \centering
- \includegraphics[width=6cm]{./figures/host.png}
- % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Štruktúra stanice v OMNeT++}
- \label{fig:Host}
-\end{figure}
 
 \subsubsection{Štruktúra modulu NIC}
 
