@@ -45,6 +45,13 @@ A.~F. Gates, O.~Natkovich, S.~Chopra, P.~Kamath, S.~M. Narayanamurthy,
   Growth Throught 2010}, Marec 2007.
 \newblock \\ \verb|http://www.emc.com/|, stav z 28.\,2.\,2011.
 
+\bibitem{Karger:1997:CHR:258533.258660}
+D.~Karger, E.~Lehman, T.~Leighton, R.~Panigrahy, M.~Levine, and D.~Lewin.
+\newblock Consistent hashing and random trees: distributed caching protocols
+  for relieving hot spots on the world wide web.
+\newblock In {\em Proceedings of the twenty-ninth annual ACM symposium on
+  Theory of computing}, STOC '97, pages 654--663, New York, NY, USA, 1997. ACM.
+
 \bibitem{sharedNothing}
 {Michael Stonebraker}.
 \newblock {The Case for Shared Nothing Architecture}, 1986.
@@ -66,5 +73,9 @@ R.~Shoup.
 J.~Udell.
 \newblock {\em Practical Internet GroupWare}.
 \newblock O'Reilly \& Associates, Inc., Sebastopol, CA, USA, 1st edition, 1999.
+
+\bibitem{accrualdetector}
+{Xavier Défago, Péter Urbán, Naohiro Hayashibara, and Takuya Katayama}.
+\newblock {The Phi accrual failure detector.}, 2004.
 
 \end{thebibliography}

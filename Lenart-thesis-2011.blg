@@ -3,7 +3,7 @@ The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 37 of file reference.bib
+--line 66 of file reference.bib
 Warning--I didn't find a database entry for "LynchCAP"
 Warning--I didn't find a database entry for "amazonVogel"
 Warning--I didn't find a database entry for "mapreduce"
@@ -11,45 +11,45 @@ Warning--I didn't find a database entry for "nosqlGoogle"
 Warning--I didn't find a database entry for "XBee"
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--can't use both author and editor fields in Udell
-You've used 13 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            590 strings with 6259 characters,
-and the built_in function-call counts, 2973 in all, are:
-= -- 263
-> -- 126
-< -- 0
-+ -- 53
-- -- 40
-* -- 137
-:= -- 492
-add.period$ -- 31
-call.type$ -- 13
-change.case$ -- 59
+            604 strings with 6825 characters,
+and the built_in function-call counts, 3762 in all, are:
+= -- 342
+> -- 166
+< -- 1
++ -- 69
+- -- 54
+* -- 187
+:= -- 614
+add.period$ -- 37
+call.type$ -- 15
+change.case$ -- 72
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 100
-empty$ -- 294
-format.name$ -- 40
-if$ -- 631
+cite$ -- 17
+duplicate$ -- 130
+empty$ -- 355
+format.name$ -- 54
+if$ -- 805
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 3
-newline$ -- 60
-num.names$ -- 24
-pop$ -- 112
+int.to.str$ -- 15
+missing$ -- 4
+newline$ -- 69
+num.names$ -- 28
+pop$ -- 130
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 57
 quote$ -- 0
-skip$ -- 99
+skip$ -- 126
 stack$ -- 0
-substring$ -- 96
-swap$ -- 14
-text.length$ -- 0
+substring$ -- 138
+swap$ -- 25
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 50
+type$ -- 58
 warning$ -- 2
-while$ -- 26
-width$ -- 15
-write$ -- 118
+while$ -- 33
+width$ -- 17
+write$ -- 140
 (There were 8 warnings)
