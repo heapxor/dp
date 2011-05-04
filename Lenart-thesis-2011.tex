@@ -21,6 +21,8 @@
 % pripadne pisete-li cesky, pak lze zkusit take:
 % \usepackage[OT1]{fontenc} 
 \usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 % In case of problems with PDF fonts, one may try to uncomment this line:
 %\usepackage{lmodern}
@@ -970,6 +972,10 @@ Obmedzovanie prístupu k datám je preto potrebné zabezpečiť na aplikačnej �
 
 
 
+obmedzenie MYSQL = +papier 5
+mysqlscalling and high avail.pdf -
+
+
 %%%%%
 
 Musime predpokladat ze zlyhania v tak velkej infrastrukture su bezna vec a nie ojedinela zalezitost = HW a siet zlyhania
@@ -1010,16 +1016,99 @@ HBASE CP
 
 %2 disky  = 1 pre commit 2 pre data v applikacii ... 
 %Rodina stlpcov - last 100 emails , je automaticky zotriedena podla datumu, co podporuje samotna Cassandra.
+Hardware failure is the norm rather than the exception.
 
-\chapter{Hadoop}
-
+\chapter{HBase}
 % podla porovnania vybereme 2 a tie dosledne popiseme 
 % dovod preco sme vybrali column.familly - graf = komplexnost problemu narast data = a podla neho ze nepotrebujem key-value - zlozita praca so strukt. datami...  a popis 2 vybranych
+V tejto kapitole stručne popíšeme distribuovaný súborový systém, ktorý je súčasťou projektu Hadoop a zároveň slúži ako perzistentné úložisko pre distribuovanú databázu HBase. Následne popíšeme základné princípy fungovania tohoto databázového systému.
 
-\chapter{Hadoop vs. Cassandra}
+\subsection*{Hadoop}
+%shvachko.pdf
+
+je v jave
+
+Hadoop\footnote{http://hadoop.apache.org/} je open source projekt, ktorého hlavne cieľe sú vysoká dostupnosť, škálovateľnosť a distribuovaný výpočet. Základ tvorý distribuovaný súborový systém HDFS (Hadoop Distributed Filesystem) a framework MapReduce pre spracúvanie objemu dát v desiatkách PB \cite{Thusoo:2010:DWA:1807167.1807278}. Architektúra HDFS vychádza z princípov distribuovaného súborového systému GFS (Google File System) vytvoreného spoločnosťou Google\cite{Ghemawat:2003:GFS:945445.945450}, framework mapreduce bol inspirovany ggl mapreduce =ref clanok
+
+kto ho pouziva a na ake typy appl
 
 
+Súborový systém využíva architektúru master-slave. Uzol master, pod názvom Namenode, udržiava v pamäti RAM metadata, ktoré popisujú štruktúru súborov, adresárov, reprezentujú mapovanie súborov na bloky a určujú ich umiestnenie na uzloch Datanode. HDFS predpokláda prácu so súbormi rádovo v desiatkách gigabajtov, ktoré sú interne reprezentované dátovými blokmi o veľkosti  64-128MB. Tieto bloky sú uložené v uzloch typu slave, ktoré sa nazývajú Datanode. Klient v prípade načítania súboru kontaktuje Namenode, ktorý mu poskytne informácie, na ktorých uzloch typu Datanode sa nachádzajú bloky reprezentujúce súbor a dátová komunikácia následne prebehne medzi klientom a daným Datanode. HDFS je optimalizovaný pre jednorázový zápis dát a ich následné mnohonásobné čítanie. Bloky sa replikujú na uzly Datanode. Štandardne je nastavená úroveň replikácie na hodnotu tri, teda každý blok je uložený trikrát.
 
+%TODO popisat format metadat ???
+
+Hlavným nedostatkom tejto infraštruktúry je fakt, že uzlol Namenode tvorí kritický bod systému, v prípade jeho nedostupnosti nie je možné pracovať s HDFS a prípadná strata dát na tomto uzle spôsobí totálne zlyhanie súborového systému bez možnosti jeho obnovy. Súborový systém nie je vhodný pre ukladanie veľkého počtu malých súborov.
+Uzol Namenode alokuje 150B pre objekt typu blok a 150B pre objekt typu súbor. V prípade uloženia súboru, ktorý nepresahuje veľkosť jedného bloku je potrebné alokovať 300B dát. Ak uložíme 10 000000 takýchto súborov veľkosť metadát, ktoré udržiava Namenode v operačnej pamati zaberie 3GB. Celkový počet uložených súborov je obmedzený veľkosťou pamati RAM, ktorou disponuje uzol Namenode.
+
+Z týchto pozorovaní vyplýva fakt, že distribuovaný súborový systému HDFS nemá praktické využitie ako úložisko dát slúžiace k archivácii emailových správ, pre ktoré sme zadefinovali požiadavky v kapitole XY.
+
+SYNC!!! a zapis pipeline style
+ page 69 hadoop book
+\subsection*{HBase}
+
+replikovanie in pipeline
+
+\chapter{Testovanie výkonnosti}
+
+V následujúcej kapitole sa zameriame na popis výkonnostných testov, ktoré sme vykonali v reálnych podmienkach.
+
+%TODOpokusime sa najst spojitost_ overit : 
+
+\section{Testovacie prostredie}
+
+Pre výkonnostné testovanie sme mali k dispozícii 9 počítačov s rovnakou hardverovou a softvérovou konfiguráciou, ktoré boli navzájom prepojené pomocou 10Gbit switchu a komunikovali po 1Gbit linke. Komkrétnu softvarovú konfiguráciu testovaných aplikácií popíšeme jednotlivo v nasledujúcich podkapitolách.
+
+\subsection*{Hardverová konfigurácia}
+\begin{itemize}
+ \item 4 jádrový procesor Intel, 5506@2.13Ghz
+ \item 4 GB RAM
+ \item 5 pevných diskov (SATA, 7200RPM) o veľkosti 1TB - RAID0
+ \item 1Gbit sieťová karta
+\end{itemize}
+
+\subsection*{Softvérová konfigurácia} 
+Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64, Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor (angl. swap). Za účelom monitorovania bol použitý softvér Zabbix, VisualVM a dstat.
+
+\subsection*{Sieťová konfigurácia}
+
+Hodnota maximálnej reálnej sieťovej priepusnosti medzi dvoma uzlami bola zmerná pomocou aplikácie XY s výslednou hodnotou 940Mbit.
+
+\section{HDFS}
+Nad distribuovaným súborovým systémom HDFS sme vykonali testy určujúce maximálnu hodnotu priepusnosti pri zápise dát, z dôvodu aby sme vylúčili možné úzke hrdlo v jeho prepojení s databázovým systémom HBase. Pre účely testovania sme použili verziu Hadoop-0.20.2, veľkosť haldy pre JVM (parameter -Xmx, JVM Heap) sme nastavili na 1GB.
+
+Meranie maximálnej rýchlosi zápisu sme testovali v troch konfiguráciach. Každá konfigurácia obsahovala jeden uzol v role master, na ktorom bežali Namenode a JobTracker. Na ostatných uzloch typu slave bežali Datanode a Tasktracker. Konfigurácia klastrov bola následovná:
+
+\begin{itemize}
+ \item A - tri uzly slave s faktorom replikácie jedna
+ \item B - tri uzly slave s faktorom replikacie tri
+ \item C - šesť uzlov slave s faktorom replikácie tri
+\end{itemize}
+
+Počas testu sme na súborový systém zapisovali tri rôzne veľkosti súborov, kde v HDFS bola zachovaná štandardná veľkosť bloku tj. 64MB. Každý test bol vykonnaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance} ukazujú, že zvýšenie faktoru replikácie ma zásadný vplyv na celkový výkon. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad B, C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť daného systému. Veľkosti zapisovaných súborov sme volili s ohľadom na konfiguráciu systému HBase, kde veľkosť súborov Memstore, ktoré sa budú zapisovať z operačnej pamati na HDFS je 128MB.
+ 
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline Klaster & A & B & C\\ 
+\hline
+\hline 128MB & 287 MB/s& 102 MB/s& 190 MB/s\\ 
+\hline 812MB & 371 MB/s& 85 MB/s& 162 MB/s\\ 
+\hline 4GB & 433 MB/s& 85 MB/s& 163 MB/s\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Výkonnosť HDFS}
+\label{tab:HDFSperformance}
+\end{table}
+
+vytazenie CPU 30\%
+
+Popisat detailne test?
+
+\section{HBase}
+
+\section{Cassandra}
 
 % Obecné výkonové porovnanie NoSQL systémov je zložitá úloha. Žiadny systém nie je navrhnutý tak aby ním bolo možné dosiahnúť optimálne výsledky v prípade, že ho použijeme pre rôzne typy aplikácií. Niektoré systémy sú optimalizované pre zápis iné pre čítane dát. Výkon týchto systémov ďalej ovlyvňuje faktor replikácie, spôsob rozsekávania dát, ich umiestnenie a iné. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. 
 % 
@@ -1035,6 +1124,8 @@ HBASE CP
 % 
 % U množstva nových problémov ako napríklad grafy sociálnych sieti alebo vyhľadávače je komplikované predom určiť a popísať komplexne model dát, ktorý  sa môže časom  meniť, z dôvodu neustálej zmeny vstupných dát. V tomto prípade, nachádzame množstvo výhod u dátového modelu noSQL systémov, ktorý dokáže pracovať s neštrukturovanými alebo čiastočne štrukturovanými dátami.
 
+TODO: do slovnik slov = def. klaster
+Commodity hw = komponenty sú štandardizované, bežne dostupné a ich cenu neurčuje samostatný výrobca (IBM, DELL,...) ale trh. Príkladom takéhoto HW môže byť nasledujúca konfigurácia 2 x 250GB SATA drives, 4-12GB RAM, dual x dual core CPU's. Snahou je nájsť vhodný balanc medzi cenou a výkonom.
 
 === Porovnanie vykonnosti systemov 
 
@@ -1173,6 +1264,7 @@ Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu
 
 
 
+
 \begin{figure}[h]
  \centering
  \includegraphics[width=16cm]{./figures/emailProcessing.png}
@@ -1217,7 +1309,7 @@ web IFACE -- pristup koncovych uservo k archivu a diskusia ohladne bezpecnosti
 Pomocou vyšie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u aplikácií Celery a RabbiMQ vyplynula počas písania a ladenia samotnej aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov so samotnými autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s verziou 0.7.0. Počas ukončovania tejto práce je aktuálna verzia 0.7.5 a medzitým vznikala kvalitná dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
 
 \subsection*{Konfigurácia}
-Hardverová konfigurácia obsahovala 9 serverov, kde konfigurácia každého servera bola totožná a obsahovala štvorjádrový procesor o frekvencii 2Ghz, 4 GB RAM, pevné disky 5x1TB (RAID0) 7200 RPM SATA. Všetky serveri obsahovali inštaláciu Linux Debian Lenny x64, java 1.6.0\_+88. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu, Celery 2.6 a posledný server obsahoval inštaláciu RabbitMQ 2.1.1. 
+Hardverová konfigurácia obsahovala 9 serverov, kde konfigurácia každého servera bola totožná a obsahovala štvorjádrový procesor o frekvencii 2Ghz, 4 GB RAM, pevné disky 5x1TB (RAID0) 7200 RPM SATA. Všetky serveri obsahovali inštaláciu Linux Debian Lenny x64, Sun Java 1.6.0\_+88. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu, Celery 2.6 a posledný server obsahoval inštaláciu RabbitMQ 2.1.1. 
 %TODO-- analyza datasetu HIstogram.. === do analyzy poziadavkov
 
 \subsection*{Overenie integrity dát}

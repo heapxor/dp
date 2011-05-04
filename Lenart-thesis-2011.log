@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.26)  2 MAY 2011 02:30
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.26)  4 MAY 2011 02:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -302,12 +302,16 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+(/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks16
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks16
+\KV@toks@=\toks17
 )
 (/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -333,7 +337,7 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks17
+\@emptytoks=\toks18
 \ex@=\dimen106
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
@@ -363,21 +367,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \dotsspace@=\muskip10
 \c@parentequation=\count99
 \dspbrk@lvl=\count100
-\tag@help=\toks18
+\tag@help=\toks19
 \row@=\count101
 \column@=\count102
 \maxfields@=\count103
-\andhelp@=\toks19
+\andhelp@=\toks20
 \eqnshift@=\dimen109
 \alignsep@=\dimen110
 \tagshift@=\dimen111
 \tagwidth@=\dimen112
 \totwidth@=\dimen113
 \lineht@=\dimen114
-\@envbody=\toks20
+\@envbody=\toks21
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
@@ -491,7 +495,7 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 \Fld@menulength=\count106
 \Field@Width=\dimen116
 \Fld@charsize=\dimen117
-\Field@toks=\toks22
+\Field@toks=\toks23
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -522,22 +526,22 @@ LaTeX Warning: Label `tab:tab2' multiply defined.
 )
 \openout1 = `Lenart-thesis-2011.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
  (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count111
@@ -545,13 +549,13 @@ LaTeX Font Info:    ... okay on input line 124.
 \scratchbox=\box28
 \nofMPsegments=\count112
 \nofMParguments=\count113
-\everyMPshowfont=\toks23
+\everyMPshowfont=\toks24
 \MPscratchCnt=\count114
 \MPscratchDim=\dimen119
 \MPnumerator=\count115
-\everyMPtoPDFconversion=\toks24
+\everyMPtoPDFconversion=\toks25
 )
-Package hyperref Info: Link coloring ON on input line 124.
+Package hyperref Info: Link coloring ON on input line 126.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -560,8 +564,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count116
 )
-LaTeX Info: Redefining \ref on input line 124.
-LaTeX Info: Redefining \pageref on input line 124.
+LaTeX Info: Redefining \ref on input line 126.
+LaTeX Info: Redefining \pageref on input line 126.
 
 (./Lenart-thesis-2011.out) (./Lenart-thesis-2011.out)
 \@outlinefile=\write3
@@ -581,7 +585,7 @@ C {\v z}isko emailov
 Ved\IeC {\'u}ci pr\IeC {\'a}ce: Ing. J\IeC {\'a}n \IeC {\v S}ediv\IeC {\'y}, CS
 c.
 ***************************************************
-<figures/LogoCVUT.pdf, id=391, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=407, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3
@@ -638,41 +642,41 @@ Kapitola 1.
 ]
 Kapitola 2.
 [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 276.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 278.
 
  (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 276.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 278.
  [4] [5]
-Overfull \hbox (1.27994pt too wide) in paragraph at lines 335--336
+Overfull \hbox (1.27994pt too wide) in paragraph at lines 337--338
 \T1/cmr/m/n/10.95 pamä´. Táto ar-chitek-túra zabezpe£uje tak-mer neobmedzenú ²k
 álo-vate©nos´ sys-tému a vyuºíva
  []
 
 [6] [7]
 
-LaTeX Warning: Citation `LynchCAP' on page 8 undefined on input line 406.
+LaTeX Warning: Citation `LynchCAP' on page 8 undefined on input line 408.
 
 [8]
 
-LaTeX Warning: Command \v invalid in math mode on input line 420.
+LaTeX Warning: Command \v invalid in math mode on input line 422.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 420.
+LaTeX Warning: Command \v invalid in math mode on input line 422.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 420.
+LaTeX Warning: Command \' invalid in math mode on input line 422.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 420.
+LaTeX Warning: Command \' invalid in math mode on input line 422.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 420.
+LaTeX Warning: Command \' invalid in math mode on input line 422.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 420.
+LaTeX Warning: Command \v invalid in math mode on input line 422.
 
 Missing character: There is no © in font cmr10!
 Missing character: There is no © in font cmr10!
@@ -682,11 +686,11 @@ Missing character: There is no á in font cmr10!
 Missing character: There is no £ in font cmr8!
 [9]
 
-LaTeX Warning: Citation `amazonVogel' on page 10 undefined on input line 461.
+LaTeX Warning: Citation `amazonVogel' on page 10 undefined on input line 463.
 
 [10] [11]
 
-LaTeX Warning: Citation `mapreduce' on page 12 undefined on input line 508.
+LaTeX Warning: Citation `mapreduce' on page 12 undefined on input line 510.
 
 [12] [13] [14
 
@@ -695,26 +699,26 @@ Kapitola 3.
 [15] [16] [17] [18]
 Kapitola 4.
 
-LaTeX Warning: Citation `nosqlGoogle' on page 19 undefined on input line 683.
+LaTeX Warning: Citation `nosqlGoogle' on page 19 undefined on input line 685.
 
 [19
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 697.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 699.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [20]
-Overfull \hbox (3.09308pt too wide) in paragraph at lines 740--741
+Overfull \hbox (3.09308pt too wide) in paragraph at lines 742--743
 \T1/cmr/m/n/10.95 ob-jekt. Po-mo-cou hran medzi uzlami mod-elu-jeme závis-losti
 , ktoré popisu-jeme po-mo-cou atribú-
  []
 
-[21] <./figures/nosqldatamodels.png, id=755, 797.46207pt x 598.09656pt>
+[21] <./figures/nosqldatamodels.png, id=777, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
 <use ./figures/nosqldatamodels.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 799--801
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 801--803
  [][] 
  []
 
@@ -722,55 +726,67 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 799--801
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22] [23 <./figures/nosqldatamodels.png (PNG copy)>]
-<./figures/capDatabases.png, id=772, 1312.905pt x 694.595pt>
+<./figures/capDatabases.png, id=794, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 817--819
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 819--821
  [][] 
  []
 
 [24 <./figures/capDatabases.png (PNG copy)>]
 
-LaTeX Warning: Reference `barina' on page 25 undefined on input line 847.
+LaTeX Warning: Reference `barina' on page 25 undefined on input line 849.
 
 [25] [26]
 Kapitola 5.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 890.
+(hyperref)                than one, level fixed on input line 892.
 
 [27
 
 ]
-Overfull \hbox (1.21408pt too wide) in paragraph at lines 904--905
+Overfull \hbox (1.21408pt too wide) in paragraph at lines 906--907
 \T1/cmr/m/n/10.95 K©ú£ovým poºi-a-davkom sys-tému Cas-san-dra je jeho schop-nos
 ´ ²kálo-va-nia do ²írky, £o vyºaduje
  []
 
 [28] [29] [30] [31] [32]
 Kapitola 6.
+
+Overfull \hbox (0.93187pt too wide) in paragraph at lines 1031--1032
+[]\T1/cmr/m/n/10.95 Hadoop[][][][][] je open source pro-jekt, ktorého hlavne ci
+e©e sú vysoká dos-tup-nos´, ²kálo-vate©nos´
+ []
+
+
+Overfull \hbox (6.1726pt too wide) in paragraph at lines 1036--1037
+\T1/cmr/m/n/10.95 ode, udrºi-ava v pamäti RAM meta-data, ktoré popisujú ²truk-t
+úru súborov, adresárov, reprezen-
+ []
+
 [33
 
-] [34
-
-]
+] [34]
 Kapitola 7.
-[35] [36
+[35
+
+] [36] [37] [38
 
 ]
 Kapitola 8.
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 1064--1064
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1154--1154
 []\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[38] <./figures/cassandra.png, id=866, 831.105pt x 606.265pt>
+[40] <./figures/cassandra.png, id=909, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1119--1121
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1209--1211
  [][] 
  []
 
@@ -780,15 +796,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[39]
+[41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40 <./figures/cassandra.png (PNG copy)>]
-<./figures/Celery.jpg, id=881, 527.9725pt x 392.46625pt>
+ [42 <./figures/cassandra.png (PNG copy)>]
+<./figures/Celery.jpg, id=923, 527.9725pt x 392.46625pt>
 File: ./figures/Celery.jpg Graphic file (type jpg)
 
 <use ./figures/Celery.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1165
+Underfull \hbox (badness 10000) in paragraph at lines 1255--1255
 []\T1/cmr/m/n/10.95 Obr. 8.4: []Architektúra Cel-ery, zdroj: http://ask.github.
 com/celery/getting-
  []
@@ -796,242 +812,243 @@ com/celery/getting-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/emailProcessing.png, id=883, 937.5025pt x 537.00626pt>
+<./figures/emailProcessing.png, id=925, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1178--1180
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1269--1271
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41]
+[43]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42 <./figures/Celery.jpg>] [43 <./figures/emailProcessing.png (PNG copy)>]
-[44]
+[44 <./figures/Celery.jpg>] [45 <./figures/emailProcessing.png (PNG copy)>]
+[46]
 Kapitola 9.
-[45
+[47
 
-] [46
+] [48
 
 ]
 Kapitola 10.
-[47] <./figures/topologies802154.png, id=924, 724.7075pt x 408.52625pt>
+[49] <./figures/topologies802154.png, id=966, 724.7075pt x 408.52625pt>
 File: ./figures/topologies802154.png Graphic file (type png)
 
 <use ./figures/topologies802154.png>
 
-LaTeX Warning: Citation `XBee' on page 48 undefined on input line 1276.
+LaTeX Warning: Citation `XBee' on page 50 undefined on input line 1367.
 
-[48 <./figures/topologies802154.png (PNG copy)>] [49] [50
+[50 <./figures/topologies802154.png (PNG copy)>] [51] [52
 
 ]
 Kapitola 11.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1337.
+(hyperref)                than one, level fixed on input line 1428.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1340
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1431
 
  []
 
 
-LaTeX Warning: Reference `fig:xbeeWhipGain' on page 51 undefined on input line 
-1341.
+LaTeX Warning: Reference `fig:xbeeWhipGain' on page 53 undefined on input line 
+1432.
 
-[51]
+[53]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1349.
+(hyperref)                than one, level fixed on input line 1440.
 
 
-LaTeX Warning: Reference `fig:zoslab' on page 52 undefined on input line 1353.
+LaTeX Warning: Reference `fig:zoslab' on page 54 undefined on input line 1444.
 
-[52] [53] [54
+[54] [55] [56
 
 ]
 Kapitola 12.
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1406.
+(hyperref)                than one, level fixed on input line 1497.
 
-[55] <./figures/FSPL.png, id=961, 741.77126pt x 444.66125pt>
+[57] <./figures/FSPL.png, id=1004, 741.77126pt x 444.66125pt>
 File: ./figures/FSPL.png Graphic file (type png)
 
 <use ./figures/FSPL.png>
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1490.
+(hyperref)                than one, level fixed on input line 1581.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
+Underfull \hbox (badness 10000) in paragraph at lines 1584--1585
 
  []
 
-[56] [57 <./figures/FSPL.png>]
-Overfull \hbox (1.06372pt too wide) in paragraph at lines 1507--1508
+[58] [59 <./figures/FSPL.png>]
+Overfull \hbox (1.06372pt too wide) in paragraph at lines 1598--1599
 []\T1/cmr/m/it/10.95 handleLowerMsgEnd \T1/cmr/m/n/10.95 - slúºi na samotné odo
 slanie správy vy²²ej vrstve a zárove¬ pripája
  []
 
 
-Overfull \hbox (6.01328pt too wide) in paragraph at lines 1513--1514
+Overfull \hbox (6.01328pt too wide) in paragraph at lines 1604--1605
 \T1/cmr/m/n/10.95 tento modul len rozho-duje, £i sa daná správa za-hodí alebo p
 re-po²le vy²²ej vrstve. Rozhodovanie
  []
 
-<./figures/nic.png, id=977, 428.60126pt x 374.39874pt>
+<./figures/nic.png, id=1019, 428.60126pt x 374.39874pt>
 File: ./figures/nic.png Graphic file (type png)
- <use ./figures/nic.png>
+
+<use ./figures/nic.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./figures/snrEval.png, id=978, 865.2325pt x 798.985pt>
+<./figures/snrEval.png, id=1020, 865.2325pt x 798.985pt>
 File: ./figures/snrEval.png Graphic file (type png)
 
 <use ./figures/snrEval.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[58] [59 <./figures/nic.png (PNG copy)> <./figures/snrEval.png (PNG copy)>]
-[60
+[60] [61 <./figures/nic.png (PNG copy)> <./figures/snrEval.png (PNG copy)>]
+[62
 
 ]
 Kapitola 13.
-[61]
+[63]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1581.
+(hyperref)                than one, level fixed on input line 1672.
 
-[62]
+[64]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1586.
+(hyperref)                than one, level fixed on input line 1677.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1589--1591
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1593
+Underfull \hbox (badness 10000) in paragraph at lines 1680--1682
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1601--1602
+Underfull \hbox (badness 10000) in paragraph at lines 1682--1684
 
  []
 
-[63] <./figures/modelKolizie.png, id=1011, 586.19pt x 496.85625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1692--1693
+
+ []
+
+[65] <./figures/modelKolizie.png, id=1053, 586.19pt x 496.85625pt>
 File: ./figures/modelKolizie.png Graphic file (type png)
 
 <use ./figures/modelKolizie.png>
-<./figures/kolizia.png, id=1012, 1246.6575pt x 815.045pt>
+<./figures/kolizia.png, id=1054, 1246.6575pt x 815.045pt>
 File: ./figures/kolizia.png Graphic file (type png)
 
 <use ./figures/kolizia.png>
 
-LaTeX Warning: Float too large for page by 50.79271pt on input line 1617.
+LaTeX Warning: Float too large for page by 50.79271pt on input line 1708.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[64 <./figures/modelKolizie.png (PNG copy)>] [65 <./figures/kolizia.png (PNG co
-py)>] [66
+[66 <./figures/modelKolizie.png (PNG copy)>] [67 <./figures/kolizia.png (PNG co
+py)>] [68
 
 ]
 Kapitola 14.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1624.
+(hyperref)                than one, level fixed on input line 1715.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1625--1626
-
- []
-
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 1661--1662
+Underfull \hbox (badness 10000) in paragraph at lines 1716--1717
 
  []
 
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1753
 
-Overfull \hbox (9.95178pt too wide) in paragraph at lines 1671--1677
+ []
+
+
+Overfull \hbox (9.95178pt too wide) in paragraph at lines 1762--1768
  [] 
  []
 
-<./figures/results/5m-1mw.png, id=1040, 811.03pt x 532.99126pt>
+<./figures/results/5m-1mw.png, id=1083, 811.03pt x 532.99126pt>
 File: ./figures/results/5m-1mw.png Graphic file (type png)
 
 <use ./figures/results/5m-1mw.png>
-<./figures/results/5m-10mw.png, id=1041, 811.03pt x 530.98375pt>
+<./figures/results/5m-10mw.png, id=1084, 811.03pt x 530.98375pt>
 File: ./figures/results/5m-10mw.png Graphic file (type png)
 
 <use ./figures/results/5m-10mw.png>
-<./figures/results/250-10mw.png, id=1042, 811.03pt x 533.995pt>
+<./figures/results/250-10mw.png, id=1085, 811.03pt x 533.995pt>
 File: ./figures/results/250-10mw.png Graphic file (type png)
 
 <use ./figures/results/250-10mw.png>
-<./figures/results/250-1mw-rotace.png, id=1043, 812.03375pt x 532.99126pt>
+<./figures/results/250-1mw-rotace.png, id=1086, 812.03375pt x 532.99126pt>
 File: ./figures/results/250-1mw-rotace.png Graphic file (type png)
 
-<use ./figures/results/250-1mw-rotace.png> [68] [69 <./figures/results/5m-1mw.p
-ng (PNG copy)>] [70 <./figures/results/5m-10mw.png (PNG copy)> <./figures/resul
-ts/250-10mw.png (PNG copy)>] [71 <./figures/results/250-1mw-rotace.png (PNG cop
-y)>] [72
+<use ./figures/results/250-1mw-rotace.png> [70] [71 <./figures/results/5m-1mw.p
+ng (PNG copy)>] [72 <./figures/results/5m-10mw.png (PNG copy)> <./figures/resul
+ts/250-10mw.png (PNG copy)>] [73 <./figures/results/250-1mw-rotace.png (PNG cop
+y)>] [74
 
 ]
 Kapitola 15.
-(./Lenart-thesis-2011.bbl [73] [74
+(./Lenart-thesis-2011.bbl [75] [76
 
 ]
-Underfull \hbox (badness 1418) in paragraph at lines 42--47
+Underfull \hbox (badness 1418) in paragraph at lines 48--53
 []\T1/cmr/m/n/10.95 John F. Gantz, David Rein-sel, Christo-pher Chute, Wolf-gan
 g Schlicht-ing, John
  []
 
-[75]) [76]
+[77]) [78]
 Dodatok A.
-[77
+[79
 
-] [78]
+] [80]
 Dodatok B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1802.
+(hyperref)                than one, level fixed on input line 1893.
 
 
-Overfull \hbox (39.8537pt too wide) in paragraph at lines 1825--1826
+Overfull \hbox (39.8537pt too wide) in paragraph at lines 1916--1917
 []\T1/cmr/m/n/10.95 Stiahnutie súborov Mo-bil-ity frame-worku z svn http://my-s
 vn.assembla.com/svn/mframework/,
  []
 
 
-Overfull \hbox (14.7884pt too wide) in paragraph at lines 1828--1829
+Overfull \hbox (14.7884pt too wide) in paragraph at lines 1919--1920
 []\T1/cmr/m/n/10.95 Po spustení ap-liká-cie Om-net, klikneme na oblas´ ^^RProje
 ct ex-plorer^^P, pravým tla£ítkom
  []
 
 
-Overfull \hbox (16.92145pt too wide) in paragraph at lines 1830--1831
+Overfull \hbox (16.92145pt too wide) in paragraph at lines 1921--1922
 []\T1/cmr/m/n/10.95 V poloºke ^^RSe-lect root di-rec-tory^^P, zvolíme cestu k a
 dresáru mf2o4, tj. /usr/local/mf2o4 
  []
 
-[79
+[81
 
-] [80]
+] [82]
 Dodatok C.
-<./figures/zoznamCD.png, id=1115, 729.72626pt x 253.94875pt>
+<./figures/zoznamCD.png, id=1158, 729.72626pt x 253.94875pt>
 File: ./figures/zoznamCD.png Graphic file (type png)
 
-<use ./figures/zoznamCD.png> [81
+<use ./figures/zoznamCD.png> [83
 
  <./figures/zoznamCD.png (PNG copy)>]
 (./Lenart-thesis-2011.aux)
@@ -1043,10 +1060,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7443 strings out of 495046
- 99109 string characters out of 1181936
- 175264 words of memory out of 3000000
- 10172 multiletter control sequences out of 15000+50000
+ 7485 strings out of 495046
+ 99757 string characters out of 1181936
+ 176783 words of memory out of 3000000
+ 10196 multiletter control sequences out of 15000+50000
  20959 words of font info for 48 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,16n,39p,1921b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1077,9 +1094,9 @@ type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public
 /amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
 /cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on Lenart-thesis-2011.pdf (97 pages, 1165979 bytes).
+Output written on Lenart-thesis-2011.pdf (99 pages, 1181735 bytes).
 PDF statistics:
- 1966 PDF objects out of 2073 (max. 8388607)
- 299 named destinations out of 1000 (max. 500000)
- 862 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2018 PDF objects out of 2073 (max. 8388607)
+ 314 named destinations out of 1000 (max. 500000)
+ 894 words of extra memory for PDF output out of 10000 (max. 10000000)
 

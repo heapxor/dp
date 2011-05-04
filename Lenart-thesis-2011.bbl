@@ -38,6 +38,12 @@ A.~F. Gates, O.~Natkovich, S.~Chopra, P.~Kamath, S.~M. Narayanamurthy,
   experience.
 \newblock {\em Proc. VLDB Endow.}, 2:1414--1425, August 2009.
 
+\bibitem{Ghemawat:2003:GFS:945445.945450}
+S.~Ghemawat, H.~Gobioff, and S.-T. Leung.
+\newblock The google file system.
+\newblock In {\em Proceedings of the nineteenth ACM symposium on Operating
+  systems principles}, SOSP '03, pages 29--43, New York, NY, USA, 2003. ACM.
+
 \bibitem{digitalUniverse}
 {John F. Gantz, David Reinsel, Christopher Chute, Wolfgang Schlichting, John
   McArthur, Stephen Minton, Irida Xheneti, Anna Toncheva, Alex Manfrediz}.
@@ -68,6 +74,14 @@ R.~Shoup.
   feature velocity, performance, and cost}, November 2006.
 \newblock \\ \verb|www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|,
   stav z 28.\,2.\,2011.
+
+\bibitem{Thusoo:2010:DWA:1807167.1807278}
+A.~Thusoo, Z.~Shao, S.~Anthony, D.~Borthakur, N.~Jain, J.~Sen~Sarma, R.~Murthy,
+  and H.~Liu.
+\newblock Data warehousing and analytics infrastructure at facebook.
+\newblock In {\em Proceedings of the 2010 international conference on
+  Management of data}, SIGMOD '10, pages 1013--1020, New York, NY, USA, 2010.
+  ACM.
 
 \bibitem{Udell}
 J.~Udell.
