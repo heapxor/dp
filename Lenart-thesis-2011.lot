@@ -7,7 +7,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces V\IeC {\'y}konnos\IeC {\v t} HDFS}}{36}{table.7.1}
+\contentsline {table}{\numberline {7.1}{\ignorespaces V\IeC {\'y}konnos\IeC {\v t} HDFS pre z\IeC {\'a}pis d\IeC {\'a}t}}{36}{table.7.1}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Po\IeC {\v c}et zap\IeC {\'\i }san\IeC {\'y}ch riadkov s jedn\IeC {\'y}m st\IeC {\'l}pcom za sekundu}}{37}{table.7.2}
+\contentsline {table}{\numberline {7.3}{\ignorespaces Z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{37}{table.7.3}
+\contentsline {table}{\numberline {7.4}{\ignorespaces \IeC {\v C}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{37}{table.7.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

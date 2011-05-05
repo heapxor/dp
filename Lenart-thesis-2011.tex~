@@ -1090,15 +1090,17 @@ Počas testu sme na súborový systém zapisovali tri rôzne veľkosti súborov,
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
-\hline Klaster & A & B & C\\ 
 \hline
-\hline 128MB & 287 MB/s& 102 MB/s& 190 MB/s\\ 
-\hline 812MB & 371 MB/s& 85 MB/s& 162 MB/s\\ 
-\hline 4GB & 433 MB/s& 85 MB/s& 163 MB/s\\ 
+\multicolumn{4}{|c|}{Klaster}  \\
+\hline Súbor & A & B & C\\ 
+\hline
+\hline 128 MB & 287 MB/s& 102 MB/s& 190 MB/s\\ 
+\hline 812 MB & 371 MB/s& 85 MB/s& 162 MB/s\\ 
+\hline 4 GB & 433 MB/s& 85 MB/s& 163 MB/s\\ 
 \hline
 \end{tabular} 
 \end{center}
-\caption{Výkonnosť HDFS}
+\caption{Výkonnosť HDFS pre zápis dát}
 \label{tab:HDFSperformance}
 \end{table}
 
@@ -1110,6 +1112,74 @@ Popisat detailne test?
 
 \section{Cassandra}
 
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{Počet uzlov}  \\
+\hline Veľkost riadku & 3 & 4 & 5 & 6\\ 
+\hline
+\hline 1 KB & 18182 & 28397 & 31132 & 31847 ???\\ 
+\hline 10 KB & 6473 & 7857 & 9574 & 12120\\ 
+\hline 100 KB & 726 & 941 & 1137 & 1374\\ 
+\hline 512 KB & 134 & 173 & 218 & 253\\  
+\hline 1 MB & 62 & 92 & 100 & 126\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Počet zapísaných riadkov s jedným stĺpcom za sekundu}
+\label{tab:CPerf1}
+\end{table}
+
+%aky graf pouzit na zistenie ktory riadok najelepsie scaloval?
+
+
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+
+\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť\\ 
+\hline
+\hline 1 & 1 & One & 132 & 22805 & 22\\ 
+\hline 3 & 1 & One & 67 & 41074 & 44\\ 
+\hline 3 & 3 & One & 115 & 26176 & 26\\ 
+\hline 3 & 3 & Quorum & 165 & 18182 & 17\\ 
+\hline 6 & 3 & One & 87 & 34483 & 34\\ 
+\hline 6 & 3 & Quorum & 103 & 29126 & 28\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Zápis riadkov o veľkosti 1000 B}
+\label{tab:CPerf2}
+\end{table}
+
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť\\ 
+\hline
+\hline 1 & 1 & One & 419 & 261 & 261\\ 
+\hline 3 & 1 & One & 104 & 971 & 971\\ 
+\hline 3 & 3 & One & 58 & 1741 & 1741\\ 
+\hline 3 & 3 & Quorum & 327 & 307 & 307\\ 
+\hline 6 & 3 & One & 23 & 4555 & 4555\\ 
+\hline 6 & 3 & Quorum & 66 & 1515 & 1515\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Čítanie riadkov o veľkosti 1000 B}
+\label{tab:CPerf3}
+\end{table}
+
+
+
+
+There’s no clear test plan for distributed systems, no failover benchmarking tool, nothing on reliability, availability or data consistenc
 % Obecné výkonové porovnanie NoSQL systémov je zložitá úloha. Žiadny systém nie je navrhnutý tak aby ním bolo možné dosiahnúť optimálne výsledky v prípade, že ho použijeme pre rôzne typy aplikácií. Niektoré systémy sú optimalizované pre zápis iné pre čítane dát. Výkon týchto systémov ďalej ovlyvňuje faktor replikácie, spôsob rozsekávania dát, ich umiestnenie a iné. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. 
 % 
 % Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
