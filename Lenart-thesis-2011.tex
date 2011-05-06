@@ -1044,13 +1044,15 @@ Z týchto pozorovaní vyplýva fakt, že distribuovaný súborový systému HDFS
 
 SYNC!!! a zapis pipeline style
  page 69 hadoop book
-\subsection*{HBase}
 
+\subsection*{HBase}
+TODO:!!!!
 replikovanie in pipeline
 
 \chapter{Testovanie výkonnosti}
 
-V následujúcej kapitole sa zameriame na popis výkonnostných testov, ktoré sme vykonali v reálnych podmienkach.
+Obecné výkonové porovnanie NoSQL systémov je zložitá úloha, neexistuje obecný nástroj, ktorým by bolo možné tieto systémy navzájom porovnať. 
+Tieto systémy vynikajú rôznými vlastnosťami ako typ konzistencie, dostupnosť, optimalizácia pre zápis alebo čítanie a ich výber závisí na prípade použitia. Obecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Taktiež nie sú jasné žiadne obecné techniky, ktorými by bolo možné testovať napríklad konzistenciu týchto distribuovaných systémov, spoľahlivosť a iné. Výkon týchto systémov môže ovlyvňovať faktor replikácie, spôsob rozsekávania dát alebo úroveň konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. V následujúcej kapitole sa zameriame na popis výkonnostných testov, ktoré sme vykonali v reálnych podmienkach a u ktorých sme pozorovali ako systémy HBase a Cassandra zvládajú vysoký zápis v rôzných konfiguráciách faktoru replikácie, počtu uzloch v klastri a úrovňou konzistencie.
 
 %TODOpokusime sa najst spojitost_ overit : 
 
@@ -1067,11 +1069,11 @@ Pre výkonnostné testovanie sme mali k dispozícii 9 počítačov s rovnakou ha
 \end{itemize}
 
 \subsection*{Softvérová konfigurácia} 
-Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64, Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor (angl. swap). Za účelom monitorovania bol použitý softvér Zabbix, VisualVM a dstat.
+Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64, Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor (angl. swap). Za účelom monitorovania bol použitý softvér Zabbix, VisualVM, htop, iostat a dstat.
 
 \subsection*{Sieťová konfigurácia}
 
-Hodnota maximálnej reálnej sieťovej priepusnosti medzi dvoma uzlami bola zmerná pomocou aplikácie XY s výslednou hodnotou 940Mbit.
+Hodnota maximálnej reálnej sieťovej priepusnosti medzi dvoma uzlami bola zmerná pomocou aplikácie nuttcp\footnote{http://www.wcisd.hpc.mil/nuttcp/} s výslednou hodnotou 940Mbps.
 
 \section{HDFS}
 Nad distribuovaným súborovým systémom HDFS sme vykonali testy určujúce maximálnu hodnotu priepusnosti pri zápise dát, z dôvodu aby sme vylúčili možné úzke hrdlo v jeho prepojení s databázovým systémom HBase. Pre účely testovania sme použili verziu Hadoop-0.20.2, veľkosť haldy pre JVM (parameter -Xmx, JVM Heap) sme nastavili na 1GB.
@@ -1084,10 +1086,8 @@ Meranie maximálnej rýchlosi zápisu sme testovali v troch konfiguráciach. Ka�
  \item C - šesť uzlov slave s faktorom replikácie tri
 \end{itemize}
 
-Počas testu sme na súborový systém zapisovali tri rôzne veľkosti súborov, kde v HDFS bola zachovaná štandardná veľkosť bloku tj. 64MB. Každý test bol vykonnaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance} ukazujú, že zvýšenie faktoru replikácie ma zásadný vplyv na celkový výkon. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad B, C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť daného systému. Veľkosti zapisovaných súborov sme volili s ohľadom na konfiguráciu systému HBase, kde veľkosť súborov Memstore, ktoré sa budú zapisovať z operačnej pamati na HDFS je 128MB.
- 
-
-\begin{table}[htbp]
+Počas testu sme na súborový systém zapisovali tri rôzne veľkosti súborov, kde v HDFS bola zachovaná štandardná veľkosť bloku tj. 64MB. Pomocou Mapreduce sa na každom uzle typu slave paralelne vykonával zápis súboru o danej veľkosti. Každý test bol vykonnaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance} ukazujú, 
+\begin{table}[hp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -1103,52 +1103,46 @@ Počas testu sme na súborový systém zapisovali tri rôzne veľkosti súborov,
 \caption{Výkonnosť HDFS pre zápis dát}
 \label{tab:HDFSperformance}
 \end{table}
+že zvýšenie faktoru replikácie ma zásadný vplyv na celkový výkon. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad B, C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť daného systému. Veľkosti zapisovaných súborov sme volili s ohľadom na konfiguráciu systému HBase, kde veľkosť súborov Memstore, ktoré sa budú zapisovať z operačnej pamati na HDFS je 128MB.
 
-vytazenie CPU 30\%
-
-Popisat detailne test?
+%TODO memstore a po merge je 812 mb subor s nazvom?
+%treba taku vetu ???
+Počas testu systém nevykazoval žiadne známky jeho preťaženia, nebolo indetifikované žiadne úzke hrdlo.
 
 \section{HBase}
 
+lala 
+
 \section{Cassandra}
+% Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
 
-\begin{table}[htbp]
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-\multicolumn{5}{|c|}{Počet uzlov}  \\
-\hline Veľkost riadku & 3 & 4 & 5 & 6\\ 
-\hline
-\hline 1 KB & 18182 & 28397 & 31132 & 31847 ???\\ 
-\hline 10 KB & 6473 & 7857 & 9574 & 12120\\ 
-\hline 100 KB & 726 & 941 & 1137 & 1374\\ 
-\hline 512 KB & 134 & 173 & 218 & 253\\  
-\hline 1 MB & 62 & 92 & 100 & 126\\ 
-\hline
-\end{tabular} 
-\end{center}
-\caption{Počet zapísaných riadkov s jedným stĺpcom za sekundu}
-\label{tab:CPerf1}
-\end{table}
+Distribuovaný databázový systém Cassandra sme podrobili viacerým testom, ktorých zámer a výsledky popíšeme v následujúcej časti. Testy boli zamerané hlavne na stabilitu systému, sledovali rýchlosť zápisu dát a ako sa táto rýchlosť mení na základe rôzneho počtu uzlov, úrovne konzistencie a replikácie. Pri testovaní bola použitá verzia Cassandra-0-7.3.
 
-%aky graf pouzit na zistenie ktory riadok najelepsie scaloval?
+\subsection*{Konfigurácia}
+wall log - coomitlog
+not batch
+memtable 120 mb
+verzia
+java verzia
+swap off
+
+synch casu!!!
 
 
 
+Tabuľka \ref{tab:CPerf2} obsahuje výsledky z viacerých meraní, pri ktorých sme do systému zapisovali 8000000 riadkov s jedným stĺpcom o veľkosti 1000B. Ako kľúče zapisovaných riadkov boli použité hodnoty v rozsahu 0 až počet riadkov. Vďaka architektúre DHT (md5(kluc)), boli počas testovania všetky uzly rovnomerne zaťažené. Zmena parametrov podľa sledovanej vlastnosti je obsiahnutá v tabuľke.
 
-\begin{table}[htbp]
+\begin{table}[hp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
+\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť [MB/s]\\ 
 \hline
-
-\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť\\ 
-\hline
-\hline 1 & 1 & One & 132 & 22805 & 22\\ 
-\hline 3 & 1 & One & 67 & 41074 & 44\\ 
-\hline 3 & 3 & One & 115 & 26176 & 26\\ 
-\hline 3 & 3 & Quorum & 165 & 18182 & 17\\ 
-\hline 6 & 3 & One & 87 & 34483 & 34\\ 
-\hline 6 & 3 & Quorum & 103 & 29126 & 28\\ 
+\hline 1 & 1 & One & 338 & 23669 & 23\\ 
+\hline 3 & 1 & One & 207 & 38647 & 38\\ 
+\hline 3 & 3 & One & 311 & 25723 & 25\\ 
+\hline 3 & 3 & Quorum & 351 & 22792 & 22\\ 
+\hline 6 & 3 & One & 202 & 39604 & 39\\ 
+\hline 6 & 3 & Quorum & 263 & 30418 & 30\\ 
 \hline
 \end{tabular} 
 \end{center}
@@ -1156,19 +1150,39 @@ Popisat detailne test?
 \label{tab:CPerf2}
 \end{table}
 
+\subsection*{Škálovateľnosť}
 
-\begin{table}[htbp]
+Z výsledkov meraní je vidieť, že tento distribuovaný databázový systém je maximálne škálovateľný z pohľadu rýchlosti zápisu. V prípade, že sme zdvojnásobili počet uzlov z troch na šesť (riadok 3,5) vzrástla priepusnosť zápisu o 50\%.
+
+\subsection*{Replikácia}
+
+V prípade zvýšenia úrovne replikácie z 1 na 3 sa automaticky znížila rýchlosť zápisu o jednu tretinu.
+
+\subsection*{Konzistencia}
+
+V prípade, zápisu s konzistenciou kôra, ktorá zabezpečuje silnú konzistenciu databázového systému, sa rýchlosť znížila podľa očakávaní. V tomto prípade aby klient obdržal odpoveď o úspešnom zápise museli byt dáta zapísané na dve repliky.  
+
+%aky graf pouzit na zistenie ktory riadok najelepsie scaloval?
+\subsection*{Čítanie dát}
+
+Bol precitany 1GB dat / riadok 1K
+
+Tabuľka zobrazuje ... z dovodu mapreduce
+
+bolo vypnute kesovanie riadkov a klucov
+
+\begin{table}[hp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
+
+\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť [MB/s]\\ 
 \hline
-\hline Počet uzlov & Replikácia & Konzistencia & Čas & Riadok/sek & Priepustnosť\\ 
-\hline
-\hline 1 & 1 & One & 419 & 261 & 261\\ 
-\hline 3 & 1 & One & 104 & 971 & 971\\ 
-\hline 3 & 3 & One & 58 & 1741 & 1741\\ 
-\hline 3 & 3 & Quorum & 327 & 307 & 307\\ 
-\hline 6 & 3 & One & 23 & 4555 & 4555\\ 
-\hline 6 & 3 & Quorum & 66 & 1515 & 1515\\ 
+\hline 1 & 1 & One & 419 & 261 & 0.26\\ 
+\hline 3 & 1 & One & 211 & 4745 & 4.6\\ 
+\hline 3 & 3 & One & 51 & 19630 & 19\\ 
+\hline 3 & 3 & Quorum & 102 & 9750 & 10\\ 
+\hline 6 & 3 & One & 33 & 30903 & 30\\ 
+\hline 6 & 3 & Quorum & 60 & 16924 & 17\\ 
 \hline
 \end{tabular} 
 \end{center}
@@ -1177,14 +1191,35 @@ Popisat detailne test?
 \end{table}
 
 
+\subsection*{Zaťazovací test}
+
+V tomto teste sme zaťažili klaster po dobu zápisu 20min. V určitých prípadoch sme použili pre zápis do klastra dvoch klientov z dôvodu aby sme vylúčili úzke hrdlo na strane klienta. Cieľom bolo zistiť stabilitu a maximálna priepustnosť klastra pre zápis dát. Tabuľka \ref{tab:CPerf1} zobrazuje priemerný dátový tok počas doby testovania v MB/s, ktorý sa zapisoval do klastra.
+
+Počas testu sme klaster monitorovali a zistili viacero závažných dôsledkov. Na všetkých uzloch prebiehali veľmi časté GC kolekcie? z dôvodu častého zápisu štruktúr memtable na disk. Podľa HW specifikácie všetky uzly disponovali minimálnou veľkosťou operačnej pamäti (4GB), preto z dôvodu stability systému bola horná hodnota pri ktorej sa zapisuje memtable z RAM na disk 120MB. Následkom tohoto nastavenia vznikalo veľké množstvo SSTable súborov na disku, ktoré sa Cassandra zlievala na pozadí (ang. compactions), čo spôsobovalo záťaž I/O?. V prípade, takto zaťaženého systému a veľkého množstva SSTable súborov by bola operácia čítania náročná na diskové operácie. 
+
+Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súborov rádovo v KB, je hlavným úzkym hrdlom systému CPU, kdežto v prípade zápisu veľkých blokov dát zohráva hlavnú úlohu I/O.?
+
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{Počet uzlov}  \\
+\hline Veľkost riadku & 3 & 4 & 5 & 6\\ 
+\hline
+\hline 1 KB & 18 & 28 & 30 & 33\\ 
+\hline 10 KB & 63 & 77 & 93 & 118 \\ 
+\hline 100 KB & 71 & 92 & 111 & 134\\ 
+\hline 512 KB & 67 & 87 & 109 & 127\\  
+\hline 1 MB & 62 & 92 & 100 & 126\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Maximálna priepustnosť klastru v MB/s}
+\label{tab:CPerf1}
+\end{table}
 
 
-There’s no clear test plan for distributed systems, no failover benchmarking tool, nothing on reliability, availability or data consistenc
-% Obecné výkonové porovnanie NoSQL systémov je zložitá úloha. Žiadny systém nie je navrhnutý tak aby ním bolo možné dosiahnúť optimálne výsledky v prípade, že ho použijeme pre rôzne typy aplikácií. Niektoré systémy sú optimalizované pre zápis iné pre čítane dát. Výkon týchto systémov ďalej ovlyvňuje faktor replikácie, spôsob rozsekávania dát, ich umiestnenie a iné. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. 
-% 
-% Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
-
-
+Pozorovanie ???
 
 %???Konflikty v distribuovanych DB ??? (vector clock)
 %???? Výhody noSQL v porovnaní s modelovaním dát u relačných
@@ -1193,19 +1228,16 @@ There’s no clear test plan for distributed systems, no failover benchmarking t
 % Použitím relačných databáz podlieha návrh štruktúry dát predom známym návrhovým vzorom a normalizácií. Vyžaduje sa komplexná analýza vstupných dát a presná štrutúra dátového modelu tj. definovanie tabuliek, počet ich stĺpcov. Vývoj takýchto aplikácií sa prvotne zameriava na určenie štrukúry dát.
 % 
 % U množstva nových problémov ako napríklad grafy sociálnych sieti alebo vyhľadávače je komplikované predom určiť a popísať komplexne model dát, ktorý  sa môže časom  meniť, z dôvodu neustálej zmeny vstupných dát. V tomto prípade, nachádzame množstvo výhod u dátového modelu noSQL systémov, ktorý dokáže pracovať s neštrukturovanými alebo čiastočne štrukturovanými dátami.
-
-TODO: do slovnik slov = def. klaster
-Commodity hw = komponenty sú štandardizované, bežne dostupné a ich cenu neurčuje samostatný výrobca (IBM, DELL,...) ale trh. Príkladom takéhoto HW môže byť nasledujúca konfigurácia 2 x 250GB SATA drives, 4-12GB RAM, dual x dual core CPU's. Snahou je nájsť vhodný balanc medzi cenou a výkonom.
-
-=== Porovnanie vykonnosti systemov 
-
-nastroj na naplnenie systemov 
-
-meranie 
-
-write - read 
-
-
+% 
+% TODO: do slovnik slov = def. klaster
+% Commodity hw = komponenty sú štandardizované, bežne dostupné a ich cenu neurčuje samostatný výrobca (IBM, DELL,...) ale trh. Príkladom takéhoto HW môže byť nasledujúca konfigurácia 2 x 250GB SATA drives, 4-12GB RAM, dual x dual core CPU's. Snahou je nájsť vhodný balanc medzi cenou a výkonom.
+% 
+% === Porovnanie vykonnosti systemov 
+% nastroj na naplnenie systemov 
+% meranie 
+% write - read 
+% 
+% 
 
 
 \chapter{Návrh systému}
