@@ -1045,9 +1045,102 @@ Z týchto pozorovaní vyplýva fakt, že distribuovaný súborový systému HDFS
 SYNC!!! a zapis pipeline style
  page 69 hadoop book
 
+Decisions related to the replication of blocks are always taken
+by NameNode, which receives regularly from each DataNode
+in the cluster Heartbeat information and the proportion
+between the blocks used. The information about a file has the
+form [5]:
+
+%NameNode (File_name,Id_blocs, ...)
+%replica_numbers, For exemple the next information:
+%/path/part-0,r:2,{1,3},...
+%/path/part-0,r:3,{2,6,34},..
+means that part-0 is stored with 2 replicas on the blocks 1 and 3, and 3 replicas on the blocks 2, 6, and 34. The strategies
+for replicas place are more important for performance and aviability of HDFS. The usual replication policy is to have two replica machines from the same rack and a replica for a node located in another rack. This policy limits the writing traffic between racks and the chance of failure of the entire rack is much lower than the chance of failure of a node
+
+
 \subsection*{HBase}
-TODO:!!!!
-replikovanie in pipeline
+
+%replikovanie in pipeline
+
+HBase je open source distribuovaný stĺpcovo orientovaný databázový systém, ktorý umožnuje prístup a zápis dát v reálnom čase. Tento systém je nadstavbou nad distribuovaným súborovým systémom HDFS, je taktiež implementovaný v Jave a jeho architektornické koncepty vychádzajú z článku Bigtable od spoločnosti Google. HBase bol vytvorený spoločnosťou Powerset koncom roka 2006, pre potreby spracúvania obrovského objemu dát \cite{White:2009:HDG:1717298} a začiatkom roka 2008 sa stal oficiálnym podprojektom systému Hadoop.
+
+\subsection{Dátový model}
+
+Dátaov model je totožný s konceptom Bigtable. Dáta s ktorými pracuje HBase sa ukladajú do tabuliek. Každá tabuľka obsahuje riadky identifikované kľúčom, ktoré môžu byť tvorené ľubovoľným počtom stĺpcov. Klúče sú reprezentované ako bajtové pole. Riadky sú radené podľa obsahu kľúčov. Obsah stĺpcov je typu bytové poľe a je možné ich organizovať do skupín, ktoré sa nazývajú rodiny stĺpcov (angl. column families). Obsahu každej bunky, ktorej pozíciu určuje riadok a stĺpec prináleži verzia, ktorá je reprezentovaná časovou značkou. Časovú značku určuje klient pri zápise dát alebo je automaticky generovaná systémom HBase (zýskava ju z operačného systému??) Obsah buniek tabuľky je možné sprístupniť pomocou kľúča a názvu stĺpca alebo pomocou kľúča, názvu stĺpca a časovej značky. V prípade uloženia viacerých verzií v danej bunke, sú tieto dáta radené od najaktuálnejšej časovej značky po najstaršiu. 
+%ref na hbase architecture pages
+
+Dôležitým faktom je, že stĺpce, ktoré patria do rovnakej rodiny stĺpcov sú fyzicky uložené na tom istom mieste. Názvy rodiny stĺpcov je potrebné zadefinovať počas vytvárania tabuliek. Ich názvy a počet je potrebné vhodne premyslieť už pri samotnom návrhu databázovej schémy. V prípade, že klaster HBase obsahuje viacero uzlov je na nich potrebné zabezpečiť sychronyzáciu času. 
+
+%TODO obrazok
+%pridavanie CF za behu u C 
+
+
+\subsection{Architektúra systému}
+
+HBase využíva architektúru master-slave. Uzol v role master sa nazýva HBaseMaster, uzly slave RegionServers. Pre chod systému je ďalej potrebná služba Zookeeper {ref + pre synch?}. 
+
+
+
+????
+
+aktualne su clanky zle popisy konfiguracii chybaju udaje o RF atd..
+zle metodologie 
+
+\subsection{Rozdeľovanie dát}
+
+Základnou jednotkou, ktorá zabezpečuje rozdeľovanie dát a teda umožnuje horizontálne škálovanie a rovnomerné rozloženie záťaže v klastri je region. Region má identifikátor a tvorí ho interval riadkov, kde posledný riadok do daného intervalu nepatrí. Tabuľka je tvorená regiónmi, pri jej vytvorení ju zvyčajne reprezentuje jeden región. V prípade, že jej veľkosť dosiahne predom stanovenú hranicu, dojde k rozdelenie riadkov do dvoch nových regiónov s podobnou veľkosťou. Tieto regióny sú distribuované na uzly typu RegionServer v klastri.
+
+\subsection{Replikácia}
+
+Replikáciu dát je možné zabezpečiť pomocou perzistentného úložiska, v tomto prípade systému HDFS.
+
+%TODO datacentra
+
+
+\subsection{Perzistentné úložisko}
+
+Tento distribuovaný databázový systém je schopný pracovať v lokálnom móde, kde vyššie spomínané komponenty bežia ako samostatné služby na jednom fyzickom uzly a ako úložisko sa využíva lokálny súborový systém.
+
+V prípade distribuovaného módu rozlišujeme dva typy:
+\begin{itemize}
+ \item pseudo distribuovaný mód, kde všetky komponenty bežia na jednom uzly
+ \item distribuovaný mód, jednotlivé komponenty bežia na samostatných uzloch
+\end{itemize}
+
+Obidve konfigurácie využívajú ako perzistentné úložisko distribuovaný súborový systém HDFS.
+
+\subsection{Konzistencia}
+
+Systém sa vyznačuje silnou konistenciou. Z modelu CAP splňuje CP, teda uprednosňuje konzistenciu pred dostupnosťou.
+
+
+
+
+\subsection{Zápis dát}
+
+zapis a citanie je atomicka operacia.
+
+\subsection{Čítanie dát}
+
+\subsection{Zmazanie dát}
+
+\subsection{Bezpečnosť}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \chapter{Testovanie výkonnosti}
 
@@ -1112,6 +1205,64 @@ Počas testu systém nevykazoval žiadne známky jeho preťaženia, nebolo indet
 \section{HBase}
 
 lala 
+
+\begin{table}[hp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline Počet uzlov & Replikácia  & Čas & Riadok/sek & Priepustnosť [MB/s]\\ 
+\hline
+\hline 1 & 1 &  551 & 14519 & 14\\ 
+\hline 3 & 1 &  202 & 39613 & 39\\ 
+\hline 3 & 3 &  317 & 25110 & 25\\ 
+\hline 6 & 3 &  211 & 37864 & 37\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Zápis riadkov o veľkosti 1000 B}
+\label{tab:HPerf2}
+\end{table}
+
+
+
+\begin{table}[hp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+
+\hline Počet uzlov & Replikácia & Čas & Riadok/sek & Priepustnosť [MB/s]\\ 
+\hline
+\hline 1 & 1 & 246 & 4069 & 4\\ 
+\hline 3 & 1 & 117 & 8561 & 8\\ 
+\hline 3 & 3 & 127 & 7936 & 8\\ 
+\hline 6 & 3 & 190 & 11904 & 12\\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Čítanie riadkov o veľkosti 1000 B}
+\label{tab:CPerf3}
+\end{table}
+
+
+
+
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{Počet uzlov}  \\
+\hline Veľkost riadku & 3 & 4 & 5 & 6\\ 
+\hline
+\hline 1 KB &  &  &  & \\ 
+\hline 10 KB & 31 & 37 & 41 & 49 \\ 
+\hline 100 KB & 35 & 43 & 52 & 55\\ 
+\hline 512 KB & 25 & 40 & 51 & 63 \\  
+\hline 1 MB & 35 & 47 & 53 & 68 \\ 
+\hline
+\end{tabular} 
+\end{center}
+\caption{Maximálna priepustnosť klastru v MB/s}
+\label{tab:CPerf1}
+\end{table}
+
 
 \section{Cassandra}
 % Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
