@@ -1153,21 +1153,21 @@ U operácii zmazania dát je potrebné špecifikovať či chceme zmazať dáta s
 
 \section{Bezpečnosť}
 
-???
+Distribuovaný databázový systém je možné nasadiť do klaudu. V prípade, použitia verejných klaudov môže hroziť nebezpečenstvo zneužitia našich dát treťou stranou a preto je potrebné aplikovať bezpečnostné mechanizmi. Pri nasadení systému do privátneho klaudu zasa môžeme požadovať viacero úrovní ochrany pre prístup k dátam. Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou Kerberosu. Možnosť pridania autorizácie na úrovni tabuliek a rodiny stĺpcov je neustále vo vývoji. 
 
-This section does
-not describe how to secure the communications between HBase regionservers and
-the HBase master, nor the communications between the HBase cluster and clients.
-The current implementation does not support authorization or strong
-authentication at the HBase layer.
 
-ocakava sa v safe environment = ziadna security
+Secure HBase, Hadoop Group  Trend Micro: Andrew Purtell, Gary Halmling, Joshu Ho, Eugene Koontz, Mingjie Lail
+http://www.slideshare.net/ghelmling/secure-hbase-hw2010
 
-Secondly, we implemented a Coprocessor Framework that lets HBase administrators load custom code that runs on HBase regionservers
-Yahoo! recently contributed to Hadoop an authentication module based on Kerberos and SASL
+https://issues.apache.org/jira/browse/HBASE-1697
+https://issues.apache.org/jira/browse/HBASE-3025
 
 http://hbaseblog.com/2010/10/11/secure-hbase-access-controls/
-privatny cloud 
+http://hbaseblog.com/2010/07/21/up-and-running-with-secure-hadoop/
+
+
+
+
 
 
 LZO , GZIP
@@ -1189,8 +1189,8 @@ Compaction is currently triggered by the total number of files under a column fa
 bloom filtre default nope .. zapli sme 
 \chapter{Testovanie výkonnosti}
 
-Obecné výkonové porovnanie NoSQL systémov je zložitá úloha, neexistuje obecný nástroj, ktorým by bolo možné tieto systémy navzájom porovnať. 
-Tieto systémy vynikajú rôznými vlastnosťami ako typ konzistencie, dostupnosť, optimalizácia pre zápis alebo čítanie a ich výber závisí na prípade použitia. Obecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Taktiež nie sú jasné žiadne obecné techniky, ktorými by bolo možné testovať napríklad konzistenciu týchto distribuovaných systémov, spoľahlivosť a iné. Výkon týchto systémov môže ovlyvňovať faktor replikácie, spôsob rozsekávania dát alebo úroveň konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. V následujúcej kapitole sa zameriame na popis výkonnostných testov, ktoré sme vykonali v reálnych podmienkach a u ktorých sme pozorovali ako systémy HBase a Cassandra zvládajú vysoký zápis v rôzných konfiguráciách faktoru replikácie, počtu uzloch v klastri a úrovňou konzistencie.
+Výkonové porovnanie NoSQL systémov je zložitá úloha, neexistuje univerzálny nástroj, ktorým by bolo možné tieto systémy navzájom porovnať. 
+Tieto systémy sa vyznačujú rôznými vlastnosťami ako typ konzistencie, dostupnosť, optimalizácia pre zápis alebo čítanie a ich výber závisí na prípade použitia. Obecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Taktiež nie sú jasné žiadne obecné techniky, ktorými by bolo možné testovať napríklad konzistenciu týchto distribuovaných systémov, spoľahlivosť a iné. Výkon týchto systémov môže ovlyvňovať faktor replikácie, spôsob rozsekávania dát alebo úroveň konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitim všetkých porovnávaných systémov. V následujúcej kapitole sa zameriame na popis výkonnostných testov, ktoré sme vykonali v reálnych podmienkach a u ktorých sme pozorovali ako systémy HBase a Cassandra zvládajú vysoký zápis v rôzných konfiguráciách faktoru replikácie, počtu uzloch v klastri a úrovňou konzistencie.
 
 %TODOpokusime sa najst spojitost_ overit : 
 
