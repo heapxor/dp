@@ -8,12 +8,11 @@ Warning--I didn't find a database entry for "LynchCAP"
 Warning--I didn't find a database entry for "amazonVogel"
 Warning--I didn't find a database entry for "mapreduce"
 Warning--I didn't find a database entry for "nosqlGoogle"
-Warning--I didn't find a database entry for "XBee"
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--can't use both author and editor fields in Udell
 You've used 18 entries,
             2118 wiz_defined-function locations,
-            624 strings with 7515 characters,
+            622 strings with 7507 characters,
 and the built_in function-call counts, 5140 in all, are:
 = -- 485
 > -- 234
@@ -52,4 +51,4 @@ warning$ -- 2
 while$ -- 45
 width$ -- 20
 write$ -- 179
-(There were 8 warnings)
+(There were 7 warnings)

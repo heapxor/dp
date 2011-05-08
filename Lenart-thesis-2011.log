@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  7 MAY 2011 04:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  8 MAY 2011 02:04
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -523,7 +523,7 @@ LaTeX Warning: Label `fig:scalling' multiply defined.
 LaTeX Warning: Label `tab:CPerf3' multiply defined.
 
 
-LaTeX Warning: Label `tab:tab2' multiply defined.
+LaTeX Warning: Label `tab:CPerf1' multiply defined.
 
 )
 \openout1 = `Lenart-thesis-2011.aux'.
@@ -587,7 +587,7 @@ C {\v z}isko emailov
 Ved\IeC {\'u}ci pr\IeC {\'a}ce: Ing. J\IeC {\'a}n \IeC {\v S}ediv\IeC {\'y}, CS
 c.
 ***************************************************
-<figures/LogoCVUT.pdf, id=447, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=367, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3
@@ -618,9 +618,9 @@ of graph databases,
  []
 
 
-Overfull \hbox (54.48137pt too wide) in paragraph at lines 16--16
- [][] [][][]\T1/cmr/m/n/10.95 Architektúra Cel-ery, zdroj: http://ask.github.co
-m/celery/getting-started/introduction.html[][] [][]  
+Overfull \hbox (96.22827pt too wide) in paragraph at lines 16--16
+ [][] [][][]\T1/cmr/m/n/10.95 Architektúra Cel-ery, Zdroj: [on-line], http://as
+k.github.com/celery/getting-started/introduction.html[][] [][]  
  []
 
 )
@@ -716,7 +716,7 @@ Overfull \hbox (3.09308pt too wide) in paragraph at lines 742--743
 , ktoré popisu-jeme po-mo-cou atribú-
  []
 
-[21] <./figures/nosqldatamodels.png, id=837, 797.46207pt x 598.09656pt>
+[21] <./figures/nosqldatamodels.png, id=707, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
 <use ./figures/nosqldatamodels.png>
@@ -728,7 +728,7 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 801--803
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [22] [23 <./figures/nosqldatamodels.png (PNG copy)>]
-<./figures/capDatabases.png, id=854, 1312.905pt x 694.595pt>
+<./figures/capDatabases.png, id=724, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png>
@@ -742,10 +742,6 @@ LaTeX Warning: Reference `barina' on page 25 undefined on input line 849.
 
 [25] [26]
 Kapitola 5.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 892.
-
 [27
 
 ]
@@ -770,254 +766,71 @@ Overfull \hbox (6.1726pt too wide) in paragraph at lines 1036--1037
 
 [33
 
+] [34] [35] [36] [37] [38
+
 ]
-Overfull \hbox (6.8786pt too wide) in paragraph at lines 1066--1067
-\T1/cmr/m/n/10.95 prístup a zápis dát v reál-nom £ase. Tento sys-tém je nad-sta
-vbou nad dis-tribuo-vaným súborovým
- []
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1068.
-
-[34] [35] [36]
 Kapitola 7.
-[37
-
-] [38] [39] [40] [41] [42]
+[39] [40] [41] [42] [43] [44]
 Kapitola 8.
-[43
+[45
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1408--1408
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1431
 []\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[44] <./figures/cassandra.png, id=998, 831.105pt x 606.265pt>
+[46] <./figures/cassandra.png, id=880, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1463--1465
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1486--1488
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[45]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46 <./figures/cassandra.png (PNG copy)>]
-<./figures/Celery.jpg, id=1013, 527.9725pt x 392.46625pt>
-File: ./figures/Celery.jpg Graphic file (type jpg)
-
-<use ./figures/Celery.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 1509--1509
-[]\T1/cmr/m/n/10.95 Obr. 8.4: []Architektúra Cel-ery, zdroj: http://ask.github.
-com/celery/getting-
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./figures/emailProcessing.png, id=1015, 937.5025pt x 537.00626pt>
-File: ./figures/emailProcessing.png Graphic file (type png)
-
-<use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1523--1525
- [][] 
- []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48 <./figures/cassandra.png (PNG copy)>]
+<./figures/Celery.jpg, id=894, 527.9725pt x 392.46625pt>
+File: ./figures/Celery.jpg Graphic file (type jpg)
+
+<use ./figures/Celery.jpg>
+Underfull \hbox (badness 2970) in paragraph at lines 1533--1533
+[]\T1/cmr/m/n/10.95 Obr. 8.4: []Architektúra Cel-ery, Zdroj: [on-line], http://
+ask.github.com/celery/getting-
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 <./figures/Celery.jpg>] [49 <./figures/emailProcessing.png (PNG copy)>]
-[50]
+<./figures/emailProcessing.png, id=896, 937.5025pt x 537.00626pt>
+File: ./figures/emailProcessing.png Graphic file (type png)
+
+<use ./figures/emailProcessing.png>
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1548--1550
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[49]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[50 <./figures/Celery.jpg>] [51 <./figures/emailProcessing.png (PNG copy)>]
+[52]
 Kapitola 9.
-[51
+(./Lenart-thesis-2011.bbl [53
 
-] [52
-
-]
-Kapitola 10.
-[53] <./figures/topologies802154.png, id=1056, 724.7075pt x 408.52625pt>
-File: ./figures/topologies802154.png Graphic file (type png)
-
-<use ./figures/topologies802154.png>
-
-LaTeX Warning: Citation `XBee' on page 54 undefined on input line 1621.
-
-[54 <./figures/topologies802154.png (PNG copy)>] [55] [56
-
-]
-Kapitola 11.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1682.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1683--1685
-
- []
-
-
-LaTeX Warning: Reference `fig:xbeeWhipGain' on page 57 undefined on input line 
-1686.
-
-[57]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1694.
-
-
-LaTeX Warning: Reference `fig:zoslab' on page 58 undefined on input line 1698.
-
-[58] [59] [60
-
-]
-Kapitola 12.
-
-Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1751.
-
-[61] <./figures/FSPL.png, id=1093, 741.77126pt x 444.66125pt>
-File: ./figures/FSPL.png Graphic file (type png)
-
-<use ./figures/FSPL.png>
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1835.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1838--1839
-
- []
-
-[62] [63 <./figures/FSPL.png>]
-Overfull \hbox (1.06372pt too wide) in paragraph at lines 1852--1853
-[]\T1/cmr/m/it/10.95 handleLowerMsgEnd \T1/cmr/m/n/10.95 - slúºi na samotné odo
-slanie správy vy²²ej vrstve a zárove¬ pripája
- []
-
-
-Overfull \hbox (6.01328pt too wide) in paragraph at lines 1858--1859
-\T1/cmr/m/n/10.95 tento modul len rozho-duje, £i sa daná správa za-hodí alebo p
-re-po²le vy²²ej vrstve. Rozhodovanie
- []
-
-<./figures/nic.png, id=1109, 428.60126pt x 374.39874pt>
-File: ./figures/nic.png Graphic file (type png)
-
-<use ./figures/nic.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./figures/snrEval.png, id=1110, 865.2325pt x 798.985pt>
-File: ./figures/snrEval.png Graphic file (type png)
-
-<use ./figures/snrEval.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[64] [65 <./figures/nic.png (PNG copy)> <./figures/snrEval.png (PNG copy)>]
-[66
-
-]
-Kapitola 13.
-[67]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1926.
-
-[68]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1931.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1934--1936
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1936--1938
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1946--1947
-
- []
-
-[69] <./figures/modelKolizie.png, id=1143, 586.19pt x 496.85625pt>
-File: ./figures/modelKolizie.png Graphic file (type png)
-
-<use ./figures/modelKolizie.png>
-<./figures/kolizia.png, id=1144, 1246.6575pt x 815.045pt>
-File: ./figures/kolizia.png Graphic file (type png)
-
-<use ./figures/kolizia.png>
-
-LaTeX Warning: Float too large for page by 50.79271pt on input line 1962.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[70 <./figures/modelKolizie.png (PNG copy)>] [71 <./figures/kolizia.png (PNG co
-py)>] [72
-
-]
-Kapitola 14.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1969.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1970--1971
-
- []
-
-[73]
-Underfull \hbox (badness 10000) in paragraph at lines 2006--2007
-
- []
-
-
-Overfull \hbox (9.95178pt too wide) in paragraph at lines 2016--2022
- [] 
- []
-
-<./figures/results/5m-1mw.png, id=1172, 811.03pt x 532.99126pt>
-File: ./figures/results/5m-1mw.png Graphic file (type png)
-
-<use ./figures/results/5m-1mw.png>
-<./figures/results/5m-10mw.png, id=1173, 811.03pt x 530.98375pt>
-File: ./figures/results/5m-10mw.png Graphic file (type png)
-
-<use ./figures/results/5m-10mw.png>
-<./figures/results/250-10mw.png, id=1174, 811.03pt x 533.995pt>
-File: ./figures/results/250-10mw.png Graphic file (type png)
-
-<use ./figures/results/250-10mw.png>
-<./figures/results/250-1mw-rotace.png, id=1175, 812.03375pt x 532.99126pt>
-File: ./figures/results/250-1mw-rotace.png Graphic file (type png)
-
-<use ./figures/results/250-1mw-rotace.png> [74] [75 <./figures/results/5m-1mw.p
-ng (PNG copy)>] [76 <./figures/results/5m-10mw.png (PNG copy)> <./figures/resul
-ts/250-10mw.png (PNG copy)>] [77 <./figures/results/250-1mw-rotace.png (PNG cop
-y)>] [78
-
-]
-Kapitola 15.
-(./Lenart-thesis-2011.bbl [79] [80
+] [54
 
 ]
 Underfull \hbox (badness 1418) in paragraph at lines 48--53
@@ -1025,42 +838,42 @@ Underfull \hbox (badness 1418) in paragraph at lines 48--53
 g Schlicht-ing, John
  []
 
-[81]) [82]
+[55]) [56]
 Dodatok A.
-[83
+[57
 
-] [84]
+] [58]
 Dodatok B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2147.
+(hyperref)                than one, level fixed on input line 1689.
 
 
-Overfull \hbox (39.8537pt too wide) in paragraph at lines 2170--2171
+Overfull \hbox (39.8537pt too wide) in paragraph at lines 1712--1713
 []\T1/cmr/m/n/10.95 Stiahnutie súborov Mo-bil-ity frame-worku z svn http://my-s
 vn.assembla.com/svn/mframework/,
  []
 
 
-Overfull \hbox (14.7884pt too wide) in paragraph at lines 2173--2174
+Overfull \hbox (14.7884pt too wide) in paragraph at lines 1715--1716
 []\T1/cmr/m/n/10.95 Po spustení ap-liká-cie Om-net, klikneme na oblas´ ^^RProje
 ct ex-plorer^^P, pravým tla£ítkom
  []
 
 
-Overfull \hbox (16.92145pt too wide) in paragraph at lines 2175--2176
+Overfull \hbox (16.92145pt too wide) in paragraph at lines 1717--1718
 []\T1/cmr/m/n/10.95 V poloºke ^^RSe-lect root di-rec-tory^^P, zvolíme cestu k a
 dresáru mf2o4, tj. /usr/local/mf2o4 
  []
 
-[85
+[59
 
-] [86]
+] [60]
 Dodatok C.
-<./figures/zoznamCD.png, id=1247, 729.72626pt x 253.94875pt>
+<./figures/zoznamCD.png, id=974, 729.72626pt x 253.94875pt>
 File: ./figures/zoznamCD.png Graphic file (type png)
 
-<use ./figures/zoznamCD.png> [87
+<use ./figures/zoznamCD.png> [61
 
  <./figures/zoznamCD.png (PNG copy)>]
 (./Lenart-thesis-2011.aux)
@@ -1072,10 +885,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7528 strings out of 495046
- 100376 string characters out of 1181938
- 177093 words of memory out of 3000000
- 10211 multiletter control sequences out of 15000+50000
+ 7369 strings out of 495046
+ 97507 string characters out of 1181938
+ 176149 words of memory out of 3000000
+ 10133 multiletter control sequences out of 15000+50000
  20959 words of font info for 48 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,16n,39p,1921b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1100,15 +913,13 @@ mf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/heap/.texmf-var/fonts
 knappen/ec/ecrm1095.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
 cti1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600p
 k> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on Lenart-thesis-2011.pdf (103 pages, 1207240 bytes).
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb>
+Output written on Lenart-thesis-2011.pdf (77 pages, 782087 bytes).
 PDF statistics:
- 2116 PDF objects out of 2487 (max. 8388607)
- 342 named destinations out of 1000 (max. 500000)
- 974 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1799 PDF objects out of 2073 (max. 8388607)
+ 272 named destinations out of 1000 (max. 500000)
+ 764 words of extra memory for PDF output out of 10000 (max. 10000000)
 

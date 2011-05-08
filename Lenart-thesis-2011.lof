@@ -10,30 +10,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Obsah ob\IeC {\'a}lky z programu qmail-scanner}}{44}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{46}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{47}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Architekt\IeC {\'u}ra Celery, zdroj: http://ask.github.com/celery/getting-started/introduction.html}}{48}{figure.8.4}
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Spracovanie emailu}}{49}{figure.8.5}
-\contentsline {figure}{\numberline {8.6}{\ignorespaces Programov\IeC {\'a} uk\IeC {\'a}\IeC {\v z}ka v jazyku Pig}}{49}{figure.8.6}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Topol\IeC {\'o}gie \IeC {\v s}tandardu 802.15.4}}{54}{figure.10.1}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {12.1}{\ignorespaces Popis v\IeC {\'y}konov a zisku u ant\IeC {\'e}n pre vysiela\IeC {\v c} a prij\IeC {\'\i }ma\IeC {\v c}}}{63}{figure.12.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra NIC v OMNeT++}}{65}{figure.12.2}
-\contentsline {figure}{\numberline {12.3}{\ignorespaces Prechody medzi stavmi v module snrEval}}{65}{figure.12.3}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {13.1}{\ignorespaces Model kol\IeC {\'\i }zie}}{70}{figure.13.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces Kol\IeC {\'\i }zia na MAC vrstve}}{71}{figure.13.2}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {14.1}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW}}{75}{figure.14.1}
-\contentsline {figure}{\numberline {14.2}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 5m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{76}{figure.14.2}
-\contentsline {figure}{\numberline {14.3}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 10mW}}{76}{figure.14.3}
-\contentsline {figure}{\numberline {14.4}{\ignorespaces Pohyb na vzdialenos\IeC {\v t} 250m, vysielac\IeC {\'\i } v\IeC {\'y}kon 1mW, rot\IeC {\'a}cia okolo vlastnej osi}}{77}{figure.14.4}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Obsah ob\IeC {\'a}lky z programu qmail-scanner}}{46}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{48}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{49}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Architekt\IeC {\'u}ra Celery, Zdroj: [online], http://ask.github.com/celery/getting-started/introduction.html}}{50}{figure.8.4}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Spracovanie emailu}}{51}{figure.8.5}
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Programov\IeC {\'a} uk\IeC {\'a}\IeC {\v z}ka v jazyku Pig}}{51}{figure.8.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces V\IeC {\'y}pis prilo\IeC {\v z}en\IeC {\'e}ho CD}}{87}{figure.C.1}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces V\IeC {\'y}pis prilo\IeC {\v z}en\IeC {\'e}ho CD}}{61}{figure.C.1}
