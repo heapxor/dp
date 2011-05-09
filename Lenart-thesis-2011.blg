@@ -2,53 +2,60 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
+Warning--entry type for "Freed:1996:MIM:RFC2045" isn't style-file defined
+--line 1 of file reference.bib
+Warning--entry type for "Freed:1996:MIM:RFC2046" isn't style-file defined
+--line 9 of file reference.bib
+Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
+--line 17 of file reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 112 of file reference.bib
+--line 177 of file reference.bib
 Warning--I didn't find a database entry for "LynchCAP"
 Warning--I didn't find a database entry for "amazonVogel"
 Warning--I didn't find a database entry for "mapreduce"
 Warning--I didn't find a database entry for "nosqlGoogle"
+Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--can't use both author and editor fields in Udell
-You've used 18 entries,
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            622 strings with 7507 characters,
-and the built_in function-call counts, 5140 in all, are:
-= -- 485
-> -- 234
+            648 strings with 7998 characters,
+and the built_in function-call counts, 6206 in all, are:
+= -- 582
+> -- 282
 < -- 3
-+ -- 97
-- -- 78
-* -- 281
-:= -- 827
-add.period$ -- 48
-call.type$ -- 18
-change.case$ -- 93
++ -- 118
+- -- 92
+* -- 331
+:= -- 1002
+add.period$ -- 59
+call.type$ -- 23
+change.case$ -- 115
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 188
-empty$ -- 455
-format.name$ -- 78
-if$ -- 1110
+cite$ -- 26
+duplicate$ -- 229
+empty$ -- 555
+format.name$ -- 92
+if$ -- 1338
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 8
-newline$ -- 84
-num.names$ -- 34
-pop$ -- 154
+int.to.str$ -- 23
+missing$ -- 10
+newline$ -- 105
+num.names$ -- 42
+pop$ -- 187
 preamble$ -- 1
-purify$ -- 75
+purify$ -- 92
 quote$ -- 0
-skip$ -- 170
+skip$ -- 214
 stack$ -- 0
-substring$ -- 218
-swap$ -- 46
+substring$ -- 239
+swap$ -- 51
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
-warning$ -- 2
-while$ -- 45
-width$ -- 20
-write$ -- 179
-(There were 7 warnings)
+type$ -- 88
+warning$ -- 3
+while$ -- 53
+width$ -- 25
+write$ -- 223
+(There were 11 warnings)

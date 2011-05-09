@@ -1,7 +1,6 @@
 \select@language {english}
 \select@language {slovak}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Osnova}{1}{section.1.1}
 \contentsline {chapter}{\numberline {2}Datab\IeC {\'a}zov\IeC {\'e} syst\IeC {\'e}my}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Hist\IeC {\'o}ria}{3}{section.2.1}
 \contentsline {section}{\numberline {2.2}ACID}{4}{section.2.2}
@@ -22,72 +21,69 @@
 \contentsline {chapter}{\numberline {3}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{15}{section.3.1}
 \contentsline {section}{\numberline {3.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{16}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Nefunk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{16}{subsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.1.1}Roz\IeC {\v s}\IeC {\'\i }rite\IeC {\v l}nos\IeC {\v t}}{16}{subsubsection.3.2.1.1}
-\contentsline {subsubsection}{\numberline {3.2.1.2}Dostupnos\IeC {\v t}}{17}{subsubsection.3.2.1.2}
-\contentsline {subsubsection}{\numberline {3.2.1.3}N\IeC {\'\i }zkon\IeC {\'a}kladov\IeC {\'a} administr\IeC {\'a}cia}{17}{subsubsection.3.2.1.3}
-\contentsline {subsubsection}{\numberline {3.2.1.4}Bezpe\IeC {\v c}nos\IeC {\v t}}{17}{subsubsection.3.2.1.4}
-\contentsline {subsubsection}{\numberline {3.2.1.5}Implementa\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{17}{subsubsection.3.2.1.5}
-\contentsline {subsection}{\numberline {3.2.2}Funk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{17}{subsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.1}Ukladanie emailov}{17}{subsubsection.3.2.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2.2}Export emailov}{18}{subsubsection.3.2.2.2}
-\contentsline {subsubsection}{\numberline {3.2.2.3}Vyh\IeC {\v l}ad\IeC {\'a}vanie emailov}{18}{subsubsection.3.2.2.3}
-\contentsline {subsubsection}{\numberline {3.2.2.4}\IeC {\v S}tatistiky}{18}{subsubsection.3.2.2.4}
-\contentsline {chapter}{\numberline {4}NoSQL}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{19}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota (Key-value)}{20}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model (Column [Family] Oriented)}{20}{subsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.2.1}St\IeC {\'l}pcovo orientovan\IeC {\'y} model v NoSQL}{21}{subsubsection.4.1.2.1}
-\contentsline {subsection}{\numberline {4.1.3}Dokumentov\IeC {\'y} model}{21}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Grafov\IeC {\'y} model}{21}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{21}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{22}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{22}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{23}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{24}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{24}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{25}{section.4.3}
-\contentsline {chapter}{\numberline {5}Cassandra}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}D\IeC {\'a}tov\IeC {\'y} model}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{28}{section.5.2}
-\contentsline {section}{\numberline {5.3}Replik\IeC {\'a}cia}{29}{section.5.3}
-\contentsline {section}{\numberline {5.4}\IeC {\v C}lenstvo uzlov v syst\IeC {\'e}me}{29}{section.5.4}
-\contentsline {section}{\numberline {5.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{30}{section.5.5}
-\contentsline {section}{\numberline {5.6}Konzistencia}{30}{section.5.6}
-\contentsline {section}{\numberline {5.7}Z\IeC {\'a}pis d\IeC {\'a}t}{30}{section.5.7}
-\contentsline {section}{\numberline {5.8}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{31}{section.5.8}
-\contentsline {section}{\numberline {5.9}Zmazanie d\IeC {\'a}t}{31}{section.5.9}
-\contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{31}{section.5.10}
-\contentsline {chapter}{\numberline {6}HBase}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}D\IeC {\'a}tov\IeC {\'y} model}{34}{section.6.1}
-\contentsline {section}{\numberline {6.2}Architekt\IeC {\'u}ra syst\IeC {\'e}mu}{35}{section.6.2}
-\contentsline {section}{\numberline {6.3}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{35}{section.6.3}
-\contentsline {section}{\numberline {6.4}Replik\IeC {\'a}cia}{35}{section.6.4}
-\contentsline {section}{\numberline {6.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{36}{section.6.5}
-\contentsline {section}{\numberline {6.6}Konzistencia}{36}{section.6.6}
-\contentsline {section}{\numberline {6.7}Z\IeC {\'a}pis d\IeC {\'a}t a \IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t}{36}{section.6.7}
-\contentsline {section}{\numberline {6.8}Zmazanie d\IeC {\'a}t}{37}{section.6.8}
-\contentsline {section}{\numberline {6.9}Bezpe\IeC {\v c}nos\IeC {\v t}}{37}{section.6.9}
-\contentsline {chapter}{\numberline {7}Testovanie v\IeC {\'y}konnosti}{39}{chapter.7}
-\contentsline {section}{\numberline {7.1}Testovacie prostredie}{39}{section.7.1}
-\contentsline {section}{\numberline {7.2}HDFS}{40}{section.7.2}
-\contentsline {section}{\numberline {7.3}HBase}{41}{section.7.3}
-\contentsline {section}{\numberline {7.4}Cassandra}{41}{section.7.4}
-\contentsline {chapter}{\numberline {8}N\IeC {\'a}vrh syst\IeC {\'e}mu}{45}{chapter.8}
-\contentsline {section}{\numberline {8.1}Zdroj d\IeC {\'a}t}{45}{section.8.1}
-\contentsline {section}{\numberline {8.2}Anal\IeC {\'y}za d\IeC {\'a}t}{46}{section.8.2}
-\contentsline {section}{\numberline {8.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{46}{section.8.3}
-\contentsline {section}{\numberline {8.4}Fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{47}{section.8.4}
-\contentsline {section}{\numberline {8.5}Implement\IeC {\'a}cia}{48}{section.8.5}
-\contentsline {subsection}{\numberline {8.5.1}Klient}{49}{subsection.8.5.1}
-\contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{50}{subsection.8.5.2}
-\contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{50}{subsection.8.5.3}
-\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{50}{section.8.6}
-\contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{53}{chapter.9}
-\contentsline {chapter}{Literat\'ura}{55}{chapter*.24}
-\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{57}{appendix.A}
-\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{59}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.1}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{59}{subsection.B.0.1}
-\contentsline {subsection}{\numberline {B.0.2}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{59}{subsection.B.0.2}
-\contentsline {subsection}{\numberline {B.0.3}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{60}{subsection.B.0.3}
-\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{61}{appendix.C}
+\contentsline {subsection}{\numberline {3.2.1}Funk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Nefunk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{18}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}NoSQL}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{21}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota (Key-value)}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model (Column [Family] Oriented)}{22}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}St\IeC {\'l}pcovo orientovan\IeC {\'y} model v NoSQL}{23}{subsubsection.4.1.2.1}
+\contentsline {subsection}{\numberline {4.1.3}Dokumentov\IeC {\'y} model}{23}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Grafov\IeC {\'y} model}{23}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{24}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{25}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{26}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{26}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{27}{section.4.3}
+\contentsline {chapter}{\numberline {5}Cassandra}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}D\IeC {\'a}tov\IeC {\'y} model}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{30}{section.5.2}
+\contentsline {section}{\numberline {5.3}Replik\IeC {\'a}cia}{31}{section.5.3}
+\contentsline {section}{\numberline {5.4}\IeC {\v C}lenstvo uzlov v syst\IeC {\'e}me}{31}{section.5.4}
+\contentsline {section}{\numberline {5.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{32}{section.5.5}
+\contentsline {section}{\numberline {5.6}Konzistencia}{32}{section.5.6}
+\contentsline {section}{\numberline {5.7}Z\IeC {\'a}pis d\IeC {\'a}t}{32}{section.5.7}
+\contentsline {section}{\numberline {5.8}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{33}{section.5.8}
+\contentsline {section}{\numberline {5.9}Zmazanie d\IeC {\'a}t}{33}{section.5.9}
+\contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{33}{section.5.10}
+\contentsline {chapter}{\numberline {6}HBase}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}D\IeC {\'a}tov\IeC {\'y} model}{36}{section.6.1}
+\contentsline {section}{\numberline {6.2}Architekt\IeC {\'u}ra syst\IeC {\'e}mu}{36}{section.6.2}
+\contentsline {section}{\numberline {6.3}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{37}{section.6.3}
+\contentsline {section}{\numberline {6.4}Replik\IeC {\'a}cia}{37}{section.6.4}
+\contentsline {section}{\numberline {6.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{37}{section.6.5}
+\contentsline {section}{\numberline {6.6}Konzistencia}{38}{section.6.6}
+\contentsline {section}{\numberline {6.7}Z\IeC {\'a}pis d\IeC {\'a}t a \IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t}{38}{section.6.7}
+\contentsline {section}{\numberline {6.8}Zmazanie d\IeC {\'a}t}{38}{section.6.8}
+\contentsline {section}{\numberline {6.9}Bezpe\IeC {\v c}nos\IeC {\v t}}{38}{section.6.9}
+\contentsline {chapter}{\numberline {7}Testovanie v\IeC {\'y}konnosti}{41}{chapter.7}
+\contentsline {section}{\numberline {7.1}Testovacie prostredie}{41}{section.7.1}
+\contentsline {section}{\numberline {7.2}Popis testovacej metodol\IeC {\'o}gie}{42}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Testovac\IeC {\'\i } klient}{42}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Testovac\IeC {\'\i } pr\IeC {\'\i }pad pre z\IeC {\'a}pis d\IeC {\'a}t}{42}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Testovac\IeC {\'\i } pr\IeC {\'\i }pad pre \IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t}{42}{subsection.7.2.3}
+\contentsline {subsection}{\numberline {7.2.4}Za\IeC {\v t}a\IeC {\v z}ovac\IeC {\'\i } test}{43}{subsection.7.2.4}
+\contentsline {section}{\numberline {7.3}HDFS}{43}{section.7.3}
+\contentsline {section}{\numberline {7.4}HBase}{44}{section.7.4}
+\contentsline {section}{\numberline {7.5}Cassandra}{45}{section.7.5}
+\contentsline {section}{\numberline {7.6}Vo\IeC {\v l}ba datab\IeC {\'a}zov\IeC {\'e}ho syst\IeC {\'e}mu}{46}{section.7.6}
+\contentsline {chapter}{\numberline {8}N\IeC {\'a}vrh syst\IeC {\'e}mu}{49}{chapter.8}
+\contentsline {section}{\numberline {8.1}Zdroj d\IeC {\'a}t}{49}{section.8.1}
+\contentsline {section}{\numberline {8.2}Anal\IeC {\'y}za d\IeC {\'a}t}{50}{section.8.2}
+\contentsline {section}{\numberline {8.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{50}{section.8.3}
+\contentsline {section}{\numberline {8.4}Fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{51}{section.8.4}
+\contentsline {section}{\numberline {8.5}Implement\IeC {\'a}cia}{52}{section.8.5}
+\contentsline {subsection}{\numberline {8.5.1}Klient}{53}{subsection.8.5.1}
+\contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{54}{subsection.8.5.2}
+\contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{54}{subsection.8.5.3}
+\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{55}{section.8.6}
+\contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{57}{chapter.9}
+\contentsline {chapter}{Literat\'ura}{59}{chapter*.34}
+\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{61}{appendix.A}
+\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{63}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.1}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{63}{subsection.B.0.1}
+\contentsline {subsection}{\numberline {B.0.2}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{63}{subsection.B.0.2}
+\contentsline {subsection}{\numberline {B.0.3}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{64}{subsection.B.0.3}
+\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{65}{appendix.C}

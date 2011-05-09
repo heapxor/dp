@@ -3,6 +3,9 @@
 \bibitem{Resnick:2001:IMF:RFC2822}
 Internet message format, 2001.
 
+\bibitem{Klensin:2001:SMT:RFC2821}
+Simple mail transfer protocol, 2001.
+
 \bibitem{BASE}
 {Armando Fox, Steven D. Gribble, Yatin Chawathe, Eric A. Brewer, Paul
   Gauthier}.
@@ -22,6 +25,11 @@ A.~B. Bondi.
 \newblock {Cloud Data Structure Diagramming Techniques and Design Patterns},
   2010.
 
+\bibitem{Dean:2008:MSD:1327452.1327492}
+J.~Dean and S.~Ghemawat.
+\newblock Mapreduce: simplified data processing on large clusters.
+\newblock {\em Commun. ACM}, 51:107--113, January 2008.
+
 \bibitem{CoddRelational}
 {E. F. Codd}.
 \newblock {A Relational Model of Data for Large Shared Data Banks}, Jún, 1970.
@@ -31,25 +39,32 @@ A.~B. Bondi.
 {Eben Hewitt}.
 \newblock {Cassandra: The Definitive Guide}, November 2010.
 
-\bibitem{Gates:2009:BHD:1687553.1687568}
-A.~F. Gates, O.~Natkovich, S.~Chopra, P.~Kamath, S.~M. Narayanamurthy,
-  C.~Olston, B.~Reed, S.~Srinivasan, and U.~Srivastava.
-\newblock Building a high-level dataflow system on top of map-reduce: the pig
-  experience.
-\newblock {\em Proc. VLDB Endow.}, 2:1414--1425, August 2009.
+\bibitem{Freed:1996:MIM:RFC2045}
+N.~Freed and N.~Borenstein.
+\newblock Multipurpose internet mail extensions (mime) part one: Format of
+  internet message bodies, 1996.
+
+\bibitem{Freed:1996:MIM:RFC2046}
+N.~Freed and N.~Borenstein.
+\newblock Multipurpose internet mail extensions (mime) part two: Media types,
+  1996.
+
+\bibitem{Gantz_Chute_Manfrediz_Minton_Reinsel_Schlichting_Toncheva_2008}
+J.~F. Gantz, C.~Chute, A.~Manfrediz, S.~Minton, D.~Reinsel, W.~Schlichting, and
+  A.~Toncheva.
+\newblock The diverse and exploding digital universe.
+\newblock {\em IDC White Paper}, 2, 2008.
+
+\bibitem{Gantz_Mcarthur_Minton_2007}
+J.~F. Gantz, J.~Mcarthur, and S.~Minton.
+\newblock The expanding digital universe.
+\newblock {\em Director}, 285(6), 2007.
 
 \bibitem{Ghemawat:2003:GFS:945445.945450}
 S.~Ghemawat, H.~Gobioff, and S.-T. Leung.
 \newblock The google file system.
 \newblock In {\em Proceedings of the nineteenth ACM symposium on Operating
   systems principles}, SOSP '03, pages 29--43, New York, NY, USA, 2003. ACM.
-
-\bibitem{digitalUniverse}
-{John F. Gantz, David Reinsel, Christopher Chute, Wolfgang Schlichting, John
-  McArthur, Stephen Minton, Irida Xheneti, Anna Toncheva, Alex Manfrediz}.
-\newblock {The Expanding Digital Universe, A Forecast of Worldwide Information
-  Growth Throught 2010}, Marec 2007.
-\newblock \\ \verb|http://www.emc.com/|, stav z 28.\,2.\,2011.
 
 \bibitem{Karger:1997:CHR:258533.258660}
 D.~Karger, E.~Lehman, T.~Leighton, R.~Panigrahy, M.~Levine, and D.~Lewin.
@@ -62,6 +77,12 @@ D.~Karger, E.~Lehman, T.~Leighton, R.~Panigrahy, M.~Levine, and D.~Lewin.
 {Michael Stonebraker}.
 \newblock {The Case for Shared Nothing Architecture}, 1986.
 \newblock \\ \verb|http://db.cs.berkeley.edu/papers/hpts85-nothing.pdf|, stav z
+  28.\,2.\,2011.
+
+\bibitem{WhyArchiving}
+A.~O. R.~W. Paper.
+\newblock {Why Cloud-Based Security and Archiving Make Sense}, March 2010.
+\newblock \\ \verb|www.google.com/postini/pdf/why_cloud_based_wp.pdf|, stav z
   28.\,2.\,2011.
 
 \bibitem{clanokBASE}
