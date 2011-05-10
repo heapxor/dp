@@ -1,3 +1,100 @@
+@article{chang2008bigtable,
+  title={{Bigtable: A distributed storage system for structured data}},
+  author={Chang, F. and Dean, J. and Ghemawat, S. and Hsieh, W.C. and Wallach, D.A. and Burrows, M. and Chandra, T. and Fikes, A. and Gruber, R.E.},
+  journal={ACM Transactions on Computer Systems (TOCS)},
+  volume={26},
+  number={2},
+  pages={1--26},
+  issn={0734-2071},
+  year={2008},
+  publisher={ACM}
+}
+
+@article{Gilbert:2002:BCF:564585.564601,
+ author = {Gilbert, Seth and Lynch, Nancy},
+ title = {Brewer's conjecture and the feasibility of consistent, available, partition-tolerant web services},
+ journal = {SIGACT News},
+ volume = {33},
+ issue = {2},
+ month = {June},
+ year = {2002},
+ issn = {0163-5700},
+ pages = {51--59},
+ numpages = {9},
+ url = {http://doi.acm.org/10.1145/564585.564601},
+ doi = {http://doi.acm.org/10.1145/564585.564601},
+ acmid = {564601},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+@article{decandia2007dynamo,
+  title={{Dynamo: amazon's highly available key-value store}},
+  author={DeCandia, G. and Hastorun, D. and Jampani, M. and Kakulapati, G. and Lakshman, A. and Pilchin, A. and Sivasubramanian, S. and Vosshall, P. and Vogels, W.},
+  journal={ACM SIGOPS Operating Systems Review},
+  volume={41},
+  number={6},
+  pages={205--220},
+  issn={0163-5980},
+  year={2007},
+  publisher={ACM}
+}
+
+@article{dean2008mapreduce,
+  title={{MapReduce: Simplified data processing on large clusters}},
+  author={Dean, J. and Ghemawat, S.},
+  journal={Communications of the ACM},
+  volume={51},
+  number={1},
+  pages={107--113},
+  issn={0001-0782},
+  year={2008},
+  publisher={ACM}
+}
+
+@book{bernstein1987concurrency,
+  title={{Concurrency control and recovery in database systems}},
+  author={Bernstein, P.A. and Hadzilacos, V. and Goodman, N.},
+  volume={5},
+  year={1987},
+  publisher={Addison-wesley New York},
+  chapter={7}
+}
+
+@article{bernstein1981concurrency,
+  title={{Concurrency control in distributed database systems}},
+  author={Bernstein, P.A. and Goodman, N.},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={13},
+  number={2},
+  pages={185--221},
+  issn={0360-0300},
+  year={1981},
+  publisher={ACM}
+}
+
+@conference{gray1981transaction,
+  title={{The transaction concept: Virtues and limitations}},
+  author={Gray, J. and others},
+  booktitle={Proceedings of the Very Large Database Conference},
+  pages={144--154},
+  year={1981},
+  organization={Citeseer}
+}
+
+@article{haerder1983principles,
+  title={{Principles of transaction-oriented database recovery}},
+  author={Haerder, T. and Reuter, A.},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={15},
+  number={4},
+  pages={287--317},
+  issn={0360-0300},
+  year={1983},
+  publisher={ACM}
+}
+
+
 @rfc{Freed:1996:MIM:RFC2045,
  author = {Freed, N. and Borenstein, N.},
  title = {Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies},
@@ -183,38 +280,45 @@ year={2007}
 } 
 
 
-@Misc{sharedNothing,
-  author =       {{Michael Stonebraker}},
-  title =        {{The Case for Shared Nothing Architecture}},
-  journal =      {Database Engineering, Volume 9, Number 1},
-  note = 	 {\\ \verb|http://db.cs.berkeley.edu/papers/hpts85-nothing.pdf|, stav z 28.\,2.\,2011},
-  pages =        {},
-  year =         {1986},
+@article{stonebraker1986case,
+  title={{The case for shared nothing}},
+  author={Stonebraker, M.},
+  journal={Database Engineering Bulletin},
+  volume={9},
+  number={1},
+  pages={4--9},
+  year={1986},
+  publisher={Citeseer}
 }
 
-@Misc{BrewerCAP,
-  author =       {{Brewer}},
-  title =        {{Towards robust distributed systems.}},
-  journal =      {Proceedings of the Annual ACM Symposium on Principles of Distributed Computing (2000) vol. 19},
-  pages =        {7-10},
-  year =         {2000},
+@conference{brewer2000towards,
+  title={{Towards robust distributed systems}},
+  author={Brewer, E.A.},
+  booktitle={Proceedings of the Annual ACM Symposium on Principles of Distributed Computing},
+  volume={19},
+  pages={7--10},
+  year={2000}
 }
 
-
-@Misc{cassandraBook,
-  author =       {{Eben Hewitt}},
-  title =        {{Cassandra: The Definitive Guide}},
-  journal =      {},
-  pages =        {},
-  year =         {November 2010},
+@book{hewitt2010cassandra,
+  title={{Cassandra: the definitive guide}},
+  author={Hewitt, E.},
+  isbn={1449390412},
+  year={2010},
+  publisher={O'Reilly Media, Inc.}
 }
 
-@Misc{BASE,
-  author =       {{Armando Fox, Steven D. Gribble, Yatin Chawathe, Eric A. Brewer, Paul Gauthier}},
-  title =        {{Cluster-base scalable network services}},
-  journal =      {ACM SIGOPS Operating Systems Review, Volume 31, Issue 5, Dec. 1997},
-  pages =        {},
-  year =         {1997},
+@conference{fox1997cluster,
+  title={{Cluster-based scalable network services}},
+  author={Fox, A. and Gribble, S.D. and Chawathe, Y. and Brewer, E.A. and Gauthier, P.},
+  booktitle={ACM SIGOPS Operating Systems Review},
+  volume={31},
+  number={5},
+  pages={78--91},
+  isbn={0897919165},
+  issn={0163-5980},
+  year={1997},
+  organization={ACM}
 }
 
 @Misc{ebayShard,
@@ -235,13 +339,45 @@ year={2007}
 }
 
 
+@article{Pritchett:2008:BAA:1394127.1394128,
+ author = {Pritchett, Dan},
+ title = {BASE: An Acid Alternative},
+ journal = {Queue},
+ issue_date = {May/June 2008},
+ volume = {6},
+ issue = {3},
+ month = {May},
+ year = {2008},
+ issn = {1542-7730},
+ pages = {48--55},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1394127.1394128},
+ doi = {http://doi.acm.org/10.1145/1394127.1394128},
+ acmid = {1394128},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
 
-@Misc{clanokBASE,
-  author =       {Dan Pritchet},
-  title =        {{BASE: An Acid Alternative}},
-  journal = 	 {Magazine Queue - Object-Relational Mapping, Volume 6, Issue 3, May/June 2008},
-  year =         {},
-}
+
+
+@article{Codd:1970:RMD:362384.362685,
+ author = {Codd, E. F.},
+ title = {A relational model of data for large shared data banks},
+ journal = {Commun. ACM},
+ volume = {13},
+ issue = {6},
+ month = {June},
+ year = {1970},
+ issn = {0001-0782},
+ pages = {377--387},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/362384.362685},
+ doi = {http://doi.acm.org/10.1145/362384.362685},
+ acmid = {362685},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {composition, consistency, data bank, data base, data integrity, data organization, data structure, derivability, hierarchies of data, join, networks of data, predicate calculus, redundancy, relations, retrieval language, security},
+} 
 
 @Misc{CoddRelational,
   author =       {{E. F. Codd}},
@@ -252,14 +388,15 @@ year={2007}
   year =         {Jún, 1970},
 }
 
-@Misc{scalability,
-  author =       {André B. Bondi},
-  title =        {{Characteristics of Scalability and Their Impact on Performance}},
-  journal =      {WOSP '00},
-  pages =        {},
-  year =         {2000},
+@conference{bondi2000characteristics,
+  title={{Characteristics of scalability and their impact on performance}},
+  author={Bondi, A.B.},
+  booktitle={Proceedings of the 2nd international workshop on Software and performance},
+  pages={195--203},
+  isbn={158113195X},
+  year={2000},
+  organization={ACM}
 }
-
 
 @Misc{MF2,
   key = "web:MF2",

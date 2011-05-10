@@ -3,6 +3,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Pribli\IeC {\v z}n\IeC {\'a} distrib\IeC {\'u}cia emailov\IeC {\'y}ch spr\IeC {\'a}v. MEAN = 301 kB, std = 1.3 MB}}{17}{figure.3.1}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Poz\IeC {\'\i }cia d\IeC {\'a}tov\IeC {\'e}ho modelu z poh\IeC {\v l}adu jeho \IeC {\v s}k\IeC {\'a}lovania pod\IeC {\v l}a ve\IeC {\v l}kosti a komplexnosti. Zdroj: Neo4J a NOSQL overview and the benefits of graph databases, Emil Eifrem, prezentacia.}}{25}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces }}{26}{figure.4.2}
@@ -20,4 +21,3 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces V\IeC {\'y}pis prilo\IeC {\v z}en\IeC {\'e}ho CD}}{65}{figure.C.1}

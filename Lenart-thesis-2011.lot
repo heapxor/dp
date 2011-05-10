@@ -4,16 +4,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Stru\IeC {\v c}n\IeC {\'y} preh\IeC {\v l}ad vlasnost\IeC {\'\i } st\IeC {\'l}pcovo orientovan\IeC {\'y}ch syst\IeC {\'e}mov NoSQL}}{27}{table.4.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces V\IeC {\'y}konnos\IeC {\v t} HDFS pre z\IeC {\'a}pis d\IeC {\'a}t}}{43}{table.7.1}
-\contentsline {table}{\numberline {7.2}{\ignorespaces Z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{44}{table.7.2}
-\contentsline {table}{\numberline {7.3}{\ignorespaces \IeC {\v C}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{44}{table.7.3}
-\contentsline {table}{\numberline {7.4}{\ignorespaces Maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{44}{table.7.4}
-\contentsline {table}{\numberline {7.5}{\ignorespaces Z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{45}{table.7.5}
-\contentsline {table}{\numberline {7.6}{\ignorespaces \IeC {\v C}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{46}{table.7.6}
-\contentsline {table}{\numberline {7.7}{\ignorespaces Maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{47}{table.7.7}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Priepustnos\IeC {\v t} pri z\IeC {\'a}pise d\IeC {\'a}t na HDFS}}{43}{table.7.1}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Hbase: z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{44}{table.7.2}
+\contentsline {table}{\numberline {7.3}{\ignorespaces HBase: \IeC {\v c}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{45}{table.7.3}
+\contentsline {table}{\numberline {7.4}{\ignorespaces Hbase: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{45}{table.7.4}
+\contentsline {table}{\numberline {7.5}{\ignorespaces Z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{47}{table.7.5}
+\contentsline {table}{\numberline {7.6}{\ignorespaces \IeC {\v C}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{47}{table.7.6}
+\contentsline {table}{\numberline {7.7}{\ignorespaces Cassandra: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{47}{table.7.7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
