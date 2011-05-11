@@ -3,57 +3,58 @@ The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2045" isn't style-file defined
---line 121 of file reference.bib
+--line 160 of file reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2046" isn't style-file defined
---line 129 of file reference.bib
+--line 168 of file reference.bib
 Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
---line 137 of file reference.bib
+--line 176 of file reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 297 of file reference.bib
+--line 337 of file reference.bib
 Warning--I didn't find a database entry for "TODO"
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
+Warning--empty journal in abadi2009
 Warning--can't use both volume and number fields in fox1997cluster
 Warning--can't use both author and editor fields in Udell
-You've used 34 entries,
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            706 strings with 9494 characters,
-and the built_in function-call counts, 11238 in all, are:
-= -- 1116
-> -- 503
-< -- 11
-+ -- 206
-- -- 168
-* -- 738
-:= -- 1806
-add.period$ -- 101
-call.type$ -- 34
-change.case$ -- 183
+            726 strings with 10111 characters,
+and the built_in function-call counts, 12897 in all, are:
+= -- 1286
+> -- 586
+< -- 13
++ -- 238
+- -- 196
+* -- 854
+:= -- 2073
+add.period$ -- 116
+call.type$ -- 38
+change.case$ -- 208
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 430
-empty$ -- 918
-format.name$ -- 168
-if$ -- 2398
+cite$ -- 43
+duplicate$ -- 497
+empty$ -- 1034
+format.name$ -- 196
+if$ -- 2752
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 29
-newline$ -- 165
-num.names$ -- 64
-pop$ -- 226
+int.to.str$ -- 38
+missing$ -- 35
+newline$ -- 187
+num.names$ -- 72
+pop$ -- 253
 preamble$ -- 1
-purify$ -- 151
+purify$ -- 173
 quote$ -- 0
-skip$ -- 340
+skip$ -- 387
 stack$ -- 0
-substring$ -- 645
-swap$ -- 110
-text.length$ -- 11
+substring$ -- 752
+swap$ -- 130
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 128
-warning$ -- 4
-while$ -- 110
-width$ -- 36
-write$ -- 366
-(There were 9 warnings)
+type$ -- 142
+warning$ -- 5
+while$ -- 126
+width$ -- 40
+write$ -- 413
+(There were 10 warnings)

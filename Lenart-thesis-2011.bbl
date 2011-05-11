@@ -6,6 +6,18 @@ Internet message format, 2001.
 \bibitem{Klensin:2001:SMT:RFC2821}
 Simple mail transfer protocol, 2001.
 
+\bibitem{abadi2009column}
+D.~Abadi, P.~Boncz, and S.~Harizopoulos.
+\newblock {Column-oriented database systems}.
+\newblock {\em Proceedings of the VLDB Endowment}, 2(2):1664--1665, 2009.
+
+\bibitem{abadi2009}
+D.~Abadi, P.~Boncz, and S.~Harizopoulos.
+\newblock {Column-oriented database systems, VLDB Tutorial}.
+\newblock 2009.
+\newblock \\
+  \verb|www.cs.yale.edu/homes/dna/talks/Column_Store_Tutorial_VLDB09.pdf|.
+
 \bibitem{bernstein1981concurrency}
 P.~Bernstein and N.~Goodman.
 \newblock {Concurrency control in distributed database systems}.
@@ -77,6 +89,11 @@ N.~Freed and N.~Borenstein.
 \newblock Multipurpose internet mail extensions (mime) part two: Media types,
   1996.
 
+\bibitem{ganesh2003peer}
+A.~Ganesh, A.~Kermarrec, and L.~Massouli{\'e}.
+\newblock {Peer-to-peer membership management for gossip-based protocols}.
+\newblock {\em IEEE transactions on computers}, pages 139--149, 2003.
+
 \bibitem{Gantz_Chute_Manfrediz_Minton_Reinsel_Schlichting_Toncheva_2008}
 J.~F. Gantz, C.~Chute, A.~Manfrediz, S.~Minton, D.~Reinsel, W.~Schlichting, and
   A.~Toncheva.
@@ -117,6 +134,12 @@ T.~Haerder and A.~Reuter.
 \newblock {Principles of transaction-oriented database recovery}.
 \newblock {\em ACM Computing Surveys (CSUR)}, 15(4):287--317, 1983.
 
+\bibitem{hayashibara2004}
+N.~Hayashibara, X.~Defago, R.~Yared, and T.~Katayama.
+\newblock {The $\phi$ accrual failure detector}.
+\newblock In {\em Symposium on Reliable Distributed Systems (SRDS’2004)},
+  pages 66--78. Citeseer, 2004.
+
 \bibitem{hewitt2010cassandra}
 E.~Hewitt.
 \newblock {\em {Cassandra: the definitive guide}}.
@@ -145,6 +168,11 @@ A.~O. R.~W. Paper.
 D.~Pritchett.
 \newblock Base: An acid alternative.
 \newblock {\em Queue}, 6:48--55, May 2008.
+
+\bibitem{segaran2009beautiful}
+T.~Segaran and J.~Hammerbacher.
+\newblock {\em {Beautiful data: the stories behind elegant data solutions}}.
+\newblock O'Reilly Media, 2009.
 
 \bibitem{ebayShard}
 R.~Shoup.
@@ -180,9 +208,5 @@ W.~Vogels.
 T.~White.
 \newblock {\em Hadoop: The Definitive Guide}.
 \newblock O'Reilly Media, Inc., 1st edition, 2009.
-
-\bibitem{accrualdetector}
-{Xavier Défago, Péter Urbán, Naohiro Hayashibara, and Takuya Katayama}.
-\newblock {The Phi accrual failure detector.}, 2004.
 
 \end{thebibliography}

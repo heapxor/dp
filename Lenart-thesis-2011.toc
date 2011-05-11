@@ -24,37 +24,38 @@
 \contentsline {chapter}{\numberline {4}NoSQL}{21}{chapter.4}
 \contentsline {section}{\numberline {4.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{21}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota}{21}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model (Column [Family] Oriented)}{22}{subsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.2.1}St\IeC {\'l}pcovo orientovan\IeC {\'y} model v NoSQL}{23}{subsubsection.4.1.2.1}
+\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{22}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}Dokumentov\IeC {\'y} model}{23}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}Grafov\IeC {\'y} model}{23}{subsection.4.1.4}
 \contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{23}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{24}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{24}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{25}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{24}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{25}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{25}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{26}{subsection.4.2.6}
 \contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{26}{section.4.3}
 \contentsline {chapter}{\numberline {5}Cassandra}{29}{chapter.5}
 \contentsline {section}{\numberline {5.1}D\IeC {\'a}tov\IeC {\'y} model}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{30}{section.5.2}
 \contentsline {section}{\numberline {5.3}Replik\IeC {\'a}cia}{31}{section.5.3}
 \contentsline {section}{\numberline {5.4}\IeC {\v C}lenstvo uzlov v syst\IeC {\'e}me}{31}{section.5.4}
-\contentsline {section}{\numberline {5.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{32}{section.5.5}
-\contentsline {section}{\numberline {5.6}Konzistencia}{32}{section.5.6}
-\contentsline {section}{\numberline {5.7}Z\IeC {\'a}pis d\IeC {\'a}t}{32}{section.5.7}
-\contentsline {section}{\numberline {5.8}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{33}{section.5.8}
-\contentsline {section}{\numberline {5.9}Zmazanie d\IeC {\'a}t}{33}{section.5.9}
+\contentsline {section}{\numberline {5.5}Z\IeC {\'a}pis d\IeC {\'a}t}{32}{section.5.5}
+\contentsline {section}{\numberline {5.6}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{32}{section.5.6}
+\contentsline {section}{\numberline {5.7}Zmazanie d\IeC {\'a}t}{32}{section.5.7}
+\contentsline {section}{\numberline {5.8}Konzistencia}{32}{section.5.8}
+\contentsline {section}{\numberline {5.9}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{33}{section.5.9}
 \contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{33}{section.5.10}
 \contentsline {chapter}{\numberline {6}HBase}{35}{chapter.6}
 \contentsline {section}{\numberline {6.1}D\IeC {\'a}tov\IeC {\'y} model}{36}{section.6.1}
-\contentsline {section}{\numberline {6.2}Architekt\IeC {\'u}ra syst\IeC {\'e}mu}{36}{section.6.2}
+\contentsline {section}{\numberline {6.2}Architekt\IeC {\'u}ra syst\IeC {\'e}mu}{37}{section.6.2}
 \contentsline {section}{\numberline {6.3}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{37}{section.6.3}
 \contentsline {section}{\numberline {6.4}Replik\IeC {\'a}cia}{37}{section.6.4}
-\contentsline {section}{\numberline {6.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{37}{section.6.5}
+\contentsline {section}{\numberline {6.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{38}{section.6.5}
 \contentsline {section}{\numberline {6.6}Konzistencia}{38}{section.6.6}
 \contentsline {section}{\numberline {6.7}Z\IeC {\'a}pis d\IeC {\'a}t a \IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t}{38}{section.6.7}
 \contentsline {section}{\numberline {6.8}Zmazanie d\IeC {\'a}t}{38}{section.6.8}
-\contentsline {section}{\numberline {6.9}Bezpe\IeC {\v c}nos\IeC {\v t}}{38}{section.6.9}
+\contentsline {section}{\numberline {6.9}Bezpe\IeC {\v c}nos\IeC {\v t}}{39}{section.6.9}
 \contentsline {chapter}{\numberline {7}Testovanie v\IeC {\'y}konnosti}{41}{chapter.7}
 \contentsline {section}{\numberline {7.1}Testovacie prostredie}{41}{section.7.1}
 \contentsline {section}{\numberline {7.2}Popis testovacej metodol\IeC {\'o}gie}{42}{section.7.2}
