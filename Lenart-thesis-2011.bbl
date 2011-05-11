@@ -94,6 +94,12 @@ S.~Ghemawat, H.~Gobioff, and S.-T. Leung.
 \newblock In {\em Proceedings of the nineteenth ACM symposium on Operating
   systems principles}, SOSP '03, pages 29--43, New York, NY, USA, 2003. ACM.
 
+\bibitem{gifford1979weighted}
+D.~Gifford.
+\newblock {Weighted voting for replicated data}.
+\newblock In {\em Proceedings of the seventh ACM symposium on Operating systems
+  principles}, pages 150--162. ACM, 1979.
+
 \bibitem{Gilbert:2002:BCF:564585.564601}
 S.~Gilbert and N.~Lynch.
 \newblock Brewer's conjecture and the feasibility of consistent, available,
@@ -129,6 +135,12 @@ A.~O. R.~W. Paper.
 \newblock \\ \verb|www.google.com/postini/pdf/why_cloud_based_wp.pdf|, stav z
   28.\,2.\,2011.
 
+\bibitem{strozziNosql}
+A.~O. R.~W. Paper.
+\newblock {Why Cloud-Based Security and Archiving Make Sense}, March 2010.
+\newblock \\ \verb|http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql|, stav z
+  28.\,2.\,2011.
+
 \bibitem{Pritchett:2008:BAA:1394127.1394128}
 D.~Pritchett.
 \newblock Base: An acid alternative.
@@ -158,6 +170,11 @@ A.~Thusoo, Z.~Shao, S.~Anthony, D.~Borthakur, N.~Jain, J.~Sen~Sarma, R.~Murthy,
 J.~Udell.
 \newblock {\em Practical Internet GroupWare}.
 \newblock O'Reilly \& Associates, Inc., Sebastopol, CA, USA, 1st edition, 1999.
+
+\bibitem{vogels2009eventually}
+W.~Vogels.
+\newblock {Eventually consistent}.
+\newblock {\em Communications of the ACM}, 52(1):40--44, 2009.
 
 \bibitem{White:2009:HDG:1717298}
 T.~White.

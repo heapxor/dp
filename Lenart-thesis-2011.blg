@@ -3,60 +3,57 @@ The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2045" isn't style-file defined
---line 98 of file reference.bib
+--line 121 of file reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2046" isn't style-file defined
---line 106 of file reference.bib
+--line 129 of file reference.bib
 Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
---line 114 of file reference.bib
+--line 137 of file reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 274 of file reference.bib
+--line 297 of file reference.bib
 Warning--I didn't find a database entry for "TODO"
-Warning--I didn't find a database entry for "amazonVogel"
-Warning--I didn't find a database entry for "mapreduce"
-Warning--I didn't find a database entry for "nosqlGoogle"
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--can't use both volume and number fields in fox1997cluster
 Warning--can't use both author and editor fields in Udell
-You've used 31 entries,
+You've used 34 entries,
             2118 wiz_defined-function locations,
-            697 strings with 9226 characters,
-and the built_in function-call counts, 10324 in all, are:
-= -- 1018
-> -- 482
-< -- 10
-+ -- 197
-- -- 162
-* -- 691
-:= -- 1667
-add.period$ -- 91
-call.type$ -- 31
-change.case$ -- 171
+            706 strings with 9494 characters,
+and the built_in function-call counts, 11238 in all, are:
+= -- 1116
+> -- 503
+< -- 11
++ -- 206
+- -- 168
+* -- 738
+:= -- 1806
+add.period$ -- 101
+call.type$ -- 34
+change.case$ -- 183
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 389
-empty$ -- 830
-format.name$ -- 162
-if$ -- 2192
+cite$ -- 38
+duplicate$ -- 430
+empty$ -- 918
+format.name$ -- 168
+if$ -- 2398
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 27
-newline$ -- 150
-num.names$ -- 58
-pop$ -- 209
+int.to.str$ -- 34
+missing$ -- 29
+newline$ -- 165
+num.names$ -- 64
+pop$ -- 226
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 151
 quote$ -- 0
-skip$ -- 307
+skip$ -- 340
 stack$ -- 0
-substring$ -- 579
-swap$ -- 97
-text.length$ -- 10
+substring$ -- 645
+swap$ -- 110
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 116
+type$ -- 128
 warning$ -- 4
-while$ -- 99
-width$ -- 33
-write$ -- 333
-(There were 12 warnings)
+while$ -- 110
+width$ -- 36
+write$ -- 366
+(There were 9 warnings)
