@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  11 MAY 2011 20:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  12 MAY 2011 03:21
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -24,18 +24,6 @@ File: bk11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
-
-(/etc/texmf/tex/latex/config/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: pdftex.def on input line 130.
-
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count88
-))
 (/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
@@ -44,7 +32,7 @@ Language: czech 2008/07/06 v3.1a Czech support from the babel system
 
 (/usr/share/texmf-texlive/tex/generic/babel/babel.def
 File: babel.def 2008/07/06 v3.8l Babel common definitions
-\babel@savecnt=\count89
+\babel@savecnt=\count88
 \U@D=\dimen103
 )
 
@@ -54,9 +42,17 @@ Package babel Warning: No hyphenation patterns were loaded for
 
 \l@czech = a dialect from \language0
 Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count90
+\cs@wordlen=\count89
 Package babel Info: Making - an active character on input line 226.
-) (/usr/share/texmf-texlive/tex/generic/babel/slovak.ldf
+) (/usr/share/texmf-texlive/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+(/usr/share/texmf-texlive/tex/generic/babel/slovak.ldf
 Language: slovak 2008/07/06 v3.1a Slovak support from the babel system
 
 
@@ -68,16 +64,8 @@ Package babel Warning: No hyphenation patterns were loaded for
 Package babel Info: Making ^ an active character on input line 123.
 Package babel Info: Making ' an active character on input line 129.
 LaTeX Info: Redefining \uv on input line 278.
-\cs@wordlen=\count91
-) (/usr/share/texmf-texlive/tex/generic/babel/english.ldf
-Language: english 2005/03/30 v3.3o English support from the babel system
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
-))
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+\cs@wordlen=\count90
+)) (/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texmf-texlive/tex/latex/base/t1enc.def
@@ -301,40 +289,12 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
-Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
-\@enLab=\toks16
-)
-(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen104
-)
-(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen105
-\lightrulewidth=\dimen106
-\cmidrulewidth=\dimen107
-\belowrulesep=\dimen108
-\belowbottomsep=\dimen109
-\aboverulesep=\dimen110
-\abovetopsep=\dimen111
-\cmidrulesep=\dimen112
-\cmidrulekern=\dimen113
-\defaultaddspace=\dimen114
-\@cmidla=\count92
-\@cmidlb=\count93
-\@aboverulesep=\dimen115
-\@belowrulesep=\dimen116
-\@thisruleclass=\count94
-\@lastruleclass=\count95
-\@thisrulewidth=\dimen117
-)
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/capt-of.sty)
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks17
+\KV@toks@=\toks16
 )
 (/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -346,75 +306,18 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
-)
-\Gin@req@height=\dimen118
-\Gin@req@width=\dimen119
-)
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip43
 
-For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
-
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks18
-\ex@=\dimen120
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count91
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen121
-)
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
-)
-\inf@bad=\count96
-LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count97
-\leftroot@=\count98
-LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count99
-\DOTSCASE@=\count100
-LaTeX Info: Redefining \ldots on input line 379.
-LaTeX Info: Redefining \dots on input line 382.
-LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen122
-LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count101
-\c@MaxMatrixCols=\count102
-\dotsspace@=\muskip10
-\c@parentequation=\count103
-\dspbrk@lvl=\count104
-\tag@help=\toks19
-\row@=\count105
-\column@=\count106
-\maxfields@=\count107
-\andhelp@=\toks20
-\eqnshift@=\dimen123
-\alignsep@=\dimen124
-\tagshift@=\dimen125
-\tagwidth@=\dimen126
-\totwidth@=\dimen127
-\lineht@=\dimen128
-\@envbody=\toks21
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2666.
-LaTeX Info: Redefining \] on input line 2667.
-)
-(/usr/share/texmf-texlive/tex/latex/graphics/lscape.sty
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
 )
 (./k336_thesis_macros.sty
 Two side layout redefined.
-)
-Diplomov\IeC {\'a} pr\IeC {\'a}ce
+(./hyphen.tex))
+Diplomova prace
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
 
@@ -436,9 +339,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen129
-\Hy@linkcounter=\count108
-\Hy@pagecounter=\count109
+\@linkdim=\dimen106
+\Hy@linkcounter=\count92
+\Hy@pagecounter=\count93
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -485,7 +388,7 @@ Package hyperref Info: Backreferencing OFF on input line 2995.
 Implicit mode ON; LaTeX internals redefined
 Package hyperref Info: Bookmarks ON on input line 3191.
 (/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
-\Urlmuskip=\muskip11
+\Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 3428.
@@ -515,10 +418,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count110
-\Field@Width=\dimen130
-\Fld@charsize=\dimen131
-\Field@toks=\toks23
+\Fld@menulength=\count94
+\Field@Width=\dimen107
+\Fld@charsize=\dimen108
+\Field@toks=\toks17
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -530,15 +433,50 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count111
-\c@Item=\count112
-\c@Hfootnote=\count113
+\Hy@abspage=\count95
+\c@Item=\count96
+\c@Hfootnote=\count97
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count114
+\Fld@listcount=\count98
 )
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count99
+)
+(/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks18
+)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen109
+)
+(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen110
+\lightrulewidth=\dimen111
+\cmidrulewidth=\dimen112
+\belowrulesep=\dimen113
+\belowbottomsep=\dimen114
+\aboverulesep=\dimen115
+\abovetopsep=\dimen116
+\cmidrulesep=\dimen117
+\cmidrulekern=\dimen118
+\defaultaddspace=\dimen119
+\@cmidla=\count100
+\@cmidlb=\count101
+\@aboverulesep=\dimen120
+\@belowrulesep=\dimen121
+\@thisruleclass=\count102
+\@lastruleclass=\count103
+\@thisrulewidth=\dimen122
+)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/capt-of.sty)
 (./Lenart-thesis-2011.aux
 
 LaTeX Warning: Label `fig:scalling' multiply defined.
@@ -546,90 +484,115 @@ LaTeX Warning: Label `fig:scalling' multiply defined.
 )
 \openout1 = `Lenart-thesis-2011.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
  (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
-\scratchdimen=\dimen132
-\scratchbox=\box28
-\nofMPsegments=\count116
-\nofMParguments=\count117
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count118
-\MPscratchDim=\dimen133
-\MPnumerator=\count119
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count104
+\scratchdimen=\dimen123
+\scratchbox=\box26
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen124
+\MPnumerator=\count108
+\everyMPtoPDFconversion=\toks20
+) (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package hyperref Info: Link coloring ON on input line 128.
- (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 142.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count120
+\c@section@level=\count109
 )
-LaTeX Info: Redefining \ref on input line 128.
-LaTeX Info: Redefining \pageref on input line 128.
+LaTeX Info: Redefining \ref on input line 142.
+LaTeX Info: Redefining \pageref on input line 142.
 
 (./Lenart-thesis-2011.out) (./Lenart-thesis-2011.out)
 \@outlinefile=\write3
 \openout3 = `Lenart-thesis-2011.out'.
 
-\AtBeginShipoutBox=\box29
+\AtBeginShipoutBox=\box27
 
 ************************************************
-Zvolen\IeC {\'y} jazyk: sloven\IeC {\v c}ina
-Typ pr\IeC {\'a}ce: Diplomov\IeC {\'a} pr\IeC {\'a}ca
-\IeC {\v S}tudijn\IeC {\'y} program: Otvoren\IeC {\'a} informatika, Magistersk\
-IeC {\'y}
-Odbor: Softwarov\IeC {\'e} in\IeC {\v z}inierstvo
-Meno: Bc. Patrik Len\IeC {\'a}rt
-N\IeC {\'a}zov pr\IeC {\'a}ce: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\Ie
-C {\v z}isko emailov
-Ved\IeC {\'u}ci pr\IeC {\'a}ce: Ing. Jan \IeC {\v S}ediv\IeC {\'y}, CSc.
+Zvoleny jazyk: cestina
+Typ prace: Diplomov\IeC {\'a} pr\IeC {\'a}ca
+Studijni program: Otvoren\IeC {\'a} informatika, Magistersk\IeC {\'y}
+Obor: Softwarov\IeC {\'e} in\IeC {\v z}inierstvo
+Jmeno: Bc. Patrik Len\IeC {\'a}rt
+Nazev prace: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko email
+ov
+Vedouci prace: Ing. Jan \IeC {\v S}ediv\IeC {\'y}, CSc.
 ***************************************************
-<figures/LogoCVUT.pdf, id=347, 93.34875pt x 70.2625pt>
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 201.
+
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 201.
+ [1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
+<figures/LogoCVUT.pdf, id=348, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
-<use figures/LogoCVUT.pdf> [3
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/LogoCVUT.pdf>] [
-4
+<use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
 
 ] [5] [6
 
-] [7] [8
+] [7]
+[8
 
 ] [9
 
 ] [10
 
-]
-(./Lenart-thesis-2011.toc [11] [12])
+] (./Lenart-thesis-2011.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+ [11] [12])
 \tf@toc=\write4
 \openout4 = `Lenart-thesis-2011.toc'.
 
  [13] [14
 
-] (./Lenart-thesis-2011.lof
-Overfull \hbox (96.22827pt too wide) in paragraph at lines 17--17
+]
+(./Lenart-thesis-2011.lof
+Overfull \hbox (96.22221pt too wide) in paragraph at lines 17--17
  [][] [][][]\T1/cmr/m/n/10.95 Architektúra Cel-ery, Zdroj: [on-line], http://as
 k.github.com/celery/getting-started/introduction.html[][] [][]  
  []
@@ -655,36 +618,33 @@ Kapitola 1.
 ]
 Kapitola 2.
 [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 283.
-
- (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 283.
-
-Overfull \hbox (2.87471pt too wide) in paragraph at lines 283--284
+Overfull \hbox (2.87349pt too wide) in paragraph at lines 324--325
 []\T1/cmr/m/it/10.95 Atomicita \T1/cmr/m/n/10.95 (Atom-ic-ity) - za-is´uje, ºe 
 sa vykon-ajú v²etky op-erá-cie reprezen-tu-júce transak-
  []
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 338.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 338.
 [4] [5] [6] [7]
-Overfull \hbox (3.7416pt too wide) in paragraph at lines 384--385
+Overfull \hbox (3.73438pt too wide) in paragraph at lines 425--426
 \T1/cmr/m/n/10.95 pouºi-tia dis-tribuo-vaných transak-cií. Pre im-ple-men-tá-ci
 u tejto tech-niky môºeme pouºi´ rozde©o-
  []
 
 [8] [9]
 
-LaTeX Warning: Citation `TODO' on page 10 undefined on input line 463.
+Package natbib Warning: Citation `TODO' on page 10 undefined on input line 504.
+
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--512
+Underfull \hbox (badness 10000) in paragraph at lines 550--553
 
  []
 
@@ -692,7 +652,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 509--512
 
 ]
 Kapitola 3.
-[15] <./figures/emailsHist.png, id=704, 633.36626pt x 440.64626pt>
+[15] <./figures/emailsHist.png, id=702, 633.36626pt x 440.64626pt>
 File: ./figures/emailsHist.png Graphic file (type png)
 
 <use ./figures/emailsHist.png>
@@ -704,12 +664,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ]
 Kapitola 4.
 [21]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 766.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 807.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [22] [23]
-<./figures/nosqldatamodels.png, id=770, 797.46207pt x 598.09656pt>
+<./figures/nosqldatamodels.png, id=768, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
 <use ./figures/nosqldatamodels.png>
@@ -717,12 +677,12 @@ File: ./figures/nosqldatamodels.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (13.22748pt too wide) in paragraph at lines 873--874
+Overfull \hbox (13.21904pt too wide) in paragraph at lines 914--915
 \T1/cmr/m/n/10.95 jednoduchú ²truk-túru, ktorá kladie min-imálnu náro£nos´ na h
 or-i-zon-tálne ²kálo-vanie. Nevýhodou
  []
 
-[24] <./figures/capDatabases.png, id=777, 1312.905pt x 694.595pt>
+[24] <./figures/capDatabases.png, id=775, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png>
@@ -731,7 +691,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25 <./figures/nosqldatamodels.png (PNG copy)>]
 
-LaTeX Warning: Reference `barina' on page 26 undefined on input line 910.
+LaTeX Warning: Reference `barina' on page 26 undefined on input line 951.
 
 [26 <./figures/capDatabases.png (PNG copy)>] [27] [28
 
@@ -743,10 +703,10 @@ Kapitola 5.
 Kapitola 6.
 [35]
 
-LaTeX Warning: Reference `' on page 36 undefined on input line 1170.
+LaTeX Warning: Reference `' on page 36 undefined on input line 1212.
 
 [36] [37]
-Overfull \hbox (5.79683pt too wide) in paragraph at lines 1221--1224
+Overfull \hbox (5.79561pt too wide) in paragraph at lines 1263--1266
 []\T1/cmr/m/n/10.95 Dáta sú za-písané do ²truk-túry \T1/cmr/m/it/10.95 HLog \T1
 /cmr/m/n/10.95 (typu \T1/cmr/m/it/10.95 Write-Ahead-Log\T1/cmr/m/n/10.95 ), kto
 rá je uloºená v súborovom
@@ -758,10 +718,10 @@ rá je uloºená v súborovom
 Kapitola 7.
 [41] [42] [43] [44]
 
-LaTeX Warning: Reference `' on page 45 undefined on input line 1460.
+LaTeX Warning: Reference `' on page 45 undefined on input line 1503.
 
 [45]
-Overfull \hbox (13.26193pt too wide) in paragraph at lines 1501--1520
+Overfull \hbox (13.26071pt too wide) in paragraph at lines 1544--1563
 \T1/cmr/m/n/10.95 Výsledky za-´aºo-va-cieho testu zo-brazuje tabu©ka [][]7.7[][
 ], kde jed-notlivé poloºky zo-brazujú priemerný
  []
@@ -771,34 +731,32 @@ Kapitola 8.
 [49
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1581--1581
+Underfull \hbox (badness 10000) in paragraph at lines 1628--1628
 []\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[50] <./figures/cassandra.png, id=964, 831.105pt x 606.265pt>
+[50] <./figures/cassandra.png, id=963, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1636--1638
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1686--1688
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[51]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52 <./figures/cassandra.png (PNG copy)>]
-<./figures/Celery.jpg, id=981, 527.9725pt x 392.46625pt>
+[52 <./figures/cassandra.png (PNG copy)>]
+<./figures/Celery.jpg, id=979, 527.9725pt x 392.46625pt>
 File: ./figures/Celery.jpg Graphic file (type jpg)
 
 <use ./figures/Celery.jpg>
-Underfull \hbox (badness 2970) in paragraph at lines 1683--1683
+Underfull \hbox (badness 2980) in paragraph at lines 1733--1733
 []\T1/cmr/m/n/10.95 Obr. 8.4: []Architektúra Cel-ery, Zdroj: [on-line], http://
 ask.github.com/celery/getting-
  []
@@ -806,11 +764,11 @@ ask.github.com/celery/getting-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53] <./figures/emailProcessing.png, id=990, 937.5025pt x 537.00626pt>
+[53] <./figures/emailProcessing.png, id=988, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1696--1698
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1746--1748
  [][] 
  []
 
@@ -818,12 +776,11 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 1696--1698
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package natbib Warning: Citation `???' on page 54 undefined on input line 1760.
 
-[54 <./figures/Celery.jpg>]
-Underfull \vbox (badness 3701) has occurred while \output is active []
 
- [55 <./figures/emailProcessing.png (PNG copy)>] [56]
+[54 <./figures/Celery.jpg>] [55 <./figures/emailProcessing.png (PNG copy)>]
+[56]
 Kapitola 9.
 (./Lenart-thesis-2011.bbl [57
 
@@ -837,37 +794,34 @@ Dodatok A.
 
 ]
 Dodatok B.
+<./figures/deploy.png, id=1043, 1138.2525pt x 877.2775pt>
+File: ./figures/deploy.png Graphic file (type png)
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1825.
-
-
-Overfull \hbox (39.8537pt too wide) in paragraph at lines 1848--1849
-[]\T1/cmr/m/n/10.95 Stiahnutie súborov Mo-bil-ity frame-worku z svn http://my-s
-vn.assembla.com/svn/mframework/,
+<use ./figures/deploy.png>
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1864--1865
+ [][] 
  []
 
+[65 <./figures/deploy.png (PNG copy)>] [66
 
-Overfull \hbox (14.7884pt too wide) in paragraph at lines 1851--1852
-[]\T1/cmr/m/n/10.95 Po spustení ap-liká-cie Om-net, klikneme na oblas´ ^^RProje
-ct ex-plorer^^P, pravým tla£ítkom
- []
-
-
-Overfull \hbox (16.92145pt too wide) in paragraph at lines 1853--1854
-[]\T1/cmr/m/n/10.95 V poloºke ^^RSe-lect root di-rec-tory^^P, zvolíme cestu k a
-dresáru mf2o4, tj. /usr/local/mf2o4 
- []
-
-[65] [66]
+]
 Dodatok C.
+[67] [68
 
-LaTeX Warning: Reference `fig:zoznamCD' on page 67 undefined on input line 1864
-.
+]
+Dodatok D.
 
-[67
+Package natbib Warning: Citation `infodp' on page 69 undefined on input line 18
+79.
 
-] (./Lenart-thesis-2011.aux)
+<figures/seznamcd.pdf, id=1061, 793.96625pt x 539.01375pt>
+File: figures/seznamcd.pdf Graphic file (type pdf)
+
+<use figures/seznamcd.pdf> [69 <./figures/seznamcd.pdf>] [70]
+
+Package natbib Warning: There were undefined citations.
+
+(./Lenart-thesis-2011.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -876,13 +830,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7512 strings out of 495046
- 99976 string characters out of 1181938
- 180534 words of memory out of 3000000
- 10218 multiletter control sequences out of 15000+50000
- 20959 words of font info for 48 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 38i,14n,36p,1720b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 7311 strings out of 495046
+ 99517 string characters out of 1181938
+ 173615 words of memory out of 3000000
+ 10035 multiletter control sequences out of 15000+50000
+ 19833 words of font info for 43 fonts, out of 3000000 for 9000
+ 32 hyphenation exceptions out of 8191
+ 38i,14n,36p,1720b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -898,21 +852,21 @@ fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/heap/.texmf-var/fonts/pk/ljf
 our/jknappen/ec/ecrm0800.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen
 /ec/ecti1095.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095
 .600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </ho
-me/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/heap/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/heap/.texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecrm1095.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-cti1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600p
-k> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk></usr/shar
+me/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/heap/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/heap/.texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecbx1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
+crm1200.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600p
+k> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/shar
 e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/
 amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 mr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Lenart-thesis-2011.pdf (83 pages, 871865 bytes).
+Output written on Lenart-thesis-2011.pdf (88 pages, 992986 bytes).
 PDF statistics:
- 1935 PDF objects out of 2073 (max. 8388607)
- 319 named destinations out of 1000 (max. 500000)
- 724 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1945 PDF objects out of 2073 (max. 8388607)
+ 312 named destinations out of 1000 (max. 500000)
+ 710 words of extra memory for PDF output out of 10000 (max. 10000000)
 

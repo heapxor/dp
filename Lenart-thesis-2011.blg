@@ -11,6 +11,9 @@ Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
 --line 337 of file reference.bib
 Warning--I didn't find a database entry for "TODO"
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "???"
+Warning--I didn't find a database entry for "infodp"
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--empty journal in abadi2009
@@ -18,7 +21,7 @@ Warning--can't use both volume and number fields in fox1997cluster
 Warning--can't use both author and editor fields in Udell
 You've used 38 entries,
             2118 wiz_defined-function locations,
-            726 strings with 10111 characters,
+            728 strings with 10120 characters,
 and the built_in function-call counts, 12897 in all, are:
 = -- 1286
 > -- 586
@@ -57,4 +60,4 @@ warning$ -- 5
 while$ -- 126
 width$ -- 40
 write$ -- 413
-(There were 10 warnings)
+(There were 13 warnings)

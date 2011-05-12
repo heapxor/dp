@@ -1,4 +1,4 @@
-\select@language {english}
+\select@language {slovak}
 \select@language {slovak}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Datab\IeC {\'a}zov\IeC {\'e} syst\IeC {\'e}my}{3}{chapter.2}
@@ -70,19 +70,16 @@
 \contentsline {chapter}{\numberline {8}N\IeC {\'a}vrh syst\IeC {\'e}mu}{49}{chapter.8}
 \contentsline {section}{\numberline {8.1}Zdroj d\IeC {\'a}t}{49}{section.8.1}
 \contentsline {section}{\numberline {8.2}Anal\IeC {\'y}za d\IeC {\'a}t}{50}{section.8.2}
-\contentsline {section}{\numberline {8.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{50}{section.8.3}
-\contentsline {section}{\numberline {8.4}Fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{51}{section.8.4}
+\contentsline {section}{\numberline {8.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{51}{section.8.3}
+\contentsline {section}{\numberline {8.4}Fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{52}{section.8.4}
 \contentsline {section}{\numberline {8.5}Implement\IeC {\'a}cia}{52}{section.8.5}
-\contentsline {subsection}{\numberline {8.5.1}Klient}{53}{subsection.8.5.1}
+\contentsline {subsection}{\numberline {8.5.1}Klient}{54}{subsection.8.5.1}
 \contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{54}{subsection.8.5.2}
-\contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{54}{subsection.8.5.3}
+\contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{55}{subsection.8.5.3}
 \contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{55}{section.8.6}
-\contentsline {subsection}{\numberline {8.6.1}Dopor\IeC {\'u}\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{56}{subsection.8.6.1}
+\contentsline {section}{\numberline {8.7}Dopor\IeC {\'u}\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{56}{section.8.7}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{57}{chapter.9}
-\contentsline {chapter}{Literat\'ura}{59}{chapter*.43}
 \contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{63}{appendix.A}
-\contentsline {chapter}{\numberline {B}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{65}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.2}In\IeC {\v s}tal\IeC {\'a}cia simul\IeC {\'a}toru OMNeT++ pre platformu Linux}{65}{subsection.B.0.2}
-\contentsline {subsection}{\numberline {B.0.3}In\IeC {\v s}tal\IeC {\'a}cia mnou modifikovan\IeC {\'e}ho Mobility Frameworku}{65}{subsection.B.0.3}
-\contentsline {subsection}{\numberline {B.0.4}Pr\IeC {\'a}ca s modelom IEEE 802.15.4}{66}{subsection.B.0.4}
-\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{67}{appendix.C}
+\contentsline {chapter}{\numberline {B}UML diagramy}{65}{appendix.B}
+\contentsline {chapter}{\numberline {C}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{67}{appendix.C}
+\contentsline {chapter}{\numberline {D}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{69}{appendix.D}

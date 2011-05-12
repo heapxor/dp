@@ -3,8 +3,8 @@ LATEX = latex
 PDFLATEX = pdflatex
 BIBTEX = bibtex
 PROJECT = Lenart-thesis-2011
-EDITOR = vim # nebo jiny oblibeny editor
-GV = evince # nebo ghostview
+EDITOR = emacs # nebo jiny oblibeny editor
+GV = gv # nebo ghostview
 
 all: $(PROJECT).pdf
 

@@ -15,16 +15,11 @@
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 % The user of this template may find useful to have an alternative to these 
 % officially suggested packages:
-\usepackage{color}
-\usepackage[czech, slovak, english]{babel}
+\usepackage[czech, english, slovak]{babel}
 \usepackage[T1]{fontenc} % pouzije EC fonty 
 % pripadne pisete-li cesky, pak lze zkusit take:
 % \usepackage[OT1]{fontenc} 
 \usepackage[utf8]{inputenc}
-\usepackage{enumerate}
-\usepackage{multirow}
-\usepackage{booktabs}
-\usepackage{capt-of} %captionof
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 % In case of problems with PDF fonts, one may try to uncomment this line:
 %\usepackage{lmodern}
@@ -45,8 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
 %\usepackage{indentfirst} %1. odstavec jako v cestine.
-\usepackage{amsmath}
-\usepackage{lscape}
+
 \usepackage{k336_thesis_macros} % specialni makra pro formatovani DP a BP
  % muzete si vytvorit i sva vlastni v souboru k336_thesis_macros.sty
  % najdete  radu jednoduchych definic, ktere zde ani nejsou pouzity
@@ -55,14 +49,14 @@
  % \newcommand{\efig}{\end{center}\end{figure}}
  % umoznuje pouzit prikaz \bfig namisto \begin{figure}\begin{center} atd.
 
-\usepackage{multirow}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zvolte jednu z moznosti 
 % Choose one of the following options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand\TypeOfWork{Diplomová práca} \typeout{Diplomová práce}
+\newcommand\TypeOfWork{Diplomová práca} \typeout{Diplomova prace}
 % \newcommand\TypeOfWork{Master's Thesis}   \typeout{Master's Thesis} 
-%\newcommand\TypeOfWork{Bakalárska práca}  \typeout{Bakalárska práca}
+% \newcommand\TypeOfWork{Bakalářská práce}  \typeout{Bakalarska prace}
 % \newcommand\TypeOfWork{Bachelor's Project}  \typeout{Bachelor's Project}
 
 
@@ -75,8 +69,8 @@
 %\newcommand\StudProgram{Elektrotechnika a informatika, dobíhající, Bakalářský}
 %\newcommand\StudProgram{Elektrotechnika a informatika, dobíhající, Magisterský}
 % \newcommand\StudProgram{Elektrotechnika a informatika, strukturovaný, Bakalářský}
- %\newcommand\StudProgram{Elektrotechnika a informatika, strukturovaný, Navazující magisterský}
-\newcommand\StudProgram{Otvorená informatika, Magisterský}
+ \newcommand\StudProgram{Otvorená informatika, Magisterský}
+% \newcommand\StudProgram{Softwarové technologie a management, Bakalářský}
 % English study:
 % \newcommand\StudProgram{Electrical Engineering and Information Technology}  % bachelor programe
 % \newcommand\StudProgram{Electrical Engineering and Information Technology}  %master program
@@ -89,8 +83,8 @@
 % nabidky jsou z: http://www.fel.cvut.cz/cz/education/bk/prehled.html
 
 %\newcommand\StudBranch{Výpočetní technika}   % pro program EaI bak. (dobihajici i strukt.)
-%\newcommand\StudBranch{Výpočetní technika}   % pro prgoram EaI mag. (dobihajici i strukt.)
-\newcommand\StudBranch{Softwarové inžinierstvo}            %pro STM
+\newcommand\StudBranch{Softwarové inžinierstvo}   % pro prgoram EaI mag. (dobihajici i strukt.)
+%\newcommand\StudBranch{Softwarové inženýrství}            %pro STM
 %\newcommand\StudBranch{Web a multimedia}                  % pro STM
 %\newcommand\StudBranch{Computer Engineering}              % bachelor programe
 %\newcommand\StudBranch{Computer Science and Engineering}  % master programe
@@ -104,7 +98,6 @@
 \newcommand\WorkTitle{Veľkoobjemové úložisko emailov}
 \newcommand\FirstandFamilyName{Bc. Patrik Lenárt}
 \newcommand\Supervisor{Ing. Jan Šedivý, CSc.}
-
 
 
 % Pouzijete-li pdflatex, tak je prijemne, kdyz bude mit vase prace
@@ -124,6 +117,27 @@ unicode=true,
 
 
 
+% Extension posted by Petr Dlouhy in order for better sources reference (\cite{} command) especially in Czech.
+% April 2010
+% See comment over \thebibliography command for details.
+
+\usepackage[square, numbers]{natbib}             % sazba pouzite literatury
+
+
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{capt-of} 
+
+
+%\usepackage{url}
+%\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>}\urlstyle{tt}}  %rm/sf/tt
+%\renewcommand{\emph}[1]{\textsl{#1}}    % melo by byt kurziva nebo sklonene,
+\let\oldUrl\url
+\renewcommand\url[1]{<\texttt{\oldUrl{#1}}>}
+
+
+
 
 \begin{document}
 
@@ -140,15 +154,15 @@ unicode=true,
 
 \iflanguage{slovak}{
 	 \typeout{************************************************}
-	 \typeout{Zvolený jazyk: slovenčina}
-	 \typeout{Typ práce: \TypeOfWork}
-	 \typeout{Študijný program: \StudProgram}
-	 \typeout{Odbor: \StudBranch}
-	 \typeout{Meno: \FirstandFamilyName}
-	 \typeout{Názov práce: \WorkTitle}
-	 \typeout{Vedúci práce: \Supervisor}
+	 \typeout{Zvoleny jazyk: cestina}
+	 \typeout{Typ prace: \TypeOfWork}
+	 \typeout{Studijni program: \StudProgram}
+	 \typeout{Obor: \StudBranch}
+	 \typeout{Jmeno: \FirstandFamilyName}
+	 \typeout{Nazev prace: \WorkTitle}
+	 \typeout{Vedouci prace: \Supervisor}
 	 \typeout{***************************************************}
-	 \newcommand\Department{Otvorená informatika}
+	 \newcommand\Department{katedra počítačové grafiky a interakce}
 	 \newcommand\Faculty{Fakulta elektrotechnická}
 	 \newcommand\University{České vysoké učení technické v Praze}
 	 \newcommand\labelSupervisor{Vedúci práce}
@@ -173,6 +187,25 @@ unicode=true,
 }
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%    Poznamky ke kompletaci prace
+% Nasledujici pasaz uzavrenou v {} ve sve praci samozrejme 
+% zakomentujte nebo odstrante. 
+% Ve vysledne svazane praci bude nahrazena skutecnym 
+% oficialnim zadanim vasi prace.
+{
+\pagenumbering{roman} \cleardoublepage \thispagestyle{empty}
+\chapter*{Na tomto místě bude oficiální zadání vaší práce}
+\begin{itemize}
+\item Toto zadání je podepsané děkanem a vedoucím katedry,
+\item musíte si ho vyzvednout na studiijním oddělení Katedry počítačů na Karlově náměstí,
+\item v jedné odevzdané práci bude originál tohoto zadání (originál zůstává po obhajobě na katedře),
+\item ve druhé bude na stejném místě neověřená kopie tohoto dokumentu (tato se vám vrátí po obhajobě).
+\end{itemize}
+\newpage
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%    Titulni stranka / Title page 
 
 \coverpagestarts
@@ -184,16 +217,18 @@ unicode=true,
 Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za konzultácie, cenné rady, pripomienky a návrhy, ktoré mi ochotne poskytol počas vypracovávania tejto práce. Tak isto sa chcem poďakovať svojim najbližším, bez ktorých podpory by táto práca nevznikla.
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   Prohlaseni / Declaration 
 
-\declaration{V Prahe dňa 1.\,3.\,2011}
+\declaration{V Prahe dňa 10.\,5.\,2011}
 %\declaration{In Kořenovice nad Bečvárkou on May 15, 2008}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%    Abstract 
  
 \abstractpage
-%Simulations of wireless networks play an important role in understanding wireless network properties and following the development of network standards. The aim of this thesis is to research a simulation of a relatively young network, such as standard IEEE 802.15.4, and approximate this model to reality. The model will simulate the antenna’s characteristics, which all devices implementing this standard use for communication. The accuracy of the model will be compared to the real-life measurements and the results will be evaluated.
+
+Translation of Czech abstract into English.
 
 % Prace v cestine musi krome abstraktu v anglictine obsahovat i
 % abstrakt v cestine.
@@ -203,9 +238,15 @@ Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za 
 \vskip 2.75\baselineskip
 
 \noindent
-%Simulácie bezdrôtových sieti zohrávajú dôležitú úlohu pri posudzovaní ich vlastností a pri ich následnom vývoji. Cieľom tejto práce bude zrealizovať simuláciu pomerne mladého bezdrôtového štandardu IEEE 802.15.4 a priblížiť model tejto simulácie realite. Model bude využívať charakteristiky antén, ktoré dané zariadenia implementujúce tento štandard využívajú pri svojej vzájomnej komunikácii. Presnosť daného modelu následne overím pomocou meraní, ktoré boli uskutočnené v reálnych podmienkach a zhodnotím dosiahnuté výsledky. 
 
-%Abstrakt práce by měl velmi stručně vystihovat její podstatu. Tedy čím se práce zabývá a co je jejím výsledkem/přínosem.
+Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, ktoré sa označujú pod spoločným názvom NoSQL. Analýzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu. Skúmaním relačných databázových technológii sme identifikovali kritické body, na základe ktorých nie je vhodné ich použitie. Ako alternatívne riešenie volíme systémy NoSQL, ktoré sa snažíme kategorizovať a následne z nich vybrať najhodnejších kandidátov, spĺňajúcich požiadavky systému. Zaoberáme sa vlastnosťami systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a pomocou systému Cassandra, bol implementovaný prototyp aplikácie. Po naplnení systému približne miliónom emailových správ, z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 60\% úsporu diskového priestoru.
+
+%Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie, u ktorého sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru, pri naplnení systému približne miliónom emailových správ z reálneho prostredia.
+%aktuálne problémy, ktoré vznikajú pri ukladaní a spracúvani neustále narastajúceho objemu dát pomocou relačných databázových systémov. Na ich riešenie 
+
+
+%Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, ktoré sa označujú pod spoločným názvom NoSQL. Analyzujeme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu. Skúmaním relačných databázových technológii sme identifikovali kritické body, na základe ktorých tieto systémy nespĺňaju naše požiadavky. Ako alternatívne riešenie volíme použitie NoSQL systémov, ktoré sa snažíme kategorizovať a následne z nich vybrať najhodnejších kandidátov pre požiadavky nášho systému. Zaoberáme sa architektúrou systémov Cassandra a HBase, ktoré podrobíme výkonnostným testom. Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie. Po naplnení systému približne miliónom emailových správ, z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Obsah / Table of Contents 
 
@@ -251,7 +292,7 @@ Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za 
 %Úvod charakterizující kontext zadání, případně motivace.
 S neustálym rozvojom informačných technológií súčasne narastá objem informácií, ktoré je potrebné spracúvať. Tento fakt podnietil vznik databázových systémov, ktoré slúžia na organizáciu, uchovávanie a prácu s veľkým objemom dát. V dnešnej dobe existuje množstvo databázových systémov, ktoré sa navzájom líšia svojou architektúrou, dátovým modelom, výrobcom atď.
 
-Od začiatku sedemdesiatych rokov 20. storočia sú v tejto oblasti dominantou relačné databázové systémy (angl. Relational Database Management Systems). Z dôvodu pretrvávajúceho rozvoja internetových technológií a rapídnemu rastu dát v digitálnom univerze \cite{Gantz_Mcarthur_Minton_2007} začínajú byť tieto systémy nepostačujúce. Medzi hlavné faktory pre výber relačného databázového systému doposiaľ patrili výrobca, cena a pod. V dnešnej dobe so vznikom moderných webových aplikácií ako sociálne siete a neustále rastúcim objemom dát, ktorý spracúvajú dátové sklady alebo analytické aplikácie požadujeme od týchto systémov vlastnosti ako vysoká dostupnosť, horizontálna rozšíriteľnosť a schopnosť pracovať s obrovským objemom dát (PB). Novo vznikajúce databázové systémy, spĺňajúce tieto požiadavky sa spoločne označujú pod názvom NoSQL (Not Only SQL). Pri ich výbere je v tomto prípade dôležité porozumenie architektúry, dátového modelu a dát, s ktoré tieto systémy spracúvajú.
+Od začiatku sedemdesiatych rokov 20. storočia sú v tejto oblasti dominantou relačné databázové systémy (  Relational Database Management Systems). Z dôvodu pretrvávajúceho rozvoja internetových technológií a rapídnemu rastu dát v digitálnom univerze \cite{Gantz_Mcarthur_Minton_2007} začínajú byť tieto systémy nepostačujúce. Medzi hlavné faktory pre výber relačného databázového systému doposiaľ patrili výrobca, cena a pod. V dnešnej dobe so vznikom moderných webových aplikácií ako sociálne siete a neustále rastúcim objemom dát, ktorý spracúvajú dátové sklady alebo analytické aplikácie požadujeme od týchto systémov vlastnosti ako vysoká dostupnosť, horizontálna rozšíriteľnosť a schopnosť pracovať s obrovským objemom dát (PB). Novo vznikajúce databázové systémy, spĺňajúce tieto požiadavky sa spoločne označujú pod názvom NoSQL (Not Only SQL). Pri ich výbere je v tomto prípade dôležité porozumenie architektúry, dátového modelu a dát, s ktoré tieto systémy spracúvajú.
 
 Táto práca si kladie za cieľ viacero úloh, ktorými sú pochopenie a popis základných  konceptov, ktoré tieto systémy využívajú, určenie kritérií vďaka ktorým môžeme tieto systémy navzájom porovnávať. Ďalej je úlohou analyzovať a popísať požiadavky pre systém veľkoobjemového úložiska elektronickej pošty, ktorý bude schopný spracovávať milióny emailov. Poslednou úlohou je na základe našich požiadavkov vybrať, čo najlepšie odpovedajúci NoSQL systém a s jeho použitím implementovať prototyp aplikácie.
 
@@ -605,7 +646,7 @@ S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zár
  \item
   ochrania súkromia a e-Discovery
  \item
-  vyťazovanie dát (angl. data mining)
+  vyťazovanie dát (  data mining)
  \item
   efektívne využitie úložného priestoru (deduplikácia príloh)
 \end{itemize}
@@ -633,7 +674,7 @@ Systém musí umožnovať uloženie emailu bez porušenia jeho integrity. Klúč
 
 
 \subsubsection*{Export emailov}
-Systém musí umožnovať prístup k ľubovoľnému uloženému emailu v jeho pôvodnej podobe poprípadne skupine všetkých emailov (angl. inbox) patriacej danému užívateľovi.
+Systém musí umožnovať prístup k ľubovoľnému uloženému emailu v jeho pôvodnej podobe poprípadne skupine všetkých emailov ( inbox) patriacej danému užívateľovi.
 
 \subsubsection*{Vyhľadávanie emailov}
 Vyhľadávanie je potrebné realizovať nad všetkými emailovými správami uloženými v systéme a jednotlivo nad správami podľa danej domény a nad správami, ktoré prináležia danému uživateľovi. Požadujeme fultextové vyhľadávanie emailov podľa následujúcich údajov:
@@ -718,11 +759,11 @@ Nad celým úložiskom je ďalej potrebné spracovať tieto štatistiky:
 
 \subsubsection*{Dostupnosť}
 %TODO:ref do slovnicka - def. network partiti
-Systém musí byť neustále dostupný (99,9\%) a schopný odolávať poruchám v sieťovej komunikácií (angl. network partitions), krátkodobej nedostupnosti uzlov, úplným zlyhaniam jednotlivých uzlov a umožnovať spracúvať tok pre zápis dát v rozmedzí 10 Mbit až 1 Gbit. Ďalším požiadavkom je aby sa dáta replikovali vo vnútri datacentra na dva uzly a tretia replika bola umiestnená v datacentre, ktoré sa bude nachádzať na geograficky odlišnom mieste. Vyžadujeme aby systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (ang. single point of failure). Tento problém rieši vlasnosť decentralizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu a je kedykoľvek plne nahraditeľná.
+Systém musí byť neustále dostupný (99,9\%) a schopný odolávať poruchám v sieťovej komunikácií ( network partitions), krátkodobej nedostupnosti uzlov, úplným zlyhaniam jednotlivých uzlov a umožnovať spracúvať tok pre zápis dát v rozmedzí 10 Mbit až 1 Gbit. Ďalším požiadavkom je aby sa dáta replikovali vo vnútri datacentra na dva uzly a tretia replika bola umiestnená v datacentre, ktoré sa bude nachádzať na geograficky odlišnom mieste. Vyžadujeme aby systém neobsahoval bod, ktorého porucha by spôsobila celkovú nedostupnosť systému (single point of failure). Tento problém rieši vlasnosť decentralizácie, ktorá zabezpečuje, že každá jednotka systému vykonáva rovnakú funkciu a je kedykoľvek plne nahraditeľná.
 
 \subsubsection*{Rozšíriteľnosť}
 %TODO:ref do slovnicka - def. commodity hw
-Predpokladáme použitie bežne dostupného spotrebného hardvéru (angl. commodity hardware), namiesto superpočítačov. Z dôvodu neustalého nárastu objemu elektronickej pošty, musí systém podporovať horizontálne škálovanie, ktoré bude schopné umožnovať zvýšenie celkovej kapacity dátového úložiska (desiatky petabajtov\footnote{$ 1PB = 10^{15} B$}). Pridávanie nových uzlov do systému umožní zvyšiť celkový vypočetný výkon, ktorý sa využije na spracovanie dát pomocou techniky MapReduce. U distribuovaného databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude potrebné riešiť zalohovanie pomocou externých systémov.
+Predpokladáme použitie bežne dostupného spotrebného hardvéru ( commodity hardware), namiesto superpočítačov. Z dôvodu neustalého nárastu objemu elektronickej pošty, musí systém podporovať horizontálne škálovanie, ktoré bude schopné umožnovať zvýšenie celkovej kapacity dátového úložiska (desiatky petabajtov\footnote{$ 1PB = 10^{15} B$}). Pridávanie nových uzlov do systému umožní zvyšiť celkový vypočetný výkon, ktorý sa využije na spracovanie dát pomocou techniky MapReduce. U distribuovaného databazového systému je nutná podpora replikácie, ktorá zvýši výkonnosť operácií pre čítanie a zápis do systému a vďaka nej nebude potrebné riešiť zalohovanie pomocou externých systémov.
 
 \subsubsection*{Nízkonákladová administrácia}
 Prevádzkovanie systému a jeho administrácia by mali byť čo najmenej závislé na zásahu ľudských zdrojov. Detekcia nefunkčných uzlov a automatické rozdeľovanie záťaže sa musí vykonávať automaticky. Pridanie poprípade odobranie nového uzla nesmie ovplyvniť beh celkového systému.
@@ -830,16 +871,16 @@ Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto syst
  \item
   škálovateľnosť
  \item 
-  schopnosť odolávať chýbam (angl. failure handling)
+  schopnosť odolávať chýbam ( failure handling)
  \item
   elastickosť
  \item 
   konzistencia dát
- %\item 
- % bezpečnosť 
  % prostredie kde operuju / klaud alebo azure?
  \item
   prostredie behu
+ \item 
+  bezpečnosť 
 \end{enumerate}
 
 \subsection{Dátový a dotazovací model}
@@ -891,6 +932,11 @@ Poďla teórie CAP platí, že v prípade výskytu sieťových prerušení, ktor
 
 \subsection{Prostredie behu}
 NoSQL systémy ďalej delíme  podľa prostredia, v ktorom pracujú. Väčšina týchto open source systémov umožnuje ich nasadenie do vlastného prostredia teda privátnych cloudov alebo do verejného cloudového riešenia EC2 od spoločnosti Amazon. Mezdi tieto systémy patria napríklad Cassandra, HBase, Riak, Voldemort. Databázové systémy Amazon SimpleDB, Microsoft Azure SQL, Yahoo! YQL alebo Google App Engine sú poskytované ako komplexné cloudové riešenie. Rozhranie pre prácu s dátami a funkčnosť perzistentného úložiska zabezpečujú poskytovatelia týchto systémov.
+
+
+
+\subsection{Bezpečnosť}
+Distribuovaný databázový systém je možné nasadiť do claudu. V prípade, použitia verejných claudov môže hroziť nebezpečenstvo zneužitia dát treťou stranou a preto je potrebné aplikovať bezpečnostné mechanizmy. Pri nasadení systému do privátneho klaudu zasa môžeme požadovať viacero úrovní ochrany pre prístup k dátam. Systémy NoSQL disponujú minimálnymi prvkami pre zaručenie autentizácie a autorizácie. Mnoho systémov tieto mechanizmy vôbec neimplementuje.
 
 %TODO
 %\subsection{Bezpečnosť}
@@ -955,6 +1001,7 @@ Konzistencia 		& CP  & voliteľná & CP 				\\\addlinespace
 Kompresia dát		& LZO, GZIP  & nie & LZO, ZLIB 				\\\addlinespace
 Programovací jazyk 	& Java  & Java & C++ 				\\\addlinespace
 MapReduce 		& áno  & áno & áno 				\\\addlinespace
+Indexy		 	& -  & +  & - 					\\\addlinespace
 Dokumentácia		& +  & +  & - 					\\\addlinespace
 Komunita 		& +  & +  & - 					\\\addlinespace\bottomrule
 
@@ -966,7 +1013,7 @@ Komunita 		& +  & +  & - 					\\\addlinespace\bottomrule
 
 Zo stručného prehľadu v tabuľke je vidieť, že systémy obsahuju množstvo spoločných vlastností. Pri výbere systémov sme zohľadnili aj ich praktické využitie spoločnostiami globálne pôsobiacimi na IT trhu. Napríklad systém Cassandra je používaný spoločnosťou Facebook v aplikácii pre vyhľadávanie a uchovávanie súkromnej pošty. Ďalšími dôležitými požiadavkami pre výber boli podpora komunity, dokumentácia a vývojový cyklus týchto systémov. Zo zvolených kandidátov sme vybrali systém HBase a Cassandra. Dôvodom prečo sme zavrhli systém Hypertable je nedostačujúca dokumentácia, málo aktívna komunita a pomalý vývojový cyklus. V následujúcich dvoch kapitolách detailne popíšeme oba systémy.
 
-
+%TODO no transactions
 %C = rack aware + sec indices, 
 %hdfs SPOF
 
@@ -982,7 +1029,7 @@ Zo stručného prehľadu v tabuľke je vidieť, že systémy obsahuju množstvo 
 
 %TODO : popisat strucne MVCC
 
-Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte a poskytovala úložisko pre indexy vytvárané nad týmito dátami. Od systému sa predpokladalo, že bude zvládať miliardy zápisov denne, podporovať škálovanie podľa narástajúceho počtu použivateľov, umožnovať beh na spotrebných počítačoch a podporať replikáciu medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo od spoločnosti Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému Bigtable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy, na ktorých je tento systém založený.
+Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte a poskytovala úložisko pre indexy vytvárané nad týmito dátami. Od systému sa predpokladalo, že bude zvládať miliardy zápisov denne, podporovať škálovanie podľa narástajúceho počtu použivateľov, umožnovať beh na spotrebných počítačoch a podporať replikáciu medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo \cite{} od spoločnosti Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému Bigtable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy, na ktorých je tento systém založený.
 
 
 \section{Dátový model}
@@ -1244,7 +1291,7 @@ Pri operácií zmazania dát je možné určiť vymazávané data konkrétnou č
 
 \section{Bezpečnosť}
 
-Distribuovaný databázový systém je možné nasadiť do claudu. V prípade, použitia verejných audov môže hroziť nebezpečenstvo zneužitia našich dát treťou stranou a preto je potrebné aplikovať bezpečnostné mechanizmi. Pri nasadení systému do privátneho klaudu zasa môžeme požadovať viacero úrovní ochrany pre prístup k dátam. Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou Kerberosu. Možnosť pridania autorizácie na úrovni tabuliek a rodiny stĺpcov je neustále vo vývoji. 
+Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou služby Kerberos. Možnosť pridania autorizácie na úrovni tabuliek a rodiny stĺpcov je neustále vo vývoji. 
 
 
 % Secure HBase, Hadoop Group  Trend Micro: Andrew Purtell, Gary Halmling, Joshu Ho, Eugene Koontz, Mingjie Lail
@@ -1293,7 +1340,7 @@ Pre výkonnostné testovanie sme mali k dispozícii 9 počítačov s rovnakou ha
 \end{itemize}
 
 \subsection*{Softvérová konfigurácia} 
-Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64 a aplikáciu Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor (angl. swap). Za účelom monitorovania bol použitý softvér Zabbix a nástroje VisualVM, htop, iostat a dstat.
+Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64 a aplikáciu Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor ( swap). Za účelom monitorovania bol použitý softvér Zabbix a nástroje VisualVM, htop, iostat a dstat.
 
 \subsection*{Sieťová konfigurácia}
 
@@ -1301,11 +1348,11 @@ Hodnota maximálnej reálnej sieťovej priepustnosti medzi dvoma uzlami bola zme
 
 \section{Popis testovacej metodológie}
 
-Nad oboma distribuovanými databázovými systémami sme vykonali testy na základe, ktorých sme sa snažili identifikovať ako tieto systémy ovplyvňuje rôzna hodnota replikácie, konzistencie, pozorovali sme ich schopnosť horizontálneho škálovania a chovanie sa pod záťažou. Testy boli zamerané na zápis dát, ktorý je kritickým prvkom pre potreby našej aplikácie.
+Nad oboma distribuovanými databázovými systémami sme vykonali testy na základe, ktorých sme sa snažili identifikovať ako tieto systémy ovplyvňuje rôzna hodnota replikácie, typ konzistencie, pozorovali sme ich schopnosť horizontálneho škálovania a chovanie sa pod záťažou. Testy boli zamerané na zápis dát, ktorý je kritickým prvkom pre potreby našej aplikácie.
 
 \subsection{Testovací klient}
 
-Testovacím klientom bola aplikácia využivajúca vlákna, založená na princípe producent - konzument, kde konzumenti predstavovali jednotlivé vlákna vykonávajúce zápis alebo čítanie dát. Optimálny počet paralelne zapisujúcich vlákien bol stanovený na hodnotu 50, pri ich navýšení sa zvyšovala hodnota latencie a nedošlo k zväčšeniu dátového toku pre zápis. Pre čítanie dát bolo použitých 250 vlákien. Dôležitým bodom bolo zabezpečenie rovnakého zaťaženia každého uzla v klastri, počas celého priebehu jednotlivých testov. Detailný popis splňujúci tento bod je obsiahnutý v časti popisujúcej test konkrétneho databázového systému.
+Testovacím klientom bola aplikácia využivajúca vlákna, založená na princípe producent - konzument, kde konzumenti predstavovali jednotlivé vlákna vykonávajúce zápis alebo čítanie dát. Optimálny počet paralelne zapisujúcich vlákien bol stanovený na hodnotu 50, pri ich navýšení sa zvyšovala hodnota latencie a nedošlo k zväčšeniu dátového toku pre zápis. Pre čítanie dát bolo použitých 250 vlákien. Dôležitým bodom bolo zabezpečiť rovnaké zaťaženia každého uzla v klastri, počas celého priebehu jednotlivých testov. Detailný popis splňujúci tento bod je obsiahnutý v časti popisujúcej test konkrétneho databázového systému.
 
 \subsection{Testovací prípad pre zápis dát}
 
@@ -1317,11 +1364,11 @@ Dôvodom tohto testovacieho prípadu bolo určiť rýchlosť počas čítania d�
 
 \subsection{Zaťažovací test}
 
-Cieľom bolo zistiť stabilitu klastra v prípade, keď bude pod sústavným zápisom, budú v ňom prebiehať časté operácie pre zápis štruktúr SSTable a HTable na pevný disk a ich následné zlievanie. Tento test sme vykonali po dobu piatich hodín. Počas niektorých testovacích prípadov sme použili dvoch klientov z dôvodu aby sme zaručili maximálnu saturáciu prenosového pásma a vylúčili úzke hrdlo na strane klienta (1 Gbit linka umožňuje maximálny teoretický dátový tok 125 MB/s).
+Cieľom bolo zistiť stabilitu klastra v prípade, keď bude pod sústavným zápisom, budú v ňom prebiehať časté operácie pre zápis štruktúr SSTable a HTable na pevný disk a ich následné zlievanie. Tento test sme vykonali po dobu piatich hodín. Náhodne generované dáta o rôznej veľkosti boli zapisované do jedného stĺpca. Počas niektorých testovacích prípadov sme použili dvoch klientov z dôvodu aby sme zaručili maximálnu saturáciu prenosového pásma a vylúčili úzke hrdlo na strane klienta (1 Gbit linka umožňuje maximálny teoretický dátový tok 125 MB/s).
 
 
 \section{HDFS}
-Nad distribuovaným súborovým systémom HDFS sme vykonali testy určujúce maximálnu hodnotu priepustnosti pri zápise dát, z dôvodu aby sme vylúčili možné úzke hrdlo v jeho prepojení s databázovým systémom HBase. Pre účely testovania sme použili verziu Hadoop-0.20.2, veľkosť haldy pre JVM (ang. Java Virtual Machine) bola nastavená na hodnotu 1 GB.
+Nad distribuovaným súborovým systémom HDFS sme vykonali testy určujúce maximálnu hodnotu priepustnosti pri zápise dát, z dôvodu aby sme vylúčili možné úzke hrdlo v jeho prepojení s databázovým systémom HBase. Pre účely testovania sme použili verziu Hadoop-0.20.2, veľkosť haldy pre JVM (Java Virtual Machine) bola nastavená na hodnotu 1 GB.
 
 Meranie sme vykonali v troch konfiguráciach. Každá konfigurácia obsahovala jeden uzol v role master, na ktorom boli spustené služby Namenode a JobTracker. Na zvyšných uzloch typu slave bežali služby Datanode a Tasktracker. Konfigurácia klastra bola následovná:
 
@@ -1348,6 +1395,7 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 \caption{Priepustnosť pri zápise dát na HDFS}
 \label{tab:HDFSperformance}
 \end{table}
+
 
 Na základe týchto hodnôt môžeme pozorovať, že zvýšenie faktoru replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad klastrov v konfigurácii B a C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
 
@@ -1452,7 +1500,7 @@ V tabuľke \ref{tab:HPerf3} sú znázornené výsledky zaťazovacieho testu.
 
 Pri testovaní klastru bol použitý distribuovaný databázový systém Cassandra verzie 0.7.3. Adresár obsahujúci súbory typu commitlog bol na samostatnom fyzickom disku, dátový adresár bol na diskoch zapojených v poli RAID0. Veľkosť štruktúry Memtable bola 120 MB. Každý uzol zaberal na hašovom kruhu rovnaký úsek.
 
-Tabuľka \ref{tab:CPerf2} obsahuje výsledky z viacerých meraní, podľa testovacieho prípadu pre zápis dát \ref{}. Ako hodnoty kľúčov boli pre jednotlivé zapisované riadky použité prirodzené čísla z rozsahu nula až celkový počet riadkov. Cassandru sme nastavili tak, aby používala RandomPartitioner. Toto nastavenie zabezpečilo rovnomernú záťaž každého uzlu počas celkovej doby zápisu. Výsledok hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určil uzol, do ktorého bol daný riadok zapísaný.
+Tabuľka \ref{tab:CPerf2} obsahuje výsledky z viacerých meraní, podľa testovacieho prípadu pre zápis dát \ref{}. Ako hodnoty kľúčov boli pre jednotlivé zapisované riadky použité prirodzené čísla z rozsahu nula až celkový počet riadkov. Cassandru sme nastavili tak, aby boli kľúče náhodne zapisované do systému, bol použitý \emph{RandomPartitioner}. Toto nastavenie zabezpečilo rov-nomernú záťaž každého uzla počas celkovej doby zápisu. Výsledok hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určil uzol, do ktorého bol daný riadok zapísaný.
 
 \begin{table}[hp]
 \begin{center}
@@ -1511,7 +1559,7 @@ Výsledky zaťažovacieho testu zobrazuje tabuľka \ref{tab:CPerf1}, kde jednotl
 \caption{Čítanie riadkov o veľkosti 1000 B}
 \label{tab:CPerf3}
 \end{table}
-Počas testu sme klaster monitorovali a zistil viacero závažných dôsledkov. Na všetkých uzloch prebiehali veľmi časté GC kolekcie (angl. Garbage collections) z dôvodu častého zápisu štruktúr Memtable na pevný disk. Podľa hardverovej špecifikácie pre systém Cassandra všetky uzly disponovali minimálnou veľkosťou operačnej pamäti 4 GB. Z dôvodu stability systému bola horná hodnota pri ktorej sa zapisuje Memtable z operačnej pamäti na disk 120 MB. Následkom tohto nastavenia vznikalo veľké množstvo SSTable súborov na pevnom disku, ktoré Cassandra zlievala na pozadí (ang. compactions), čo spôsobovalo záťaž vstupno výstupných operácií (angl. I/O wait). V prípade, takto zaťaženého systému a veľkého množstva SSTable súborov by bola operácia čítania veľmi pomalá, pretože dáta patriace do jednej rodiny stĺpcov by boli uložené vo veľko množstve samostatných súborov a ich načítanie by vyžadovalo zvýšené množstvo diskových operácií (angl. seek).
+Počas testu sme klaster monitorovali a zistil viacero závažných dôsledkov. Na všetkých uzloch prebiehali veľmi časté GC kolekcie (Garbage collections) z dôvodu častého zápisu štruktúr Memtable na pevný disk. Podľa hardverovej špecifikácie pre systém Cassandra všetky uzly disponovali minimálnou veľkosťou operačnej pamäti 4 GB. Z dôvodu stability systému bola horná hodnota pri ktorej sa zapisuje Memtable z operačnej pamäti na disk 120 MB. Následkom tohto nastavenia vznikalo veľké množstvo SSTable súborov na pevnom disku, ktoré Cassandra zlievala na pozadí (compactions), čo spôsobovalo záťaž vstupno výstupných operácií (I/O wait). V prípade, takto zaťaženého systému a veľkého množstva SSTable súborov by bola operácia čítania veľmi pomalá, pretože dáta patriace do jednej rodiny stĺpcov by boli uložené vo veľko množstve samostatných súborov a ich načítanie by vyžadovalo zvýšené množstvo diskových operácií (seek).
 
 Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súborov rádovo v kB, je hlavným úzkym hrdlom systému CPU, kdežto v prípade zápisu veľkých blokov dát zohrávajú hlavnú úlohu V/V diskové operácie.
 
@@ -1565,9 +1613,9 @@ V tejto kapitole popíšeme návrh systému, ktorý bude slúžiť na archiváci
 
 \section{Zdroj dát}
 %http://www.fi.muni.cz/~kas/p090/referaty/2011-jaro/ut/email.html
-Základným prvkom, ktorý budeme v našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{Klensin:2001:SMT:RFC2821}. Tento objekt pozostáva z SMTP obálky a emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerý príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z roku 2001 pod názvom Formát Internetovej správy (angl. Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z roku 1982 (angl. Standard for the Fromat of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v hlavičke rožšírujú štandardy, pod názvom MIME (ang. Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046\cite{Freed:1996:MIM:RFC2045,Freed:1996:MIM:RFC2046}, RFC 2047, RFC 2048 a RFC 2049. Tieto štandardy pridávajú možnosť použitia iných znakových sád ako US-ASCII, ďalej umožnujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
-
-Zber emailových objektov je realizovaný na unixových serveroch, ktoré budú používať emailový server Qmail\footnote{http://cr.yp.to/qmail.html}. Tento server bude zároveň realizovať antispamovú kontrolu kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný programom Qmail, ktorý volá obslužný modul qmail-scanner a následne dokončí doručenie správy. Tento modul sme vhodne modifikovali pre potreby nášho systému. Modifikovaný súbor je súčasťou zdrojových kódov tejto práce. Výstupom je dvojica súborov a to obálka, ktorá obsahuje viacero štatistických údajov a samotný textový súbor reprezentujúci emailovú správu v pôvodnej podobe. Príklad obálky znázorňuje obrázok \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese http://qmail-scanner.sourceforge.net/.
+Základným prvkom, ktorý budeme v našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{Klensin:2001:SMT:RFC2821}. Tento objekt pozostáva z SMTP obálky a emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerý príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z roku 2001 pod názvom Formát Internetovej správy (Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z roku 1982 (Standard for the Fromat of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v hlavičke rožšírujú štandardy, pod názvom MIME (Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046 \cite{Freed:1996:MIM:RFC2045,Freed:1996:MIM:RFC2046}, RFC 2047, RFC 2048 a RFC 2049. Tieto štandardy pridávajú možnosť použitia iných znakových sád (štandardná sada US-ASCII), ďalej umožnujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
+%TODO: aky font pre url?
+Zber emailových objektov je realizovaný na unixových serveroch, ktoré používajú emailový server Qmail\footnote{http://cr.yp.to/qmail.html}. Tento server bude zároveň realizovať antispamovú kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný programom Qmail, ktorý volá obslužný modul \emph{qmail-scanner.pl} a následne dokončí doručenie správy. Tento modul sme vhodne modifikovali pre potreby našej aplikácie. Výstupom je súbor s príponou \emph{.envelope}, ktorý obsahuje viacero štatistických údajov znázornených na obrázku \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese http://qmail-scanner.sourceforge.net/. Výstupom aplikácie Qmail je textový súbor reprezentujúci emailovú správu, ku ktorej je jednoznačne priradený súbor s príponou \emph{.envelope}. Oba súbory sú spracúvané analyzátorom, ktorý popíšeme v následujúcej časti. Modifikovaný súbor \emph{qmail-scanner.pl} je súčasťou zdrojových kódov tejto práce.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1580,10 +1628,10 @@ Tue, 15 Mar 2011 10:12:09 CET	Clear:RC:1(88.208.65.55):SA:1	0.007811	9508	odosie
 
 
 \section{Analýza dát}
-Jedný z hlavých požiadavkov systému je deduplikácia príloh emailových správ z dôvodu úspory diskovej kapacity. Hlavička s názvom \uv{Content-Type}, ktorú definuje RFC 2045 špecifikuje typ dát v tele MIME správy. Jej hodnota je tvorená z dvoch častí a to názov typu média (angl. media type) a bližšie špecifikovaný podtyp, napríklad \uv{image/gif}. Norma definuje základných päť typov médií a to text, image, audio, video a application. V prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typ s výnimkou typu \uv{text/plain}, kde predpokladáme, že sa jedná o bežnú textovú správu napísanú uživateľom.
+Jedným z hlavých požiadavkov systému je deduplikácia príloh emailových správ z dôvodu úspory diskovej kapacity. Hlavička s názvom \emph{\uv{Content-Type}}, ktorú definuje RFC 2045 špecifikuje typ dát v tele MIME správy. Jej hodnota je tvorená z dvoch častí a to názov typu média (media type) a bližšie špecifikovaný podtyp, napríklad \emph{\uv{image/gif}}. Norma definuje päť základných typov médií a to text, image, audio, video a application. V prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typ s výnimkou typu \emph{\uv{text/plain}}, kde predpokladáme, že sa jedná o bežnú textovú správu napísanú uživateľom.
 
 Program pre analýzu a deduplikáciu emailovej správy bol napísaný v programovacom jazyku Python\footnote{http://python.org}. Tento program dodržiava špecifikáciu RFC 2822 a RFC2045. 
-Medzi povinné polia hlavičky emailu patria pole \uv{From} a {Date}. Aj napriek tomu, že tieto polia sú definované už od roku 1982 v RFC 1982 analýza nášho datasetu ukázala, že XY \% emailov tento požiadavok nespĺňa. Z celkovej množiny emailov o veľkosti 98000 bolo 0.022\% emailov, ktoré nespĺňali štruktúru definovanú normou RFC 2045. Metódu deduplikácie sme riešili nasledujúcim postupom:
+Medzi povinné polia hlavičky emailu patria pole \emph{From} a \emph{Date}. Aj napriek tomu, že tieto polia sú definované už od roku 1982 v RFC 1982 analýza nášho datasetu ukázala, že XY \% emailov tento požiadavok nespĺňa. Z množiny, ktorá obsahovala 980,000 emailových sprav bolo 0.022\% emailov, ktoré nespĺňali štruktúru definovanú normou RFC 2045. Metódu deduplikácie sme riešili nasledujúcim postupom:
 
 \begin{itemize}
  \item analýzou emailu sme určili časti, v ktorých sa nachádzajú prílohy
@@ -1599,32 +1647,35 @@ Medzi povinné polia hlavičky emailu patria pole \uv{From} a {Date}. Aj napriek
 Databázovú schému sme navrhli s ohľadom na to aké operácie nad danými dátami budeme vykonávať a pri návhru sme využili poznatky získané štúdiom architektúry databázového systému Cassandra. Schéma je tvorená pomocou štyroch rodín stĺpcov a to:
 
 \begin{itemize}
- \item messagesMetaData obsahuje meta informácie identifikované v obálke emailového objektu a emailovej správy, nad ktorými budeme vykonávať štatistické výpočty pomocou metódy MapReduce
- \item messagesContent obsahuje obálku, hlavičku a telo správy
- \item messagesAttachment slúži na ukladanie deduplikovaných príloh emailov  
- \item lastInbox v chronologickom časovom poradí, podľa hodnoty Date v hlavičke emailu, zaznamenáva emaily daného užívateľa
+ \item \emph{messagesMetaData} - obsahuje meta informácie identifikované v obálke emailového objektu a emailovej správy, nad ktorými budeme vykonávať štatistické výpočty pomocou metódy MapReduce
+ \item \emph{messagesContent} - obsahuje obálku, hlavičku a telo správy
+ \item \emph{messagesAttachment} - slúži na ukladanie deduplikovaných príloh emailov  
+ \item \emph{lastInbox} - v chronologickom časovom poradí, podľa hodnoty poľa \emph{Date} v hlavičke emailu, zaznamenáva správy daného užívateľa
 \end{itemize}
 
-Tradičné techniky pre popis databázových schémat nie je možné aplikovať na databázové systémy ako napríklad Bigtable alebo Dynamo. Jedným z dôvodom je, že na tieto schémy sa aplikuje denormalizácia, duplikácia dát a klúče sú často komplexného charakteru. Dodnes neexistuje, žiadny štandard, ktorý by definoval popis týchto schémat. Článok pod názvom techniky pre definíciu štruktúr pomocou diagramov v cloude a návrhové vzory (angl. Cloud data structure diagramming techniques and design patterns \cite{CloudDataStructureDiag}) definuje stereotypy pre diagramy v jazyku UML a obsahuje vzory pre popis štruktúry týchto dát. Obrázok \ref{fig:Cschema} znázorňujúci databázovú schému nášho modelu aplikuje tieto techniky.
+Tradičné techniky pre popis databázových schémat nie je možné aplikovať na databázové systémy, ktoré vychádzajú z konceptov Bigtable alebo Dynamo. Jedným z dôvodom je, že na tieto schémy sa aplikuje denormalizácia, duplikácia dát a klúče sú často komplexného charakteru. Dodnes neexistuje, žiadny štandard, ktorý by definoval popis týchto schémat. Článok pod názvom: \uv{Techniky pre definíciu štruktúr pomocou diagramov v cloude a návrhové vzory} (Cloud data structure diagramming techniques and design patterns \cite{CloudDataStructureDiag}) definuje stereotypy pre diagramy v jazyku UML a obsahuje vzory pre popis štruktúry týchto dát. Obrázok \ref{fig:Cschema} znázorňujúci databázovú schému nášho modelu, aplikáciou popisovaných techník.
 
+\noindent
+\\
 Ako jedinečný identifikátor emailovej správy v databáze využivame nasledujúcu schému:
 \begin{verbatim}
  emailID = sha256(uid + MessageId + date)
 \end{verbatim}
 
+\noindent
 V tejto schéme reprezentuje:
 \begin{itemize}
- \item uid emailovú adresu príjemcu, v tvare jan@mak.com
- \item MessageID je ide identifikátor z hlavičky daného emailu
- \item date je časová značka reprezentujúca čas kedy bol email prijatý emailovým serverom (formát: rok, mesiac, deň, hodina, minúta, sekunda)
- \item emailID je výstup hašovacej funkcie SHA2 v hexadecimálnom tvare
+ \item \emph{uid} emailovú adresu príjemcu, v tvare jan@mak.com
+ \item \emph{MessageID} je ide identifikátor z hlavičky daného emailu
+ \item \emph{date} je časová značka reprezentujúca čas kedy bol email prijatý emailovým serverom (formát: rok, mesiac, deň, hodina, minúta, sekunda)
+ \item \emph{emailID} je výstup hašovacej funkcie SHA2 v hexadecimálnom tvare
 \end{itemize}
 
 %= paritioner
 %TODO lexikograf usporiadanie stlpcov pre zapis meta info o prilohach, popisat TIMEUUID
 %TODO v obrazku schemy fixnut u MEssagesAttachment typ links: na TypeLong, v Messages MEta DAta fixnut a,b,c zmazat int
 
-V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (ang. blob), ktorých veľkosť prevyšuje 5 MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512 kB. Preto prílohy a dáta reprezentujúce email v prípade, že ich veľkosť presahuje 1 MB zapisujeme do samostatných stĺpcov o veľkosti 512 kB. Toto rozdeľovanie dát na menšie bloky vykonávame na aplikačnej úrovni na strane klienta. Názvy stĺpcov číslujeme vzostupne v rozmedzí 0-N, kde N je počet blokov. Spätnú rekoštrukciu dát vykonáva klient.
+V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (blob), ktorých veľkosť prevyšuje 5 MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512 kB. V prípade ak dáta reprezentujúce emailovú správu presahujú veľkosť 1 MB, tak ich zapisujeme do samostatných stĺpcov o veľkosti 512 kB. Toto rozdeľovanie dát na menšie bloky vykonávame na aplikačnej úrovni na strane klienta. Názvy stĺpcov číslujeme vzostupne v rozmedzí \emph{0-N}, kde \emph{N} je počet blokov. Spätnú rekoštrukciu dát vykonáva klient.
 
 \begin{figure}[h]
  \centering
@@ -1636,7 +1687,7 @@ V predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná p
 
 \section{Fultextové vyhľadávanie}
 
-Fultextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému Elasticsearch\footnote{http://elasticsearch.org}. Hlavný index, ktorý obsahuje všetky zaindexované dáta ma názov emailArchive, a delíme ho na dva typy s názvom email a envelope. Schéma týchto typov obsahuje polia poďla, ktorých chceme v emailovom archíve vyhľadávať a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
+Fultextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému Elasticsearch\footnote{http://elasticsearch.org}. Hlavný index, ktorý obsahuje všetky zaindexované dáta ma názov \emph{emailArchive}, a delíme ho na dva typy s názvom \emph{email} a \emph{envelope}. Schéma týchto typov obsahuje polia poďla, ktorých chceme v emailovom archíve vyhľadávať a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1666,10 +1717,10 @@ mappingsEnvelope = {
 \section{Implementácia}
 
 %Consistent rad - write    W  + R > RF
-V programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a ElasticSearch. Jednou z najdoležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (ang. Quorum), ktorá zabezpečí zápis dát na N / 2 + 1 replík a klient následne obdrží potvrdenie o úspešnosti zápisu, inak sa zápis zopakuje. Klient, ktorý slúži na čítanie dát z databáze využíva taktiež mód kvóra. Tieto vlastnosti nám zabezpečujú, v prípade použitia faktoru replikácie tri (dáta sa v databázovom systéme nachádzajú trikrát), silnú úroveň konzistencie na strane klienta a databáze. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahuju viacero jadier, tento fakt môžeme využiť pre paralelizované spracúvanie emailov, teda každé jadro CPU bude spracúvať súčasne jednu emailovú správu.
+V programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a ElasticSearch. Jednou z najdoležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (quorum), ktorý zabezpečí zápis dát na N / 2 + 1 replík a klient následne obdrží potvrdenie o úspešnosti zápisu, inak sa zápis zopakuje. Tieto vlastnosti nám zabezpečujú, v prípade použitia faktoru replikácie tri (dáta sa v databázovom systéme nachádzajú trikrát), silnú úroveň konzistencie na strane klienta a databáze. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahuju viacero jadier, tento fakt môžeme využiť pre paralelizované spracúvanie emailov, teda každé jadro CPU bude spracúvať súčasne jednu emailovú správu.
 
 \subsection*{Celery}
-Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (ang. distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (angl. workers) reprezentujú samostatné procesy v našom prípade proces pre analýzu a deduplikáciu emailu, ktoré môžu bežať paralelne. Ako sprostredkovateľ (ang. broker) je použitá aplikácia RabbitMQ\footnote{http://www.rabbitmq.com}, ktorý obdrží od klienta správu a uloží ju do fronty. Správa obsahuje identifikátor emailovej správy, v tomto prípade cestu na lokálnom súborovom systéme k súboru reprezentujúcom email. Táto správa je následne zaslaná ľubovoľnému pracovníkovy (v našom prípade klient kykonávajúci analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná, dokáže odolávať chybám (napr. v prípade výpadku elektrickej energie, správy nadalej pretrvávajú vo fronte).
+Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (workers) reprezentujú samostatné procesy v našom prípade proces pre analýzu a deduplikáciu emailu, ktoré môžu bežať paralelne. Ako sprostredkovateľ (broker) je použitá aplikácia RabbitMQ\footnote{http://www.rabbitmq.com}. Sprostredkovateľ obdrží od klienta správu a uloží ju do fronty. Správa obsahuje identifikátor emailovej správy, v tomto prípade cestu na lokálnom súborovom systéme k súboru reprezentujúcom email. Táto správa je následne zaslaná ľubovoľnému pracovníkovy (v našom prípade klient vykonávajúci analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná, dokáže odolávať chybám (napr. v prípade výpadku elektrickej energie správy nadalej pretrvávajú vo fronte).
 
 %TODO:
 \begin{figure}[h]
@@ -1679,11 +1730,11 @@ Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónne
  \label{fig:Celery}
 \end{figure}
 
-Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala XY správ pre zápis XY pre načitanie správ.
+Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala XY operácií pre zápis a XY pre načitanie správ.
 
 \subsection{Klient}
 
-Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V prípade, že je v daný okamžik k dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou nášho analyzátora a následne zapísaná do databáze Cassandra a fultextového systému Elasticsearch. Na testovacie účely sme nemali k dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailový správ.
+Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V prípade, že je v daný okamžik k dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou nášho analyzátora a následne zapísaná do databáze Cassandra a fultextového systému Elasticsearch. Na testovacie účely sme nemali k dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailových správ.
 
 
 \begin{figure}[h]
@@ -1695,14 +1746,14 @@ Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu
 \end{figure}
 
 
-%Návrh realizácie
+Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}.
 %deployment diagram ( oddelene datacentra - na tretej replikacii pocitat MR)ty?
 
 \subsection{Výpočet štatistík}
 
 %TODO PIG = kecy okolo 
 % a nepodporuje možnosť definície viackrokového dátového toku \cite{Gates:2009:BHD:1687553.1687568}
-Cassandra spolupracuje so systémom Hadoop, čo nám dáva do rúk mocný nástroj na masívne paralelné spracovanie dát pomocou techniky MapReduce. Tvorba aplikácií v tomto frameworku prebieha v Jave, je náročná a okrem toho programový model MapReduce obsahuje viaceo problémov. Model napríklad neobsahuje primitíva na filtrovanie, agregáciu, spájanie dát a je potrebná ich vlastná implementácia. Tieto nedostatky rieši nástroj Pig\cite{} vďaka, ktorému sme boli schopný spracúvať meta dáta uložené v databáze. Obrázok \ref{fig:PigExample} zobrazuje programovú ukážku, ktorá slúži na výpočet veľkosti najvačsieho emailu pre domény, ktorých emaily archivujeme. Pre jednoduchosť sme vynechali časti, ktoré slúžia na načítanie dát z databáze a obsahujú uživateľsky definovanú funkciu v programovacom jazyku Java, ktorá slúži na predprípravu vstupných dát. Podpora uživateľom definovaných funkcií je jednou z ďalších výhod nástroja Pig.
+Cassandra spolupracuje so systémom Hadoop, čo nám dáva do rúk mocný nástroj na masívne paralelné spracovanie dát pomocou techniky MapReduce. Tvorba aplikácií v tomto frameworku prebieha v Jave, je náročná a okrem toho programový model MapReduce obsahuje viaceo problémov. Model napríklad neobsahuje primitíva na filtrovanie, agregáciu, spájanie dát a je potrebná ich vlastná implementácia. Tieto nedostatky rieši nástroj Pig \cite{???} vďaka, ktorému sme boli schopný spracúvať metadáta uložené v databáze. Obrázok \ref{fig:PigExample} zobrazuje programovú ukážku, ktorá slúži na výpočet veľkosti najväčsieho emailu pre domény, ktorých emaily archivujeme. Pre jednoduchosť sme vynechali časti, ktoré slúžia na načítanie dát z databáze a obsahujú uživateľsky definovanú funkciu v programovacom jazyku Java, ktorá slúži na predprípravu vstupných dát. Podpora uživateľom definovaných funkcií je jednou z ďalších výhod nástroja Pig.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1721,28 +1772,31 @@ STORE maxSize into 'biggestEmailPerDomainDomain' using PigStorage(',');
 
 \subsection{Webové rozhranie}
 TODO
-web IFACE -- pristup koncovych uservo k archivu a diskusia ohladne bezpecnosti - strucny popis django aplikacie.
+web IFACE -- pristup koncovych uzivatelov k archivu a diskusia ohladne bezpecnosti - strucny popis django aplikacie (topInbox, dumpInbox)
 
 
 
 \section{Overenie návrhu}
 
-Pomocou vyšie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u aplikácií Celery a RabbiMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s verziou 0.7.0. Počas ukončovania tejto práce je aktuálna verzia 0.8.? a medzitým vznikla kvalitná dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
+Pomocou vyšie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u aplikácií Celery a RabbiMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s verziou 0.7.0. Počas ukončovania tejto práce je k dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
 
 \subsection*{Konfigurácia}
 Hardverová konfigurácia bola totožná s konfiguráciou z kapitoly ???. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu a Celery 2.6. V úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
-%TODO-- analyza datasetu HIstogram.. === do analyzy poziadavkov
+
 
 \subsection*{Overenie integrity dát}
-Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o objeme 300 GB. Následne sme nasimulovali prípad obnovy dát z archívu, kde sme všetky emaily v náhodnom poradí z databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s odtlačkom pôvodných dát. Tento test prebehol bez akejkoľvek chyby. 
+Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o objeme 300 GB. Následne sme simulovali prípad obnovy dát z archívu, kde sme všetky emaily v náhodnom poradí z databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s odtlačkom pôvodných dát uložených na pevnom disku. Tento test prebehol bez akejkoľvek chyby. 
+Klient, ktorý slúžil na čítanie dát z databáze využíval mód kvóra, z dôvodu požiadavku na integritu dát.
+
 
 \subsection*{Dosiahnuté výsledky}
-Doležitým pozorovaním bol fakt, že z celkového objemu emailových správ 300 GB sa po deduplikácií príloh tento objem znížil na 99 GB, teda došlo k 30\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z celkového objemu dát, čo je zanedbateľná položka.
+Doležitým pozorovaním bol fakt, že z celkového objemu emailových správ 300 GB sa po deduplikácií príloh tento objem znížil na 99 GB, teda došlo k 67\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z celkového objemu dát, čo je zanedbateľná položka.
 
-ElasticSearch rychlost pre fultextové vyhladavanie bola do XY ms.
+\noindent
+ElasticSearch rychlost pre fultextové vyhladavanie bola do XY ms, indexy nad objemom dát 300 GB tvorili XY GB.
 
-\subsection{Doporúčenie najvhodnejšieho systému}
-Pouzit Brisk - nastupca Cassandri s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
+\section{Doporúčenie najvhodnejšieho systému}
+Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
 
 
 %Rabbit rychlost
@@ -1758,24 +1812,6 @@ Pouzit Brisk - nastupca Cassandri s nativnou podporou Hadoop-u, alebo nejaky key
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-%*****************************************************************************
-
-
-
-
-%\item Zhodnocení splnění cílů DP/BP a  vlastního přínosu práce (při formulaci je třeba vzít v potaz zadání práce).
-%\item Diskuse dalšího možného pokračování práce.
 
 %*****************************************************************************
 % Seznam literatury je v samostatnem souboru reference.bib. Ten
@@ -1803,67 +1839,55 @@ Pouzit Brisk - nastupca Cassandri s nativnou podporou Hadoop-u, alebo nejaky key
 
 
 %*****************************************************************************
+
 \chapter{Zoznam použitých skratiek}
-
 \begin{description}
-\item[WPAN] Wireless Personal Area Network
+\item[2D]
+\item[]
+\item[JVM]
+\item[PB]
+\item[RFC]
+\item[SPOF]
 \end{description}
-
-
-% klaster súbor navzájom prepojených počítačov tvoriacich paralelný počítač
-% Superpočítač – Sálový počítač obsahujúci desiatky procesorov, značnú pamäťovú a úložnú
-% kapacitu, predurčený na zložité výpočty a simulácie
+\vdots
 
 %*****************************************************************************
+\chapter{UML diagramy}
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=16cm]{./figures/deploy.png}
+ \caption{Diagram nasadenia aplikácie}
+ \label{fig:Deployment}
+\end{figure}
+
+%*****************************************************************************
+
 \chapter{Inštalačná a užívateľská príručka}
-
-\subsection{Inštalácia simulátoru OMNeT++ pre platformu Linux}
-\begin{enumerate}
- \item Stiahnutie archívu obsahujúceho zdrojový kód zo stránok \\
- \url{http://www.omnetpp.org/omnetpp}
- \item Prekopírovanie archívu do adresára /usr/local/
- \item Rozbalenie archívu pomocou príkazu tar zxvf omnetpp-4.0.src.tgz
- \item Do užívateľského profilu .bash\_profile alebo .profile pridáme riadok \\
-  export PATH=\$PATH:/usr/local/omnetpp-4.0/bin
-  \item Je potreba zabezpečiť prítomnosť následujúcich balíkov v systéme 
-    \begin{tabbing}
-    sudo apt-get install \= build-essential gcc g++ bison flex perl tcl8.4 tcl8.4-dev \\
-                       \> tk8.4 tk8.4-dev blt blt-dev libxml2 libxml2-dev \\
-                       \> zlib1g zlib1g-dev libx11-dev
-    \end{tabbing}    
- \item Prevedieme následujúce príkazy: \\
-   cd /usr/local/ometpp-4.0 \\
-   ./configure \\
-   ./make
- \item Spustenie OMNeT++ s IDE pomocou príkazu omnetpp 
-\end{enumerate}
-
-\subsection{Inštalácia mnou modifikovaného Mobility Frameworku}
-\begin{enumerate}
- \item Stiahnutie súborov Mobility frameworku z svn http://my-svn.assembla.com/svn/mframework/, poprípade prekopírovanie adresára mf2o4 z priloženého CD do adresára /usr/local/
- \item Import MF do aplikácie OMNeT++
-  \begin{enumerate}
-   \item Po spustení aplikácie Omnet, klikneme na oblasť \uv{Project explorer}, pravým tlačítkom a zvolíme položku \uv{Import...}
-   \item Zvolíme \uv{General->Existing project into Workspace}
-   \item V položke \uv{Select root directory}, zvolíme cestu k adresáru mf2o4, tj. /usr/local/mf2o4
-   \item Pomocou CTRL+B, preložíme zdrojové súbory
-  \end{enumerate}  
-\end{enumerate}
-
-\subsection{Práca s modelom IEEE 802.15.4}
-Vo vývojom prostredí Omnetu si otvoríme v oblasti \uv{Project explorer} adresárovú štruktúru mf2o4, kde si následne otvoríme adresár networks a v ňom adresár ieee802.15.4. V tomto adresári sa nachádzajú aj xml súbory popisujúce antény. Otvoríme si súbor omnetpp.ini, tento súbor je hlavným konfiguračným súborom modelu simulácie. Zahrnul som do neho ukážkové nastavenia viacerých modelov, ktoré som simuloval. Samotná simulácia sa potom spustí otvorením súboru omnetpp.ini a následným kliknutím na tlačítko \uv{Run} z menu aplikácie.
+\textbf{\large Tato příloha velmi žádoucí zejména u softwarových implementačních prací.}
 
 %*****************************************************************************
-\chapter{Obsah priloženého CD}
 
-Následujúci obrázok \ref{fig:zoznamCD} zobrazuje štruktúru priloženého CD.
-% 
-% \begin{figure}[h]
-% \begin{center}
-% \includegraphics[width=14cm]{./figures/zoznamCD.png}
-% \caption{Výpis priloženého CD}
-% \label{fig:zoznamCD}
-% \end{center}
-% \end{figure}
+\chapter{Obsah priloženého CD}
+\textbf{\large Tato příloha je povinná pro každou práci. Každá práce musí totiž obsahovat přiložené CD. Viz dále.}
+
+Může vypadat například takto. Váš seznam samozřejmě bude odpovídat typu vaší práce. (viz \cite{infodp}):
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=14cm]{figures/seznamcd}
+\caption{Seznam přiloženého CD --- příklad}
+\label{fig:seznamcd}
+\end{center}
+\end{figure}
+
+Na GNU/Linuxu si strukturu přiloženého CD můžete snadno vyrobit příkazem:\\ 
+\verb|$ tree . >tree.txt|\\
+Ve vzniklém souboru pak stačí pouze doplnit komentáře.
+
+Z \textbf{README.TXT} (případne index.html apod.)  musí být rovněž zřejmé, jak programy instalovat, spouštět a jaké požadavky mají tyto programy na hardware.
+
+Adresář \textbf{text}  musí obsahovat soubor s vlastním textem práce v PDF nebo PS formátu, který bude později použit pro prezentaci diplomové práce na WWW.
 
 \end{document}
