@@ -105,6 +105,12 @@ J.~F. Gantz, J.~Mcarthur, and S.~Minton.
 \newblock The expanding digital universe.
 \newblock {\em Director}, 285(6), 2007.
 
+\bibitem{ghemawat2003google}
+S.~Ghemawat, H.~Gobioff, and S.~Leung.
+\newblock The google file system.
+\newblock In {\em ACM SIGOPS Operating Systems Review}, volume~37, pages
+  29--43. ACM, 2003.
+
 \bibitem{Ghemawat:2003:GFS:945445.945450}
 S.~Ghemawat, H.~Gobioff, and S.-T. Leung.
 \newblock The google file system.

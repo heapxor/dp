@@ -17,6 +17,7 @@
 % officially suggested packages:
 \usepackage[czech, english, slovak]{babel}
 \usepackage[T1]{fontenc} % pouzije EC fonty 
+\usepackage{longtable}
 % pripadne pisete-li cesky, pak lze zkusit take:
 % \usepackage[OT1]{fontenc} 
 \usepackage[utf8]{inputenc}
@@ -162,7 +163,7 @@ unicode=true,
 	 \typeout{Nazev prace: \WorkTitle}
 	 \typeout{Vedouci prace: \Supervisor}
 	 \typeout{***************************************************}
-	 \newcommand\Department{katedra počítačové grafiky a interakce}
+	 \newcommand\Department{Katedra počítačové grafiky a interakce}
 	 \newcommand\Faculty{Fakulta elektrotechnická}
 	 \newcommand\University{České vysoké učení technické v Praze}
 	 \newcommand\labelSupervisor{Vedúci práce}
@@ -239,7 +240,7 @@ Translation of Czech abstract into English.
 
 \noindent
 
-Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, ktoré sa označujú pod spoločným názvom NoSQL. Analýzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu. Skúmaním relačných databázových technológii sme identifikovali kritické body, na základe ktorých nie je vhodné ich použitie. Ako alternatívne riešenie volíme systémy NoSQL, ktoré sa snažíme kategorizovať a následne z nich vybrať najhodnejších kandidátov, spĺňajúcich požiadavky systému. Zaoberáme sa vlastnosťami systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a pomocou systému Cassandra, bol implementovaný prototyp aplikácie. Po naplnení systému približne miliónom emailových správ, z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 60\% úsporu diskového priestoru.
+Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, ktoré sa označujú pod spoločným názvom NoSQL. Analýzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu príloh. V práci popisujeme základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implemetovali prototyp aplikácie využivajúci systém Cassandra. Po naplnení systému približne miliónom emailových správ, z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 65\% úsporu diskového priestoru.
 
 %Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie, u ktorého sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru, pri naplnení systému približne miliónom emailových správ z reálneho prostredia.
 %aktuálne problémy, ktoré vznikajú pri ukladaní a spracúvani neustále narastajúceho objemu dát pomocou relačných databázových systémov. Na ich riešenie 
@@ -290,35 +291,55 @@ Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s 
 %*****************************************************************************
 \chapter{Úvod}
 %Úvod charakterizující kontext zadání, případně motivace.
-S neustálym rozvojom informačných technológií súčasne narastá objem informácií, ktoré je potrebné spracúvať. Tento fakt podnietil vznik databázových systémov, ktoré slúžia na organizáciu, uchovávanie a prácu s veľkým objemom dát. V dnešnej dobe existuje množstvo databázových systémov, ktoré sa navzájom líšia svojou architektúrou, dátovým modelom, výrobcom atď.
+S neustálym rozvojom informačných technológií súčasne narastá objem informácií, ktoré je potrebné spracúvať. Tento fakt podnietil vznik databázových systémov, ktoré slúžia na organizáciu, uchovávanie a spracovanie dát. V dnešnej dobe existuje veľké množstvo databázových systémov, ktoré sa navzájom líšia napríklad architektúrou, dátovým modelom alebo výrobcom.
 
-Od začiatku sedemdesiatych rokov 20. storočia sú v tejto oblasti dominantou relačné databázové systémy (  Relational Database Management Systems). Z dôvodu pretrvávajúceho rozvoja internetových technológií a rapídnemu rastu dát v digitálnom univerze \cite{Gantz_Mcarthur_Minton_2007} začínajú byť tieto systémy nepostačujúce. Medzi hlavné faktory pre výber relačného databázového systému doposiaľ patrili výrobca, cena a pod. V dnešnej dobe so vznikom moderných webových aplikácií ako sociálne siete a neustále rastúcim objemom dát, ktorý spracúvajú dátové sklady alebo analytické aplikácie požadujeme od týchto systémov vlastnosti ako vysoká dostupnosť, horizontálna rozšíriteľnosť a schopnosť pracovať s obrovským objemom dát (PB). Novo vznikajúce databázové systémy, spĺňajúce tieto požiadavky sa spoločne označujú pod názvom NoSQL (Not Only SQL). Pri ich výbere je v tomto prípade dôležité porozumenie architektúry, dátového modelu a dát, s ktoré tieto systémy spracúvajú.
+Od začiatku sedemdesiatych rokov 20. storočia sú v tejto oblasti dominantou relačné databázové systémy (Relational Database Management Systems). Z dôvodu rapídneho rastu dát v digitálnom univerze \cite{Gantz_Mcarthur_Minton_2007} začínajú byť tieto systémy nepostačujúce. Medzi hlavné faktory pre výber relačného databázového systému doposiaľ patrili výrobca, cena a pod. Vznikajúce moderné webové aplikácie (napríklad sociálne siete) požadujú od týchto systémov vlastnosti ako vysoká dostupnosť, horizontálna rozšíriteľnosť a schopnosť pracovať s obrovským objemom dát (PB, petabajt\footnote{$ 1PB = 10^{15} B$}). Novo vznikajúce databázové systémy, spĺňajúce tieto požiadavky sa spoločne označujú pod názvom NoSQL (Not Only SQL). Pri ich výbere je dôležité porozumenie architektúry, dátového modelu a dát, s ktorými budú tieto systémy pracovať.
 
-Táto práca si kladie za cieľ viacero úloh, ktorými sú pochopenie a popis základných  konceptov, ktoré tieto systémy využívajú, určenie kritérií vďaka ktorým môžeme tieto systémy navzájom porovnávať. Ďalej je úlohou analyzovať a popísať požiadavky pre systém veľkoobjemového úložiska elektronickej pošty, ktorý bude schopný spracovávať milióny emailov. Poslednou úlohou je na základe našich požiadavkov vybrať, čo najlepšie odpovedajúci NoSQL systém a s jeho použitím implementovať prototyp aplikácie.
+Táto práca si kladie za cieľ viacero úloh a je rozdelená do troch logických častí. V prvej časti popisujeme v kapitole 2, koncepty využívané pri tvorbe distribuovaných databázových systémov, ktoré zabezpečujú vysokú dostupnosť, spoľahlivosť a škálovateľnosť. Kapitola 3 definuje požiadavky na systém, schopný archivovať milióny emailových správ a tieto dáta ďalej spracúvať. Prehľad systémov NoSQL a kritéria pre ich porovnanie popisuje kapitola 4, ktorá v závere doporučuje výber dvoch vhodných kandidátov, systém Cassandra a HBAse. Architektonické princípy, z ktorých tieto systémy vychádzajú a ich vlastnosti sú popísané v kapitole 5 pre systém Cassandra a v kapitole 6 pre HBase.
+
+V druhej časti práce v kapitole 7 sme vykonali výkonostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému, výber vhodných nástrojov pre implementáciu prototypu aplikácie emailového úložiska a popisuje kapitola 8. 
+
+Záverečná čast, ktorú tvorí kapitola 9 popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
 
 
-\section*{Osnova}
+
+
+
 %Výsledná struktura vaší práce a názvy a rozsahy jednotlivých kapitol se samozřejmě budou lišit podle typu práce a podle konkrétní povahy zpracovávaného tématu. Níže uvedená struktura práce odpovídá \textit{práci implementační}, viz \cite{infodp} respektive \cite{infobp}. 
-...
+
 
 \chapter{Databázové systémy}
 
-V tejto časti stručne popíšeme históriu vzniku databázových systémov, identifikujeme problémy, ktoré nastávajú pri tvorbe distribuovaných databázových systémov a popíšeme možné spôsoby ich riešenia. Ďalej uvedieme základné koncepty využívané pri tvorbe distribuovaných databázových systémov a techniku MapReduce, ktorá slúži na spracovanie veľkého objemu dát (PB) uloženým v systémoch NoSQL.
+V tejto časti stručne popíšeme históriu vzniku databázových systémov. Identifikujeme problémy spojené so škálovaním relačných databázových systémov a uvedieme možné spôsoby ich riešenia. Ďalej popíšeme základné koncepty využívané pri tvorbe distribuovaných databázových systémov a techniku MapReduce, ktorá slúži na paralelné spracovanie veľkého objemu dát (PB).
 
 \section{História}
 
 V polovici šesťdesiatych rokov 20. storočia bol spoločnosťou IBM vytvorený informačný systém IMS (Information Management System), využívajúci hierarchichký databázový model. IMS je po rokoch vývoja využívaný dodnes. Po krátkej dobe, v roku 1970, publikoval zamestnanec IBM, Dr. Edger F. Codd článok pod názvom „A Relational Model of Data for Large Shared Data Banks“ \cite{Codd:1970:RMD:362384.362685}, ktorým uviedol relačný databázový model. Prvým databázovým systémom implementujúcim tento model bol System R od IBM. Systém používal jazyk pod názvom SEQUEL, ktorý je predchodca dnešného SQL (Structured Query Language) slúžiaceho na manipuláciu a definíciu dát v relačných databázových systémoch. Tento koncept sa stal základom pre relačné databázové systémy, ktoré vďaka širokej škále vlastností (ako napríklad podpora transakcií a dotazovací jazyk SQL) patria v dnešnej  dobe medzi najpouživanejšie riešenia na trhu.
 
-V minulosti boli objem dát, s ktorým tieto systémy pracovali menší a výkon hardvéru mnohonásobne nižší. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a operačnou pamäťou. Tento fakt je kritický pre novovznikajúce webové aplikácie ako napríklad sociálne siete alebo systémy využívajúce \emph{cloud computing}, ktoré majú neustále vyššie nároky na spracovávaný objem dát v reálnom čase a vyžadujú podporu škálovania, ktorá zabezpečuje vysokú dostupnosť a spoľahlivosť. Tieto požiadavky sa snažia efektívne riešiť novovznikajúce distribuované systémy pod spoločným názvom NoSQL, ktoré sú popísané štvrtej kapitole tejto práce \ref{chapter:NoSQL}. 
+V minulosti boli objem dát, s ktorým tieto systémy pracovali menší a výkon hardvéru mnohonásobne nižší. Dnes napriek tomu, že výkon procesorov a veľkosť pamäťových zariadení rapídne stúpa, je najväčšou slabinou počítačových systémov rýchlosť prenosu dát medzi pevným diskom a operačnou pamäťou. Tento fakt je kritický pre novovznikajúce webové aplikácie ako napríklad sociálne siete alebo \emph{cloudové systémy}, ktoré majú neustále vyššie nároky na spracovávaný objem dát v reálnom čase a vyžadujú podporu škálovania, ktorá zabezpečuje vysokú dostupnosť a spoľahlivosť. Tieto požiadavky sa snažia efektívne riešiť novovznikajúce distribuované systémy pod spoločným názvom NoSQL, ktoré sú popísané v štvrtej kapitole tejto práce. %\ref{chapter:NoSQL}. 
 %TODO ref na 4kap
 
 
 %Novo vznikajúce webové aplikácie ako napríklad sociálne siete a zavádzanie \emph{cloud computingu} majú neustále vyššie nároky na spracovávaný objem dát, od systémov vyžadujú podporu škálovania, ktorá zabezpečuje vysokú dostupnosť a spoľahlivosť. Tieto nové požiadavky sa snažia efektívne riešiť distribuované systémy pod spoločným názvom NoSQL, ktoré sú popísané štvrtej kapitole tejto práce. 
+\section{Distribuované databázové systémy}
+Distribuovaný databázový systém je tvorený pomocou viacerých samostatne operujúcich databázových systémov, ktoré nazývame uzly a ich komunikácia sa vykonáva prostredníctvom počítačovej siete. Užívateľovi alebo aplikácii sa javia ako jeden celok \cite{hewitt2010cassandra}. Poďla konfigurácie jednotlivých uzlov v systéme ich ďalej delíme na:
+\begin{itemize}
+ \item distribuované databázove systémy typu \uv{master-slave}
+ \item decentralizované distribuované databázové systémy
+\end{itemize}
+
+\subsection*{Systémy master-slave} 
+
+Táto konfigurácia obsahuje uzol \emph{master}, ktorý plní jedinečnú úlohu a všetky uzly typu \emph{slave} sú na ňom závislé. V prípade jeho havárie je ohrozená funkčnosť celého systému, nazývame ho kritický bod výpadku (SPOF, single point of failure). Túto konfiguráciu uzlov používajú napríklad relačné databázové systémy.
+
+\subsection*{Decentralizované systémy}
+
+Pod názvom decentralizácia sa myslí, že každý uzol v distribuovanom databázovom systémy vykonáva tú istú úlohu a je kedykoľvek nahraditeľný. Táto konfigurácia neobsahuje SPOF.
 
 
 \section{ACID}
 
-Relačné databázové systémy poskytujú veľkú množinu operácií, ktoré je možné vykonávať nad dátami v nich uloženými. Transakcie \cite{gray1981transaction}\cite{haerder1983principles} sú zodpovedné za korektné vykonanie operácií v prípade, že spĺňajú množinu vlastností ACID. Význam jednotlivých vlastností akronymu ACID je následovný:
+Relačné databázové systémy poskytujú veľkú množinu operácií, ktoré je možné vykonávať nad dátami v nich uloženými. Transakcie \cite{gray1981transaction, haerder1983principles} sú zodpovedné za korektné vykonanie operácií v prípade, že spĺňajú množinu vlastností ACID. Význam jednotlivých vlastností akronymu ACID je následovný:
 
 \begin{itemize}
   \item \emph{Atomicita} (Atomicity) - zaisťuje, že sa vykonajú všetky operácie reprezentujúce transakciu, čo spôsobí korektný prechod systému do nového stavu. V prípade zlyhania transakcie nemá daná operácia žiaden vplyv na výsledný stav systému a prechod do nového stavu sa nevykoná.
@@ -329,28 +350,27 @@ Relačné databázové systémy poskytujú veľkú množinu operácií, ktoré j
 %http://en.wikipedia.org/wiki/Concurrency_control#Concurrency_control_mechanisms
 %http://en.wikipedia.org/wiki/Multiversion_concurrency_control
 %http://en.wikipedia.org/wiki/Timestamp-based_concurrency_control
-Implementácia vlastností ACID, ktoré zaručujú konzistenciu, zvyčajne využíva u relačných databázových systémov metódu zamykania. Transakcia uzamkne dáta pred ich spracovaním a spôsobí ich nedostupnosť až do jej úspešného ukončenia, poprípade zlyhania. Tranzakcie sú vykonávané sekvenčne. Pre databázový systém, od ktoréhu požadujeme vysokú dostupnosť tento model nie je vyhovujúci. Zámky spôsobujú stavy, kedy ostatné transakcie musia čakať na ich uvoľnenie. Náhradou je mechanizmus pod názvom \uv{súčasná správa viacerých verzií} (Multiversion concurrency control), ktorý umožnuje paralelné vykonávanie operácií nad dátami, jeho popis obsahuje práca od P. Bernsteina a N. Goodmana \cite{bernstein1981concurrency}. Tento mechanizmus je zárovenň využívaný systémami NoSQL.
+Implementácia vlastností ACID, ktoré zaručujú konzistenciu, zvyčajne využíva u relačných databázových systémov metódu zamykania. Transakcia uzamkne dáta pred ich spracovaním a spôsobí ich nedostupnosť až do jej úspešného ukončenia, poprípade zlyhania. Tranzakcie sú vykonávané sekvenčne. Pre databázový systém, od ktoréhu požadujeme vysokú dostupnosť tento model nie je vyhovujúci. Zámky spôsobujú stavy, kedy ostatné transakcie musia čakať na ich uvoľnenie. Náhradou je mechanizmus s názvom \uv{riadenie súbežného spracovania s viacerými verziami} (MVCC, Multiversion concurrency control), ktorý umožnuje paralelné vykonávanie operácií nad dátami, jeho popis obsahuje práca od P. Bernsteina a N. Goodmana \cite{bernstein1981concurrency}. Tento mechanizmus je zárovenň využívaný systémami NoSQL.
 
 
 %http://en.wikipedia.org/wiki/2-phase_commit
 %http://en.wikipedia.org/wiki/Two-phase_locking
 % a operácií spojenia (join) 
-Tranzakcie splňujúce vlastnosti ACID využívajú v distribuovaných databázových systémoch\footnote{Distribuované databázové systémy sú tvorené pomocou viacerých samostatne operujúcich databázových systémov, ktoré nazývame uzly a môžu komunikovať pomocou siete. Užívateľovi alebo aplikácii sa javia ako jeden celok [ref].} dvojfázový potvrdzovací protokol (Two-phase commit protocol \cite{bernstein1987concurrency}). Systém využívajúci tento protokol, zaručuje konzistentnosť a je schopný odolávať čiastočným poruchám na sieti alebo v systéme. Vlastnosti ACID nekladú žiadnu záruku na dostupnosť systému, naopak nedostupnosť je uprednostnená v prípade operácie, ktorá by mohla spôsobiť nekonzistenciu dát. Takéto systémy sú vhodné pre aplikácie, v ktorých sa vykonávajú platobné operácie a pod. Existuje množstvo aplikácií, u ktorých sa uprednosňuje dostupnosť pred konzistenciou. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností, čo spôsobilo vznik nového modelu pod názvom BASE \ref{section:base}.
+Tranzakcie splňujúce vlastnosti ACID využívajú v distribuovaných databázových systémoch dvojfázový potvrdzovací protokol (Two-phase commit protocol \cite{bernstein1987concurrency}). Systém využívajúci tento protokol, zaručuje konzistentnosť a je schopný odolávať sieťovým prerušeniam (network partitioning) alebo poruchám v systéme. Vlastnosti ACID nekladú žiadnu záruku na dostupnosť systému, naopak nedostupnosť je uprednostnená v prípade operácie, ktorá by mohla spôsobiť nekonzistenciu dát. Takéto systémy sú vhodné pre aplikácie, v ktorých sa vykonávajú platobné operácie a pod. Existuje množstvo aplikácií, u ktorých sa uprednosňuje dostupnosť dát pred ich konzistenciou. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností. Riešenie poskytuje model pod názvom BASE \ref{section:base}.
 
 %ACID makes no guarantees regarding availability; indeed, it is preferable for an ACID service to be unavailable than to function in a way that relaxes the ACID constraints. ACID semantics are well suited for Internet commerce transactions, billing users, or maintaining user profile information for personalized services
 
 \section{Škálovanie databázového systému} %scalepub04.pdf
-Obecná definícia pojmu \emph{škálovateľnosť} \cite{bondi2000characteristics} je náročná  bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto kapitole budeme škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamický vývoj kladie na databázové systémy viacero požiadaviek. Medzi hlavné z nich patrí neustála potreba zvyšovania diskového priestoru a teda zvyšovanie veľkosti databáze alebo schopnosť obslúžiť čoraz vyšší počet užívateľov aplikácie (zvýšenie počtu operácií pre čítanie a zápis do databázového systému). V tomto prípade pod pojmom škálovatelnosť databázového systému rozumieme vlastnosť, vďaka ktorej je systém schopný spracúvať narastajúce požiadavky webovej aplikácie v definovanom časovom intervale. Typicky sa táto vlasnosť realizuje pridaním nových uzlov do aktuálneho systému, čo má za následok potrebu distribuovaného databázového systému.
-
-Škálovateľnosť delíme na vertikálnu a horizontálnu. Táto metóda dodáva systému nasledujúce vlastnosti \cite{hewitt2010cassandra}:
+Obecná definícia pojmu \emph{škálovateľnosť} \cite{bondi2000characteristics} je náročná  bez vymedzenia kontextu, ku ktorému sa vzťahuje. V tejto kapitole budeme pojem škálovateľnosť chápať v kontexte webových aplikácií, ktorých dynamický vývoj kladie na databázové systémy viacero požiadaviek. Definujme škálovatelnosť databázového systému ako vlastnosť, vďaka ktorej je systém schopný spracúvať požiadavky webovej aplikácie v definovanom časovom intervale. Medzi hlavné z týchto požiadavkov patrí vysoká dostupnosť, spoľahlivosť a odolnosť systému voči chybám. Typicky sa táto vlasnosť realizuje pridaním nových uzlov do aktuálneho systému s využitím replikácie. Aplikácia týchto mechanizmov má za následok využitie distribuovaného databázového systému. Škálovateľnosť delíme na vertikálnu, horizontálnu a systému dodáva ďalšie z nasledujúcich vlastnosti \cite{hewitt2010cassandra}:
 \begin{itemize}
  \item umožňuje zväčšiť veľkosť celkovej kapacity databáze a táto zmena by mala byť transparentná z pohľadu aplikácie na dáta
   \item zvyšuje celkové množstvo operácií, pre čítanie a zápis dát, ktoré je systém schopný vykonať v danú časovú jednotku
-  \item v určitých prípadoch môže zaručiť, že systém neobsahuje jednotku, ktorá by v prípade zlyhania spôsobila nedostupnosť celého systému (Single point of failure)
+  \item v určitých prípadoch môže zaručiť, že systém neobsahuje kritický bod výpadku
+  \item zvyšuje celkovú dostupnosť systému
 \end{itemize}
 
-Vertikálna škálovateľnosť je metóda, ktorá sa aplikuje pomocou zvýšovania výkonnosti hardvéru, tj. do systému sa pridáva operačná pamäť, rychlejšie viacjádrové procesory, zvyšuje sa kapacita diskov. Jednou z nevýhod tohoto riešenia je jeho vysoká cena a možná nedostupnosť systému v prípade jeho zlyhania.
-Proces vertikálneho škálovania relačnej databáze obsahuje následujúce kroky:
+Vertikálna škálovateľnosť je metóda, ktorá sa aplikuje pomocou zvýšovania výkonnosti hardvéru, do systému sa pridáva operačná pamäť, rychlejšie viacjádrové procesory, zvyšuje sa kapacita diskov. Jednou z nevýhod tohoto riešenia je jeho vysoká cena a možná nedostupnosť systému v prípade jeho zlyhania.
+Proces vertikálneho škálovania sa hlavne aplikuje v prípade použitia relačných databázových systémov  a obsahuje následujúce kroky:
 \begin{itemize}
  \item zámena hardvéru za výkonnejší
  \item úprava súborového systému (napr. zrušenie žurnálu a uchovávania informácie o poslednom prístupe k súborom)
@@ -359,42 +379,44 @@ Proces vertikálneho škálovania relačnej databáze obsahuje následujúce kro
  \item denormalizácia dát v databáze, porušenie normalizácie
 \end{itemize}
 
-V tomto prípade je možné naraziť na výkonnostné hranice bežne dostupného hardvéru a na rad nastupuje horizontálna škálovateľnosť, ktorá je omnoho komplexnejšia. Horizontálnu škálovateľnosť je možné realizovať pomocou replikácie alebo metódou \uv{rozdeľovania dát} (sharding).
+V tomto prípade je možné naraziť na výkonnostné hranice bežne dostupného hardvéru a na rad nastupuje horizontálna škálovateľnosť, ktorá je omnoho komplexnejšia. Horizontálnu škálovateľnosť je možné realizovať pomocou využitia replikácie alebo metódou \uv{rozdeľovania dát} (sharding).
 
 \subsection{Replikácia}
 
-V distribuovaných systémoch sa pod pojmom replikácia rozumie vlastnosť, ktorá má za následok, že sa daná informácia nachádza na viacerých uzloch\footnote{Pod pojmom uzol v tomto prípade myslíme samostatný počitačový systém, ktorý je súčasťou distribuovaného systému} tohto systému. Táto vlastnosť zvyšuje dostupnosť, spoľahlivosť a odolnosť systému voči chybám. Replikácia nie je určená pre zálohu dát. 
+V distribuovaných systémoch má použitie replikácie za následok, že sa daná informácia nachádza na viacerých uzloch\footnote{Pod pojmom uzol v tomto prípade myslíme samostatný počitačový systém, ktorý je súčasťou distribuovaného systému} tohto systému. Táto technika zvyšuje dostupnosť, spoľahlivosť a odolnosť systému voči chybám. Replikácia nie je určená pre zálohu dát. 
 
-V prípade distribuované databázového systému sa časť informácií uložených v databáze nachádza na viacerých uzloch. Toto usporiadanie môže napríklad zvýšiť výkonnosť operácií, ktoré pristupujú k dátam a to tak, že dochádza k čítaniu dát z databázy paralelne z viacerých uzlov. V systéme obsahujúcom repliku dát nedochádza k strate informácií v prípade poruchy uzlu. Replikácia a propagácia zmien (pridanie alebo odstránenie uzlu s replikou) v systéme sú z pohľadu aplikácie transparentné. Metóda replikácie nezvyšuje pridávaním nových uzlov celkovú kapacitu databázy. Problémom tejto techniky je konzistencia dát. Dáta sa zapisujú na viacero fyzicky oddelených uzlov a zmena sa nemusí prejaviť okamžite vo všetkých replikách. Medzi metódy pomocou, ktorých sa realizuje replikácia patria napríklad:
+V prípade distribuované databázového systému sa časť informácií uložených v databáze nachádza na viacerých uzloch. Toto usporiadanie môže napríklad zvýšiť výkonnosť operácií, ktoré pristupujú k dátam a to tak, že dochádza k čítaniu dát z databázy paralelne z viacerých uzlov. V systéme obsahujúcom repliku dát nedochádza k strate informácií v prípade poruchy uzlu. Replikácia a propagácia zmien (pridanie alebo odstránenie uzlu s replikou) v systéme sú z pohľadu aplikácie transparentné. Použitie replikácie nezvyšuje pridávaním nových uzlov celkovú kapacitu databázy. Problémom tejto techniky je konzistencia dát. Dáta sa zapisujú na viacero fyzicky oddelených uzlov a zmena sa nemusí prejaviť okamžite vo všetkých replikách. Z pohľadu klienta pristupujúceho k replikovaným dátam, može byť ich obsah nekonzistentný. Medzi metódy pomocou, ktorých je možné zabezpečiť konzistenciu patria:
 \begin{itemize}
   \item
-      \emph{Read one - Write all}, u tejto metódy sa čítanie dát prevedie z ľubovolného uzlu obsahujúceho repliku. Zápis dát sa vykoná na všetky uzly s replikou a až v prípade, že každý z nich potvrdí úspech tejto operácie je výsledok považovaný za korektný. Táto metóda nie je schopná pracovať v prípade ak dôjde k prerušeniu sieťového spojenia medzi uzlami (network partitioning) alebo v prípade poruchy jedného z uzlov.
+      \emph{Read one - Write all} - u tejto metódy sa čítanie dát prevedie z ľubovolného uzlu obsahujúceho repliku. Zápis dát sa vykoná na všetky uzly s replikou a až v prípade, že každý z nich potvrdí úspech tejto operácie je výsledok považovaný za korektný. Táto metóda nie je schopná pracovať v prípade ak dôjde k prerušeniu sieťového spojenia medzi uzlami alebo v prípade poruchy jedného z uzlov.
   \item
-      \emph{Read all - Write one} metóda zabezpečí zápis dát na jednu repliku a tieto dáta sa na ostatné uzly propagujú asynchrónne. Tento spôsob zanáša do distribuovaného systému nekonzistenciu.
+      \emph{metóda kvóra} - viď. \ref{section:Consistency}
+
 \end{itemize}
 
 % - zápis na jeden uzol a následná asynchrónna propagácia repliky na ostatné uzly. Táto metóda je schopná zvládať stav pri ktorom dojde k prerušeniu sieťového toku alebo poruche uzlu. Implementácie využíva algoritmy pod názvom kôrum konsenzus (quorum consensus). ???
 
-Výber metódy replikácie určuje dvojicu vlastností distribuovaného databázového systému a to dostupnosť a konzistenciu. Poďla teórie s názvom CAP \ref{section:CAP} nie je možné, aby systém súčastne poskytoval obe vlastnosti v prípade, že medzi jeho uzlami môže dôjsť k chybe v sieťovej komunikácii.
+%Výber metódy replikácie určuje dvojicu vlastností distribuovaného databázového systému a to dostupnosť a konzistenciu. Poďla teórie s názvom CAP \ref{section:CAP} nie je možné, aby systém súčastne poskytoval obe vlastnosti v prípade, že medzi jeho uzlami môže dôjsť k chybe v sieťovej komunikácii.
 
-V relačných databázových systémoch sa replikácia rieši pomocou architektúry \emph{master - slave}. Uzol pod názvom master slúži ako jediný databázový stroj, na ktorom sa vykonáva zápis dát a replika týchto dát je následne distribuovaná na zvyšné uzly pod názvom slave. Táto metóda umožnuje mnohonásobne zvýšiť počet operácií, ktoré slúžia pre čítanie dát z databazového systému a v prípade zlyhania niektorého zo systémov máme neustále k dispozícii kópiu dát. Slabinou v tomto systéme je uzol v roli master, ktorý nezvyšuje výkonnosť v prípade operácií vykonavajúcich zápis a zároveň jeho porucha môže spôsobiť celkovú nedostupnosť systému.
+V relačných databázových systémoch sa replikácia rieši pomocou architektúry master - slave. Uzol pod názvom master slúži ako jediný databázový stroj, na ktorom sa vykonáva zápis dát a replika týchto dát je následne distribuovaná na zvyšné uzly pod názvom slave. Táto metóda umožnuje mnohonásobne zvýšiť počet operácií, ktoré slúžia pre čítanie dát z databazového systému a v prípade zlyhania niektorého zo systémov máme neustále k dispozícii kópiu dát. Slabinou v tomto systéme je uzol v roli master, ktorý nezvyšuje výkonnosť v prípade operácií vykonavajúcich zápis a zároveň jeho porucha môže spôsobiť celkovú nedostupnosť systému.
 
-Druhým možným riešením je technika \emph{multi - master}, kde každý uzol obsahujúci repliku je schopný zápisu dát a následne tieto zmeny preposiela ostatným. Tento mechanizmus predpokladá distribuovanú správu zamykania a vyžaduje algoritmy pre riešenie konfliktov spôsobujúcich nekonzistenciu dát.
+Druhým možným riešením je technika \uv{multi - master}, kde každý uzol obsahujúci repliku je schopný zápisu dát a následne tieto zmeny preposiela ostatným. Tento mechanizmus predpokladá distribuovanú správu zamykania a vyžaduje algoritmy pre riešenie konfliktov v prípade nekonzistentných dát.
 
 
 \subsection{Rozdeľovanie dát}
 
-Rozdeľovanie dát (sharding) je metóda založená na princípe, kde dáta obsiahnuté v databáze rozdeľujeme podľa stanovených pravidiel do menších celkov. Tieto celky môžeme následne umiestniť na navzájom rôzne uzly distribuovaného databázového systému. Táto metóda umožňuje zvýšiť výkonnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových uzlov do systému zvyšuje celkovú kapacitu databáze. V prípade, že architektúra distribuovaného databázového systému využíva túto techniku, zvýšenie výkonu jeho operácií a objemu uložených dát sa realizuje automaticky bez nutnosti zásahu do aplikácie. 
+Rozdeľovanie dát (sharding) je metóda založená na princípe, kde dáta obsiahnuté v databáze rozdeľujeme podľa stanovených pravidiel do menších celkov. Tieto celky môžeme následne umiestniť na navzájom rôzne uzly distribuovaného databázového systému. Táto metóda umožňuje zvýšiť výkonnosť operácií pre zápis a čítanie dát a zároveň pridávaním nových uzlov do systému zvyšuje celkovú kapacitu databáze. V prípade, že
+architektúra distribuovaného databázového systému je navrhnutá s využitím tejto metódy, je zvýšenie výkonu operácií a objem uložených dát sa realizuje automaticky bez nutnosti zásahu do užívateľskej aplikácie. 
 %Pri tejto metóde môže byť použitá metóda transformácie kľúčov (hashing), pre vhodný výber úseku do ktorého budú zapisané dáta.
 
 Techniku rozdeľovania dát môžeme považovať za aplikáciu architektúry známej pod názvom \uv{zdieľanie ničoho} (shared nothing) \cite{stonebraker1986case}. Táto architektúra sa používa pre návrh systémov využívajúcich multiprocesory. V takomto prípade sa medzi procesormi nezdieľa operačná ani disková pamäť. Architektúra zabezpečuje takmer neobmedzenú škálovateľnosť systému a využíva ju mnoho NoSQL systémov ako napríklad Google Bigtable \cite{chang2008bigtable}, Amazon Dynamo \cite{decandia2007dynamo} alebo technológia MapReduce \cite{dean2008mapreduce}.
 
-Pri návrhu distribuovaných databázových systémov s využitím tejto techniky patrí medzi kľúčový problém implementácia funkcie spojenia (JOIN) nad dátami, ktorá sa preto neimplementuje. V prípade, že sa, dáta nad ktorými by sme chceli túto operáciu vykonať, nachádzajú na dvoch rozdielnych uzloch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému a viedlo by k zvýšeniu sieťového toku, záťaži systémových zdrojov a možným nekonzistenciám.
+Pri návrhu distribuovaných databázových systémov s využitím tejto techniky patrí medzi kľúčový problém implementácia funkcie spojenia (JOIN) nad dátami, ktorá sa preto neimplementuje. V prípade, že sa, dáta nad ktorými by sme chceli túto operáciu vykonať, nachádzajú na dvoch rozdielnych uzloch prepojených sieťou, takéto spojenie by značne znížilo celkovú výkonnosť systému a viedlo by k zvýšeniu sieťového toku, záťaži systémových zdrojov a možným nekonzistentným výsledkom.
 
 %TODO: ggl paper - kde piseme ze s poruchou uzlov pocitame a bereme ju za prirodzeny fakt
 Keďže sa dáta nachádzajú na viacerých uzloch systému, hrozí zvýšená pravdepodobnosť hardverového zlyhania, poprípade prerušenie sieťového spojenia a preto sa táto technika často kombinuje s pomocou využitia replikácie.
 
-V prípade použitia tejto techniky v relačných databázach, je nutný zásah do logiky aplikácie. Dáta uložené v tabuľkách relačnej databázy zachytávajú vzájomné relácie. Týmto spôsobom dochádza k celkovému narušeniu tohto konceptu. Príkladom môže byť tabuľka obsahujúca zoznam zamestnancov, ktorú rozdelíme na samostatné celky. Každá tabuľka bude reprezentovať mená zamestnancov, ktorých priezvisko začína rovnakým písmenom abecedy a zároveň sa bude nachádzať na samostatnom databázovom systéme. Táto technika so sebou prináša problém, v ktorom je potrebné nájsť vhodný kľúč, podľa ktorého budeme dáta rozsekávať a zabezpečíme tak rovnomerné zaťaženie uzlov daného systému. Existuje viacero metód \cite{hewitt2010cassandra}:
+V prípade použitia tejto techniky v relačných databázach, je nutný zásah do logiky aplikácie. Dáta uložené v tabuľkách relačnej databázy zachytávajú vzájomné relácie a týmto spôsobom dochádza k celkovému narušeniu tohto konceptu. Príkladom môže byť tabuľka obsahujúca zoznam zamestnancov, ktorú rozdelíme na samostatné celky. Každá tabuľka bude reprezentovať mená zamestnancov, ktorých priezvisko začína rovnakým písmenom abecedy a zároveň sa bude nachádzať na samostatnom databázovom systéme. Táto technika so sebou prináša problém, v ktorom je potrebné nájsť vhodný kľúč, podľa ktorého budeme dáta rozdeľovať a zabezpečíme tak rovnomerné zaťaženie uzlov v systéme. Existuje viacero metód, ktoré je možné použiť pre rozdeľovanie dát na úrovni aplikácie \cite{hewitt2010cassandra}:
 \begin{itemize}
  \item 
       segmentácia dát poďla funkcionality - dáta, ktoré je možné popísať spoločnou vlasnosťou ukladáme do samostatných databáz a tieto umiestňujeme na rozdielné uzly systému. Príkladom može byť samostatný uzol spravujúci databázu pre užívateľov a iný uzol s databázou pre produkty. Túto metódu spracoval Randy Shoup\footnote{“If you can’t split, you cant scale it.” -- Randy Shoup, Distinguished architect Ebay}\cite{ebayShard}, architekt spoločnosti eBay.
@@ -412,20 +434,20 @@ Replikácia a rozdeľovanie dát patria medzi kľúčové vlastnosti využívan�
 % spotrebny HARDWARE !!! u distrib db
 \section{BASE} %dostupnost?
 \label{section:base}
-Akronym BASE \cite{fox1997cluster} bol prykrát použitý v roku 1997 na sympóziu SOSP (ACM Symposium on Operating Systems Principles). BASE tvoria nasledujúce slovné spojenia: 
+Akronym BASE bol prykrát použitý v roku 1997 na sympóziu SOSP (ACM Symposium on Operating Systems Principles) \cite{fox1997cluster}. Tento model poľavil na požiadavku zodpovednom za konzistenciu dát, ktorý je garantovaný vlastnosťou ACID. BASE tvoria nasledujúce slovné spojenia: 
 \begin{itemize}
-  \item \emph{\uv{bežne dostupný}} (Basically Available) - systém je schopný zvládať svoje čiastočné zlyhanie za cenu nižšej komplexity.
+  \item \emph{\uv{bežne dostupný}} (Basically Available) - systém je schopný zvládať čiastočné zlyhanie za cenu nižšej komplexity.
   \item \emph{\uv{zmiernený stav}} (Soft State) - systém nezaručuje trvácnosť dát s cieľom zvýšenia výkonu. %TODO: z papru precitat
-  \item \emph{\uv{čiastočne konzistentný}} (Eventually Consistent) - je možné na určitú dobu tolerovať nekorektnosť dát, ktoré musia byť po určitom časovom intervale konzistentné.
+  \item \emph{\uv{čiastočne konzistentný}} (Eventually Consistent) - je možné na určitú dobu tolerovať nekonzistentnosť dát, ktoré musia byť po uplynutí určitého časového intervalu znovu konzistentné.
 \end{itemize}
 
-Tento model poľavil na požiadavku zodpovednom za konzistenciu dát, jeho aplikáciou v distribuovanom databázovom systéme sa dosahuje vyššia dostupnosť 
-aj v prípade čiastočného zlyhania alebo sieťového prerušenia. Každý distribuovaný databázový systém môžeme klasifikovať ako systém spĺňajúci vlasnosti ACID, BASE alebo oboje.
+Využitím tohto modelu v distribuovanom databázovom systéme sa dosahuje vyššia dostupnosť 
+aj v prípade čiastočného zlyhania alebo sieťového prerušenia. Distribuovaný databázový systém môžeme klasifikovať ako systém spĺňajúci vlasnosti ACID, BASE alebo oboje.
 
-BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných transakcií. Pre implementáciu tejto techniky môžeme použiť rozdeľovanie dát metódou segmentácie dát podľa funkcionality \cite{Pritchett:2008:BAA:1394127.1394128}.
+BASE umožnuje horizontálne škálovanie relačných databázových systémov bez nutnosti použitia distribuovaných transakcií. Pre implementáciu tejto techniky môžeme použiť rozdeľovanie dát s metódou segmentácie dát podľa funkcionality \cite{Pritchett:2008:BAA:1394127.1394128}.
 
 
-Bankomatový systém je príkladom systému obsahujúceho čiastočnú konzistenciu dát. Po vybraní určitej čiastky z účtu, sa korektná informácia o aktuálnom zostatku môže zobraziť až za niekoľko dní, kdežto transakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID. Medzi webové aplikácie, u ktorých sa nepožadujú všetky vlasnosti ACID patria napríklad nákupný košík spoločnosti Amazon, zobrazovanie časovej osi aplikácie Twitter, poprípade systémy spoločnosti Google indexujúce web. Ich nedostupnosť by znamenala obrovské finančné straty (napríklad zlyhanie vyhľadávania pomocou systému Google\footnote{http://www.google.com} by znamenalo zobrazenie nižšieho počtu reklám, nedstupnosť nákupného košíka Amazon\footnote{http://www.amazon.com} by spôsobila pokles predaja atp).
+Bankomatový systém je príkladom systému obsahujúceho čiastočnú konzistenciu dát. Po vybraní určitej čiastky z účtu, sa korektná informácia o aktuálnom zostatku môže zobraziť až za niekoľko dní, kdežto transakcia ktorá túto zmenu vykonala musí spĺňať vlasnosti ACID. Medzi webové aplikácie, u ktorých sa nepožadujú všetky vlasnosti ACID patria napríklad nákupný košík spoločnosti Amazon\footnote{http://www.amazon.com}, zobrazovanie časovej osi aplikácie Twitter, poprípade systémy spoločnosti Google\footnote{http://www.google.com} indexujúce obsah webu. Ich nedostupnosť by znamenala obrovské finančné straty (napríklad zlyhanie vyhľadávania pomocou systému Google by znamenalo zobrazenie nižšieho počtu reklám, nedstupnosť nákupného košíka Amazon by spôsobila pokles predaja atp).
 
 Aplikácia vyššie popísaných techník na relačné databázové systémy môže byť netriviálnou úlohou. Relačný model, je spôsob reprezentácie dát, ktorý umožnuje efektívne riešit určité typy úloh, preto snaha prispôsobiť tento model každému problému je nezmyselná. V tomto prípade, môžeme uvažovať alternatívne riešenia, medzi ktoré patria systémy NoSQL.
 
@@ -463,7 +485,7 @@ Aplikácia vyššie popísaných techník na relačné databázové systémy mô
 
 %Z predchádzajúceho textu a práce \uv{Cluster-base scalable network services} \cite{BASE} vyplýva, že pre splnenie týchto požiadavkov je vhodné použiť distribuované systémy,ktoré sú tvorené zo spotrebného hardvéru namiesto superpočítačov.
 
-Moderné webové aplikácie kladú na systémy požiadavky, medzi ktoré patrí vysoká dostupnosť, konzistencia dát a schopnosť odolávať chybám. Dr. Brewerer v roku 2000 nastolil myšlienku dnes známu pod názvom teória CAP \cite{brewer2000towards}, ktorá tvrdí že je možné súčasne dosiahnúť len dvojicu z týchto vlastností. V roku 2002 platnosť tejto teórie pre asynchrónnu sieť matematicky dokázali Lynch a Gilbert \cite{Gilbert:2002:BCF:564585.564601}. Modelu asynchrónnej sieťe odpovedá svojimi vlasnosťami sieť Internet. Akroným CAP tvoria následujúce vlasnosti:
+Moderné webové aplikácie kladú na systémy požiadavky, medzi ktoré patrí vysoká dostupnosť, konzistencia dát a schopnosť odolávať chybám. Dr. Brewerer v roku 2000 nastolil myšlienku, dnes známu pod názvom teória CAP \cite{brewer2000towards}. U distribuovaných databázových systémov, ktoré používajú pre vzájomnú komunikáciu sieť musíme predpokládať s prítomnosťou sieťových prerušení. Táto teória tvrdí, že u takýchto systémov je možné súčasne dosiahnúť len dvojicu z vlastností CAP a to CP alebo AP. V roku 2002 platnosť tejto teórie pre asynchrónnu sieť matematicky dokázali Lynch a Gilbert \cite{Gilbert:2002:BCF:564585.564601}. Modelu asynchrónnej sieťe svojimi vlasnosťami zodpovedá Internet. Akroným CAP tvoria následujúce vlasnosti:
 \begin{itemize}
  \item 
   \emph{Konzistencia} (Consistency) - distribuovaný systém je v konzistentnom stave, ak každý jeho uzol v prípade požiadavku dát vracia tú istú odpoveď.
@@ -489,25 +511,26 @@ P(B) - pravdepodobnosť, že individuálny uzol nezlyhá
 
 \subsection{Konzistencia verzus dostupnosť}
 
-V distribuovanom systéme nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. Ako príklad si predstavme distribuovaný systém obsahujúci tri uzly A, B, C, ktorý zaručuje obe vlasnosti aj v prípade sieťového prerušenia. Na všetkých uzloch sa nachádzajú identické (replikované) dáta. Ďalej uvažujme, že došlo k sieťovému prerušeniu, ktoré rozdelilo uzly na dva samostatné celky \{A,B\} a \{C\}. V prípade, že uzol C obdrží požiadavku pre zmenu dát má na výber dve možnosti:
+V distribuovanom systéme nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. Ako príklad si predstavme distribuovaný systém obsahujúci tri uzly A, B, C, ktorý zaručuje obe vlasnosti aj v prípade sieťového prerušenia. Na všetkých uzloch sa nachádzajú identické (replikované) dáta. Ďalej uvažujme, že došlo k sieťovému prerušeniu, ktoré rozdelilo uzly na dva samostatné celky \{A,B\} a \{C\}. V prípade, že uzol C obdrží požiadavku pre zmenu dát má na výber z dvoch možnosti:
 \begin{enumerate}
  \item vykonať zmenu dát čo spôsobí, že sa uzly A a B o tejto zmene dozvedia až vo chvíli ak bude sieťové prerušenie odstranené
  \item zamietnuť požiadavok na zmenu dát, z dôvodu že uzly A a B sa o tejto zmene nedozvedia
 \end{enumerate}
 
-V prípade výberu možnosti čislo 1 zabezpečíme neustálu dostupnosť systému naopak v prípade možnosti číslo 2 jeho konzistenciu. Nie je možný súčasný výber oboch riešení.
+V prípade výberu možnosti čislo 1 zabezpečíme neustálu dostupnosť systému naopak v prípade možnosti číslo 2 jeho konzistenciu. Nie je možný súčasný výber oboch možností.
 
 \subsubsection*{CP}
-Ak od daného systému tolerujúceho sieťové prerušenia požadujeme konzistenciu na úkor dostupnosti jedná sa o alternatívu CP. Takýto systém zabezpečí konzistentnosť operácií pre zápis a čítanie dát a zároveň sa môže stať, že na určité požiadavky nebude schopný odpovedať (možnosť čislo 2). Medzi takéto systémy môžeme zaradiť distribuovaný databázový systém využívajúci dvojfázový potvrdzovací protokol (2PC).
+Ak od daného systému tolerujúceho sieťové prerušenia požadujeme konzistenciu na úkor dostupnosti jedná sa o alternatívu CP. Takýto systém zabezpečí konzistentnosť operácií pre zápis a čítanie dát a zároveň sa môže stať, že na určité požiadavky nebude schopný reagovať (možnosť čislo 2). Medzi takéto systémy môžeme zaradiť distribuovaný databázový systém využívajúci dvojfázový potvrdzovací protokol.
 
 \subsubsection*{AP}
-V prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V tomto prípade sa jedná o model AP. Je možné, že v takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vracať nekonzistentné výsledky. Tieto problémy s konzistenciou sa v distribuovaných databázových systémoch riešia napríklad pomocou metódy \uv{vektorové hodiny} (Vector clock) \cite{TODO} alebo na aplikačnej úrovni na strane klienta. Príkladom systému patriaceho do tejto kategórie je Amazon Dynamo.
+V prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V tomto prípade sa jedná o model AP. Je možné, že v takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vracať nekonzistentné výsledky. Tieto problémy s konzistenciou sa v distribuovaných databázových systémoch riešia napríklad pomocou metódy \uv{vektorových hodin} (Vector clock) \cite{TODO} alebo na aplikačnej úrovni na strane klienta. Príkladom systému patriaceho do tejto kategórie je Amazon Dynamo.
 
 \subsubsection*{CA}
-AK systém nebude schopný zvládať sieťové prerušenia, tak bude spľnovať požiadavok konzistencie a dostupnosti, varianta CA. Jedná sa o nedistribuované systémy pracujúce na jednom fyzickom hardvéri využivajúce databázové transakcie.
+Ak systém nebude tolerovať sieťové prerušenia, tak bude spľnovať požiadavok konzistencie a dostupnosti, varianta CA. Jedná sa o nedistribuované systémy pracujúce na jednom fyzickom hardvéri využivajúce databázové transakcie.
 
-Vyššie popísané vlastnosti nám umožnia vhodný výber distribuovaného databázového systému podľa požiadavkov našej aplikácie.
+% Vyššie popísané vlastnosti nám umožnia vhodný výber distribuovaného databázového systému podľa požiadavkov našej aplikácie.
 
+Pri výbere distribuovaného databázového systému, môžeme vďaka vyššie popísaným vlastnostiam určiť vhodnosť jeho použitia, na základe požiadavkov aplikácie.
 %
 %P = tolerance to network partitions
 
@@ -519,14 +542,14 @@ Vyššie popísané vlastnosti nám umožnia vhodný výber distribuovaného dat
 \section{Čiastočná konzistencia}
 %http://horicky.blogspot.com/2009/01/design-pattern-for-eventual-consistency.html
 % data nezdielaju ziadny stav, oproti ACID kde sa zdiela stav
-V ideálnom svete sa pod pojmom konzistencia v distribuovaných systémoch rozumie fakt, že ak sa v systéme vykoná zmena (zápis alebo aktualizácia dát), na všetkych uzloch sa táto zmena prejaví súčasne s rovnakým výsledkom. Konzistencia je zároveň úzko spojená s replikáciou. Väčšina NoSQL systémov poskytuje čiastočnú konzistenciu, poprípade dáva možnosť výberu medzi CP a AP (napríklad systém Cassandra\footnote{http://cassandra.apache.org}). V následujúcej časti popíšeme rôzne typy konzistencie.
+V distribuovaných systémoch sa pod pojmom konzistencie v ideálnych podmienkách rozumie vlastnosť, ktorá zaručí, že zmena dát (zápis alebo aktualizácia dát) sa prejaví súčasne s rovnakým výsledkom. Konzistencia je zároveň úzko spojená s replikáciou. Väčšina NoSQL systémov poskytuje čiastočnú konzistenciu, poprípade dáva možnosť výberu medzi vlastnosťami CP a AP (napríklad systém Cassandra\footnote{http://cassandra.apache.org}). V následujúcej časti popíšeme rôzne druhy konzistencie.
 
-V predchádzajúcom texte sme už spomínali, že v dnešne dobe existuje mnoho aplikácií, u ktorých je možné poľaviť na požiadavku konzistencie. Ak sa určitá zmena prejaví s miernym oneskorením funkčnosť systému nebude v tomto prípade ohrozená. Táto konzistencia nie je totožná s konzistenciou definovanou u vlastností ACID, kde ukončenie transakcie zaručuje, že sa systém nachádza v konzistentom stave. Na konzistenciu sa môžeme pozerať z dôch pohľadov. Prvým je klientský pohľad na strane zadávateľa problému resp. programátora, ktorý rozhodne aká je závažnosť zmien, ktoré sa budú vykonávať v systéme. Druhý pohľad je systemový, zabezpečuje technické riešenie a implementáciu techník zodpovedných za správu konzistencie v distribuovaných databázových systémoch.
+V predchádzajúcom texte sme už spomínali, že v dnešne dobe existuje mnoho aplikácií, u ktorých je možné poľaviť na požiadavku konzistencie. Ak sa určitá zmena prejaví s miernym oneskorením funkčnosť systému nebude v tomto prípade ohrozená. Táto konzistencia nie je totožná s konzistenciou definovanou u vlastností ACID, kde ukončenie transakcie zaručuje, že sa systém nachádza v konzistentom stave. Na konzistenciu sa môžeme pozerať z dôch pohľadov. Prvým, je klientský pohľad na strane zadávateľa problému resp. programátora, ktorý rozhodne aká je závažnosť zmien, ktoré sa budú vykonávať v systéme. Druhý pohľad je systemový, zabezpečuje technické riešenie a implementáciu techník zodpovedných za správu konzistencie v distribuovaných databázových systémoch.
 
 
 \subsection{Konzistencia z pohľadu klienta}
 
-Pre potrebu následujúcich definíc uvažujme distribuovaný databázový systém, ktorý tvorí úložisko dát a tri nezávislé procesy \{A, B, C\}, ktoré možu v danom systéme zmeniť (vykonať zápis) a načítať hodnotu dátovej jednotky. Na základe toho ako jednotlivé procesy pozorujú nezávisle zmeny systému delíme konzistenciu \cite{vogels2009eventually} na: \\
+Pre potrebu následujúcich definíc uvažujme distribuovaný databázový systém, ktorý tvorí úložisko dát a tri nezávislé procesy \{A, B, C\}, ktoré možu v danom systéme zmeniť (vykonať zápis) a načítať hodnotu dátovej jednotky. Na základe toho ako jednotlivé nezávislé procesy pozorujú zmeny v systéme delíme konzistenciu  na \cite{vogels2009eventually}: \\
 
 \noindent 
 \emph{Silná konzistencia} (Strong consistency) - proces A vykoná zápis. Po jeho ukončení je nová hodnota dátovej jednotky dostupná všetkým procesom \{A, B, C\}, ktoré k nej následne pristúpia (vykonajú operáciu čítania). Túto konzistenciu zabezpečujú transakcie s vlasnosťami ACID.
@@ -541,6 +564,9 @@ Pre potrebu následujúcich definíc uvažujme distribuovaný databázový syst�
 
 \noindent 
 \\
+Model čiastočnej konzistencie ma viacero variácií:\\
+\noindent 
+\\
 \emph{Read-your-write consistency} - v prípade, že proces A zapíše novú hodnotu do dátovej jednotky, žiadny z jeho následujúcich prístupov k tejto jednotke nevráti staršiu hodnotu ako naposledy zapísaná.
 
 \noindent
@@ -553,26 +579,24 @@ Pre potrebu následujúcich definíc uvažujme distribuovaný databázový syst�
 
 
 
-Tieto typy konzistencie je možné navzájom kombinovať a ich hlavným cieľom je zvýšiť dostupnosť distribuovaného systému na úkor toho, že poľavíme na požiadavkoch konzistencie. Príkladom môže byť asynchrónna replikácia v relačnom databázovom systéme využívajúca architektúru master-slave, ktorá spôsobí, že systém bude čiastočne konzistentný.
+Tieto typy konzistencie je možné navzájom kombinovať a ich hlavným cieľom je zvýšiť dostupnosť distribuovaného systému na úkor toho, že poľavíme na požiadavkoch konzistencie. Príkladom systému s čiastočnou konzistenciou je asynchrónna replikácia v relačnom databázovom systéme využívajúca architektúru master-slave.
 
 \subsection{Systémová konzistencia}
 %http://web.mit.edu/6.033/2005/wwwdocs/quorum_note.html
 %http://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29
 
-Techniky založené na protokoloch kvóra (Quorum-based protocols \cite{gifford1979weighted}) je možné použiť pre zvýšenie dostupnosti a výkonu v distribuovaných databázových systémoch s garanciou silnej alebo čiastočnej konzistencie.
-
-Definujme nasledujúcu terminológiu:
+Techniky založené na protokoloch kvóra (Quorum-based protocols \cite{gifford1979weighted}) je možné použiť pre zvýšenie dostupnosti a výkonu v distribuovaných databázových systémoch s garanciou silnej alebo čiastočnej konzistencie. Definujme nasledujúcu terminológiu:
 \begin{itemize}
  \item N - počet uzlov, ktoré obsahujú repliku dát
  \item W - počet uzlov obsahujúcich repliku, na ktorých sa musí vykonať zápis, aby bola zmena úspešne potvrdená
  \item R - počet uzlov s replikov, ktoré musia vrátiť hodnotu dátového objektu v prípade operácie čitanie
 \end{itemize}
 
-Platí, že ak W + R > N, operácie pre zápis a čítanie sa stále prekrývajú minimálne na jednom uzle, ktorý bude obsahovať aktuálnu hodnotu danej operácie. Tento prípad, zabezpečuje silnú konzistenciu v systéme. V prípade W + R <= N, môže nastať situácia keď predchádzajúca podmienka neplatí a teda daná operácia je čiastočne konzistentná. Rôzna konfigurácia týchto parametrov zabezpečí rozdielnu dostupnosť a výkonnosť distribuovaného systému.  Uvažujme následujúce príklady, kde N = 3.
+V prípade, že platí $W + R > N$, operácie pre zápis a čítanie dát sa stále prekrývajú minimálne na jednom uzle, ktorý bude vždy obsahovať aktuálnu hodnotu danej operácie. Tento prípad, zabezpečuje silnú konzistenciu v systéme. V prípade $W + R <= N$, môže nastať situácia keď predchádzajúca podmienka neplatí a teda daná operácia je čiastočne konzistentná. Rôzna konfigurácia týchto parametrov zabezpečí rozdielnu dostupnosť a výkonnosť distribuovaného systému.  Uvažujme následujúce príklady pre $N = 3$.
 
 \begin{enumerate}
- \item R = 1 a W = N, v takomto prípade zabezpečíme že systém bude optimalizovaný pre operácie čítania dát. Operácie budú konzistentné, pretože uzol z ktorého dáta čítame sa prekrýva s uzlami na ktorých vykonávame zápis. Nevýhodou tohoto modelu je, že v prípade nedostupnosti jednej repliky nebude možné do systému zapisovať. V prípade systémov, u ktorych požadujeme aby obsluhovali veľký počet požiadavkov pre čítanie sa môže hodnota N pohybovať v stovkách až tisícoch, závisí to od počtu uzlov v systéme.
- \item W = 1 a R = N, tento prípad je vhodný pre systémy u ktorých požadujeme rýchly zápis. Tento model môže spôsobiť stratu dát v prípade, že systém s replikou na ktorú sa vykoná zápis zlyhá. 
+ \item $R = 1$ a $W = N$, tento prípad zabezpečí, že systém bude optimalizovaný pre operácie čítania dát. Klient číta dáta z ľubovoľnej repliky. Operácie budú konzistentné, pretože uzol z ktorého dáta čítame sa prekrýva s uzlami na ktorých vykonávame zápis. Nevýhodou tohoto modelu je, že nedostupnosti jednej repliky znemožní vykonanie zápisu. V prípade systémov, u ktorych požadujeme aby obsluhovali veľký počet požiadavkov pre čítanie sa môže hodnota N pohybovať v stovkách až tisícoch, závisí to od počtu uzlov v systéme.
+ \item $W = 1$ a $R = N$, tento prípad je vhodný pre systémy u ktorých požadujeme rýchly zápis. Tento model môže spôsobiť stratu dát v prípade zlyhania uzla s replikou, na ktorú bol vykonaný zápis.
 \end{enumerate}
 
 %TODO obrazky
@@ -588,11 +612,14 @@ Pre jednoduchosť uvažujme nasledujúci príklad, v ktorom chceme spracovať po
 
 Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce \cite{dean2008mapreduce}, ktorý slúži na paralelne spracovanie obrovského objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovaný pre beh na klastri tvorenom vysokým počtom (tisícky) spotrebných počítačov. Pre programátora sa snaží zastrieť všetky problémy, ktoré prináša paralelizácia výpočtov, poruchovosť systémov, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami.
 
-Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia map na jednotlivých uzloch systému, transformuje vstupné data na základe zadefinovaného kľúča k1 na medzivýsledok, ktorý obsahuje nové kľúče g1 až gn a k ním odpovedajúce hodnoty. Tieto hodnoty sa zoradia podľa ich prislušnoti ku kľúčom g1 až gn a následne sa odošlú na uzly s funkciou reduce. Užívateľom definovaná funkcia reduce vykoná nad hodnotami priradenými ku kľúčom g1 až gn danú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota.
+Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia map na jednotlivých uzloch systému, transformuje vstupné data na základe zadefinovaného kľúča $k$ a k nemu prináležiacím hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g1,...,g_n$ a k ním odpovedajúce zotriedené hodnoty $H$. Tieto dáta sa odošlú na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $Z$. Tieto operácie je možné popísať následovne:
 
-map(k1, X) -> list(kľuč(z g1,...,gn), Y)
+\begin{verbatim}
+map(k, H) -> list(g, H)
+reduce(g, list(H)) -> list(Z)
+\end{verbatim}
 
-reduce(kľúč(z g1,...,gn), list(Y)) -> list(Z)
+
 
 %TODO PRIKLAD? 
 % \subsection{Príklad}
@@ -603,7 +630,7 @@ Obrázok
 
 \subsection{Použitie}
 
-MapReduce nie je vhodný na spracovanie dát v reálnom čase. Je optimalizovaný na dávkový beh. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém Google file system (GFS) nie je k dispozícii. V rámci hnutia NoSQL vzniklo open source riešenie pod názvom Hadoop\footnote{http://hadoop.apache.org}, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme Hadoop distributed file system (HDFS). K dispozíci sú frameworky HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce a poskytujú vyššiu abstrakciu vo forme jazyka podobného SQL.
+MapReduce nie je vhodný na spracovanie dát v reálnom čase. Je optimalizovaný na dávkový beh. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém Google File System (GFS) \cite{ghemawat2003google} nie je k dispozícii. V rámci hnutia NoSQL vzniklo open source riešenie pod názvom Hadoop\footnote{http://hadoop.apache.org}, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme Hadoop Distributed File System (HDFS). K dispozíci sú frameworky HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce a poskytujú vyššiu abstrakciu vo forme jazyka podobného SQL.
 
 %(s ktorými v tejto práci budeme pracovat?)
 
@@ -633,7 +660,9 @@ Množstvo digitálnych informácii, každým rokom prudko narastá. Podľa štat
 
 \section{Archivácia elektronickej pošty}
 
-S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zároveň zvyšuje objem dát, ktorý reprezentuje elektronickú poštu. Je preto potrebné porozumieť štruktúre emailových správ a následne ich vhodne spracovať. Tieto dáta je potrebné uložiť tak aby sme dosiahli úsporu diskového priestoru, boli sme nad nimi schopný vykonávať operácie ako fultextové vyhľadávanie, zber údajov pre tvorbu štatistík alebo umožnili ich opätovné sprístupnenie. Emaily obsahujú čoraz viac obchodných informácií a iný dôležitý obsah, z tohto dôvodu musia byť organizácie všetkých rozmerov schopné uchovávať tento obsah pomocou vhodných archivačných nástrojov. S problémom archivácie zároveň úzko súvisí problém bezpečnosti. Pod pojmom bezpečnosti v tejto oblasti máme na mysli hlavne ochranu proti nevyžiadanej pošte tj. spam, spyware, malware a phishingu. Na boj proti týmto hrozbám využívajú organizácie anti-spamové a anti-vírusové systémy. Možné dôvody prečo archivovať elektronickú poštu sú následovné\cite{WhyArchiving}:
+% S neustálym nárastom informácii obsiahnutých v digitálnom univerze, sa zároveň zvyšuje objem dát, ktorý reprezentuje elektronickú poštu.
+
+Z dôvodu nárastu objemu dát reprezentujúcich elektronickú poštu je potrebné porozumieť tejto štruktúre a následne tieto dáta vhodne spracovať. Tieto dáta je potrebné uložiť tak aby sme dosiahli úsporu diskového priestoru, boli sme nad nimi schopný vykonávať operácie ako fultextové vyhľadávanie, zber údajov pre tvorbu štatistík alebo umožnili ich opätovné sprístupnenie. Emaily obsahujú čoraz viac obchodných informácií a iný dôležitý obsah, z tohto dôvodu musia byť organizácie všetkých rozmerov schopné uchovávať tento obsah pomocou vhodných archivačných nástrojov. S problémom archivácie zároveň úzko súvisí problém bezpečnosti. Pod pojmom bezpečnosti v tejto oblasti máme na mysli hlavne ochranu proti nevyžiadanej pošte tj. spam, spyware, malware a phishingu. Na boj proti týmto hrozbám využívajú organizácie anti-spamové a anti-vírusové systémy. Možné dôvody prečo archivovať elektronickú poštu sú následovné\cite{WhyArchiving}:
 \begin{itemize}
  \item 
   záloha dát a ich obnova v prípade havárie systému
@@ -1397,6 +1426,30 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 \end{table}
 
 
+% 
+% \begin{table}[hp]
+% \begin{center}
+% \begin{tabular}{|c|c|c|c|}
+% \hline
+%  
+% 
+% 
+% \multirow{2}{*}{Veľkosť súboru} & \multicolumn{3}{|c|}{Klaster}  \\
+% % THIS HERE
+% \cline{2-3}
+% % THIS HERE
+% 
+% & A & B & C\\
+% 
+% \hline 128 MB & 287 MB/s& 102 MB/s& 190 MB/s\\ 
+% \hline 812 MB & 371 MB/s& 85 MB/s& 162 MB/s\\ 
+% \hline 4 GB & 433 MB/s& 85 MB/s& 163 MB/s\\ 
+% \hline
+% \end{tabular} 
+% \end{center}
+% 
+% \end{table}
+
 Na základe týchto hodnôt môžeme pozorovať, že zvýšenie faktoru replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad klastrov v konfigurácii B a C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
 
 %HDFS je optimalizovaný pre zápis veľkých súborov rádovo v desiatkách GB avšak z nameraných hodnôt vidíme, že najoptimálnejšie výsledky boli dosiahnuté, v prípade keď veľkosť súboru zodpovedala dvojnásobnej veľkosti bloku.
@@ -1588,7 +1641,11 @@ Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súb
 \section{Voľba databázového systému}
 %Pozorovanie ???
 
-Primárnym požiadavkom aplikácie je zvládať vysoký tok pre zápis, nízkonákladová administrácia (infraštrukura HBase je komplikovaná v porovnaní s Cassandrou, ktorá je decentralizovaná), preto sme pre implementáciu zvolili systém Cassandra.
+Primárnym požiadavkom aplikácie je zvládať vysoký tok pre zápis, nízkonákladová administrácia (infraštrukura HBase je komplikovaná v porovnaní s Cassandrou, ktorá je decentralizovaná), preto sme pre implementáciu zvolili systém Cassandra. Ďalšou výhodou Cassandry bola podpora indexov, ktoré sa vytvárajú asynchrónne na pozadí.
+
+Systém HBase neobsahuje SPOF, avšak perzistentné úložisko HDFS tento požiadavok nespĺňa. Replikácia medzi geofraficky oddelenými datacentrami je komplikovaná v porovnaní so systémom Cassandra.
+
+... 
 
 %???Konflikty v distribuovanych DB ??? (vector clock)
 %???? Výhody noSQL v porovnaní s modelovaním dát u relačných
