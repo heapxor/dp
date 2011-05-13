@@ -3,15 +3,14 @@ The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2045" isn't style-file defined
---line 171 of file reference.bib
+--line 195 of file reference.bib
 Warning--entry type for "Freed:1996:MIM:RFC2046" isn't style-file defined
---line 179 of file reference.bib
+--line 203 of file reference.bib
 Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
---line 187 of file reference.bib
+--line 211 of file reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 348 of file reference.bib
+--line 372 of file reference.bib
 Warning--I didn't find a database entry for "TODO"
-Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "???"
 Warning--I didn't find a database entry for "infodp"
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
@@ -20,45 +19,45 @@ Warning--empty journal in abadi2009
 Warning--can't use both volume and number fields in fox1997cluster
 Warning--can't use both volume and number fields in ghemawat2003google
 Warning--can't use both author and editor fields in Udell
-You've used 39 entries,
+You've used 41 entries,
             2118 wiz_defined-function locations,
-            731 strings with 10184 characters,
-and the built_in function-call counts, 13373 in all, are:
-= -- 1336
-> -- 604
+            742 strings with 10496 characters,
+and the built_in function-call counts, 13768 in all, are:
+= -- 1370
+> -- 618
 < -- 15
-+ -- 246
-- -- 202
-* -- 888
-:= -- 2141
-add.period$ -- 120
-call.type$ -- 39
-change.case$ -- 214
++ -- 252
+- -- 206
+* -- 898
+:= -- 2205
+add.period$ -- 125
+call.type$ -- 41
+change.case$ -- 222
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 518
-empty$ -- 1072
-format.name$ -- 202
-if$ -- 2860
+cite$ -- 47
+duplicate$ -- 532
+empty$ -- 1116
+format.name$ -- 206
+if$ -- 2946
 int.to.chr$ -- 0
-int.to.str$ -- 39
+int.to.str$ -- 41
 missing$ -- 36
-newline$ -- 192
-num.names$ -- 74
-pop$ -- 260
+newline$ -- 201
+num.names$ -- 78
+pop$ -- 281
 preamble$ -- 1
-purify$ -- 178
+purify$ -- 184
 quote$ -- 0
-skip$ -- 403
+skip$ -- 417
 stack$ -- 0
-substring$ -- 782
-swap$ -- 141
+substring$ -- 792
+swap$ -- 143
 text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 146
+type$ -- 154
 warning$ -- 6
-while$ -- 131
-width$ -- 41
-write$ -- 426
-(There were 14 warnings)
+while$ -- 135
+width$ -- 43
+write$ -- 442
+(There were 13 warnings)

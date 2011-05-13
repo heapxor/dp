@@ -816,22 +816,38 @@ Z analýzy princípov, v predchádzajúcej kapitole, ktoré využívajú relačn
 
 \chapter{NoSQL}
 \label{chapter:NoSQL}
-Názov NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databázy \cite{strozziNosql}, ktorej implementácia bola v interpretovaných programovacích jazykoch a neobsahovala dotazovací jazyk SQL. V druhej polovici roku 2009 sa názov NoSQL začal používať v spojení s databázovými systémami, ktoré nepouživajú tradičný relačný model, dotazovací jazyk SQL, sú schopné horizontálneho škálovania, pracujú na spotrebných počítačových systémoch, vyznačujú sa vysokou dostupnosťou a používajú bezschémový dátový model.
+Názov NoSQL bol prvykrát použitý v roku 1998 ako názov relačnej databáze\footnote{http://www.strozzi.it/cgi-bin/CSA/tw7/I/en\_US/nosql}, ktorej implementácia bola v interpretovaných programovacích jazykoch a neobsahovala dotazovací jazyk SQL. V druhej polovici roku 2009 sa názov NoSQL začal používať v spojení s databázovými systémami, ktoré nepouživajú tradičný relačný model, dotazovací jazyk SQL, sú schopné horizontálneho škálovania, pracujú na spotrebných počítačových systémoch, vyznačujú sa vysokou dostupnosťou a používajú bezschémový dátový model.
 
-Pôvodným cieľom hnutia NoSQL bolo vytvoriť koncept, pre tvorbu moderných databáz, ktoré by boli schopné spracúvať požiadavky neustále sa rozvýjajúcich webových aplikácií. Filozofiou tých systémov je nesnažiť sa za každú cenu prispôsobovať dáta modelu relačnej databáze. Cieľom je vybrať systém, ktorý bude čo najvhodnejšie zodpovedať požiadavkom na uloženie a spracovanie našich dát. NoSQL nepopisuje žiaden konkrétny databázový systém, namiesto toho je to obecný názov pre nerelačné (non-relational) databázové systémy, ktoré disponujú odlišnými vlastnosťami a umožnujú prácu s rôznými dátovými modelmi. Medzi ich ďalšie znaky patrí napríklad čiastočná konzistencia, schopnosť spracúvať obrovské objemy dát (PB) a jednoduché programové rozhranie (API). Tieto systémy nepodporujú operáciu databázového spojenia a medzi dátami, ktoré do nich ukladáme je možné vytvárať vzájomné závislosti až na aplikačnej vrstve. Pre tieto databázove systémy ďalej platí, že sú distribuované, automaticky poskytujú replikáciu a rozdeľovanie dát. Jedná sa o relatívne mladé systémy, ktoré sú neustále vo vývoji. Ideou tohto konceptu je riešiť spomínané novo vznikajúce problémy a zároveň koexistovať s relačnými databázovými systémami.
+Pôvodným cieľom hnutia NoSQL bolo vytvoriť koncept, pre tvorbu moderných databáz, ktoré by boli schopné spracúvať požiadavky neustále sa rozvýjajúcich webových aplikácií. Filozofiou týchto systémov je nesnažiť sa za každú cenu prispôsobovať dáta, ktoré do nich ukladáme relačnému databázovému modelu. Cieľom je vybrať systém, ktorý bude čo najvhodnejšie zodpovedať požiadavkom pre uloženie a spracovanie dát. NoSQL nepopisuje žiaden konkrétny databázový systém, namiesto toho je to obecný názov pre nerelačné (non-relational) databázové systémy, ktoré disponujú odlišnými vlastnosťami a umožnujú prácu s rôznými dátovými modelmi. Medzi ich ďalšie znaky patrí napríklad čiastočná konzistencia, schopnosť spracúvať obrovské objemy dát (PB) a jednoduché programové rozhranie (API). Tieto systémy nepodporujú operáciu databázového spojenia a medzi dátami, ktoré do nich ukladáme je možné vytvárať vzájomné závislosti až na aplikačnej úrovni. Pre tieto databázove systémy ďalej platí, že sú distribuované, automaticky poskytujú replikáciu a rozdeľovanie dát. Jedná sa o relatívne mladé systémy, ktoré sú neustále vo vývoji. Ideou tohto konceptu je riešiť spomínané novo vznikajúce problémy a zároveň koexistovať s relačnými databázovými systémami.
 
 %v pripade relac db sa snazime navrhnut datovy model a nasledne na nom vytvorit vhodne poziadavky v SQL, u tychto systemov vsak plati, ze na zaklade toho ako budu vyzerat dotazy na data namodelujeme datovy model (scheme free)
 
-\section{Typy NoSQL databázových systémov}
+\section{Dátové modely}
 
-Medzi nerelačné databázové systémy patria dokumentové, grafové, stĺpcové a systémy s dátovým modelom typu \uv{kľúč-hodnota} (Key-value). V následujúcej časti práce ich stručne popíšeme.
+% \section{Dátové modely}
+NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s dátovým modelom typu \uv{kľúč-hodnota} (Key-value). V následujúcej časti práce ich stručne popíšeme.
+
+% \subsection{Relačný dátový model}
+% %TODO: podla pokorneho opravit ? relacie
+% Relačný databázový model reprezentuje dáta pomocou riadkov tabuliek. Tieto riadky reprezentujú relácie, ktoré modelujú závislosti medzi dátami. Popis stĺpcov určuje schému relácie.
+% 
+% 
+% 
+% tvorené stĺpcami a ich štruktúra je popísaná schémou. Schéma definuje názvy tabuliek, stĺpcov a podlieha normalizácii aby sa predišlo duplikácii dát. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče.
+% Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na pevný disk. Tento model, nazývaný aj ako riadkový, je vhodný pre systémy, u ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy, využívajúce tento model sú teda optimalizované pre zápis. Pre efektívny prístup k dátam je možné použiť indexy.
+% 
+
+% NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s dátovým modelom typu \uv{kľúč-hodnota} (Key-value). V následujúcej časti práce ich stručne popíšeme.
+
+\subsection{Relačný model}
+Relačný databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v tabuľkách. Štruktúra týchto záznamov je normalizovaná aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k dátam je možné použiť indexy.
 
 %TODO: na vsetky DB ref??
 \subsection{Kľúč-hodnota}
 %http://ayende.com/Blog/archive/2010/03/29/that-no-sql-thing-keyvalue-stores.aspx
-Relačný databázový model reprezentuje dáta pomocou tabuliek, pre ktoré definujeme ich štruktúru a ktoré sú normalizované aby sme predišli duplikácii a inkonzistencii dát. Pre zabezpečenie referenčnej integrity jednotlivých entít využívame cudzie kľúče. Tabuľky s popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou.
 
-Tento model využíva pre ukládanie dát jednoduchý princíp. Blok dát s ľubovoľnou štruktúrou je v databáze uložený pod názvom kľúča, ktorý môže byť reprezentovaný ako textový reťazec. Databázové systémy využívajúce tento dátový model majú jednoduché programové rozhranie, znázorné na obrázku XY.
+
+Tento model využíva pre ukládanie dát jednoduchý princíp. Blok dát s ľubovoľnou štruktúrou je v databáze uložený pod názvom kľúča, ktorý je často interne reprezentovaný ako poľe bajtov a môže ním byť napríklad textový reťazec. Databázové systémy využívajúce tento dátový model majú jednoduché programové rozhranie, znázorné na obrázku XY.
 
 \begin{verbatim}
 void Put(string kluc, byte[] data);
@@ -840,22 +856,21 @@ void Remove(string key);
 \end{verbatim}
 
 
-Výhodou tohto modelu je, že databázový systém je možné ľahko škálovať. Bohužial v tomto prípade sa o prácu so štruktúrou uložených dát musí starať klient, čo umožnuje dosahovať vysokú výkonnosť na strane databázového systému.
+Výhodou tohto modelu je, že databázový systém je možné ľahko škálovať. V tomto prípade prácu so štruktúrou uložených dát zabezpečuje klient, čo umožnuje dosahovať vysokú výkonnosť na strane databázového systému.
 
-Najväčšou nevýhodou je, že databázový systém nie je schopný medzi uloženými dátami zachytiť ich vzájomné vzťahy (relácie), čo patrí medzi základné požiadavky pri tvorbe komplexných modelov. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované, vzťahy a integrita medzi nimi sa riešia až na aplikačnej úrovni. Pre vkladané dáta a k nim asociované kľúče sa nedefinujú žiadne obmedzenia.
+Jednou z možných nevýhod v porovaní s relačnými databázovými systémami je, že databázový systém nie je schopný medzi uloženými dátami zachytiť ich vzájomné vzťahy (relácie), čo môže byť jedným z požiadavkov pri tvorbe komplexných modelov. Úložiško typu kľúč-hodnota nevyužíva normalizáciu dát, dáta sú často duplikované, vzťahy a integrita medzi nimi sa riešia až na aplikačnej úrovni. Na obsah vkladaných dát a k nim asociovaným kľúčom sa nedefinujú žiadne obmedzenia.
 
-Medzi databázové systémy využívajúce model kľúč-hodnota patria Amazon Dynamo, Tokyo Cabinet, Voldemort, Redis a iné.
+Medzi databázové systémy využívajúce model kľúč-hodnota patria Amazon Dynamo, Tokyo Cabinet \cite{TODO}, Voldemort \cite{TODO}, Redis \cite{TODO} a iné.
 
 \subsection{Stĺpcovo orientovaný model}
 %10.1.1.151.2270.pdf
 
-Množstvo databázových systémov využíva pre reprezentáciu dát tabuľky, ktoré sú tvorené stĺpcami a popísané schémou (tj. názvy stĺpcov, tabuliek). Každý riadok tabuľky reprezentuje dáta, ktoré sa nazývajú záznamy a tieto sú následne sekvenčne ukladané na pevný disk. Tento model, nazývaný riadkový, je vhodný pre systémy, u ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy, využívajúce tento model sú teda optimalizované pre zápis. Pre efektívny prístup k dátam je možné použiť indexy.
 %obrazok?
 %abadiph.pdf
 
-V dnešnej dobe existuje veľký počet aplikácií, u ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column}\cite{abadi2009}, ktorý je optimalizovaný pre operácie čítanie dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú pre nás v daný moment irelevantné.
+V dnešnej dobe existuje veľký počet aplikácií, u ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s nimi je efektivnejšia ako u riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v daný moment irelevantné.
 
-Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci pochádzajú z totožnej domény a môžu si byť podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýdou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií. Optimalizáciou môže byť dávkový zápis.
+Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobuje vyššiu entropiu v porovnaní so stĺpcovým modelom, kde sa predpokláda, že dáta v danom stĺpci pochádzajú z totožnej domény a sú si preto podobné. Táto vlasnosť umožnuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýdou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií. Pre optimalizáciu operácií vykonavajúcich zápis sa používa dávkový zápis.
 
 % obrazok ?
 %\subsubsection*{Stĺpcovo orientovaný model v NoSQL}
@@ -864,11 +879,11 @@ Riadkový model obsahuje v jednom zázname dáta z rôznych domén, čo spôsobu
 
 %-- a na dáta pozeráme ako na viacdimenzionálnu hešovú-mapu.
 %??? obrazok
-Tento model sa používa v databázových systémoch ako Google Bigtable, HBase, Hypertable alebo Cassandra.
+Tento model využívajú databázové systémy ako Google Bigtable, HBase, Hypertable alebo Cassandra.
 
 \subsection{Dokumentový model}
 
-Dokumentové databáze sú založené na modeli typu kľúč-hodnota. Požiadavkom na ukládané dáta je, že musia byť v tvare ktorému rozumie databázový systém. Štruktúra vkládaných dát môže byť popísaná napríklad pomocou XML, JSON, YAML. Táto štruktúra nám následne umožnuje okrem jednoduchého vyhľadávania pomocou kľúč-hodnota vytvárať s využitím indexov zložitejšie dotazy nad dátami na strane databázového systému. 
+Dokumentové databázy sú založené na modeli typu kľúč-hodnota. Požiadavkom na ukládané dáta je, že musia byť v tvare, ktorý dokáže spracovať databázový systém. Štruktúra vkládaných dát môže byť určená napríklad pomocou XML, JSON, YAML. Schéma týchto systémov následne umožnuje okrem jednoduchého vyhľadávania pomocou modelu kľúč-hodnota vytvárať s využitím indexov zložitejšie dotazy nad dátami, ktoré sú vyhodnocované na strane databázového systému. 
 
 Medzi databáze reprezentujúce tento typ úložiska patrí napríklad CouchDB a MongoDB.
 
@@ -884,14 +899,13 @@ Tento model sa napríklad využíva v aplikáciach sociálnych sieti alebo pre s
 %http://www.rackspace.com/cloud/blog/2009/11/09/nosql-ecosystem/
 %http://www.infoq.com/articles/graph-nosql-neo4j
 
-% kriteria na porovnanie nosql
-V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov, ktoré majú odlišné vlasnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. Snaha porovnať tieto systémy na globálnej úrovni je nerealizovateľná a často vedie k chybám. Cieľom tejto sekcie je definovať základné body vďaka, ktorým je možné tieto systémy kategorizovať a vrámci danej kategórie porovánať. Tieto zistenia nám následne môžu pomôcť pri výbere vhodného systému, ktorý bude vhodný na riešenie našich požiadavok.
 
 %Systémy NoSQL majú odlišné schopnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. V predchádzajúcej sekcii sme vykonali základnú kategorizáciu poďla dátového modelu, ktorý tieto systémy poskytujú a ktorý do istej miery definuje ich vyjadrovaciu silu. V tejto časti popíšeme ďalšie vlastnosti, ktoré nám umožnia užšiu kategorizáciu týchto systémov.
 %Tieto dátové modely sú navzájom izomorfné \cite{Web1}. Našim cieľom však nemá byť snaha za každú cenu prispôsobiť dáta k danému modelu. Prítomnosť týchto modelov nám naopak dáva možnosť výberu, ktorý zaručí pre našu aplikáciu 
 
 %Hlavným kritériam pre porovnávanie týchto systémov sú následujúce body:
-Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto systémov:
+% kriteria na porovnanie nosql
+V dnešnej dobe existuje veľké množstvo NoSQL databázových systémov, ktoré majú odlišné vlasnosti, komplexitu a vďaka tomu ich môžeme použiť pre rôzne účely. Snaha porovnať tieto systémy na globálnej úrovni je nerealizovateľná a často vedie k chybám. Cieľom tejto sekcie je definovať základné body vďaka, ktorým je možné tieto systémy kategorizovať a vrámci danej kategórie porovánať. Tieto zistenia nám následne môžu pomôcť pri výbere vhodného systému, ktorý bude vhodný na riešenie našich požiadavok. Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto systémov:
 \begin{enumerate}
  \item
   dátový model
@@ -900,7 +914,7 @@ Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto syst
  \item
   škálovateľnosť
  \item 
-  schopnosť odolávať chýbam ( failure handling)
+  schopnosť odolávať chýbam (failure handling)
  \item
   elastickosť
  \item 
@@ -915,7 +929,9 @@ Následujúce body patria medzi hlavné kritéria pri porovnávaní týchto syst
 \subsection{Dátový a dotazovací model}
 Dátový model definuje štruktúru, ktorá slúži na ukladanie dát v databázovom systéme. Dotazovací model následne definuje obmedzenia a operácie, ktoré je možné nad uloženými dátami vykonávať. V predchádzajúcej sekcii sme popísali základnú kategorizáciu NoSQL systémov poďla dátového modelu. Dátový a dotazovací model do určitej miery popisuje výkonnosť, komplexnosť a vyjadrovaciu silu databázového systému. Dotazovací model určuje programové rozhranie (API).
 
-Pri výbere vhodného dátového modelu pre aplikáciu je dôležité porozumieť štruktúre dát a definovať operácie, ktoré nad týmito dátami budeme vykonávať.
+Pri výbere vhodného dátového modelu pre aplikáciu je dôležité porozumieť štruktúre dát a definovať operácie, ktoré nad týmito dátami budeme vykonávať. Na základe týchto operácii sa navrhne databázová schéma.
+
+%TODO : priklad ... s deduplikaciou <
 
 \subsection{Škálovateľnosť a schopnosť odolávať chybám}
 Tieto vlasnosti kladú na systém požiadavky ako podpora replikácie a rozdeľovanie dát. Distribuované databázové systémy implementujú tieto techniky na systémovej úrovni. V prípade ich podpory, môžeme od systému požadovať:
@@ -928,7 +944,7 @@ Tieto vlasnosti kladú na systém požiadavky ako podpora replikácie a rozdeľo
 
 Počet uzlov, na ktorých sa vykonáva replika dát a konfigurácia databázového systému, ktorá podporuje geograficky oddelené dátové centrá určujú stupeň odolnosti systému voči chybám, medzi ktoré patria porucha uzla alebo sieťové prerušenie.
 
-Častým požiadavkom webových aplikácií, z dôvodu neustáleho nárastu dát, na databázový systém je podpora škálovania s cieľom zvýšenia veľkosti databáze. S neustálym vývojom nových aplikácií musíme zároveň uvažovať potrebu škálovania z pohľadu komplexnosti dát \cite{segaran2009beautiful}. Výber dátového modelu môže byť ovplyvnený na základe komplexnosti dát. Obrázok \ref{fig:scalling} zachytáva pozíciu dátových modelov z pohľadu škálovania komplexnosti a veľkosti dát.
+Častým požiadavkom webových aplikácií, z dôvodu neustáleho nárastu dát, na databázový systém je podpora škálovania s cieľom zvýšenia veľkosti databáze. S neustálym vývojom nových aplikácií musíme zároveň uvažovať potrebu škálovania aj z pohľadu komplexnosti dát \cite{segaran2009beautiful}. Výber dátového modelu môže byť ovplyvnený na základe komplexnosti dát. Obrázok \ref{fig:scalling} zachytáva pozíciu dátových modelov z pohľadu škálovania komplexnosti a veľkosti dát.
 
 %http://blogs.neotechnology.com/emil/2009/11/nosql-scaling-to-size-and-scaling-to-complexity.html
 
@@ -936,19 +952,21 @@ Počet uzlov, na ktorých sa vykonáva replika dát a konfigurácia databázové
  \centering
  \includegraphics[width=13cm]{./figures/nosqldatamodels.png}
  % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
- \caption{Pozícia dátového modelu z pohľadu škálovania podľa veľkosti a komplexnosti. Zdroj: Neo4J a NOSQL overview and the benefits of graph databases, Emil Eifrem, prezentacia, TODO link.}
+ \caption{Pozícia dátového modelu z pohľadu škálovania podľa veľkosti a komplexnosti. Zdroj: \cite{neo4j}}
  \label{fig:scalling}
 \end{figure}
+%TODO: http://www.slideshare.net/emileifrem/nosql-overview-neo4j-intro-and-production-example-qcon-london-2010
 
-Dátový model typu kľuč-hodnota a stĺpcovo orientovaný model (Bigtable clones) majú jednoduchú štruktúru, ktorá kladie minimálnu náročnosť na horizontálne škálovanie. Nevýhodou tohto prístupu je naopak to, že všetká práca s dátami a ich štruktúrou sa prenáša do vyšších vrstiev, o ktoré sa musí starať programátor. Naopak dokumentový a grafový model poskytuje bohatšiu štruktúru na prácu s dátami, ktorá spôsobuje komplikovanejšie škálovanie vhľadom k veľkosťi dát. Podľa odhadov spoločnosti Neotechnology až 90\% aplikáci, v prípade že sa nejedná o projekty spoločností Google, Amazon atď., spadá do rozmedzia kde sa veľkosť záznamov pohybuje rádovo v miliardách. Za zmienku stojí fakt, že aj napriek tomu, že tieto dátové modely sú si navzájom izomorfné, vhodnosť ich použitia závisí na konkrétnom príklade a požiadavkoch na aplikáciu. 
+Dátový model typu kľuč-hodnota a stĺpcovo orientovaný model (Bigtable clones) majú jednoduchú štruktúru, ktorá kladie minimálnu náročnosť v prípade horizontálneho škálovania. Nevýhodou tohto prístupu je naopak to, že všetká práca s dátami a ich štruktúrou sa prenáša do vyšších vrstiev, o ktoré sa musí starať programátor. Naopak dokumentový a grafový model poskytuje bohatšiu štruktúru na prácu s dátami, ktorá spôsobuje komplikovanejšie škálovanie vhľadom k veľkosťi dát. Podľa odhadov spoločnosti Neotechnology\footnote{http://neotechnology.com/} až 90\% aplikáci, v prípade že sa nejedná o projekty spoločností Google, Amazon atď., spadá do rozmedzia kde sa veľkosť záznamov pohybuje rádovo v miliardách. Za zmienku stojí fakt, že aj napriek tomu, že tieto dátové modely sú si navzájom izomorfné, vhodnosť ich použitia závisí na konkrétnom príklade a požiadavkoch na aplikáciu. 
 
 %one size fits all?
 \subsection{Elastickosť}
-Vďaka horizontálnemu škálovaniu sa snažime o zýšenie kapacity a dostupnosti dátového úložiska. Elastickosť škálovania určuje ako sa daný systém dokáže vysporiadať s pridaním alebo odobraním uzla, či je v tomto prípade potrebný manuálny zásah pre rovnomerné rozloženie záťaže, reštartovanie systému alebo zmena v užívateľskej aplikácii. V prípade pridávania nových uzlov do systému by táto vlastnosť mala zabezpečiť lineárne zvyšovanie výkonu u operácií ako je čítanie alebo zapisovanie dát.
+% Vďaka horizontálnemu škálovaniu sa snažime o zýšenie kapacity a dostupnosti dátového úložiska. 
+Elastickosť škálovania popisuje ako sa daný systém dokáže vysporiadať s pridaním alebo odobraním uzla. Určuje do akej miery je v tomto prípade potrebný manuálny zásah pre rovnomerné rozloženie záťaže, prípadná potreba reštartovania systému alebo zmena v užívateľskej aplikácii. Ideálne by pridávanie nových uzlov do systému malo zabezpečiť lineárne zvyšovanie výkonu u operácií ako je čítanie alebo zapisovanie dát.
 
 
 \subsection{Konzistencia dát}
-Poďla teórie CAP platí, že v prípade výskytu sieťových prerušení, ktorých prítomnosť v prostredí distribuovaných databázových systémov je prirodzená, nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. NoSQL systémy preto môžeme rozdeliť podľa tohto modelu do troch skupín, ktoré znázorňuje obrázok \ref{fig:scalling}. Umiestnenie niektorých datázových systémov sa môže meniť podľa na základe ich konfigurácie. 
+Poďla teórie CAP platí, že v prípade výskytu sieťových prerušení, ktorých prítomnosť v prostredí distribuovaných databázových systémov je prirodzená, nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. NoSQL systémy preto môžeme rozdeliť podľa tohto modelu do dvoch skupín, ktoré znázorňuje obrázok \ref{fig:scalling}. Umiestnenie niektorých datázových systémov sa môže meniť na základe ich konfigurácie. 
 
 \begin{figure}[h]
  \centering
@@ -965,7 +983,7 @@ NoSQL systémy ďalej delíme  podľa prostredia, v ktorom pracujú. Väčšina 
 
 
 \subsection{Bezpečnosť}
-Distribuovaný databázový systém je možné nasadiť do claudu. V prípade, použitia verejných claudov môže hroziť nebezpečenstvo zneužitia dát treťou stranou a preto je potrebné aplikovať bezpečnostné mechanizmy. Pri nasadení systému do privátneho klaudu zasa môžeme požadovať viacero úrovní ochrany pre prístup k dátam. Systémy NoSQL disponujú minimálnymi prvkami pre zaručenie autentizácie a autorizácie. Mnoho systémov tieto mechanizmy vôbec neimplementuje.
+Distribuovaný databázový systém je možné nasadiť do cloudu. V prípade, použitia verejných cloudov môže hroziť nebezpečenstvo zneužitia dát treťou stranou a preto je potrebné aplikovať bezpečnostné mechanizmy. Pri nasadení systému do privátneho cloudu zasa môžeme požadovať viacero úrovní ochrany pre prístup k dátam. Systémy NoSQL disponujú minimálnymi prvkami pre zaručenie autentizácie a autorizácie. Mnoho systémov tieto mechanizmy vôbec neimplementuje poprípade ich implementácia je v začiatkoch.
 
 %TODO
 %\subsection{Bezpečnosť}
@@ -977,14 +995,14 @@ Distribuovaný databázový systém je možné nasadiť do claudu. V prípade, p
 %http://themindstorms.blogspot.com/2009/05/quick-reference-to-alternative-data.html
 %http://www.metabrew.com/article/anti-rdbms-a-list-of-distributed-key-value-stores
 
-V predchádzajúcej sekcii sme tieto distribuované databázové systémy rozdelili do štyroch hlavných kategórií na základe ich dátového modelu, ktorý je jedným z kľúčových faktorov pri výbere vhodného kandidáta podľa požiadavkov cieľovej aplikácie. Detailný popis a výkonnostné porovnanie NoSQL systémov, ktoré reprezentujú jednotlivé kategórie by boli nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \ref{barina}, preto túto kategóriu vynecháme.
+V predchádzajúcej sekcii sme tieto distribuované databázové systémy rozdelili do štyroch hlavných kategórií na základe ich dátového modelu, ktorý je jedným z kľúčových faktorov pri výbere vhodného kandidáta podľa požiadavkov cieľovej aplikácie. Detailný popis a výkonnostné porovnanie NoSQL systémov, ktoré reprezentujú jednotlivé kategórie by boli nad rámec tejto práce. Paralelne s touto prácou vzniká diplomová práca, ktorá rieši podobný problém s využitím dokumentových databázových systémov  \cite{barina}, preto túto kategóriu pri výbere vynecháme.
 
 %TODO referencie
-Podľa analýzy požiadavkov na našu aplikáciu, ktoré sme popísali v predchádzajúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom a modelom typu kľúč-hodnota. Systémy s grafovým modelom sú určené na odlišnú úlohu problémov. V prípade použitia systémov s dátovým modelom kľúč-hodnota by sme komplexnosť riešenej úlohy preniesli na úroveň klienta. Našim požiadavkom najlepšie vyhovuje stĺpcovo orientovaný model, ktorý využijeme v návrhu našej aplikácie. Pre potreby nášho riešenia použijeme stĺpcovo orientovaný NoSQL systém.
+Podľa analýzy požiadavkov na našu aplikáciu, ktoré sme popísali v predchádzajúcej kapitole nie je vhodné použitie databázových systémov s grafovým modelom a modelom typu kľúč-hodnota. Systémy s grafovým modelom sú určené na odlišnú úlohu problémov. V prípade použitia systémov s dátovým modelom kľúč-hodnota by sme komplexnosť riešenej úlohy preniesli na úroveň klienta. Našim požiadavkom najlepšie vyhovuje stĺpcovo orientovaný model, ktorý využijeme v návrhu našej aplikácie. Hlavnou výhodou je, že tento model u systémov NoSQL nestanovuje žiadnu schému na dáta, ktoré budeme do systému vkládať, počet sĺpcov závisí od vstupných dát a ich počet je ľubovoľný. Pre potreby nášho riešenia preto použijeme stĺpcovo orientovaný NoSQL systém.
 
 \subsection*{Stĺpcovo orientované NoSQL systémy}
 %TODO referencie
-V tejto časti sa zameriame na stručný prehľad a vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto open source systémy patria HBase, Cassandra a Hypertable. Napriek totožnému dátovemu modelu sú tieto systémy založené na rôznych architektonických princípoch a disponujú čiastočne odlišnými vlasnosťami. Tabuľka \ref{tab:Nosql} zobrazuje stručný prehľad vlasností, na ktoré sme sa zamerali pri výbere víťaznej dvojice.
+V tejto časti sa zameriame na vzájomné porovnanie systémov, ktoré poskytujú stĺpcovo orientovaný model. Medzi tieto open source systémy patria HBase, Cassandra a Hypertable. Napriek totožnému dátovemu modelu sú tieto systémy založené na rôznych architektonických princípoch a disponujú čiastočne odlišnými vlasnosťami. Tabuľka \ref{tab:Nosql} zobrazuje stručný prehľad vlasností, na ktoré sme sa zamerali pri výbere víťaznej dvojice.
 
 
 % \begin{table}[hp]
@@ -1022,7 +1040,7 @@ Distribuovaný systém	& áno  & áno & áno 				\\\addlinespace
 Architektúra		& Bigtable  & Dynamo & Bigtable	\\\addlinespace
 Klient 			& Thrift, REST  & Thrift, Avro & Thrift, C++ 	\\\addlinespace
 Perzistentné úložisko	& HDFS, AS3, KFS  & LSS\footnote{lokálny súborový systém} & HDFS, KFS, LSS		\\\addlinespace
-SPOF \footnote{SPOF - uzol, ktorého nedostupnosť spôsobí nedostupnosť celého systému}	& áno  & nie & -\footnote{zalezi na type uloziska} 	\\\addlinespace
+SPOF	& áno  & nie & -\footnote{zalezi na type uloziska} 	\\\addlinespace
 Podpora viacerých datacentier & áno  & áno & áno 			\\\addlinespace
 Automatické rozdeľovanie dát 	& áno  & áno & áno 			\\\addlinespace
 Replikácia 		& áno  & áno & áno 				\\\addlinespace
@@ -1031,7 +1049,7 @@ Kompresia dát		& LZO, GZIP  & nie & LZO, ZLIB 				\\\addlinespace
 Programovací jazyk 	& Java  & Java & C++ 				\\\addlinespace
 MapReduce 		& áno  & áno & áno 				\\\addlinespace
 Indexy		 	& -  & +  & - 					\\\addlinespace
-Dokumentácia		& +  & +  & - 					\\\addlinespace
+Dokumentácia		& +  & ++  & - 					\\\addlinespace
 Komunita 		& +  & +  & - 					\\\addlinespace\bottomrule
 
 \end{tabular}\\}
@@ -1040,8 +1058,9 @@ Komunita 		& +  & +  & - 					\\\addlinespace\bottomrule
 
 
 
-Zo stručného prehľadu v tabuľke je vidieť, že systémy obsahuju množstvo spoločných vlastností. Pri výbere systémov sme zohľadnili aj ich praktické využitie spoločnostiami globálne pôsobiacimi na IT trhu. Napríklad systém Cassandra je používaný spoločnosťou Facebook v aplikácii pre vyhľadávanie a uchovávanie súkromnej pošty. Ďalšími dôležitými požiadavkami pre výber boli podpora komunity, dokumentácia a vývojový cyklus týchto systémov. Zo zvolených kandidátov sme vybrali systém HBase a Cassandra. Dôvodom prečo sme zavrhli systém Hypertable je nedostačujúca dokumentácia, málo aktívna komunita a pomalý vývojový cyklus. V následujúcich dvoch kapitolách detailne popíšeme oba systémy.
+Zo stručného prehľadu v tabuľke je vidieť, že systémy obsahujú množstvo spoločných vlastností. Pri výbere sme zohľadnili aj ich praktické využitie spoločnosťami globálne pôsobiacimi na IT trhu. Napríklad systém Cassandra je používaný spoločnosťou Facebook v aplikácii pre vyhľadávanie a uchovávanie súkromnej pošty. Ďalšími dôležitými požiadavkami pre výber boli podpora komunity a kvalita dokumentácie. U systému Cassandra zohrala pri výbere hlavnú rolu decentralizácia a možnosť voľby medzi konzistenciou a dostupnosťou. Zo zvolených kandidátov sme vybrali systém HBase a Cassandra. Dôvodom prečo sme zavrhli systém Hypertable je nedostačujúca dokumentácia, málo aktívna komunita a v čase výberu sa nachádzal vo verzii alfa. V následujúcich dvoch kapitolách detailne popíšeme oba systémy.
 
+Počas písania tejto práce bol uvoľnený ďalší open source distribuovaný databázový systém implementujúci model Bigtable pod názvom Cloudata\footnote{http://www.cloudata.org}, ktorý sme už do naše práce nezahrnuli.
 %TODO no transactions
 %C = rack aware + sec indices, 
 %hdfs SPOF
@@ -1058,13 +1077,13 @@ Zo stručného prehľadu v tabuľke je vidieť, že systémy obsahuju množstvo 
 
 %TODO : popisat strucne MVCC
 
-Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte a poskytovala úložisko pre indexy vytvárané nad týmito dátami. Od systému sa predpokladalo, že bude zvládať miliardy zápisov denne, podporovať škálovanie podľa narástajúceho počtu použivateľov, umožnovať beh na spotrebných počítačoch a podporať replikáciu medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo \cite{} od spoločnosti Amazon a zároveň ich kombinuje s dátovým modelom distribuovaného databázového systému Bigtable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy, na ktorých je tento systém založený.
+Distribuovaný databázový systém Cassandra bol vytvorený pre interné účely spoločnosti Facebook v roku 2007. Cassandra slúžila na vyhľadávanie v súkromnej pošte a poskytovala úložisko pre indexy vytvárané nad týmito dátami. Od systému sa predpokládalo, že bude obsluhovať miliardy zápisov denne, podporovať škálovanie podľa narástajúceho počtu použivateľov, umožnovať beh na spotrebných počítačoch a podporovať replikáciu medzi geograficky oddelenými dátovými centrami. Ďalším požiadavkom bola vysoká dostupnosť, aby chyba žiadného uzlu nespôsobila celkovú nedostupnosť systému. Cassandra je decentralizovaný systém, kde každý uzol vykonáva tie isté operácie. V roku 2008 bola zverejnená ako open source projekt a je neustále vyvíjaná mnohými spoločnosťami a vývojármi. Tento systém využíva architektonické princípy distribuovaného databázového systému Dynamo \cite{decandia2007dynamo} od spoločnosti Amazon a dátový model prevzal od distribuovaného databázového systému Bigtable vytvoreného spoločnosťou Google. V následujúcom texte popíšeme hlavne princípy, na ktorých je tento systém založený.
 
 
 \section{Dátový model}
-Cassandra k dátovému modelu systému Bigtable pridala štruktúru pod názvom \emph{\uv{super stĺpec}} (Super column). Základnou jednotkou dátového modelu je stĺpec. Stĺpec je tvorený názvom, hodnotou a časovým odtlačkom, ktorý využíva Cassandra pri riešení konfliktov. Skupina stĺpcov je identifikovná pomocou unikátneho kľúča a predstavuje riadok, počet a názvy stĺpcov nie je potrebné vopred definovať. Zoradené riadky podľa hodnoty kľučov a v nich zoradené stĺpce obaľuje štruktúra pod názvom \uv{rodina stĺpcov} (Column family). Kľúče interne reprezentované ako reťazec znakov sú zároveň zotriedené. Názvy stĺpcov možu byť viacerých typov ako napríklad Ascii, UTF-8 a bajtové pole, podľa ktorých sú zotriedené. Je možné implementovať vlastnú metódu pre triedenie. Riadky obsiahnuté v jednej rodine stĺpcov sú na pevnom disku fyzicky umiestnené v jednom súbore typu \emph{SSTable}. Je vhodné do rodiny stĺpcov ukládať relevantné záznamy, ku ktorým budeme pristupovať spoločne, čim sa vyhneme nadbytočným diskovým operáciam. V rámci jednej repliky sú operácie nad stĺpcami atomické. Operácie nad riadkom nevyužívajú zamykanie. Voliteľným príznakom, ktorý môžeme u stĺpca nastaviť je parameter TTL (Time to live), ktorý po uplynutí časového intervalu označí dáta príznakom pre zmazanie.
+Cassandra k dátovému modelu systému Bigtable pridala štruktúru pod názvom \emph{\uv{super stĺpec}} (Super column). Základnou jednotkou dátového modelu je stĺpec. Stĺpec je tvorený názvom, hodnotou a časovým odtlačkom, ktorý využíva Cassandra pri riešení konfliktov súbežného zápisu. Skupina stĺpcov je identifikovná pomocou unikátneho kľúča a predstavuje riadok, počet a názvy stĺpcov nie je potrebné vopred definovať. Zoradené riadky podľa hodnoty kľučov a v nich zoradené stĺpce obaľuje štruktúra pod názvom \emph{\uv{rodina stĺpcov}} (Column family). Kľúče interne reprezentované ako reťazec znakov sú zároveň zotriedené. Názvy stĺpcov možu byť viacerých typov ako napríklad \emph{ASCII}, \emph{UTF-8}, bajtové pole a iné, podľa ktorých sú zotriedené. Je možné implementovať vlastnú metódu pre triedenie. Riadky obsiahnuté v jednej rodine stĺpcov sú na pevnom disku fyzicky umiestnené v jednom súbore typu \emph{SSTable}. Je vhodné do rodiny stĺpcov ukládať relevantné záznamy, ku ktorým budeme pristupovať spoločne, čim sa vyhneme nadbytočným diskovým operáciam. V rámci jednej repliky sú operácie nad stĺpcami atomické. Operácie nad riadkom nevyužívajú zamykanie. Voliteľným príznakom, ktorý môžeme u stĺpca nastaviť je parameter TTL (Time to live), ktorý po uplynutí časového intervalu označí dáta príznakom pre zmazanie.
 
-Štruktúra super stĺpec je špecialny typ stĺpca, ktorý je tvorenými obyčajnými stĺpcami. Stĺpec typu super má názov a jeho hodnota je tvorená zoznamom názvov obyčajných stĺpcov. Super stĺpce obaľuje štruktúra pod názvom \emph{\uv{super-rodina stĺpcov}} (Super column family). \emph{Keyspace} združuje rodiny a super-rodiny stĺpcov. Definuje faktor a metódu replikácie, ktorá môže byť závyslá poprípade nezávislá na sieťovej topológii. Na keyspace sa môžeme pozerať ako na databázu a rodiny stĺpcov môžeme prirovnať k tabuľkám v relačných databázových systémoch.
+Štruktúra super stĺpec je špecialny typ stĺpca, ktorý je tvorenými obyčajnými stĺpcami. Stĺpec typu super má názov a jeho hodnota je tvorená zoznamom názvov obyčajných stĺpcov. Super stĺpce obaľuje štruktúra pod názvom \emph{\uv{super-rodina stĺpcov}} (Super column family). \emph{Keyspace} združuje rodiny a super-rodiny stĺpcov. Definuje faktor a metódu replikácie, ktorá môže byť závislá poprípade nezávislá na sieťovej topológii. Na keyspace sa môžeme pozerať ako na databázu a rodiny stĺpcov môžeme prirovnať k tabuľkám v relačných databázových systémoch.
 
 Aktuálna verzia Cassandry definuje maximálnu veľkosť dát 2 GB, ktoré je možné uložit do jedného stĺpca a stanovuje limit dve miliardy pre maximálny počet stĺpcov tvoriacih riadok.
 
@@ -1073,9 +1092,9 @@ Aktuálna verzia Cassandry definuje maximálnu veľkosť dát 2 GB, ktoré je mo
 
 \section{Rozdeľovanie dát}
 %vuh1093.pdf
-Kľúčovým požiadavkom systému Cassandra je jeho schopnosť horizontálneho škálovania, čo vyžaduje pridávanie nových uzlov. Tento požiadavok vyžaduje mechanizmus, ktorý zabezpečí automatické rozdeľovanie dát medzi uzlami systému. Uvažujme príklad, kde máme k dispozícii jeden server obsahujúci veľké množstvo objektov, ku ktorým pristupujú klienti. Medzi server a klientov vložíme vrstvu kešovacích systémov, kde každý z týchto systémov bude zodpovedný za prístup k časti objektov nachádzajúcich sa na serveroch. Klient musí byť schopný určiť na základe hľadaného objektu, ku ktorém kešovaciemu systému. Predpokladajme, že klientom zabezpečíme výber jednotlivých kešovacím systémom pomocou lineárnej hašovacej funkcie $\textrm{y = ax + b (mod p)}$, kde p je počet kešovacích systémov. Pridanie nového kešovacieho systému alebo jeho zlyhanie bude mať katastrofálny dopad na funkčnosť systému. V prípade zmeny hodnoty p, bude každá položka bude odpovedať novej a zároveň chybnej lokácii. Tento problém rieši elegantne technika pod názvom \emph{\uv{úplné hašovanie}} (Consistent hashing) \cite{Karger:1997:CHR:258533.258660}, ktorá sa využíva v distribuovaných systémoch pre určenie pozície pre prístup k distribuovaným hašovacími tabuľkami a využíva ju systém Cassandra.
+Kľúčovým požiadavkom systému Cassandra je jeho schopnosť horizontálneho škálovania, čo vyžaduje pridávanie nových uzlov. Tento požiadavok vyžaduje mechanizmus, ktorý zabezpečí automatické rozdeľovanie dát medzi uzlami systému. Uvažujme príklad, kde máme k dispozícii jeden server obsahujúci veľké množstvo objektov, ku ktorým pristupujú klienti. Medzi server a klientov vložíme vrstvu kešovacích systémov, kde každý z týchto systémov bude zodpovedný za prístup k časti objektov nachádzajúcich sa na serveroch. Klient musí byť schopný určiť na základe hľadaného objektu, ku ktorém kešovaciemu systému. Predpokladajme, že klientom zabezpečíme výber jednotlivých kešovacím systémom pomocou lineárnej hašovacej funkcie ${y = ax + b (mod\,\ p)}$, kde $p$ je počet kešovacích systémov. Pridanie nového kešovacieho systému alebo jeho zlyhanie bude mať katastrofálny dopad na funkčnosť systému. V prípade zmeny hodnoty $p$, bude každá položka odpovedať novej a zároveň chybnej lokácii. Tento problém rieši elegantne technika pod názvom \emph{\uv{úplné hašovanie}} (Consistent hashing) \cite{Karger:1997:CHR:258533.258660}, ktorá sa využíva v distribuovaných systémoch pre určenie pozície pre prístup k distribuovaným hašovacími tabuľkami a využíva ju systém Cassandra.
 
-Výstup hašovacej funkcie MD5 reprezentujeme pomocou \uv{kruhu}, kde v smere hodinových ručičiek postupujeme od minimálnej hodnoty hašovacej funkcie (0) k maximálnej (${2^{127}}$). Každý uzlol v systéme má pridelenú hodnotu z tohoto rozsahu, ktorá určí jeho jednoznačnú pozíciu. Identifikácia uzlu v systéme, na ktorý sa uložia dáta reprezentované hodnotou kľúča sa vykoná aplikáciou hašovacej funkcie na dáta reprezentujúce kľúč. Na základe tejto hodnoty je jednoznačne určená pozícia v kruhu a v smere hodinových ručiek je vyhľadaný najbližší uzol, ktorému dáta prináležia. Výhodou tejto metódy je, že každý uzol je zodpovedný za hodnotu kľúčov, ktorých poloha sa nachádza medzi ním a jeho predchodcom. V prípade pridania nového uzlu alebo jeho odobratia, sa zmena mapovania kľúčov v kruhu prejaví len u jeho susedov. Táto technika prináša výhody, medzi ktoré patrí rovnomerná distribúcia dát a vyváženie záťaže. Dynamo tento problém rieši spôsobom kde každý uzol je zodpovedný za viacero pozícií na kruhu, takzvané virtuálne pozície. Cassandra využíva vlastné mechanizmy na monitorovanie záťaže uzlov a automaticky presúva ich pozície v kruh. Zároveň je možné explicitne stanoviť polohu každého uzla v kruhu pomocou zadania jeho identifikátora. Tento spôsob je vhodný v prípade, ak vieme predom určiť koľko uzlov bude systém obsahovať. V prípade zvyšovania počtu uzlov je možné tieto identifikátory zmeniť za behu systému. Identifikátor polohy uzlov je možné určiť pomocou následujúceho programu v jazyku Python, kde K je počet uzlov v systéme.
+Výstup hašovacej funkcie MD5 je reprezentovaný pomocou \uv{kruhu}, kde v smere hodinových ručičiek postupujeme od minimálnej hodnoty hašovacej funkcie \textit{0} k maximálnej ${2^{127}}$. Každý uzlol v systéme má pridelenú hodnotu z tohoto rozsahu, ktorá určí jeho jednoznačnú pozíciu. Identifikácia uzlu v systéme, na ktorý sa uložia dáta reprezentované hodnotou kľúča sa vykoná aplikáciou hašovacej funkcie na dáta reprezentujúce kľúč. Na základe tejto hodnoty je jednoznačne určená pozícia v kruhu a v smere hodinových ručiek je vyhľadaný najbližší uzol, ktorému dáta prináležia. Výhodou tejto metódy je, že každý uzol je zodpovedný za hodnotu kľúčov, ktorých poloha sa nachádza medzi ním a jeho predchodcom. V prípade pridania nového uzlu alebo jeho odobratia, sa zmena mapovania kľúčov v kruhu prejaví len u jeho susedov. Táto technika prináša výhody, medzi ktoré patrí rovnomerná distribúcia dát a vyváženie záťaže. Dynamo tento problém rieši spôsobom kde každý uzol je zodpovedný za viacero pozícií na kruhu, takzvané virtuálne pozície. Cassandra využíva vlastné mechanizmy na monitorovanie záťaže uzlov a automaticky presúva ich pozície v kruh. Zároveň je možné explicitne stanoviť polohu každého uzla v kruhu pomocou zadania jeho identifikátora. Tento spôsob je vhodný v prípade, ak vieme predom určiť koľko uzlov bude systém obsahovať. V prípade zvyšovania počtu uzlov je možné tieto identifikátory zmeniť za behu systému. Identifikátor polohy uzlov je možné určiť pomocou následujúceho programu v jazyku Python, kde K je počet uzlov v systéme.
 
 \begin{verbatim}
 def tokens(n):
@@ -1093,21 +1112,22 @@ print tokens(K)
 
 \section{Replikácia}
 
-S úplným hašovaním úzko súvisý replikácia, ktorá zabezpečuje vysokú dostupnosť a odolnosť dát proti ich stráte (Durability). Každá dátová jednotka vložená do systému je replikovaná na N uzlov, kde počet N je voliteľne nastaviteľný pre daný keyspace. Každý uzol sa v prípade replikácie N > 1 stáva koordinátorom, ktorý je zodpovedný za replikáciu dát, ktorých kľúč spadá do jeho rozsahu. Počas operácie zápisu koordinátor replikuje dáta na ďalších N - 1 uzlov. Cassandra podporuje viacero spôsobov pre umiestňovanie replík.
+%S úplným hašovaním úzko súvisý replikácia, ktorá zabezpečuje vysokú dostupnosť a odolnosť dát proti ich stráte (Durability). 
+S úplným hašovaním úzko súvisý replikácia. Každá dátová jednotka vložená do systému je replikovaná na N uzlov, kde počet N je voliteľne nastaviteľný pre daný keyspace. Každý uzol sa v prípade replikácie N > 1 stáva koordinátorom, ktorý je zodpovedný za replikáciu dát, ktorých kľúč spadá do jeho rozsahu. Počas operácie zápisu koordinátor replikuje dáta na ďalších N - 1 uzlov. Cassandra podporuje viacero spôsobov pre umiestňovanie replík.
 
 \subsection*{Jednoduchá stratégia}
 
-Táto stratégia umiestňuje replikú dát bez ohľadu na umiestnenie uzlov (serverov) v datacentre. Primárna replika je uložená na N - 1 susedov v smere hodinových ručičiek. Z toho vyplýva, že každý uzol je zodpovendný za dáta, ktorých kľúče spadajú do jeho rozsahu a súčasne dáta, ktoré spravuje jeho N predchodcov.
+Táto stratégia umiestňuje replikú dát bez ohľadu na umiestnenie uzlov (serverov) v datacentre. Primárnu repliku spravuje uzol, do ktorého rozsahu spadajú ukladané dáta a ostanté repliky sú uložené na N - 1 susedov v smere hodinových ručičiek. Z toho vyplýva, že každý uzol je zodpovendný za dáta, ktorých kľúče spadajú do jeho rozsahu a súčasne dáta, ktoré spravuje jeho N predchodcov.
 
 \subsection*{Sieťová stratégia}
 
-Pri tejto metóde a úrovni replikácie s hodnotou aspoň tri, sme schopný zabezpečiť umiestnenie dvoch replík v rozdielnych \uv{rackoch}, tretia replika bude umiestnená do iného datacentra. Táto stratégia je výhodna v prípade ak chceme použiť časť serverov na výpočty pomocou MapReduce a zvyšné dve repliky budú slúžiť na obsluhu reálnej prevádzky.
+Pri tejto metóde a úrovni replikácie s hodnotou aspoň tri, je systém schopný zabezpečiť umiestnenie dvoch replík v rozdielnych \emph{\uv{rackoch}}\footnote{TODO popis rack} vrámci jedného datacentra. Tretia replika môže byť umiestnená do geograficky oddeleného datacentra. Táto stratégia je výhodna v prípade ak chceme použiť časť serverov na výpočty pomocou MapReduce a zvyšné dve repliky budú slúžiť na obsluhu reálnej prevádzky.
 
 \section{Členstvo uzlov v systéme}
 
 Distribuovaný systém musí byť schopný odolávať chybám ako porucha uzlov alebo sieťové prerušenia. Decentralizácia a detekcia chýb využíva mechanizmy založené na \emph{gosship protokoloch} \cite{ganesh2003peer}. Tieto protokoly slúžia pre vzájomnú komunikáciu uzlov vymnieňajúcich si navzájom doležité informácie o svojom stave. Periodicky v sekundových intervaloch každý uzol kontaktuje náhodne vybraný uzol, kde si overí či je tento uzol dostupný. Detekcia nedostupnosti uzla je realizovaná algoritmom s názvom Accrual Failure Detector \cite{hayashibara2004}.
 
-Pridávanie novýchu uzlov, presun uzlov v rámci kruhu sa taktiež dejú pomocou Gosship protokolu, ktorý ďalej zabezpečuje, že každý uzol obsahuje informácie o tom, ktorý uzol je zodpovedný za daný rozsah kľúčov v kruhu. Ak sa vykonáva operácia čítania alebo zápisu dát na uzol, ktorý nie je zodpovedný za tento kľúč, dáta sú automaticky preposlané na správny uzol, ktorého výber je zabezpečený s časovou zložitosťou O(1).
+Pridávanie novýchu uzlov, presun uzlov v rámci kruhu sa taktiež dejú pomocou Gosship protokolu, ktorý ďalej zabezpečuje, že každý uzol obsahuje informácie o tom, ktorý uzol je zodpovedný za daný rozsah kľúčov v kruhu. Ak sa vykonáva operácia čítania alebo zápisu dát na uzol, ktorý nie je zodpovedný za tento kľúč, dáta sú automaticky preposlané na správny uzol, ktorého výber je zabezpečený s časovou zložitosťou \textit{O(1)}.
 
 
 \section{Zápis dát}
@@ -1125,7 +1145,7 @@ Počas vykonania operácie reprezentujúcej zmazanie dát sa tieto dáta nevyma�
 
 \section{Konzistencia}
 
-Konzistencia systému je maximálne konfigurovateľná a využíva princípy techník založených na protokoch kvóra. Klient určuje hodnotu R, ktorá stanovuje počet replík pre čítanie dát. Operácia je úspešná v prípade dostupnosti týchto replík. To samé platí pre čítanie dát, kde počet replík je určený parametrom W. Ak je splnený vzťah R + W > N, kde N je počet replík tak výsledok operácie spĺňa definíciu silnej konzistencie, naopak v prípade vzťahu R + W < N, sa jedná o čiastočnú konzistenciu čím zaručíme vysokú dostupnosť.
+Konzistencia systému je maximálne konfigurovateľná a využíva princípy techník založených na protokoch kvóra. Klient určuje hodnotu R, ktorá stanovuje počet replík pre čítanie dát. Operácia je úspešná v prípade dostupnosti týchto replík. To samé platí pre zápis dát, kde počet replík je určený parametrom W. Ak je splnený vzťah R + W > N, kde N je počet replík tak výsledok operácie spĺňa definíciu silnej konzistencie, naopak v prípade vzťahu R + W < N, sa jedná o čiastočnú konzistenciu čím zaručíme vysokú dostupnosť.
 
 
 \section{Perzistentné úložisko}
@@ -1185,7 +1205,7 @@ V úvode tejto kapitoly stručne popíšeme distribuovaný súborový systém, k
 \section*{Hadoop}
 %shvachko.pdf
 
-Hadoop\footnote{http://hadoop.apache.org/} je open source projekt vytvorený v programovacom jazyku Java, ktorý tvorý distribuovaný súborový systém Hadoop Distributed Filesystem (HDFS) a framework MapReduce pre spracúvanie objemu dát v desiatkách PB \cite{Thusoo:2010:DWA:1807167.1807278}. Medzi hlavné vlastnosti tohoto systému patria vysoká dostupnosť, škálovateľnosť a distribuovaný výpočet. Architektúra HDFS vychádza z princípov distribuovaného súborového systému Google File System \cite{Ghemawat:2003:GFS:945445.945450} (GFS) a pôvod frameworku MapReduce \cite{Dean:2008:MSD:1327452.1327492} pochádza taktiež od spoločnosti Google.
+Hadoop\footnote{http://hadoop.apache.org/} je open source projekt vytvorený v programovacom jazyku Java, ktorý tvorý distribuovaný súborový systém Hadoop Distributed Filesystem (HDFS) a framework MapReduce pre spracúvanie objemu dát v desiatkách PB \cite{Thusoo:2010:DWA:1807167.1807278}. Medzi hlavné vlastnosti tohoto systému patria vysoká dostupnosť, škálovateľnosť a distribuovaný výpočet. Architektúra HDFS vychádza z princípov distribuovaného súborového systému Google File System (GFS) \cite{Ghemawat:2003:GFS:945445.945450} a pôvod frameworku MapReduce \cite{Dean:2008:MSD:1327452.1327492} pochádza taktiež od spoločnosti Google.
 
  
 %kto ho pouziva a na ake typy appl
@@ -1198,7 +1218,7 @@ Predtým ako klient vykoná operáciu zápisu alebo čítania dát, tak kontaktu
 
 %TODO popisat format metadat ???
 
-Hlavným nedostatkom tejto infraštruktúry je fakt, že uzlol Namenode tvorí kritický bod systému (SPOF), v prípade jeho nedostupnosti nie je možné pracovať s HDFS. Prípadná strata alebo poškodenie dát na tomto uzle spôsobí totálne zlyhanie súborového systému bez možnosti jeho obnovy. Súborový systém nie je vhodný pre ukladanie veľkého počtu malých súborov.
+Hlavným nedostatkom tejto infraštruktúry je fakt, že uzlol Namenode tvorí kritický bod výpadku, v prípade jeho nedostupnosti nie je možné pracovať s HDFS. Prípadná strata alebo poškodenie dát na tomto uzle spôsobí totálne zlyhanie súborového systému bez možnosti jeho obnovy. Súborový systém nie je vhodný pre ukladanie veľkého počtu malých súborov.
 Uzol Namenode alokuje pre objekt typu blok a objekt typu súbor 300 B metadát. V prípade uloženia súboru, ktorý nepresahuje veľkosť jedného bloku je potrebné alokovať 300 B dát. Ak uložíme 10,000,000 takýchto súborov veľkosť metadát, ktoré udržiava Namenode v operačnej pamati zaberie 3 GB. Celkový počet uložených súborov je obmedzený veľkosťou operačnej pamati RAM, ktorou disponuje uzol Namenode.
 
 Z týchto pozorovaní vyplýva fakt, že distribuovaný súborový systém HDFS nemá praktické využitie ako úložisko dát slúžiace k archivácii emailových správ, pre ktoré sme zadefinovali požiadavky v tretej kapitole. %TODO:REF
@@ -1228,7 +1248,7 @@ Aplikácie HDFS a MapReduce slúžia na dávkové spracúvanie obrovského objem
 
 \section{Dátový model}
 
-Dátový model je totožný s konceptom Bigtable. Dáta s ktorými pracuje HBase sa ukladajú do tabuliek. Každá tabuľka obsahuje riadky identifikované kľúčom, ktoré môžu byť tvorené ľubovoľným počtom stĺpcov. Klúče sú reprezentované ako pole bajtov (Java byte[]). Pre zápis ich hodnoty môžeme použiť ľubovoľný typ dát, napríklad reťazec alebo serializovanú dátovú štruktúru pomocou JSON, XML. Riadky sú radené podľa názvov kľúčov, ktoré sú radené podľa hodnoty jednotlivých bajtov. Stĺpce sú organizované do skupín, ktoré sa nazývajú \uv{rodiny stĺpcov} (Column families). Obsahu každej bunky, ktorej pozíciu určuje riadok a stĺpec prináleži verzia, ktorá je reprezentovaná časovou značkou a jej obsah je reprezentovaný ako pole bajtov. Časovú značku určuje klient pri zápise dát alebo je automaticky generovaná systémom HBase (reprezentuje ju systémový čas). Obsah buniek tabuľky je možné sprístupniť pomocou kľúča a názvu stĺpca alebo pomocou kľúča, názvu stĺpca a časovej značky. V prípade uloženia viacerých verzií v danej bunke, sú tieto dáta radené od najaktuálnejšej časovej značky po najstaršiu. Región tvorí interval riadkov, kde posledný riadok do daného intervalu nepatrí.
+Dátový model je totožný s konceptom Bigtable. Dáta s ktorými pracuje HBase sa ukladajú do tabuliek. Každá tabuľka obsahuje riadky identifikované kľúčom, ktoré môžu byť tvorené ľubovoľným počtom stĺpcov. Klúče sú reprezentované ako bajtové pole. Pre zápis ich hodnoty môžeme použiť ľubovoľný typ dát, napríklad reťazec alebo serializovanú dátovú štruktúru pomocou JSON, XML. Riadky sú radené podľa názvov kľúčov, ktoré sú radené podľa hodnoty jednotlivých bajtov. Stĺpce sú organizované do skupín, ktoré sa nazývajú \uv{rodiny stĺpcov} (Column families). Obsahu každej bunky, ktorej pozíciu určuje riadok a stĺpec prináleži verzia, ktorá je reprezentovaná časovou značkou a jej obsah je reprezentovaný ako pole bajtov. Časovú značku určuje klient pri zápise dát alebo je automaticky generovaná systémom HBase (reprezentuje ju systémový čas). Obsah buniek tabuľky je možné sprístupniť pomocou kľúča a názvu stĺpca alebo pomocou kľúča, názvu stĺpca a časovej značky. V prípade uloženia viacerých verzií v danej bunke, sú tieto dáta radené od najaktuálnejšej časovej značky po najstaršiu. Región tvorí interval riadkov, kde posledný riadok do daného intervalu nepatrí.
 %ref na hbase architecture pages
 
 Dôležitým faktom je, že stĺpce, ktoré patria do rovnakej rodiny stĺpcov sú fyzicky uložené na tom istom mieste. Rodiny stĺpcov je potrebné zadefinovať počas vytvárania tabuliek. Ich názvy a počet je potrebné vhodne premyslieť už pri samotnom návrhu databázovej schémy. V prípade, že klaster HBase obsahuje viacero uzlov je na nich potrebné zabezpečiť sychronyzáciu systémového času. V prípade veľkého časového rozdielu na jednotlivých uzloch kastra hrozí, že sa daná inštancia systému HBase sa nespustí.
@@ -1238,7 +1258,7 @@ Dôležitým faktom je, že stĺpce, ktoré patria do rovnakej rodiny stĺpcov s
 
 \section{Architektúra systému}
 
-HBase využíva architektúru master-slave. Uzol v role master sa nazýva \emph{HBaseMaster}, uzly slave \emph{RegionServers} (RS). Pre chod systému je ďalej potrebná služba Zookeeper \ref{}, ktorá zabezpečuje ...
+HBase využíva architektúru master-slave. Uzol v role master sa nazýva \emph{HBaseMaster}, uzly slave \emph{RegionServers} (RS). Pre chod systému je ďalej potrebná služba Zookeeper\footnote{http://zookeeper.apache.org/}, ktorá zabezpečuje ...
 
 %TODO:Zookeeper vyber-urcenie mastra
 
@@ -1255,13 +1275,13 @@ RegionServer sĺúži pre obsluhu klientských požiadavkov, samotný zápis ale
 
 \section{Rozdeľovanie dát}
 
-Základnou jednotkou, ktorá zabezpečuje rozdeľovanie dát a teda umožnuje horizontálne škálovanie a rovnomerné rozloženie záťaže v klastri je region. Region má náhodne vygenerovaný identifikátor. Tabuľka je tvorená regiónmi, pri jej prvotnom vytvorení ju zvyčajne reprezentuje jeden región. V prípade, že jej veľkosť dosiahne predom stanovenú hranicu (závyslé na konfigurácii), dojde k rozdeleniu riadkov do dvoch nových regiónov s podobnou veľkosťou. Tieto regióny sú  v klastri distribuované na uzly typu RegionServer. Tento mechanizmus zabezpečuje, že do systému je možné uložiť tabuľku o veľkosti, ktorú by nebolo možné uložiť alebo spracovať pomocou jedného fyzického počítača z dôvodu hardverových obmedzení. Región je základný element, ktorý zabezpečuje vysokú dostpnosť a rovnomerné rozloženie záťaže.
+Základnou jednotkou, ktorá zabezpečuje rozdeľovanie dát a teda umožnuje horizontálne škálovanie a rovnomerné rozloženie záťaže v klastri je region. Region má náhodne vygenerovaný identifikátor. Tabuľka je tvorená regiónmi, pri jej prvotnom vytvorení ju zvyčajne reprezentuje jeden región. V prípade, že jej veľkosť dosiahne predom stanovenú hranicu (závislé na konfigurácii), dojde k rozdeleniu riadkov do dvoch nových regiónov s podobnou veľkosťou. Tieto regióny sú  v klastri distribuované na uzly typu RegionServer. Tento mechanizmus zabezpečuje, že do systému je možné uložiť tabuľku o veľkosti, ktorú by nebolo možné uložiť alebo spracovať pomocou jedného fyzického počítača z dôvodu hardverových limitov. Región je základný element, ktorý zabezpečuje vysokú dostpnosť a rovnomerné rozloženie záťaže.
 
 \section{Replikácia}
 %http://hbase.apache.org/replication.html
 Primárnu replikáciu dát, ktorá spĺňa vlastnosti silnej konzistencie a zabraňuje stráte dát zabezpečuje perzistentné úložisko, v tomto prípade HDFS.
 
-HBase podporuje replikáciu v rámci viacerých geograficky oddelených datacentier. Replikácia funguje na rovnakom princípe ako v databázovom systméme MySQL\footnote{http://dev.mysql.com/doc/refman/5.1/en/replication-formats.html}, teda master-slave a je asynchrónna. Táto forma replikácie zanáša do daného distribuovaného systému čiastočnú konzistenciu, pretože negarantuje, že dáta budú zmenené na všetkých uzloch slave v rovnakom čase.
+HBase podporuje replikáciu v rámci viacerých geograficky oddelených datacentier. Replikácia funguje na rovnakom princípe ako v databázovom systméme MySQL\footnote{http://dev.mysql.com/doc/refman/5.1/en/replication-formats.html}, teda master-slave a je asynchrónna. Táto forma replikácie zanáša do distribuovaného systému čiastočnú konzistenciu, pretože negarantuje, že dáta budú zmenené na všetkých uzloch slave v rovnakom čase.
 
 %priklad pouzitia - real data vs. m/r
 
@@ -1276,7 +1296,7 @@ Tento distribuovaný databázový systém je schopný pracovať v lokálnom mód
  \item distribuovaný mód, jednotlivé komponenty bežia na samostatných uzloch
 \end{itemize}
 
-Obidve konfigurácie môžu využívať ako perzistentné úložisko distribuovaný súborový systém HDFS, KFS alebo Amazon S3. Štandardne sa doporučuje použitie HDFS.
+Obidve konfigurácie môžu využívať ako perzistentné úložisko distribuovaný súborový systém HDFS, Kosmos Distributed File System (KFS) alebo Amazon S3. Štandardne sa doporučuje použitie HDFS.
 
 \section{Konzistencia}
 
@@ -1320,7 +1340,7 @@ Pri operácií zmazania dát je možné určiť vymazávané data konkrétnou č
 
 \section{Bezpečnosť}
 
-Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou služby Kerberos. Možnosť pridania autorizácie na úrovni tabuliek a rodiny stĺpcov je neustále vo vývoji. 
+Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou služby Kerberos. Možnosť pridania autorizácie na úrovni tabuliek a rodiny stĺpcov je neustále vo vývoji \cite{hbaseSec}. 
 
 
 % Secure HBase, Hadoop Group  Trend Micro: Andrew Purtell, Gary Halmling, Joshu Ho, Eugene Koontz, Mingjie Lail
@@ -1350,7 +1370,7 @@ Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou služby Kerberos
 \chapter{Testovanie výkonnosti}
 
 Výkonové porovnanie NoSQL systémov je zložitá úloha, neexistuje univerzálny nástroj, ktorým by bolo možné tieto systémy navzájom porovnať. 
-Každý z týchto systémov sa vyznačuje špecifickými vlastnosťami medzi ktoré patria typ konzistencie, dostupnosť, optimalizácia pre zápis alebo čítanie a ich výber závisí na konkrétnom prípade použitia. Všeobecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Aktuálne nie sú k dispozíci žiadne všeobecné techniky, ktorými by bolo možné testovať napríklad konzistenciu, spoľahlivosť a ich iné vlastnosti. Výkon týchto systémov ovplyvňuje hodnota replikácie, spôsob rozdeľovania dát a typ konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitím všetkých porovnávaných systémov. V tejto kapitole sa zameriame na popis testov, ktoré sme vykonali v reálnych podmienkach.
+Každý z týchto systémov sa vyznačuje špecifickými vlastnosťami medzi ktoré patria typ konzistencie, optimalizácia pre zápis alebo čítanie a ich výber závisí na konkrétnom prípade použitia. Všeobecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Aktuálne nie sú k dispozíci žiadne všeobecné techniky, ktorými by bolo možné testovať napríklad konzistenciu, spoľahlivosť a ich iné vlastnosti. Výkon týchto systémov ovplyvňuje hodnota replikácie, spôsob rozdeľovania dát a typ konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitím všetkých porovnávaných systémov. V tejto kapitole sa zameriame na popis testov, ktoré sme vykonali v reálnych podmienkach.
 
 % a pri ktorých som pozoroval ako systémy HBase a Cassandra zvládajú vysoký zápis v rôzných konfiguráciách faktoru replikácie, počtu uzlov v klastri a úrovňou konzistencie.
 
@@ -1369,7 +1389,7 @@ Pre výkonnostné testovanie sme mali k dispozícii 9 počítačov s rovnakou ha
 \end{itemize}
 
 \subsection*{Softvérová konfigurácia} 
-Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64 a aplikáciu Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor ( swap). Za účelom monitorovania bol použitý softvér Zabbix a nástroje VisualVM, htop, iostat a dstat.
+Každý uzol obsahoval inštaláciu operačného systém Debian GNU/Linux Lenny x64 a aplikáciu Sun Java JDK 1.6.0\_+88. Na každom uzle bol deaktivovaný odkladací priestor (swap). Za účelom monitorovania bol použitý softvér Zabbix a nástroje VisualVM, htop, iostat a dstat.
 
 \subsection*{Sieťová konfigurácia}
 
@@ -1377,11 +1397,11 @@ Hodnota maximálnej reálnej sieťovej priepustnosti medzi dvoma uzlami bola zme
 
 \section{Popis testovacej metodológie}
 
-Nad oboma distribuovanými databázovými systémami sme vykonali testy na základe, ktorých sme sa snažili identifikovať ako tieto systémy ovplyvňuje rôzna hodnota replikácie, typ konzistencie, pozorovali sme ich schopnosť horizontálneho škálovania a chovanie sa pod záťažou. Testy boli zamerané na zápis dát, ktorý je kritickým prvkom pre potreby našej aplikácie.
+Nad oboma distribuovanými databázovými systémami sme vykonali testy na základe, ktorých sme pozorovali ako tieto systémy ovplyvňuje rôzna hodnota replikácie, typ konzistencie, pozorovali sme ich schopnosť horizontálneho škálovania a chovanie sa pod záťažou. Testy boli zamerané na operácie zápisu dát, ktorý je kritickým prvkom pre potreby našej aplikácie.
 
 \subsection{Testovací klient}
 
-Testovacím klientom bola aplikácia využivajúca vlákna, založená na princípe producent - konzument, kde konzumenti predstavovali jednotlivé vlákna vykonávajúce zápis alebo čítanie dát. Optimálny počet paralelne zapisujúcich vlákien bol stanovený na hodnotu 50, pri ich navýšení sa zvyšovala hodnota latencie a nedošlo k zväčšeniu dátového toku pre zápis. Pre čítanie dát bolo použitých 250 vlákien. Dôležitým bodom bolo zabezpečiť rovnaké zaťaženia každého uzla v klastri, počas celého priebehu jednotlivých testov. Detailný popis splňujúci tento bod je obsiahnutý v časti popisujúcej test konkrétneho databázového systému.
+Testovacím klientom bola aplikácia využivajúca vlákna, založená na princípe producent - konzument, kde konzumenti predstavovali jednotlivé vlákna vykonávajúce zápis alebo čítanie dát. Optimálny počet paralelne zapisujúcich vlákien bol stanovený na hodnotu 50, pri ich navýšení sa zvyšovala hodnota latencie a nedošlo k zvýšeniu dátového toku pre zápis. Pre čítanie dát bolo použitých 250 vlákien. Dôležitým bodom bolo zabezpečiť rovnaké zaťaženie každého uzla v klastri, počas celého priebehu jednotlivých testov. Detailný popis splňujúci tento bod je obsiahnutý v časti popisujúcej test konkrétneho databázového systému.
 
 \subsection{Testovací prípad pre zápis dát}
 
@@ -1407,13 +1427,14 @@ Meranie sme vykonali v troch konfiguráciach. Každá konfigurácia obsahovala j
  \item C - šesť uzlov slave s faktorom replikácie tri
 \end{itemize}
 
-Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop a využívali techniku MapReduce. Počas jednotlivých testov sa na súborový systém HDFS zapisovali tri rôzne veľkosti súborov, bola zachovaná štandardná veľkosť bloku 65MB. Každý test bol vykonnaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny agregovaný tok pre zápisu dát v klastri.
+Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop. Pomocou techniky MapReduce, boli dáta do súborového systému zapisované jednou funkciou typu map. Počas jednotlivých testov sa na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Každý test bol vykonnaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny tok pre zápisu dát v klastri.
 
 \begin{table}[hp]
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
 \multirow{2}{*}{Veľkosť súboru [MB]} & \multicolumn{3}{|c|}{Klaster}  \\
+%TODO CLINE
 \hline & A & B & C\\
 \hline 65 & 287 MB/s& 102 MB/s& 190 MB/s\\ 
 \hline 512 & 371 MB/s& 85 MB/s& 162 MB/s\\ 
@@ -1425,15 +1446,6 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 \label{tab:HDFSperformance}
 \end{table}
 
-
-% 
-% \begin{table}[hp]
-% \begin{center}
-% \begin{tabular}{|c|c|c|c|}
-% \hline
-%  
-% 
-% 
 % \multirow{2}{*}{Veľkosť súboru} & \multicolumn{3}{|c|}{Klaster}  \\
 % % THIS HERE
 % \cline{2-3}
@@ -1441,23 +1453,16 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 % 
 % & A & B & C\\
 % 
-% \hline 128 MB & 287 MB/s& 102 MB/s& 190 MB/s\\ 
-% \hline 812 MB & 371 MB/s& 85 MB/s& 162 MB/s\\ 
-% \hline 4 GB & 433 MB/s& 85 MB/s& 163 MB/s\\ 
-% \hline
-% \end{tabular} 
-% \end{center}
-% 
-% \end{table}
 
-Na základe týchto hodnôt môžeme pozorovať, že zvýšenie faktoru replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad klastrov v konfigurácii B a C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
+Na základe týchto hodnôt pozorujeme, že zvýšenie hodnoty replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z výsledkov testovania je, že v prípade ak zvýšime dvojnásobne počet uzlov v klastri (prípad klastrov v konfigurácii B a C) jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
 
+%TODO:                             , co zaroven preukazali vysledky testov
 %HDFS je optimalizovaný pre zápis veľkých súborov rádovo v desiatkách GB avšak z nameraných hodnôt vidíme, že najoptimálnejšie výsledky boli dosiahnuté, v prípade keď veľkosť súboru zodpovedala dvojnásobnej veľkosti bloku.
 
 \section{HBase}
 % link na hbase book
 
-Pre test distribuovaného databázového systému sme nainštalovali systém Hadoop 0.20.2 a HBase 0.90.1. Na jednom fyzickom uzly bežali následujúce služby:
+Pre test distribuovaného databázového systému sme nainštalovali systém Hadoop 0.20.2 a HBase 0.90.1. Na jednom fyzickom uzle bežali následujúce služby:
 
 \begin{itemize}
  \item HBase Master
@@ -1465,14 +1470,14 @@ Pre test distribuovaného databázového systému sme nainštalovali systém Had
  \item Namenode 
 \end{itemize}
 
-Tieto služby sú v oboch systémoch súčasťou uzla master. Na zvyšných uzloch boli spustené služby Region Server a Datanode. JVM sme v prípade systému HDFS pridelili 1 GB operačnej pamäti a v prípade systému HBase 2 GB.
+Tieto služby sú v oboch systémoch súčasťou uzla master. Na zvyšných uzloch boli spustené služby RegionServer a Datanode. JVM sme v prípade systému HDFS pridelili 1 GB operačnej pamäti a v prípade systému HBase 2 GB.
 
-Prázdna tabuľka je po vytvorení v HBase reprezentovaná  jedným regiónom. Tento región je uložený na jednom uzle. K rozdeleniu tohto regiónu dochádza v prípade ak objem dát zapisaných v tabuľke prekročí štandardne nastavenú hranicu s hodnotou 256 MB. Prázdnu tabuľku sme vytvorili pomocou programového rozhrania systému HBase (API?) a to tak, že sme ju predrozdelili na počet regiónov, ktorý odpovedal počtu uzlov typu slave v klastri. Názvy kľúčov sme generovali pomocou náhodného generátora. Vďaka tejto metóde sme dosiahli rovnomerné zaťaženie všetkých uzlov po celú dobu testovania.
+Prázdna tabuľka je po vytvorení v HBase reprezentovaná  jedným regiónom. Tento región je uložený na jednom uzle. K rozdeleniu tohto regiónu dochádza v prípade ak objem dát zapisaných v tabuľke prekročí štandardne nastavenú hranicu s hodnotou 256 MB. Prázdnu tabuľku sme vytvorili pomocou programového rozhrania (API) systému HBase a to tak, že sme ju predrozdelili na počet regiónov, ktorý odpovedal počtu uzlov typu slave v klastri. Názvy kľúčov sme generovali pomocou náhodného generátora. Vďaka tejto metóde sme dosiahli rovnomerné zaťaženie všetkých uzlov po celú dobu testovania. Tabuľka \ref{tab:HPerf1} zobrazuje výsledky meraní poďla testovacieho prípadu pre zápis dát. 
 
 %HBase currently does not do well with anything about two or three column families so keep the number of column families in your schema low -- nezmyselne testy v paperoch
 %Compaction is currently triggered by the total number of files under a column family. Its not size based. ako to je v C ? preto vela compactions a write bottleneck?
 
-Tabuľka \ref{tab:HPerf1} zobrazuje výsledky meraní poďla testovacieho prípadu pre zápis dát. 
+ 
 
 \begin{table}[hp]
 \begin{center}
@@ -1500,7 +1505,7 @@ Zvýšenie hodnoty replikácie (riadky 3,4) spôsobilo zníženie prenosovej rý
 
 \subsection*{Konzistencia}
 
-HBase vyžaduje silnú konzistenciu na úkor dostupnosti. Tento fakt sme zaznamenali počas testovania, keď v určitých intervaloch došlo k zlyhaniu operácie zápisu, ktorá bola následne zopakovaná.
+HBase vyžaduje silnú konzistenciu pre operácie čítania a zápisu dát, na úkor dostupnosti. Tento fakt sme zaznamenali počas testovania, keď v určitých intervaloch došlo k zlyhaniu operácie zápisu, ktorá bola následne zopakovaná.
 
 \subsection*{Čítanie dát}
 
@@ -1551,9 +1556,9 @@ V tabuľke \ref{tab:HPerf3} sú znázornené výsledky zaťazovacieho testu.
 \section{Cassandra}
 % Spoločnosť Yahoo! zverejnila v roku XXX nástroj pod názvom Yahoo!  Cloud Serving Benchmark (YCBS) pre obecné porovnávanie distribuovaných databázových systémov. Tento nástroj je zameraný na meranie výkonu a eleasticity a podporuje rôzne testovacie prípady, ktorými je možné popísať vlastnosti testovanej aplikácie. Medzi tieto prípady patrí napríklad intenzivný zápis, intenzívne čítanie, náhodné vyhľadávanie v databázovom systéme a iné. Keďže sa jedná o maximálne modulárny nástroj, poskytuje zároveň možnosť tvorby vlastných testovacích prípadov. Cieľom tohoto nástroja je obecné porovnanie distribuovaných databázových systémov. 
 
-Pri testovaní klastru bol použitý distribuovaný databázový systém Cassandra verzie 0.7.3. Adresár obsahujúci súbory typu commitlog bol na samostatnom fyzickom disku, dátový adresár bol na diskoch zapojených v poli RAID0. Veľkosť štruktúry Memtable bola 120 MB. Každý uzol zaberal na hašovom kruhu rovnaký úsek.
+Pri testovaní klastru bol použitý distribuovaný databázový systém Cassandra verzie 0.7.3. Adresár obsahujúci súbory typu commitlog bol na samostatnom fyzickom disku, dátový adresár bol na diskoch zapojených v poli RAID0. Veľkosť štruktúry Memtable bola 120 MB. Každý uzol zaberal na hašovom kruhu rovnaký, predom nastavený úsek.
 
-Tabuľka \ref{tab:CPerf2} obsahuje výsledky z viacerých meraní, podľa testovacieho prípadu pre zápis dát \ref{}. Ako hodnoty kľúčov boli pre jednotlivé zapisované riadky použité prirodzené čísla z rozsahu nula až celkový počet riadkov. Cassandru sme nastavili tak, aby boli kľúče náhodne zapisované do systému, bol použitý \emph{RandomPartitioner}. Toto nastavenie zabezpečilo rov-nomernú záťaž každého uzla počas celkovej doby zápisu. Výsledok hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určil uzol, do ktorého bol daný riadok zapísaný.
+Tabuľka \ref{tab:CPerf2} obsahuje výsledky z viacerých meraní, podľa testovacieho prípadu pre zápis dát. Ako hodnoty kľúčov boli pre jednotlivé zapisované riadky použité prirodzené čísla z rozsahu nula až celkový počet riadkov. Cassandru sme nastavili tak, aby boli jednotlivé kľúče a k ním prinaležiace dáta, náhodne zapisované na jednotlivé uzly systému, bol použitý \emph{RandomPartitioner}. Toto nastavenie zabezpečilo rovnomernú záťaž každého uzla počas celkovej doby zápisu. Výsledok hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určil uzol, do ktorého bol daný riadok zapísaný.
 
 \begin{table}[hp]
 \begin{center}
@@ -1609,12 +1614,12 @@ Výsledky zaťažovacieho testu zobrazuje tabuľka \ref{tab:CPerf1}, kde jednotl
 \hline
 \end{tabular} 
 \end{center}
-\caption{Čítanie riadkov o veľkosti 1000 B}
+\caption{Cassandra: Čítanie riadkov o veľkosti 1000 B}
 \label{tab:CPerf3}
 \end{table}
-Počas testu sme klaster monitorovali a zistil viacero závažných dôsledkov. Na všetkých uzloch prebiehali veľmi časté GC kolekcie (Garbage collections) z dôvodu častého zápisu štruktúr Memtable na pevný disk. Podľa hardverovej špecifikácie pre systém Cassandra všetky uzly disponovali minimálnou veľkosťou operačnej pamäti 4 GB. Z dôvodu stability systému bola horná hodnota pri ktorej sa zapisuje Memtable z operačnej pamäti na disk 120 MB. Následkom tohto nastavenia vznikalo veľké množstvo SSTable súborov na pevnom disku, ktoré Cassandra zlievala na pozadí (compactions), čo spôsobovalo záťaž vstupno výstupných operácií (I/O wait). V prípade, takto zaťaženého systému a veľkého množstva SSTable súborov by bola operácia čítania veľmi pomalá, pretože dáta patriace do jednej rodiny stĺpcov by boli uložené vo veľko množstve samostatných súborov a ich načítanie by vyžadovalo zvýšené množstvo diskových operácií (seek).
+Počas testu sme klaster monitorovali a zistil viacero závažných dôsledkov. Na všetkých uzloch prebiehali veľmi časté GC kolekcie (Garbage collections) z dôvodu častého zápisu štruktúr Memtable na pevný disk. Podľa hardverovej špecifikácie pre systém Cassandra všetky uzly disponovali minimálnou veľkosťou operačnej pamäti 4 GB. Z dôvodu stability systému bola horná hodnota pri ktorej sa zapisuje Memtable z operačnej pamäti na disk 120 MB. Následkom tohto nastavenia vznikalo veľké množstvo SSTable súborov na pevnom disku, ktoré Cassandra zlievala na pozadí (compactions), čo spôsobovalo záťaž vstupno výstupných operácií (I/O wait). V prípade, takto zaťaženého systému a veľkého množstva SSTable súborov by bola operácia čítania veľmi pomalá, pretože dáta patriace do jednej rodiny stĺpcov by boli uložené vo veľkom množstve samostatných súborov a ich načítanie by vyžadovalo zvýšené množstvo diskových operácií (seek).
 
-Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súborov rádovo v kB, je hlavným úzkym hrdlom systému CPU, kdežto v prípade zápisu veľkých blokov dát zohrávajú hlavnú úlohu V/V diskové operácie.
+Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súborov rádovo v kB, je hlavným úzkym hrdlom systému CPU, kdežto v prípade zápisu veľkých blokov dát sa jedná o V/V diskové operácie.
 
 \begin{table}[htp]
 \begin{center}
@@ -1636,6 +1641,9 @@ Z tohoto testu ďalej vyplynulo pozorovanie, že v prípade zápisu malých súb
 \end{table}
 
 %\section{Zhodnotenie výsledkov testovania}
+
+
+
 
 %hbase mal WAL na 1 disku v porovnani s C 
 \section{Voľba databázového systému}
@@ -1899,9 +1907,10 @@ Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key
 
 \chapter{Zoznam použitých skratiek}
 \begin{description}
-\item[2D]
-\item[]
+
+\item[API] - 
 \item[JVM]
+\item[NoSQL]
 \item[PB]
 \item[RFC]
 \item[SPOF]

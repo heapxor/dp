@@ -73,6 +73,18 @@ G.~DeCandia, D.~Hastorun, M.~Jampani, G.~Kakulapati, A.~Lakshman, A.~Pilchin,
 \newblock {Dynamo: amazon's highly available key-value store}.
 \newblock {\em ACM SIGOPS Operating Systems Review}, 41(6):205--220, 2007.
 
+\bibitem{neo4j}
+E.~Eifrem.
+\newblock Neo4j the benefits of graph databases.
+\newblock \\ \verb|http://wiki.neo4j.org/content/Presentations|, stav ze
+  3.\,2.\,2011.
+
+\bibitem{hbaseSec}
+E.~Eifrem.
+\newblock ???neo4j the benefits of graph databases.
+\newblock \\ \verb|https://issues.apache.org/jira/browse/HBASE-1697|, stav ze
+  3.\,2.\,2011.
+
 \bibitem{fox1997cluster}
 A.~Fox, S.~Gribble, Y.~Chawathe, E.~Brewer, and P.~Gauthier.
 \newblock {Cluster-based scalable network services}.
@@ -140,6 +152,11 @@ T.~Haerder and A.~Reuter.
 \newblock {Principles of transaction-oriented database recovery}.
 \newblock {\em ACM Computing Surveys (CSUR)}, 15(4):287--317, 1983.
 
+\bibitem{barina}
+B.~Halás.
+\newblock Návrh simulácie bezdrôtovej siete {Z}ig{B}ee 802.15.4 pomocou
+  simulačného systému {OMNeT++}, júl 2006.
+
 \bibitem{hayashibara2004}
 N.~Hayashibara, X.~Defago, R.~Yared, and T.~Katayama.
 \newblock {The $\phi$ accrual failure detector}.
@@ -162,12 +179,6 @@ D.~Karger, E.~Lehman, T.~Leighton, R.~Panigrahy, M.~Levine, and D.~Lewin.
 A.~O. R.~W. Paper.
 \newblock {Why Cloud-Based Security and Archiving Make Sense}, March 2010.
 \newblock \\ \verb|www.google.com/postini/pdf/why_cloud_based_wp.pdf|, stav z
-  28.\,2.\,2011.
-
-\bibitem{strozziNosql}
-A.~O. R.~W. Paper.
-\newblock {Why Cloud-Based Security and Archiving Make Sense}, March 2010.
-\newblock \\ \verb|http://www.strozzi.it/cgi-bin/CSA/tw7/I/en_US/nosql|, stav z
   28.\,2.\,2011.
 
 \bibitem{Pritchett:2008:BAA:1394127.1394128}

@@ -23,15 +23,16 @@
 \contentsline {subsection}{\numberline {3.2.1}Funk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{16}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Nefunk\IeC {\v c}n\IeC {\'e} po\IeC {\v z}iadavky}{18}{subsection.3.2.2}
 \contentsline {chapter}{\numberline {4}NoSQL}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Typy NoSQL datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov}{21}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota}{21}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{22}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Dokumentov\IeC {\'y} model}{23}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Grafov\IeC {\'y} model}{23}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.1}D\IeC {\'a}tov\IeC {\'e} modely}{21}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Rela\IeC {\v c}n\IeC {\'y} model}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota}{22}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{22}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Dokumentov\IeC {\'y} model}{23}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Grafov\IeC {\'y} model}{23}{subsection.4.1.5}
 \contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{23}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{24}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{24}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{24}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{25}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{25}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{25}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{26}{subsection.4.2.6}
@@ -44,7 +45,7 @@
 \contentsline {section}{\numberline {5.5}Z\IeC {\'a}pis d\IeC {\'a}t}{32}{section.5.5}
 \contentsline {section}{\numberline {5.6}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{32}{section.5.6}
 \contentsline {section}{\numberline {5.7}Zmazanie d\IeC {\'a}t}{32}{section.5.7}
-\contentsline {section}{\numberline {5.8}Konzistencia}{32}{section.5.8}
+\contentsline {section}{\numberline {5.8}Konzistencia}{33}{section.5.8}
 \contentsline {section}{\numberline {5.9}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{33}{section.5.9}
 \contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{33}{section.5.10}
 \contentsline {chapter}{\numberline {6}HBase}{35}{chapter.6}
