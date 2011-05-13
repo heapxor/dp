@@ -15,8 +15,8 @@
 \contentsline {subsection}{\numberline {2.7.1}Konzistencia z poh\IeC {\v l}adu klienta}{11}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Syst\IeC {\'e}mov\IeC {\'a} konzistencia}{12}{subsection.2.7.2}
 \contentsline {section}{\numberline {2.8}MapReduce}{13}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Architekt\IeC {\'u}ra}{13}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Pou\IeC {\v z}itie}{13}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.1}Pr\IeC {\'\i }klad}{13}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Pr\IeC {\'\i }klad}{14}{subsection.2.8.2}
 \contentsline {chapter}{\numberline {3}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{15}{section.3.1}
 \contentsline {section}{\numberline {3.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{16}{section.3.2}
@@ -56,7 +56,7 @@
 \contentsline {section}{\numberline {6.5}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{38}{section.6.5}
 \contentsline {section}{\numberline {6.6}Konzistencia}{38}{section.6.6}
 \contentsline {section}{\numberline {6.7}Z\IeC {\'a}pis d\IeC {\'a}t a \IeC {\v c}\IeC {\'\i }tanie d\IeC {\'a}t}{38}{section.6.7}
-\contentsline {section}{\numberline {6.8}Zmazanie d\IeC {\'a}t}{38}{section.6.8}
+\contentsline {section}{\numberline {6.8}Zmazanie d\IeC {\'a}t}{39}{section.6.8}
 \contentsline {section}{\numberline {6.9}Bezpe\IeC {\v c}nos\IeC {\v t}}{39}{section.6.9}
 \contentsline {chapter}{\numberline {7}Testovanie v\IeC {\'y}konnosti}{41}{chapter.7}
 \contentsline {section}{\numberline {7.1}Testovacie prostredie}{41}{section.7.1}

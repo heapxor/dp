@@ -217,8 +217,8 @@ unicode=true,
 
 \acknowledgements
 \noindent
-Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za konzultácie, cenné rady, pripomienky a návrhy, ktoré mi ochotne poskytol počas vypracovávania tejto práce. Tak isto sa chcem poďakovať svojim najbližším, bez ktorých podpory by táto práca nevznikla.
-
+Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za konzultácie, cenné rady, pripomienky a návrhy, ktoré mi ochotne poskytol počas vypracovávania tejto práce.
+Taktiež sa chcem sa poďakovať svojim najbližším, bez ktorých podpory by táto práca nevznikla. Poďakovanie ďalej patrí Mgr. Jánovi Slaninkovi a Mgr. Ondrejovi Šterbákovi za ich cenné rady a korektúru textu.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%   Prohlaseni / Declaration 
@@ -236,20 +236,17 @@ Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za 
 % The system was filled with roughly milion of email messages from the real environment. We found that deduplication saves about 65\% of the space.
 
 The aim of this thesis is to design an email archiving solution using a distributed database system, commonly known as NoSQL.
-We made a strong analysis of requirements for the high capacity and fault tolerant storage of email messages, featuring attachment deduplication to provide efficient space saving. We described the basic concepts that are used by distributed database systems. We identified main criteria for high level comparison of modern NoSQL systems, then we chose two possible candidates that comply with requirements. Functions and architectures of Cassandra and HBase systems were described, subjects were thoroughly tested for performance. We modelled and implemented the application prototype using Cassandra.
-
+We made a strong analysis of requirements for the high capacity and fault tolerant storage of email messages, featuring attachment deduplication to provide an efficient space saving. We described the basic concepts that are used by distributed database systems. We identified main criteria for high level comparison of modern NoSQL systems, then we chose two possible candidates that comply with requirements. Functions and architectures of Cassandra and HBase systems were described, subjects were thoroughly tested performance wise. We modeled and implemented the application prototype using Cassandra.
+The system was filled with roughly a million of email messages from the real environment. We found that deduplication saves around 65\% of the space.
 % Prace v cestine musi krome abstraktu v anglictine obsahovat i
 % abstrakt v cestine.
-\vglue60mm
+\vglue45mm
 
 \noindent{\Huge \textbf{Abstrakt}}
 \vskip 2.75\baselineskip
 
 \noindent
-
-Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, označovaných pod spoločným názvom NoSQL. Analyzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu príloh. V práci popisujeme základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implemetovali prototyp aplikácie využivajúci systém Cassandra.
-
-% Po naplnení systému približne miliónom emailových správ z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 65\% úsporu diskového priestoru.
+Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, označovaných pod spoločným názvom NoSQL. Analyzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu príloh. V práci popisujeme základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implemetovali prototyp aplikácie využivajúci systém Cassandra. Po naplnení systému približne miliónom emailových správ z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 65\% úsporu diskového priestoru.
 
 %Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie, u ktorého sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru, pri naplnení systému približne miliónom emailových správ z reálneho prostredia.
 %aktuálne problémy, ktoré vznikajú pri ukladaní a spracúvani neustále narastajúceho objemu dát pomocou relačných databázových systémov. Na ich riešenie 
@@ -304,11 +301,11 @@ S neustálym rozvojom informačných technológií súčasne narastá objem info
 
 Od začiatku sedemdesiatych rokov 20. storočia sú v tejto oblasti dominantou relačné databázové systémy (Relational Database Management Systems). Z dôvodu rapídneho rastu dát v digitálnom univerze \cite{Gantz_Mcarthur_Minton_2007} začínajú byť tieto systémy nepostačujúce. Medzi hlavné faktory pre výber relačného databázového systému doposiaľ patrili výrobca, cena a pod. Vznikajúce moderné webové aplikácie (napríklad sociálne siete) požadujú od týchto systémov vlastnosti ako vysoká dostupnosť, horizontálna rozšíriteľnosť a schopnosť pracovať s obrovským objemom dát (PB, petabajt\footnote{$ 1PB = 10^{15} B$}). Novo vznikajúce databázové systémy, spĺňajúce tieto požiadavky sa spoločne označujú pod názvom NoSQL (Not Only SQL). Pri ich výbere je dôležité porozumenie architektúry, dátového modelu a dát, s ktorými budú tieto systémy pracovať.
 
-Táto práca si kladie za cieľ viacero úloh a je rozdelená do troch logických častí. V prvej časti popisujeme v kapitole 2, koncepty využívané pri tvorbe distribuovaných databázových systémov, ktoré zabezpečujú vysokú dostupnosť, spoľahlivosť a škálovateľnosť. Kapitola 3 definuje požiadavky na systém, schopný archivovať milióny emailových správ a tieto dáta ďalej spracúvať. Prehľad systémov NoSQL a kritéria pre ich porovnanie popisuje kapitola 4, ktorá v závere doporučuje výber dvoch vhodných kandidátov, systém Cassandra a HBAse. Architektonické princípy, z ktorých tieto systémy vychádzajú a ich vlastnosti sú popísané v kapitole 5 pre systém Cassandra a v kapitole 6 pre HBase.
+Táto práca si kladie za cieľ viacero úloh a je rozdelená do troch logických častí. V kapitole 2 popisujeme koncepty využívané pri tvorbe distribuovaných databázových systémov, ktoré zabezpečujú vysokú dostupnosť, spoľahlivosť a škálovateľnosť. Kapitola 3 definuje požiadavky na systém, schopný archivovať milióny emailových správ a tieto dáta ďalej spracúvať. Prehľad systémov NoSQL a kritéria pre ich porovnanie popisuje kapitola 4, ktorá v závere doporučuje výber dvoch vhodných kandidátov, systém Cassandra a HBase. Architektonické princípy a vlastnosti, z ktorých tieto systémy vychádzajú, sú popísané pre systém Cassandra v kapitole 5 a pre HBase v kapitole 6.
 %TODO: kapitola 8 + popis implementacie
-V druhej časti práce v kapitole 7 sme vykonali výkonostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému, výber vhodných nástrojov pre implementáciu prototypu aplikácie emailového úložiska a popisuje kapitola 8. 
-
-Záverečná čast, ktorú tvorí kapitola 9 popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
+V druhej časti práce sme v kapitole 7 opísali výkonostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému, výber vhodných nástrojov pre implementáciu prototypu aplikácie emailového úložiska a samotnú implementáciu popisuje kapitola 8. 
+%TODO: pkokracovanie prace v buducnu
+Záverečná čast, ktorú tvorí kapitola 9, popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
 
 
 
@@ -619,7 +616,15 @@ Nárast diskových kapacít a množstva dát, ktoré na nich ukladáme spôsobuj
 
 Pre jednoduchosť uvažujme nasledujúci príklad, v ktorom chceme spracovať pomocou jedného počítačového systému 1 TB dát uložených na lokálnom súborovom systéme, pri priemernej prenosovej rýchlosti diskových zariadení 100 MB/s. Za ideálnych podmienok by čas na prečítanie týchto dát presahoval dve a pol hodiny. V prípade, že by sme 1 TB dát rovnomerne rozdelili na sto počítačov a tieto úseky paralelne spracovali, celková doba by sa znížila za ideálnych podmienok na necelé dve minúty. 
 
-Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce \cite{dean2008mapreduce}, ktorý slúži na paralelne spracovanie obrovského objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovaný pre beh na klastri tvorenom vysokým počtom (tisícky) spotrebných počítačov. Pre programátora sa snaží zastrieť všetky problémy, ktoré prináša paralelizácia výpočtov, poruchovosť systémov, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami.
+Spoločnosť Google v roku 2004 zverejnila programovací model pod názvom MapReduce \cite{dean2008mapreduce}, ktorý slúži na paralelne spracovanie obrovského objemu dát (PB). Model využíva vlastnosti paralelných a distribuovaných systémov, je optimalizovaný pre beh na klastri tvorenom vysokým počtom (tisícky) spotrebných počítačov. Pre programátora sa snaží zastrieť všetky problémy, ktoré prináša paralelizácia výpočtov, poruchovosť systémov, distribúcia dát vzhľadom na ich lokalitu a rovnomerne rozvhovanie záťaže medzi systémami. MapReduce využíva informácie o lokalite dát, výpočet nad danými dátami sa vykonáva priamo na uzle kde sú umiestnené, čo je hlavnou výhodou v porovnaní s inými aplikáciami pre distribuovaný výpočet (napr. Grid computing). 
+
+MapReduce nie je vhodný na spracovanie dát v reálnom čase. Je optimalizovaný na dávkový beh. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém Google File System (GFS) \cite{ghemawat2003google} nie je k dispozícii. V rámci hnutia NoSQL vzniklo open source riešenie pod názvom Hadoop\footnote{http://hadoop.apache.org}, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme Hadoop Distributed File System (HDFS). K dispozíci sú frameworky HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce a poskytujú vyššiu abstrakciu vo forme jazyka podobného SQL.
+
+%TODO PRIKLAD? 
+% \subsection{Príklad}
+% ? histogram slov
+
+\subsection{Príklad}
 
 Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia map na jednotlivých uzloch systému, transformuje vstupné data na základe zadefinovaného kľúča $k$ a k nemu prináležiacím hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g1,...,g_n$ a k ním odpovedajúce zotriedené hodnoty $H$. Tieto dáta sa odošlú na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $Z$. Tieto operácie je možné popísať následovne:
 
@@ -628,18 +633,42 @@ map(k, H) -> list(g, H)
 reduce(g, list(H)) -> list(Z)
 \end{verbatim}
 
+\subsection{Príklad}
+
+Uvažujme vstupné dáta popísané v tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V tomto prípade bude vstupom do funkcie map ako kľúč $k$ číslo riadku v tabuľke, hodnotu $H$ budú tvoriť jednotlivé stĺpce. Aplikáciou funkcie map a využitím internej funkcie systému Hadoop \emph{shuffle} dostaneme následujúci výstup:
+
+\begin{verbatim}
+(d1.com , [12, 3])
+(d2.net , [65, 80, 102])
+(d3.sk, [12])
+\end{verbatim}
+
+Tieto záznamy následne spracuje funkcia reduce, kde kľúč $g$ bude reprezentovaný názvom domény a $list(H)$ budú tvoriť jednotlivé veľkosti emailových správ. Výstupom budú dvojice:
+
+\begin{verbatim}
+(d1.com, 15)
+(d2.net, 247)
+(d3.sk, 12)
+\end{verbatim}
+
+Dáta obsiahnuté v tabuľke sa môžu nachádzať na ľubovoľnom počte počítačov so systémom Hadoop, ktorý zabezpečí aby na jednotlivých uzloch bola vykonaná funkcia map a jej výsledky sa pošlú na náhodné uzly vykonávajúce funkciu reduce. Týmto sa zabezpečí plne distribuovaný výpočet bez nutnosti preposielania zdrojových dát, čo môže efektívne znížiť zaťaženie sieťe a zvýšiť spoľahlivosť výpočtu.
 
 
-%TODO PRIKLAD? 
-% \subsection{Príklad}
-% ? histogram slov
+{\centering%
+\label{tab:001}\par\bigskip
+\begin{tabular}{llrl}\toprule
+  \multicolumn{1}{c}{doména} & \multicolumn{1}{c}{adresa} & \multicolumn{1}{c}{veľkosť} &\multicolumn{1}{c}{dátum}\\\midrule\addlinespace
+    d1.com & jan@d1.com & 12 & 02/01/2011\\\addlinespace    
+    d3.sk  & jan@d3.sk & 12 & 02/01/2011\\\addlinespace
+    d2.net & jeny@d2.net & 65 & 02/05/2011\\\addlinespace
+    d1.com & john@d1.com & 3 & 03/02/2011\\\addlinespace
+    d2.net & jenny@d2.net & 80 & 03/06/2011\\\addlinespace
+    d2.net & andre@d2.net & 102 & 21/02/2011\\\addlinespace
+ \hline
+\end{tabular}\\}
+\captionof{table}{Vstupné dáta pre funkciu map}\label{tab:mapred}
+\par\bigskip
 
-\subsection{Architektúra}
-Obrázok
-
-\subsection{Použitie}
-
-MapReduce nie je vhodný na spracovanie dát v reálnom čase. Je optimalizovaný na dávkový beh. Jeho implementácia spoločnosťou Google, ktorá zároveň využíva distribuovaný súborový systém Google File System (GFS) \cite{ghemawat2003google} nie je k dispozícii. V rámci hnutia NoSQL vzniklo open source riešenie pod názvom Hadoop\footnote{http://hadoop.apache.org}, ktoré implementuje tento model na vlastnom distribuovanom súborovom systéme Hadoop Distributed File System (HDFS). K dispozíci sú frameworky HIVE alebo PIG, ktoré sú nadstavbou modelu MapReduce a poskytujú vyššiu abstrakciu vo forme jazyka podobného SQL.
 
 %(s ktorými v tejto práci budeme pracovat?)
 
@@ -1267,7 +1296,7 @@ Dôležitým faktom je, že stĺpce, ktoré patria do rovnakej rodiny stĺpcov s
 
 \section{Architektúra systému}
 
-HBase využíva architektúru master-slave. Uzol v role master sa nazýva \emph{HBaseMaster}, uzly slave \emph{RegionServers} (RS). Pre chod systému je ďalej potrebná služba Zookeeper\footnote{http://zookeeper.apache.org/}, ktorá zabezpečuje ...
+HBase využíva architektúru master-slave. Uzol v role master sa nazýva \emph{HBaseMaster}, uzly slave \emph{RegionServers} (RS). Pre chod systému je ďalej potrebná služba ZooeKeper\footnote{http://zookeeper.apache.org/}, ktorá zabezpečuje výber nového uzla master v prípade havárie. ZooKeeper je samostatná centralizovaná služba, ktorá sa môže použiť u distribuovaných databázových systémov, kde sa predpokladá so zlyhaniami. Služba slúži napríklad pre správu konfiguračných informácií, distribuovanú synchronizáciu a iné. V prípade systému HBase sa doporúča pre stabilný beh použiť mininálne tri uzly pre beh tohoto systému, čo pridáva ďalšiu vrstvu k HDFS.
 
 %TODO:Zookeeper vyber-urcenie mastra
 
