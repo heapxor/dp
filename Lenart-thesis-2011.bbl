@@ -18,6 +18,10 @@ D.~Abadi, P.~Boncz, and S.~Harizopoulos.
 \newblock \\
   \verb|www.cs.yale.edu/homes/dna/talks/Column_Store_Tutorial_VLDB09.pdf|.
 
+\bibitem{barina}
+T.~Barina.
+\newblock ???, máj 2011.
+
 \bibitem{bernstein1981concurrency}
 P.~Bernstein and N.~Goodman.
 \newblock {Concurrency control in distributed database systems}.
@@ -76,14 +80,8 @@ G.~DeCandia, D.~Hastorun, M.~Jampani, G.~Kakulapati, A.~Lakshman, A.~Pilchin,
 \bibitem{neo4j}
 E.~Eifrem.
 \newblock Neo4j the benefits of graph databases.
-\newblock \\ \verb|http://wiki.neo4j.org/content/Presentations|, stav ze
-  3.\,2.\,2011.
-
-\bibitem{hbaseSec}
-E.~Eifrem.
-\newblock ???neo4j the benefits of graph databases.
-\newblock \\ \verb|https://issues.apache.org/jira/browse/HBASE-1697|, stav ze
-  3.\,2.\,2011.
+\newblock \\ \verb|http://wiki.neo4j.org/content/Presentations|, stav z
+  3.\,1.\,2011.
 
 \bibitem{fox1997cluster}
 A.~Fox, S.~Gribble, Y.~Chawathe, E.~Brewer, and P.~Gauthier.
@@ -152,11 +150,6 @@ T.~Haerder and A.~Reuter.
 \newblock {Principles of transaction-oriented database recovery}.
 \newblock {\em ACM Computing Surveys (CSUR)}, 15(4):287--317, 1983.
 
-\bibitem{barina}
-B.~Halás.
-\newblock Návrh simulácie bezdrôtovej siete {Z}ig{B}ee 802.15.4 pomocou
-  simulačného systému {OMNeT++}, júl 2006.
-
 \bibitem{hayashibara2004}
 N.~Hayashibara, X.~Defago, R.~Yared, and T.~Katayama.
 \newblock {The $\phi$ accrual failure detector}.
@@ -174,6 +167,12 @@ D.~Karger, E.~Lehman, T.~Leighton, R.~Panigrahy, M.~Levine, and D.~Lewin.
   for relieving hot spots on the world wide web.
 \newblock In {\em Proceedings of the twenty-ninth annual ACM symposium on
   Theory of computing}, STOC '97, pages 654--663, New York, NY, USA, 1997. ACM.
+
+\bibitem{olston2008pig}
+C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
+\newblock Pig latin: a not-so-foreign language for data processing.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, pages 1099--1110. ACM, 2008.
 
 \bibitem{WhyArchiving}
 A.~O. R.~W. Paper.
@@ -220,6 +219,17 @@ J.~Udell.
 W.~Vogels.
 \newblock {Eventually consistent}.
 \newblock {\em Communications of the ACM}, 52(1):40--44, 2009.
+
+\bibitem{celery}
+Celery introduction.
+\newblock \\
+  \verb|http://ask.github.com/celery/getting-started/introduction.html|, stav z
+  3.\,2.\,2011.
+
+\bibitem{hbaseSec}
+Discretionary access control.
+\newblock \\ \verb|https://issues.apache.org/jira/browse/HBASE-1697|, stav z
+  3.\,5.\,2011.
 
 \bibitem{White:2009:HDG:1717298}
 T.~White.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  13 MAY 2011 04:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  13 MAY 2011 16:00
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -609,13 +609,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [13] [14
 
 ]
-(./Lenart-thesis-2011.lof
-Overfull \hbox (96.22221pt too wide) in paragraph at lines 17--17
- [][] [][][]\T1/cmr/m/n/10.95 Architektúra Cel-ery, Zdroj: [on-line], http://as
-k.github.com/celery/getting-started/introduction.html[][] [][]  
- []
-
-)
+(./Lenart-thesis-2011.lof)
 \tf@lof=\write5
 \openout5 = `Lenart-thesis-2011.lof'.
 
@@ -685,7 +679,7 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 Kapitola 3.
 [15
 
-] <./figures/emailsHist.png, id=718, 633.36626pt x 440.64626pt>
+] <./figures/emailsHist.png, id=720, 633.36626pt x 440.64626pt>
 File: ./figures/emailsHist.png Graphic file (type png)
 
 <use ./figures/emailsHist.png>
@@ -715,14 +709,14 @@ Package natbib Warning: Citation `TODO' on page 22 undefined on input line 863.
 Package natbib Warning: Citation `TODO' on page 22 undefined on input line 863.
 
 
-[22] [23] <./figures/nosqldatamodels.png, id=779, 797.46207pt x 598.09656pt>
+[22] [23] <./figures/nosqldatamodels.png, id=781, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
 <use ./figures/nosqldatamodels.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24] <./figures/capDatabases.png, id=793, 1312.905pt x 694.595pt>
+[24] <./figures/capDatabases.png, id=795, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png>
@@ -770,93 +764,82 @@ Kapitola 8.
 [49
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1689--1689
+Underfull \hbox (badness 10000) in paragraph at lines 1699--1699
 []\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[50] <./figures/cassandra.png, id=990, 831.105pt x 606.265pt>
+[50] [51] <./figures/cassandra.png, id=997, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1747--1749
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1769--1771
  [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[51]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[52 <./figures/cassandra.png (PNG copy)>]
-<./figures/Celery.jpg, id=1006, 527.9725pt x 392.46625pt>
-File: ./figures/Celery.jpg Graphic file (type jpg)
-
-<use ./figures/Celery.jpg>
-Underfull \hbox (badness 2980) in paragraph at lines 1794--1794
-[]\T1/cmr/m/n/10.95 Obr. 8.4: []Architektúra Cel-ery, Zdroj: [on-line], http://
-ask.github.com/celery/getting-
+Overfull \hbox (1.75182pt too wide) in paragraph at lines 1775--1776
+\T1/cmr/m/n/10.95 vykoná-va´ výpo£et ²tatistík (mes-sages-Meta-Data) budú uloºe
+né v jed-nom sú-bore, £o zabezpe£í
  []
 
+[52 <./figures/cassandra.png (PNG copy)>] [53]
+<./figures/Celery.jpg, id=1012, 527.9725pt x 392.46625pt>
+File: ./figures/Celery.jpg Graphic file (type jpg)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[53] <./figures/emailProcessing.png, id=1015, 937.5025pt x 537.00626pt>
+<use ./figures/Celery.jpg> [54 <./figures/Celery.jpg>]
+<./figures/emailProcessing.png, id=1022, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1807--1809
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1840--1842
  [][] 
  []
 
+[55 <./figures/emailProcessing.png (PNG copy)>] [56] [57] [58
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package natbib Warning: Citation `???' on page 54 undefined on input line 1821.
-
-
-[54 <./figures/Celery.jpg>] [55 <./figures/emailProcessing.png (PNG copy)>]
-[56]
+]
 Kapitola 9.
-(./Lenart-thesis-2011.bbl [57
+(./Lenart-thesis-2011.bbl [59] [60
 
-] [58
+] [61] [62]
+Underfull \hbox (badness 10000) in paragraph at lines 224--228
+[]\T1/cmtt/m/n/10.95 http://ask.github.com/celery/getting-started/introduction.
+html\T1/cmr/m/n/10.95 , stav z
+ []
 
-] [59] [60]) [61] [62
+) [63] [64
 
 ]
 Dodatok A.
-[63] [64
+[65] [66
 
 ]
 Dodatok B.
-<./figures/deploy.png, id=1070, 1138.2525pt x 877.2775pt>
+<./figures/deploy.png, id=1083, 1138.2525pt x 877.2775pt>
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1926--1927
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1967--1968
  [][] 
  []
 
-[65 <./figures/deploy.png (PNG copy)>] [66
+[67 <./figures/deploy.png (PNG copy)>] [68
 
 ]
 Dodatok C.
-[67] [68
+[69] [70
 
 ]
 Dodatok D.
 
-Package natbib Warning: Citation `infodp' on page 69 undefined on input line 19
-41.
+Package natbib Warning: Citation `infodp' on page 71 undefined on input line 19
+82.
 
-<figures/seznamcd.pdf, id=1088, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=1101, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [69 <./figures/seznamcd.pdf>] [70]
+<use figures/seznamcd.pdf> [71 <./figures/seznamcd.pdf>] [72]
 
 Package natbib Warning: There were undefined citations.
 
@@ -869,13 +852,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7410 strings out of 495046
- 100738 string characters out of 1181938
- 175485 words of memory out of 3000000
- 10121 multiletter control sequences out of 15000+50000
+ 7419 strings out of 495046
+ 100881 string characters out of 1181938
+ 176465 words of memory out of 3000000
+ 10126 multiletter control sequences out of 15000+50000
  19833 words of font info for 43 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
- 38i,14n,36p,1734b,532s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,14n,36p,1734b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -901,9 +884,9 @@ amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
 cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Lenart-thesis-2011.pdf (88 pages, 1018345 bytes).
+Output written on Lenart-thesis-2011.pdf (90 pages, 1025267 bytes).
 PDF statistics:
- 1986 PDF objects out of 2073 (max. 8388607)
- 322 named destinations out of 1000 (max. 500000)
+ 2005 PDF objects out of 2073 (max. 8388607)
+ 326 named destinations out of 1000 (max. 500000)
  726 words of extra memory for PDF output out of 10000 (max. 10000000)
 
