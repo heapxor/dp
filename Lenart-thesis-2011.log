@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  13 MAY 2011 16:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  13 MAY 2011 18:38
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -567,13 +567,13 @@ Nazev prace: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko email
 ov
 Vedouci prace: Ing. Jan \IeC {\v S}ediv\IeC {\'y}, CSc.
 ***************************************************
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 202.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 202.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
  [1
 
 
@@ -581,7 +581,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<figures/LogoCVUT.pdf, id=356, 93.34875pt x 70.2625pt>
+<figures/LogoCVUT.pdf, id=352, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
@@ -624,9 +624,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 Kapitola 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 296.
+(Font)              <9> on input line 305.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 296.
+(Font)              <5> on input line 305.
 [1
 
 ] [2
@@ -634,7 +634,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 Kapitola 2.
 [3]
-Overfull \hbox (2.87349pt too wide) in paragraph at lines 345--346
+Overfull \hbox (2.87349pt too wide) in paragraph at lines 354--355
 []\T1/cmr/m/it/10.95 Atomicita \T1/cmr/m/n/10.95 (Atom-ic-ity) - za-is´uje, ºe 
 sa vykon-ajú v²etky op-erá-cie reprezen-tu-júce transak-
  []
@@ -642,36 +642,36 @@ sa vykon-ajú v²etky op-erá-cie reprezen-tu-júce transak-
 [4] [5]
 
 LaTeX Warning: Reference `section:Consistency' on page 6 undefined on input lin
-e 393.
+e 402.
 
 [6] [7]
-Overfull \hbox (3.73438pt too wide) in paragraph at lines 447--448
+Overfull \hbox (3.73438pt too wide) in paragraph at lines 456--457
 \T1/cmr/m/n/10.95 pouºi-tia dis-tribuo-vaných transak-cií. Pre im-ple-men-tá-ci
 u tejto tech-niky môºeme pouºi´ rozde©o-
  []
 
 [8] [9]
 
-Package natbib Warning: Citation `TODO' on page 10 undefined on input line 526.
+Package natbib Warning: Citation `TODO' on page 10 undefined on input line 535.
 
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 552--553
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--571
+Underfull \hbox (badness 10000) in paragraph at lines 574--580
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 576--579
+Underfull \hbox (badness 10000) in paragraph at lines 585--588
 
  []
 
 [12]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 617.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 626.
 
  (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -679,7 +679,7 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 Kapitola 3.
 [15
 
-] <./figures/emailsHist.png, id=720, 633.36626pt x 440.64626pt>
+] <./figures/emailsHist.png, id=715, 633.36626pt x 440.64626pt>
 File: ./figures/emailsHist.png Graphic file (type png)
 
 <use ./figures/emailsHist.png>
@@ -687,7 +687,7 @@ File: ./figures/emailsHist.png Graphic file (type png)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [16] [17 <./figures/emailsHist.png (PNG copy)>] [18]
-Overfull \hbox (1.1261pt too wide) in paragraph at lines 808--809
+Overfull \hbox (1.1261pt too wide) in paragraph at lines 817--818
 \T1/cmr/m/n/10.95 Medzi zák-ladné prob-lémy týchto sys-té-mov pa-trí náro£né ho
 r-i-zon-tálne ²kalo-vanie, £o negatívne
  []
@@ -698,25 +698,25 @@ r-i-zon-tálne ²kalo-vanie, £o negatívne
 Kapitola 4.
 [21]
 
-Package natbib Warning: Citation `TODO' on page 22 undefined on input line 863.
+Package natbib Warning: Citation `TODO' on page 22 undefined on input line 872.
 
 
 
-Package natbib Warning: Citation `TODO' on page 22 undefined on input line 863.
+Package natbib Warning: Citation `TODO' on page 22 undefined on input line 872.
 
 
 
-Package natbib Warning: Citation `TODO' on page 22 undefined on input line 863.
+Package natbib Warning: Citation `TODO' on page 22 undefined on input line 872.
 
 
-[22] [23] <./figures/nosqldatamodels.png, id=781, 797.46207pt x 598.09656pt>
+[22] [23] <./figures/nosqldatamodels.png, id=776, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
 <use ./figures/nosqldatamodels.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24] <./figures/capDatabases.png, id=795, 1312.905pt x 694.595pt>
+[24] <./figures/capDatabases.png, id=790, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png>
@@ -737,7 +737,7 @@ Underfull \vbox (badness 1609) has occurred while \output is active []
 
  [36]
 [37]
-Overfull \hbox (5.79561pt too wide) in paragraph at lines 1312--1315
+Overfull \hbox (5.79561pt too wide) in paragraph at lines 1321--1324
 []\T1/cmr/m/n/10.95 Dáta sú za-písané do ²truk-túry \T1/cmr/m/it/10.95 HLog \T1
 /cmr/m/n/10.95 (typu \T1/cmr/m/it/10.95 Write-Ahead-Log\T1/cmr/m/n/10.95 ), kto
 rá je uloºená v súborovom
@@ -748,13 +748,13 @@ rá je uloºená v súborovom
 ]
 Kapitola 7.
 [41] [42]
-Overfull \hbox (8.98735pt too wide) in paragraph at lines 1457--1458
+Overfull \hbox (8.98735pt too wide) in paragraph at lines 1467--1468
 []\T1/cmr/m/n/10.95 Na zák-lade týchto hod-nôt po-zoru-jeme, ºe zvý²e-nie hod-n
 oty rep-liká-cie ma zásadný negatívny
  []
 
 [43] [44] [45]
-Overfull \hbox (13.26071pt too wide) in paragraph at lines 1602--1621
+Overfull \hbox (13.26071pt too wide) in paragraph at lines 1612--1631
 \T1/cmr/m/n/10.95 Výsledky za-´aºo-va-cieho testu zo-brazuje tabu©ka [][]7.7[][
 ], kde jed-notlivé poloºky zo-brazujú priemerný
  []
@@ -764,35 +764,35 @@ Kapitola 8.
 [49
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1699--1699
+Underfull \hbox (badness 10000) in paragraph at lines 1709--1709
 []\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[50] [51] <./figures/cassandra.png, id=997, 831.105pt x 606.265pt>
+[50] [51] <./figures/cassandra.png, id=992, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1769--1771
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1779--1781
  [][] 
  []
 
 
-Overfull \hbox (1.75182pt too wide) in paragraph at lines 1775--1776
+Overfull \hbox (1.75182pt too wide) in paragraph at lines 1785--1786
 \T1/cmr/m/n/10.95 vykoná-va´ výpo£et ²tatistík (mes-sages-Meta-Data) budú uloºe
 né v jed-nom sú-bore, £o zabezpe£í
  []
 
 [52 <./figures/cassandra.png (PNG copy)>] [53]
-<./figures/Celery.jpg, id=1012, 527.9725pt x 392.46625pt>
+<./figures/Celery.jpg, id=1007, 527.9725pt x 392.46625pt>
 File: ./figures/Celery.jpg Graphic file (type jpg)
 
 <use ./figures/Celery.jpg> [54 <./figures/Celery.jpg>]
-<./figures/emailProcessing.png, id=1022, 937.5025pt x 537.00626pt>
+<./figures/emailProcessing.png, id=1017, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1840--1842
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1850--1852
  [][] 
  []
 
@@ -816,11 +816,11 @@ Dodatok A.
 
 ]
 Dodatok B.
-<./figures/deploy.png, id=1083, 1138.2525pt x 877.2775pt>
+<./figures/deploy.png, id=1081, 1138.2525pt x 877.2775pt>
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1967--1968
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1986--1987
  [][] 
  []
 
@@ -833,10 +833,10 @@ Dodatok C.
 ]
 Dodatok D.
 
-Package natbib Warning: Citation `infodp' on page 71 undefined on input line 19
-82.
+Package natbib Warning: Citation `infodp' on page 71 undefined on input line 20
+01.
 
-<figures/seznamcd.pdf, id=1101, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=1099, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
 <use figures/seznamcd.pdf> [71 <./figures/seznamcd.pdf>] [72]
@@ -852,10 +852,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7419 strings out of 495046
- 100881 string characters out of 1181938
- 176465 words of memory out of 3000000
- 10126 multiletter control sequences out of 15000+50000
+ 7420 strings out of 495046
+ 100893 string characters out of 1181938
+ 176514 words of memory out of 3000000
+ 10127 multiletter control sequences out of 15000+50000
  19833 words of font info for 43 fonts, out of 3000000 for 9000
  32 hyphenation exceptions out of 8191
  38i,14n,36p,1734b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -884,9 +884,9 @@ amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
 cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Lenart-thesis-2011.pdf (90 pages, 1025267 bytes).
+Output written on Lenart-thesis-2011.pdf (90 pages, 1026688 bytes).
 PDF statistics:
  2005 PDF objects out of 2073 (max. 8388607)
  326 named destinations out of 1000 (max. 500000)
- 726 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 718 words of extra memory for PDF output out of 10000 (max. 10000000)
 

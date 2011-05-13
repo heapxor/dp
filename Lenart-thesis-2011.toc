@@ -76,10 +76,9 @@
 \contentsline {section}{\numberline {8.4}Fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{53}{section.8.4}
 \contentsline {section}{\numberline {8.5}Implement\IeC {\'a}cia}{54}{section.8.5}
 \contentsline {subsection}{\numberline {8.5.1}Klient}{55}{subsection.8.5.1}
-\contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{55}{subsection.8.5.2}
+\contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{56}{subsection.8.5.2}
 \contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{56}{subsection.8.5.3}
 \contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{56}{section.8.6}
-\contentsline {section}{\numberline {8.7}Dopor\IeC {\'u}\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{57}{section.8.7}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{59}{chapter.9}
 \contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{65}{appendix.A}
 \contentsline {chapter}{\numberline {B}UML diagramy}{67}{appendix.B}

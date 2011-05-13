@@ -169,6 +169,8 @@ unicode=true,
 	 \newcommand\labelSupervisor{Vedúci práce}
 	 \newcommand\labelStudProgram{Študijný program}
 	 \newcommand\labelStudBranch{Odbor}
+	 \newcommand\Date{13. mája 2011}
+
 }{
 	 \typeout{************************************************}
 	 \typeout{Language: english}
@@ -229,7 +231,12 @@ Rád by som poďakoval vedúcemu práce pánovi Ing. Janovi Šedivému, CSc. za 
  
 \abstractpage
 
-Translation of Czech abstract into English.
+% The topic of this thesis is focused on design of email archiving solution using distributed database systems, which are commonly known as NoSQL.
+% We made strong analysis of requirements for the high capacity and reliable storage of email messages, using attachments deduplication to provide efficient space saving. We described basic concepts which are used by distributed database systems. The main criteria were identified for high level comparison of modern NoSQL systems, then we chose two possible candidates which comply the aplication criteria. Functions and architectures of Cassandra and HBase systems were described, subjects were thoroughly tested for performance. We modelled and implemented the application prototype using Cassandra. 
+% The system was filled with roughly milion of email messages from the real environment. We found that deduplication saves about 65\% of the space.
+
+The aim of this thesis is to design an email archiving solution using a distributed database system, commonly known as NoSQL.
+We made a strong analysis of requirements for the high capacity and fault tolerant storage of email messages, featuring attachment deduplication to provide efficient space saving. We described the basic concepts that are used by distributed database systems. We identified main criteria for high level comparison of modern NoSQL systems, then we chose two possible candidates that comply with requirements. Functions and architectures of Cassandra and HBase systems were described, subjects were thoroughly tested for performance. We modelled and implemented the application prototype using Cassandra.
 
 % Prace v cestine musi krome abstraktu v anglictine obsahovat i
 % abstrakt v cestine.
@@ -240,7 +247,9 @@ Translation of Czech abstract into English.
 
 \noindent
 
-Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, ktoré sa označujú pod spoločným názvom NoSQL. Analýzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu príloh. V práci popisujeme základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implemetovali prototyp aplikácie využivajúci systém Cassandra. Po naplnení systému približne miliónom emailových správ, z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 65\% úsporu diskového priestoru.
+Cieľom tejto práce je návrh riešenia pre archiváciu elektronickej pošty s využitím distribuovaných databázových systémov, označovaných pod spoločným názvom NoSQL. Analyzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z dôvodu úspory diskového priestoru využívať deduplikáciu príloh. V práci popisujeme základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implemetovali prototyp aplikácie využivajúci systém Cassandra.
+
+% Po naplnení systému približne miliónom emailových správ z reálneho prostredia, sme vďaka použitiu deduplikácie dosiahli cca 65\% úsporu diskového priestoru.
 
 %Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie, u ktorého sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru, pri naplnení systému približne miliónom emailových správ z reálneho prostredia.
 %aktuálne problémy, ktoré vznikajú pri ukladaní a spracúvani neustále narastajúceho objemu dát pomocou relačných databázových systémov. Na ich riešenie 
@@ -1368,6 +1377,7 @@ Hadoop a HBase aktuálne poskytujú prvok autentizácie pomocou služby Kerberos
 
 
 \chapter{Testovanie výkonnosti}
+\label{chapter:testovanie}
 
 Výkonové porovnanie NoSQL systémov je zložitá úloha, neexistuje univerzálny nástroj, ktorým by bolo možné tieto systémy navzájom porovnať. 
 Každý z týchto systémov sa vyznačuje špecifickými vlastnosťami medzi ktoré patria typ konzistencie, optimalizácia pre zápis alebo čítanie a ich výber závisí na konkrétnom prípade použitia. Všeobecný nástroj pre ich porovnanie by preto nemal žiadne opodstatnenie. Aktuálne nie sú k dispozíci žiadne všeobecné nástroje, ktorými by bolo možné testovať napríklad konzistenciu, spoľahlivosť a iné vlastnosti. Výkon týchto systémov ovplyvňuje hodnota replikácie, spôsob rozdeľovania dát a typ konzistencie. Veľmi častou a zároveň časovo náročnou metódou, ktorá slúži na porovnávanie týchto systémov je implementácia daného riešenia s využitím všetkých porovnávaných systémov. V tejto kapitole sa zameriame na popis testov, ktoré sme vykonali v reálnych podmienkach.
@@ -1843,6 +1853,15 @@ Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu
  \label{fig:Cseq}
 \end{figure}
 
+Pomocou klienta pyccassa\footnote{http://pycassa.github.com/pycassa/} sme implementovali aplikáciu pre prístup k dátam uloženým v databázovom systéme. Klient umožnuje následovné operácie:
+\begin{itemize}
+ \item načítanie pôvodnej štruktúry emailu, ktorý sme uložili do systému, prípadná deduplikácia je nahradená dátami reprezentujúcimi prílohu
+ \item načitanie voliteľného počtu emailov pre daného užívateľa, ktoré sú zoradené v chronologicky od najstaršieho
+ \item náhodný výpis definovaného počtu emailov pre daného užívateľa
+ \item výpis stručných informácií reprezentujúcich email, konkrétne polia: odosielateľ, predmet, dátum, veľkosť emailu, počet príloh
+\end{itemize}
+
+
 TODO
 Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V tomto prípade uvažujeme 2 geo datacen ... + hadoop... popisat
 
@@ -1870,32 +1889,32 @@ STORE maxSize into 'biggestEmailPerDomainDomain' using PigStorage(',');
 
 
 \subsection{Webové rozhranie}
-TODO
-web IFACE -- pristup koncovych uzivatelov k archivu a diskusia ohladne bezpecnosti - strucny popis django aplikacie (topInbox, dumpInbox)
+%TODO: def. dajngo - jakub dp
+Vďaka tomu, že klient pre prístup k dátam bol vytvorený v programovacom jazyku Python sme pomocou Django vytvorili jednoduchú prezenčnú vrstu, ktorou sme boli schopný pristupovať k uloženým emailovým správam pomocou webového rozhrania.
 
-
+%pouzitie do buducna pre koncoveho usera<?
 
 \section{Overenie návrhu}
 
 Pomocou vyšie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u aplikácií Celery a RabbiMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s verziou 0.7.0. Počas ukončovania tejto práce je k dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
 
 \subsection*{Konfigurácia}
-Hardverová konfigurácia bola totožná s konfiguráciou z kapitoly ???. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu a Celery 2.6. V úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
+Hardverová konfigurácia bola totožná s konfiguráciou z kapitoly \ref{chapter:testovanie}. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu pre zápis dát, ktorú používala aplikácia Celery 2.6. V úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
 
 
 \subsection*{Overenie integrity dát}
-Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o objeme 300 GB. Následne sme simulovali prípad obnovy dát z archívu, kde sme všetky emaily v náhodnom poradí z databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s odtlačkom pôvodných dát uložených na pevnom disku. Tento test prebehol bez akejkoľvek chyby. 
+Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o objeme cca 300 GB. Tie isté dáta sme zároveň spracovali a zapísali do systému ElasticSearch. Následne sme simulovali prípad obnovy dát z archívu, kde sme všetky emaily v náhodnom poradí z databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s odtlačkom pôvodných dát uložených na pevnom disku. Tento test prebehol bez akejkoľvek chyby. 
 Klient, ktorý slúžil na čítanie dát z databáze využíval mód kvóra, z dôvodu požiadavku na integritu dát.
 
 
 \subsection*{Dosiahnuté výsledky}
-Doležitým pozorovaním bol fakt, že z celkového objemu emailových správ 300 GB sa po deduplikácií príloh tento objem znížil na 99 GB, teda došlo k 67\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z celkového objemu dát, čo je zanedbateľná položka.
+Doležitým pozorovaním bol fakt, že z celkového objemu emailových správ cca 300 GB sa po deduplikácií príloh tento objem znížil na cca 99 GB, teda došlo k 67\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z celkového objemu dát, čo je zanedbateľná položka.
 
 \noindent
 ElasticSearch rychlost pre fultextové vyhladavanie bola do XY ms, indexy nad objemom dát 300 GB tvorili XY GB.
 
-\section{Doporúčenie najvhodnejšieho systému}
-Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
+% \section{Doporúčenie najvhodnejšieho systému}
+% Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
 
 
 %Rabbit rychlost
