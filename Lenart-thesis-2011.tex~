@@ -530,7 +530,7 @@ V~prípade výberu možnosti číslo 1 zabezpečíme neustálu dostupnosť syst�
 Ak od daného systému tolerujúceho sieťové prerušenia požadujeme konzistenciu na úkor dostupnosti jedná sa o~alternatívu CP. Takýto systém zabezpečí konzistentnosť operácií pre zápis a čítanie dát a zároveň sa môže stať, že na určité požiadavky nebude schopný reagovať (možnosť číslo 2). Medzi takéto systémy môžeme zaradiť distribuovaný databázový systém Google Bigtable alebo systém využívajúci dvojfázový potvrdzovací protokol.
 
 \subsubsection*{AP}
-V~prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V~tomto prípade sa jedná o~alternatívu AP. Je možné, že v~takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vracať nekonzistentné výsledky. Tieto problémy s~konzistenciou sa v~distribuovaných databázových systémoch riešia napríklad pomocou metódy \uv{vektorových hodín} (Vector clock) \cite{TODO} alebo na aplikačnej úrovni na strane klienta. Príkladom systému patriaceho do tejto kategórie je Amazon Dynamo.
+V~prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V~tomto prípade sa jedná o~alternatívu AP. Je možné, že v~takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vracať nekonzistentné výsledky. Tieto problémy s~konzistenciou sa v~distribuovaných databázových systémoch riešia napríklad pomocou metódy \uv{vektorových hodín} (Vector clock) \cite{decandia2007dynamo} alebo na aplikačnej úrovni na strane klienta. Príkladom systému patriaceho do tejto kategórie je Amazon Dynamo.
 
 \subsubsection*{CA}
 Ak systém nebude tolerovať sieťové prerušenia, tak bude splňovať požiadavok konzistencie a dostupnosti, varianta CA. Jedná sa o~nedistribuované systémy pracujúce na jednom fyzickom hardvéri využívajúce databázové transakcie. Tieto vlastnosti splňuje napríklad relačný databázový systém MySQL.
@@ -2040,11 +2040,12 @@ ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy n
 
 
 %Rabbit rychlost
+%kolko deduplikacia
+%mapreduce - PIG
+%popis vysledkov
+%kolko tvorili indexy
 
 \chapter{Záver}
-
-% v zavere
-% no
 % pochvalit sa hlavne
 % popis k akym vysledkom si dospel
 % co si nameral
@@ -2054,9 +2055,7 @@ ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy n
 % ako Tvoja implementacia dobre setri prostriedky
 % cas
 % je fault tolerant
-% atd.
-% 
-% urob zaver
+% atd. 
 % precitaj si moj zaver na dp
 % precitaj si este 2-3 dp
 % nech mas predstavu
@@ -2066,13 +2065,21 @@ ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy n
 % ako si ich poriesil
 % a vysledky merani
 % pochvalit sa hlavne
-% to nevadi
 
-%kolko deduplikacia
-%kolko MB attacch
-%mapreduce - PIG
-%popis vysledkov
-%kolko tvorili indexy
+
+Cieľom tejto práce bolo vybrať vhodný distribuovaný databázový systém, ktorý bude schopný spracúvať milióny emailových správ a odolávať sieťovým prerušeniam. Následne navrhnúť model systému a implementovať prototyp riešenia. Prototyp bol implementovaný v jazyku Python, využíval systém Cassandra a bol naplnený približne miliónom emailových správ z reálneho prostredia, cieľ práce bol teda splnený. Práca pozostavala z viacerých častí, ktoré boli dôkladne spracované.
+
+Klúčovým prvkom pre preniknutie do danej problematiky distribuovaných databázových systémov bolo štúdium dostupných materiálov medzi, ktoré patrili hlavne technické články. Hlavným teoretickým prínosom tejto časti je ucelené zhrnutie základných konceptov a možných problémov, ktoré je treba zvážiť pri návrhu aplikácií využivajúcich distribuované databázové systémy. Taktiež sme popísali kľúčové časti databázových systémov Cassandra a HBase, ktorých znalosť je nutnou podmienkou v prípade ich použitia. Všetky relevantné použité zdroje zaoberajúce sa touto problematikou sú v angličtine, čím táto práca napísaná v slovenčine zapĺňa dieru v tejto oblasti. Zásadným problémom bola nepostačujúca dokumentácia týchto systémov, keďže sa jedná o relatívne mladé systémy, ktoré sú neustále vo vývoji. Množstvo informácií bolo preto diskutovaných v mailinglistoch alebo priamo konzultovaných s autormi daných systémov.
+
+Analýzou problému sme stanovili detailné požiadavky na tento systém, s tým že pre spracovanie dát využijeme techniku MapReduce. Ako možných kandidátov pre realizáciu zadania sme zvolili distribuované databázové systémy Cassandra a HBase, ktoré sme nasadili na reálny klaster. V tomto testovacom prostredí sme nad danými systemami vykonali výkonostné testy. Táto časť práce bola do značnej miery náročná a vyžadovala množstvo nastavení daných systémov pre ich stabilný beh. Z výsledných systémov sme na základe viacerých vlastností popísaných v kapitole 4 a 7? vybrali systém Cassandra.
+
+Architektúra systému využíva viacero open source aplikácií, pri ktorých analýze sme dbali na ich budúce využitie v reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, pre čo najefektívnejšie využitie diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na testovacom vzorku o veľkost
+
+
+
+%obmedzenie rabbit - > vdaka tomu dimenzacia na pocet emails/s
+
+
 
 
 

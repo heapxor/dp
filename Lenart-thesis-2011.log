@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  14 MAY 2011 20:27
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  14 MAY 2011 23:29
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -773,6 +773,12 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 1972--1974
 
 ]
 Kapitola 9.
+
+Overfull \hbox (1.33044pt too wide) in paragraph at lines 2070--2071
+\T1/lmr/m/n/10.95 Cie©om tejto práce bolo vy-bra´ vhodný dis-tri-bu-ovaný da-ta
+-bá-zový sys-tém, ktorý bude schopný
+ []
+
 (./Lenart-thesis-2011.bbl [61] [62
 
 ] [63] [64]
@@ -799,7 +805,7 @@ Dodatok B.
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2132--2133
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 2142--2143
  [][] 
  []
 
@@ -813,7 +819,7 @@ Dodatok C.
 Dodatok D.
 
 Package natbib Warning: Citation `infodp' on page 73 undefined on input line 21
-47.
+57.
 
 <figures/seznamcd.pdf, id=1096, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
@@ -830,7 +836,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  7526 strings out of 495018
  103059 string characters out of 1180937
- 177265 words of memory out of 3000000
+ 177266 words of memory out of 3000000
  10221 multiletter control sequences out of 15000+50000
  73768 words of font info for 49 fonts, out of 3000000 for 9000
  42 hyphenation exceptions out of 8191
@@ -848,7 +854,7 @@ exmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
 .pfb>
-Output written on Lenart-thesis-2011.pdf (92 pages, 1036649 bytes).
+Output written on Lenart-thesis-2011.pdf (92 pages, 1039252 bytes).
 PDF statistics:
  1238 PDF objects out of 1440 (max. 8388607)
  321 named destinations out of 1000 (max. 500000)
