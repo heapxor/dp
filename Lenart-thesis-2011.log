@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.4)  14 MAY 2011 02:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  14 MAY 2011 16:52
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
 (./Lenart-thesis-2011.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, pinyin, loaded.
+yphenation, czech, slovak, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/book.cls
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/bk11.clo
@@ -27,45 +27,29 @@ File: bk11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 (/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
-(/usr/share/texmf-texlive/tex/generic/babel/czech.ldf
-Language: czech 2008/07/06 v3.1a Czech support from the babel system
+(/usr/share/texmf-texlive/tex/generic/babel/slovak.ldf
+Language: slovak 2008/07/06 v3.1a Slovak support from the babel system
 
 (/usr/share/texmf-texlive/tex/generic/babel/babel.def
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Czech'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@czech = a dialect from \language0
-Package babel Info: Making " an active character on input line 172.
+Package babel Info: Making ^ an active character on input line 123.
+Package babel Info: Making " an active character on input line 126.
+Package babel Info: Making ' an active character on input line 129.
 \cs@wordlen=\count89
-Package babel Info: Making - an active character on input line 226.
-) (/usr/share/texmf-texlive/tex/generic/babel/english.ldf
+Package babel Info: Making - an active character on input line 294.
+)
+(/usr/share/texmf-texlive/tex/generic/babel/english.ldf
 Language: english 2005/03/30 v3.3o English support from the babel system
 \l@british = a dialect from \language\l@english 
 \l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
-)
-(/usr/share/texmf-texlive/tex/generic/babel/slovak.ldf
-Language: slovak 2008/07/06 v3.1a Slovak support from the babel system
-
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Slovak'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@slovak = a dialect from \language0
-Package babel Info: Making ^ an active character on input line 123.
-Package babel Info: Making ' an active character on input line 129.
-LaTeX Info: Redefining \uv on input line 278.
-\cs@wordlen=\count90
-)) (/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+))
+(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 (/usr/share/texmf-texlive/tex/latex/base/t1enc.def
@@ -78,16 +62,16 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTright=\skip44
 \LTpre=\skip45
 \LTpost=\skip46
-\LTchunksize=\count91
+\LTchunksize=\count90
 \LTcapwidth=\dimen104
 \LT@head=\box26
 \LT@firsthead=\box27
 \LT@foot=\box28
 \LT@lastfoot=\box29
-\LT@cols=\count92
-\LT@rows=\count93
-\c@LT@tables=\count94
-\c@LT@chunks=\count95
+\LT@cols=\count91
+\LT@rows=\count92
+\c@LT@tables=\count93
+\c@LT@chunks=\count94
 \LT@p@ftn=\toks14
 )
 (/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
@@ -307,6 +291,41 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+(/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -327,7 +346,7 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count96
+\Gread@gobject=\count95
 ))
 \Gin@req@height=\dimen105
 \Gin@req@width=\dimen106
@@ -358,8 +377,8 @@ O)
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
 \@linkdim=\dimen107
-\Hy@linkcounter=\count97
-\Hy@pagecounter=\count98
+\Hy@linkcounter=\count96
+\Hy@pagecounter=\count97
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -436,7 +455,7 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count99
+\Fld@menulength=\count98
 \Field@Width=\dimen108
 \Fld@charsize=\dimen109
 \Field@toks=\toks18
@@ -451,21 +470,21 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count100
-\c@Item=\count101
-\c@Hfootnote=\count102
+\Hy@abspage=\count99
+\c@Item=\count100
+\c@Hfootnote=\count101
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count103
+\Fld@listcount=\count102
 )
 (/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
 Package: natbib 2009/07/16 8.31 (PWD, AO)
 \bibhang=\skip47
 \bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count104
+\c@NAT@ctr=\count103
 )
 (/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
@@ -486,19 +505,16 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen118
 \cmidrulekern=\dimen119
 \defaultaddspace=\dimen120
-\@cmidla=\count105
-\@cmidlb=\count106
+\@cmidla=\count104
+\@cmidlb=\count105
 \@aboverulesep=\dimen121
 \@belowrulesep=\dimen122
-\@thisruleclass=\count107
-\@lastruleclass=\count108
+\@thisruleclass=\count106
+\@lastruleclass=\count107
 \@thisrulewidth=\dimen123
 )
 (/usr/share/texmf-texlive/tex/latex/ltxmisc/capt-of.sty)
 (./Lenart-thesis-2011.aux
-
-LaTeX Warning: Label `tab:Nosql' multiply defined.
-
 
 LaTeX Warning: Label `tab:Nosql' multiply defined.
 
@@ -511,33 +527,37 @@ LaTeX Warning: Label `tab:Nosql' multiply defined.
 )
 \openout1 = `Lenart-thesis-2011.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
- (/usr/share/texmf/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 144.
+LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 144.
+ (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+(/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
+\scratchcounter=\count108
 \scratchdimen=\dimen124
 \scratchbox=\box30
-\nofMPsegments=\count110
-\nofMParguments=\count111
+\nofMPsegments=\count109
+\nofMParguments=\count110
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count112
+\MPscratchCnt=\count111
 \MPscratchDim=\dimen125
-\MPnumerator=\count113
+\MPnumerator=\count112
 \everyMPtoPDFconversion=\toks21
 ) (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
@@ -547,7 +567,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 143.
+Package hyperref Info: Link coloring ON on input line 144.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -555,10 +575,10 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count114
+\c@section@level=\count113
 )
-LaTeX Info: Redefining \ref on input line 143.
-LaTeX Info: Redefining \pageref on input line 143.
+LaTeX Info: Redefining \ref on input line 144.
+LaTeX Info: Redefining \pageref on input line 144.
 
 (./Lenart-thesis-2011.out) (./Lenart-thesis-2011.out)
 \@outlinefile=\write3
@@ -576,21 +596,26 @@ Nazev prace: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko email
 ov
 Vedouci prace: Ing. Jan \IeC {\v S}ediv\IeC {\'y}, CSc.
 ***************************************************
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 204.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 205.
 
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 205
+.
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 205.
  [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-]
-<figures/LogoCVUT.pdf, id=348, 93.34875pt x 70.2625pt>
+] <figures/LogoCVUT.pdf, id=348, 93.34875pt x 70.2625pt>
 File: figures/LogoCVUT.pdf Graphic file (type pdf)
 
 <use figures/LogoCVUT.pdf> [3 <./figures/LogoCVUT.pdf>] [4
@@ -605,11 +630,24 @@ File: figures/LogoCVUT.pdf Graphic file (type pdf)
 ] [10
 
 ] (./Lenart-thesis-2011.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+ (/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 5.
  [11] [12])
 \tf@toc=\write4
@@ -632,9 +670,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Kapitola 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 302.
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 302.
 [1
 
@@ -642,253 +680,204 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Kapitola 2.
-[3]
-Overfull \hbox (2.87349pt too wide) in paragraph at lines 351--352
-[]\T1/cmr/m/it/10.95 Atomicita \T1/cmr/m/n/10.95 (Atom-ic-ity) - za-is´uje, ºe 
-sa vykon-ajú v²etky op-erá-cie reprezen-tu-júce transak-
- []
+[3] [4] [5] [6] [7] [8] [9]
 
-[4] [5]
-
-LaTeX Warning: Reference `section:Consistency' on page 6 undefined on input lin
-e 399.
-
-[6] [7]
-Overfull \hbox (3.73438pt too wide) in paragraph at lines 453--454
-\T1/cmr/m/n/10.95 pouºi-tia dis-tribuo-vaných transak-cií. Pre im-ple-men-tá-ci
-u tejto tech-niky môºeme pouºi´ rozde©o-
- []
-
-[8] [9]
-
-Package natbib Warning: Citation `TODO' on page 10 undefined on input line 532.
+Package natbib Warning: Citation `TODO' on page 10 undefined on input line 533.
 
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 558--559
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 571--577
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 582--585
+Underfull \hbox (badness 10000) in paragraph at lines 572--578
 
  []
 
-[12]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 629.
 
- (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 583--586
+
+ []
+
+[12] [13]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 631.
+
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [14] [15] [16
+
+]
 Kapitola 3.
-[15
-
-] <./figures/emailsHist.png, id=719, 633.36626pt x 440.64626pt>
+[17] <./figures/emailsHist.png, id=724, 633.36626pt x 440.64626pt>
 File: ./figures/emailsHist.png Graphic file (type png)
 
 <use ./figures/emailsHist.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16] [17 <./figures/emailsHist.png (PNG copy)>] [18]
-Overfull \hbox (1.1261pt too wide) in paragraph at lines 844--845
-\T1/cmr/m/n/10.95 Medzi zák-ladné prob-lémy týchto sys-té-mov pa-trí náro£né ho
-r-i-zon-tálne ²kalo-vanie, £o negatívne
- []
-
-[19] [20
+[18] [19 <./figures/emailsHist.png (PNG copy)>] [20] [21] [22
 
 ]
 Kapitola 4.
-[21] [22]
+[23]
 
-Package natbib Warning: Citation `TODO' on page 23 undefined on input line 950.
-
-
-
-Package natbib Warning: Citation `TODO' on page 23 undefined on input line 950.
+Package natbib Warning: Citation `TODO' on page 24 undefined on input line 952.
 
 
 
-Package natbib Warning: Citation `TODO' on page 23 undefined on input line 950.
+Package natbib Warning: Citation `TODO' on page 24 undefined on input line 952.
 
 
-[23] [24] <./figures/nosqldatamodels.png, id=787, 797.46207pt x 598.09656pt>
+
+Package natbib Warning: Citation `TODO' on page 24 undefined on input line 952.
+
+
+[24] [25] [26]
+<./figures/nosqldatamodels.png, id=793, 797.46207pt x 598.09656pt>
 File: ./figures/nosqldatamodels.png Graphic file (type png)
 
-<use ./figures/nosqldatamodels.png> [25 <./figures/nosqldatamodels.png (PNG cop
-y)>] <./figures/capDatabases.png, id=798, 1312.905pt x 694.595pt>
+<use ./figures/nosqldatamodels.png> [27 <./figures/nosqldatamodels.png (PNG cop
+y)>] <./figures/capDatabases.png, id=804, 1312.905pt x 694.595pt>
 File: ./figures/capDatabases.png Graphic file (type png)
 
-<use ./figures/capDatabases.png> [26 <./figures/capDatabases.png (PNG copy)>]
-[27] [28]
-Kapitola 5.
-[29
+<use ./figures/capDatabases.png> [28 <./figures/capDatabases.png (PNG copy)>]
+[29]
+Overfull \hbox (0.61731pt too wide) in paragraph at lines 1171--1191
+ [][] 
+ []
 
-] [30] [31] [32] [33] [34
+[30]
+Kapitola 5.
+[31
+
+] [32] [33] [34] [35] [36
 
 ]
 Kapitola 6.
-[35]
-Underfull \vbox (badness 1609) has occurred while \output is active []
-
- [36]
-[37]
-Overfull \hbox (5.79561pt too wide) in paragraph at lines 1399--1402
-[]\T1/cmr/m/n/10.95 Dáta sú za-písané do ²truk-túry \T1/cmr/m/it/10.95 HLog \T1
-/cmr/m/n/10.95 (typu \T1/cmr/m/it/10.95 Write-Ahead-Log\T1/cmr/m/n/10.95 ), kto
-rá je uloºená v súborovom
- []
-
-[38] [39] [40
+[37] [38] [39] [40] [41] [42
 
 ]
 Kapitola 7.
-[41] [42]
-Overfull \hbox (8.98735pt too wide) in paragraph at lines 1545--1546
-[]\T1/cmr/m/n/10.95 Na zák-lade týchto hod-nôt po-zoru-jeme, ºe zvý²e-nie hod-n
-oty rep-liká-cie ma zásadný negatívny
- []
-
-[43] [44] [45]
-Overfull \hbox (13.26071pt too wide) in paragraph at lines 1690--1709
-\T1/cmr/m/n/10.95 Výsledky za-´aºo-va-cieho testu zo-brazuje tabu©ka [][]7.7[][
-], kde jed-notlivé poloºky zo-brazujú priemerný
- []
-
-[46] [47] [48]
+[43] [44] [45] [46] [47] [48] [49] [50]
 Kapitola 8.
-[49
+[51
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1787--1787
-[]\T1/cmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
+Underfull \hbox (badness 10000) in paragraph at lines 1826--1826
+[]\T1/lmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[50] [51] <./figures/cassandra.png, id=996, 831.105pt x 606.265pt>
+[52] [53] <./figures/cassandra.png, id=1002, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1857--1859
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1896--1898
  [][] 
  []
 
-
-Overfull \hbox (1.75182pt too wide) in paragraph at lines 1863--1864
-\T1/cmr/m/n/10.95 vykoná-va´ výpo£et ²tatistík (mes-sages-Meta-Data) budú uloºe
-né v jed-nom sú-bore, £o zabezpe£í
- []
-
-[52 <./figures/cassandra.png (PNG copy)>] [53]
-<./figures/Celery.jpg, id=1011, 527.9725pt x 392.46625pt>
+[54 <./figures/cassandra.png (PNG copy)>] [55]
+<./figures/Celery.jpg, id=1018, 527.9725pt x 392.46625pt>
 File: ./figures/Celery.jpg Graphic file (type jpg)
 
-<use ./figures/Celery.jpg> [54 <./figures/Celery.jpg>]
-<./figures/emailProcessing.png, id=1021, 937.5025pt x 537.00626pt>
+<use ./figures/Celery.jpg> [56 <./figures/Celery.jpg>]
+<./figures/emailProcessing.png, id=1028, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1928--1930
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1967--1969
  [][] 
  []
 
-[55 <./figures/emailProcessing.png (PNG copy)>] [56] [57] [58
+[57 <./figures/emailProcessing.png (PNG copy)>] [58] [59] [60
 
 ]
 Kapitola 9.
-(./Lenart-thesis-2011.bbl [59] [60
+(./Lenart-thesis-2011.bbl [61] [62
 
-] [61] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 224--228
-[]\T1/cmtt/m/n/10.95 http://ask.github.com/celery/getting-started/introduction.
-html\T1/cmr/m/n/10.95 , stav z
+] [63] [64]
+Underfull \hbox (badness 10000) in paragraph at lines 194--199
+[]\T1/lmtt/m/n/10.95 www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf\
+T1/lmr/m/n/10.95 , stav z
  []
 
-) [63] [64
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--228
+[]\T1/lmtt/m/n/10.95 http://ask.github.com/celery/getting-started/introduction.
+html\T1/lmr/m/n/10.95 , stav z
+ []
+
+) [65] [66
 
 ]
 Dodatok A.
-[65] [66
+[67] [68
 
 ]
 Dodatok B.
-<./figures/deploy.png, id=1085, 1138.2525pt x 866.23625pt>
+<./figures/deploy.png, id=1092, 1138.2525pt x 866.23625pt>
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2064--2065
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 2127--2128
  [][] 
  []
 
-[67 <./figures/deploy.png (PNG copy)>] [68
+[69 <./figures/deploy.png (PNG copy)>] [70
 
 ]
 Dodatok C.
-[69] [70
+[71] [72
 
 ]
 Dodatok D.
 
-Package natbib Warning: Citation `infodp' on page 71 undefined on input line 20
-79.
+Package natbib Warning: Citation `infodp' on page 73 undefined on input line 21
+42.
 
-<figures/seznamcd.pdf, id=1103, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=1109, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [71 <./figures/seznamcd.pdf>] [72]
+<use figures/seznamcd.pdf> [73 <./figures/seznamcd.pdf>] [74]
 
 Package natbib Warning: There were undefined citations.
 
 (./Lenart-thesis-2011.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7424 strings out of 495046
- 100916 string characters out of 1181938
- 176615 words of memory out of 3000000
- 10128 multiletter control sequences out of 15000+50000
- 19833 words of font info for 43 fonts, out of 3000000 for 9000
- 32 hyphenation exceptions out of 8191
- 38i,14n,36p,1734b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not ex
+ 7534 strings out of 495018
+ 103092 string characters out of 1180937
+ 177126 words of memory out of 3000000
+ 10219 multiletter control sequences out of 15000+50000
+ 73768 words of font info for 49 fonts, out of 3000000 for 9000
+ 42 hyphenation exceptions out of 8191
+ 38i,17n,36p,1736b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.17} has been referenced but does not ex
 ist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not exis
+pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not exis
 t, replaced by a fixed one
 
- </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/heap
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/heap/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/heap/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecti1095.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecrm0800.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1095
-.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </ho
-me/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> </home/heap/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/heap/.texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecti1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecbx1440.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm1200.600pk> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600p
-k> </home/heap/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Lenart-thesis-2011.pdf (90 pages, 1033508 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
+s/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/t
+exmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/l
+mbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.p
+fb>
+Output written on Lenart-thesis-2011.pdf (92 pages, 1036272 bytes).
 PDF statistics:
- 2007 PDF objects out of 2073 (max. 8388607)
- 329 named destinations out of 1000 (max. 500000)
+ 1254 PDF objects out of 1440 (max. 8388607)
+ 331 named destinations out of 1000 (max. 500000)
  710 words of extra memory for PDF output out of 10000 (max. 10000000)
 

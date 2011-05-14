@@ -1,26 +1,26 @@
+\select@language {english}
 \select@language {slovak}
-\select@language {slovak}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Pribli\IeC {\v z}n\IeC {\'a} distrib\IeC {\'u}cia emailov\IeC {\'y}ch spr\IeC {\'a}v. $\mu = 301\,\mathrm {kB}$, $\sigma = 1.3\,\mathrm {MB}$}}{17}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Pribli\IeC {\v z}n\IeC {\'a} distrib\IeC {\'u}cia emailov\IeC {\'y}ch spr\IeC {\'a}v. $\mu = 301\,\mathrm {kB}$, $\sigma = 1.3\,\mathrm {MB}$}}{19}{figure.3.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Poz\IeC {\'\i }cia d\IeC {\'a}tov\IeC {\'e}ho modelu z poh\IeC {\v l}adu \IeC {\v s}k\IeC {\'a}lovania pod\IeC {\v l}a ve\IeC {\v l}kosti a komplexnosti. Zdroj: \cite {neo4j}}}{25}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Rozdelenie datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov pod\IeC {\v l}a CAP}}{26}{figure.4.2}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Obsah ob\IeC {\'a}lky z programu Qmail-scanner}}{50}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{52}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fultextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{53}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Architekt\IeC {\'u}ra Celery, Zdroj: \cite {celery}}}{54}{figure.8.4}
-\contentsline {figure}{\numberline {8.5}{\ignorespaces Spracovanie emailu}}{55}{figure.8.5}
-\contentsline {figure}{\numberline {8.6}{\ignorespaces Programov\IeC {\'a} uk\IeC {\'a}\IeC {\v z}ka v jazyku Pig}}{56}{figure.8.6}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Poz\IeC {\'\i }cia d\IeC {\'a}tov\IeC {\'e}ho modelu z~poh\IeC {\v l}adu \IeC {\v s}k\IeC {\'a}lovania pod\IeC {\v l}a ve\IeC {\v l}kosti a komplexnosti. Zdroj: \cite {neo4j}}}{27}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Rozdelenie datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov pod\IeC {\v l}a CAP, Zdroj: \cite {hewitt2010cassandra}}}{28}{figure.4.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagram nasadenia aplik\IeC {\'a}cie}}{67}{figure.B.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Obsah ob\IeC {\'a}lky z~programu Qmail-scanner}}{52}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{54}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fulltextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{55}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Architekt\IeC {\'u}ra Celery, Zdroj: \cite {celery}}}{56}{figure.8.4}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Spracovanie emailu}}{57}{figure.8.5}
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Programov\IeC {\'a} uk\IeC {\'a}\IeC {\v z}ka v~jazyku Pig}}{58}{figure.8.6}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {D.1}{\ignorespaces Seznam p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD --- p\IeC {\v r}\IeC {\'\i }klad}}{71}{figure.D.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagram nasadenia aplik\IeC {\'a}cie}}{69}{figure.B.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Seznam p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD --- p\IeC {\v r}\IeC {\'\i }klad}}{73}{figure.D.1}

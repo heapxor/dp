@@ -1,24 +1,23 @@
+\select@language {english}
 \select@language {slovak}
-\select@language {slovak}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Vstupn\IeC {\'e} d\IeC {\'a}ta pre funkciu map}}{14}{table.2.1}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Vstupn\IeC {\'e} d\IeC {\'a}ta pre funkciu map}}{15}{table.2.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v rela\IeC {\v c}nom modely}}{22}{table.4.1}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v s\IeC {\'l}pcovom modely}}{22}{table.4.2}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v s\IeC {\'l}pcovom modely}}{22}{table.4.3}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Stru\IeC {\v c}n\IeC {\'y} preh\IeC {\v l}ad vlasnost\IeC {\'\i } st\IeC {\'l}pcovo orientovan\IeC {\'y}ch syst\IeC {\'e}mov NoSQL}}{28}{table.4.4}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v~rela\IeC {\v c}nom modely}}{24}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v~st\IeC {\'l}pcovom modely}}{25}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Stru\IeC {\v c}n\IeC {\'y} preh\IeC {\v l}ad vlastnost\IeC {\'\i } st\IeC {\'l}pcovo orientovan\IeC {\'y}ch syst\IeC {\'e}mov NoSQL}}{30}{table.4.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Priepustnos\IeC {\v t} pri z\IeC {\'a}pise d\IeC {\'a}t na HDFS}}{43}{table.7.1}
-\contentsline {table}{\numberline {7.2}{\ignorespaces Hbase: z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{44}{table.7.2}
-\contentsline {table}{\numberline {7.3}{\ignorespaces HBase: \IeC {\v c}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{45}{table.7.3}
-\contentsline {table}{\numberline {7.4}{\ignorespaces Hbase: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{45}{table.7.4}
-\contentsline {table}{\numberline {7.5}{\ignorespaces Cassandra: Z\IeC {\'a}pis riadkov o ve\IeC {\v l}kosti 1000 B}}{47}{table.7.5}
-\contentsline {table}{\numberline {7.6}{\ignorespaces Cassandra: \IeC {\v C}\IeC {\'\i }tanie riadkov o ve\IeC {\v l}kosti 1000 B}}{47}{table.7.6}
-\contentsline {table}{\numberline {7.7}{\ignorespaces Cassandra: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v MB/s}}{47}{table.7.7}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Priepustnos\IeC {\v t} pri z\IeC {\'a}pise d\IeC {\'a}t na HDFS}}{45}{table.7.1}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Hbase: z\IeC {\'a}pis riadkov o~ve\IeC {\v l}kosti 1000 B}}{46}{table.7.2}
+\contentsline {table}{\numberline {7.3}{\ignorespaces HBase: \IeC {\v c}\IeC {\'\i }tanie riadkov o~ve\IeC {\v l}kosti 1000 B}}{47}{table.7.3}
+\contentsline {table}{\numberline {7.4}{\ignorespaces Hbase: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v~MB/s}}{47}{table.7.4}
+\contentsline {table}{\numberline {7.5}{\ignorespaces Cassandra: Z\IeC {\'a}pis riadkov o~ve\IeC {\v l}kosti 1000 B}}{49}{table.7.5}
+\contentsline {table}{\numberline {7.6}{\ignorespaces Cassandra: \IeC {\v C}\IeC {\'\i }tanie riadkov o~ve\IeC {\v l}kosti 1000 B}}{49}{table.7.6}
+\contentsline {table}{\numberline {7.7}{\ignorespaces Cassandra: maxim\IeC {\'a}lna priepustnos\IeC {\v t} klastru v~MB/s}}{49}{table.7.7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
