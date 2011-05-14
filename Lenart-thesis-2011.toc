@@ -11,11 +11,10 @@
 \contentsline {section}{\numberline {2.5}BASE}{8}{section.2.5}
 \contentsline {section}{\numberline {2.6}CAP}{9}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Konzistencia verzus dostupnos\IeC {\v t}}{10}{subsection.2.6.1}
-\contentsline {section}{\numberline {2.7}\IeC {\v C}iasto\IeC {\v c}n\IeC {\'a} konzistencia}{11}{section.2.7}
+\contentsline {section}{\numberline {2.7}Eventu\IeC {\'a}lna konzistencia}{11}{section.2.7}
 \contentsline {subsection}{\numberline {2.7.1}Konzistencia z~poh\IeC {\v l}adu klienta}{11}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Syst\IeC {\'e}mov\IeC {\'a} konzistencia}{12}{subsection.2.7.2}
 \contentsline {section}{\numberline {2.8}MapReduce}{13}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Pr\IeC {\'\i }klad}{14}{subsection.2.8.1}
 \contentsline {chapter}{\numberline {3}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{17}{section.3.1}
 \contentsline {section}{\numberline {3.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{18}{section.3.2}
@@ -44,7 +43,7 @@
 \contentsline {section}{\numberline {5.5}Z\IeC {\'a}pis d\IeC {\'a}t}{34}{section.5.5}
 \contentsline {section}{\numberline {5.6}\IeC {\v C}\IeC {\'\i }tanie d\IeC {\'a}t}{34}{section.5.6}
 \contentsline {section}{\numberline {5.7}Zmazanie d\IeC {\'a}t}{34}{section.5.7}
-\contentsline {section}{\numberline {5.8}Konzistencia}{35}{section.5.8}
+\contentsline {section}{\numberline {5.8}Konzistencia}{34}{section.5.8}
 \contentsline {section}{\numberline {5.9}Perzistentn\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko}{35}{section.5.9}
 \contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{35}{section.5.10}
 \contentsline {chapter}{\numberline {6}HBase}{37}{chapter.6}

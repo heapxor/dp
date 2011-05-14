@@ -220,6 +220,10 @@ W.~Vogels.
 \newblock {Eventually consistent}.
 \newblock {\em Communications of the ACM}, 52(1):40--44, 2009.
 
+\bibitem{cassandraW}
+Cassandra.
+\newblock \\ \verb|http://cassandra.apache.org/|, stav z 3.\,1.\,2011.
+
 \bibitem{celery}
 Celery introduction.
 \newblock \\
