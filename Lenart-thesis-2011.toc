@@ -15,8 +15,7 @@
 \contentsline {subsection}{\numberline {2.7.1}Konzistencia z poh\IeC {\v l}adu klienta}{11}{subsection.2.7.1}
 \contentsline {subsection}{\numberline {2.7.2}Syst\IeC {\'e}mov\IeC {\'a} konzistencia}{12}{subsection.2.7.2}
 \contentsline {section}{\numberline {2.8}MapReduce}{13}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}Pr\IeC {\'\i }klad}{13}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}Pr\IeC {\'\i }klad}{14}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.1}Pr\IeC {\'\i }klad}{14}{subsection.2.8.1}
 \contentsline {chapter}{\numberline {3}Defin\IeC {\'\i }cia probl\IeC {\'e}mu}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Archiv\IeC {\'a}cia elektronickej po\IeC {\v s}ty}{15}{section.3.1}
 \contentsline {section}{\numberline {3.2}Po\IeC {\v z}iadavky na syst\IeC {\'e}m}{16}{section.3.2}
@@ -26,17 +25,17 @@
 \contentsline {section}{\numberline {4.1}D\IeC {\'a}tov\IeC {\'e} modely}{21}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Rela\IeC {\v c}n\IeC {\'y} model}{22}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota}{22}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{22}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.3}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{23}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}Dokumentov\IeC {\'y} model}{23}{subsection.4.1.4}
 \contentsline {subsection}{\numberline {4.1.5}Grafov\IeC {\'y} model}{23}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{23}{section.4.2}
+\contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{24}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{24}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{24}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{25}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{25}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{25}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{26}{subsection.4.2.6}
-\contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{25}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{26}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{26}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{27}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{27}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{27}{section.4.3}
 \contentsline {chapter}{\numberline {5}Cassandra}{29}{chapter.5}
 \contentsline {section}{\numberline {5.1}D\IeC {\'a}tov\IeC {\'y} model}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}Rozde\IeC {\v l}ovanie d\IeC {\'a}t}{30}{section.5.2}

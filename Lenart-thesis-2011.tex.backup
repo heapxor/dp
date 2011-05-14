@@ -362,7 +362,7 @@ Implementácia vlastností ACID, ktoré zaručujú konzistenciu, zvyčajne využ
 %http://en.wikipedia.org/wiki/2-phase_commit
 %http://en.wikipedia.org/wiki/Two-phase_locking
 % a operácií spojenia (join) 
-Tranzakcie splňujúce vlastnosti ACID využívajú v distribuovaných databázových systémoch dvojfázový potvrdzovací protokol (Two-phase commit protocol \cite{bernstein1987concurrency}). Systém využívajúci tento protokol, zaručuje konzistentnosť a je schopný odolávať sieťovým prerušeniam (network partitioning) alebo poruchám v systéme. Vlastnosti ACID nekladú žiadnu záruku na dostupnosť systému, naopak nedostupnosť je uprednostnená v prípade operácie, ktorá by mohla spôsobiť nekonzistenciu dát. Takéto systémy sú vhodné pre aplikácie, v ktorých sa vykonávajú platobné operácie a pod. Existuje množstvo aplikácií, u ktorých sa uprednosňuje dostupnosť dát pred ich konzistenciou. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností. Riešenie poskytuje model pod názvom BASE \ref{section:base}.
+Tranzakcie splňujúce vlastnosti ACID využívajú v distribuovaných databázových systémoch dvojfázový potvrdzovací protokol (Two-phase commit protocol \cite{bernstein1987concurrency}). Systém využívajúci tento protokol, zaručuje konzistentnosť a je schopný odolávať sieťovým prerušeniam (network partitioning) alebo poruchám v systéme. Vlastnosti ACID nekladú žiadnu záruku na dostupnosť systému, naopak nedostupnosť je uprednostnená v prípade operácie, ktorá by mohla spôsobiť nekonzistenciu dát. Systémy garantujúce ACID sú vhodné pre aplikácie, v ktorých sa vykonávajú platobné operácie a pod. Existuje množstvo aplikácií, u ktorých sa uprednosňuje dostupnosť dát pred ich konzistenciou. Pri tvorbe distribuovaných databázových systémov je preto potrebné upustiť z niektorých ACID vlastností. Riešenie poskytuje model pod názvom BASE \ref{section:base}.
 
 %ACID makes no guarantees regarding availability; indeed, it is preferable for an ACID service to be unavailable than to function in a way that relaxes the ACID constraints. ACID semantics are well suited for Internet commerce transactions, billing users, or maintaining user profile information for personalized services
 
@@ -519,7 +519,7 @@ P(B) - pravdepodobnosť, že individuálny uzol nezlyhá
 
 V distribuovanom systéme nie je možné súčasne zaručiť vlasnosť konzistencie a dostupnosti. Ako príklad si predstavme distribuovaný systém obsahujúci tri uzly A, B, C, ktorý zaručuje obe vlasnosti aj v prípade sieťového prerušenia. Na všetkých uzloch sa nachádzajú identické (replikované) dáta. Ďalej uvažujme, že došlo k sieťovému prerušeniu, ktoré rozdelilo uzly na dva samostatné celky \{A,B\} a \{C\}. V prípade, že uzol C obdrží požiadavku pre zmenu dát má na výber z dvoch možnosti:
 \begin{enumerate}
- \item vykonať zmenu dát čo spôsobí, že sa uzly A a B o tejto zmene dozvedia až vo chvíli ak bude sieťové prerušenie odstranené
+ \item vykonať zmenu dát čo spôsobí, že sa uzly A a B o tejto zmene dozvedia až vo chvíli ak bude sieťové spojenie obnovené
  \item zamietnuť požiadavok na zmenu dát, z dôvodu že uzly A a B sa o tejto zmene nedozvedia
 \end{enumerate}
 
@@ -623,9 +623,6 @@ MapReduce nie je vhodný na spracovanie dát v reálnom čase. Je optimalizovan�
 %TODO PRIKLAD? 
 % \subsection{Príklad}
 % ? histogram slov
-\subsection{Architektúra}
-
-\subsection{Použitie}
 
 Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia map na jednotlivých uzloch systému, transformuje vstupné data na základe zadefinovaného kľúča $k$ a k nemu prináležiacím hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g1,...,g_n$ a k ním odpovedajúce zotriedené hodnoty $H$. Tieto dáta sa odošlú na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $Z$. Tieto operácie je možné popísať následovne:
 
@@ -636,25 +633,26 @@ reduce(g, list(H)) -> list(Z)
 
 \subsection{Príklad}
 
-Uvažujme vstupné dáta popísané v tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V tomto prípade bude vstupom do funkcie map ako kľúč k číslo riadku v tabuľke, hodnotu H budú tvoriť jednotlivé stĺpce. Aplikáciou funkcie map na tieto data vznikne zoznam v tvare:
+Uvažujme vstupné dáta popísané v tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V tomto prípade bude vstupom do funkcie map ako kľúč $k$ číslo riadku v tabuľke, hodnotu $H$ budú tvoriť jednotlivé stĺpce. Aplikáciou funkcie map a využitím internej funkcie systému Hadoop \emph{shuffle} dostaneme následujúci výstup:
 
 \begin{verbatim}
 (d1.com , [12, 3])
 (d2.net , [65, 80, 102])
 (d3.sk, [12])
 \end{verbatim}
-Tieto záznamy následne spracuje funkcia reduce, kde kľúč g bude reprezentovaný názvom domény a list(H) budú tvoriť jednotlivé veľkosti emailových správ. Výstupom tejto funkcie budú dvojice:
+
+Tieto záznamy následne spracuje funkcia reduce, kde kľúč $g$ bude reprezentovaný názvom domény a $list(H)$ budú tvoriť jednotlivé veľkosti emailových správ. Výstupom budú dvojice:
+
 \begin{verbatim}
 (d1.com, 15)
 (d2.net, 247)
 (d3.sk, 12)
 \end{verbatim}
 
-Dáta obsiahnuté v tabuľke sa môžu nachádzať na veľko počte počítačov, uzol JobTracker zabezpečí aby na jednotlivých uzloch bola vykonaná funkcia map a jej výsledky sa pošlú na uzly vykonávajúce funkciu reduce. Týmto sa zabezpečí plne distribuovaný výpočet bez nutnosti preposielania zdrojových dát, čo môže efektívne znížiť zaťaženie sieťe a zvýšiť spoľahlivosť výpočtu.
+Dáta obsiahnuté v tabuľke sa môžu nachádzať na ľubovoľnom počte počítačov so systémom Hadoop, ktorý zabezpečí aby na jednotlivých uzloch bola vykonaná funkcia map a jej výsledky sa pošlú na náhodné uzly vykonávajúce funkciu reduce. Týmto sa zabezpečí plne distribuovaný výpočet bez nutnosti preposielania zdrojových dát, čo môže efektívne znížiť zaťaženie sieťe a zvýšiť spoľahlivosť výpočtu.
 
 
 {\centering%
-
 \label{tab:001}\par\bigskip
 \begin{tabular}{llrl}\toprule
   \multicolumn{1}{c}{doména} & \multicolumn{1}{c}{adresa} & \multicolumn{1}{c}{veľkosť} &\multicolumn{1}{c}{dátum}\\\midrule\addlinespace
@@ -668,9 +666,6 @@ Dáta obsiahnuté v tabuľke sa môžu nachádzať na veľko počte počítačov
 \end{tabular}\\}
 \captionof{table}{Vstupné dáta pre funkciu map}\label{tab:mapred}
 \par\bigskip
-
-
-
 
 
 %(s ktorými v tejto práci budeme pracovat?)
@@ -724,7 +719,7 @@ Z narástajúcim objemom dát reprezentujúcim elektronickú poštu je potrebné
 
 \section{Požiadavky na systém}
 
-V následujúcej časti popíšeme požadované vlastnosti systému, ktorý bude slúžiť na archiváciu veľkého objemu emailových správ. Primárnou požiadavkou na systém je jeho neustála dostupnosť, rozšíriteľnosť a nízkonákladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky terabajtov\footnote{$1 TB = 10^{12} B$} (TB). Takúto kapacitu dát nie je možne uchovať na bežne dostupnom hardvéri. Dáta uložené v systéme musia byť replikované, v prípade vzniku havárie niektorej z jeho časti. Nad uloženými emailovými správami je potrebné vykonávať výpočtovo náročné operácie ako generovanie štatistík a fultextové vyhľadávanie v reálnom čase. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopní vyriešiť patria NoSQL databázové systémy, ktoré popíšeme v následujúcej kapitole.
+V následujúcej časti popíšeme požadované vlastnosti systému, ktorý bude slúžiť na archiváciu veľkého objemu emailových správ. Primárnou požiadavkou na systém je jeho neustála dostupnosť, rozšíriteľnosť a nízkonákladová administrácia. Predpokladané množstvo uložených dát v tomto systéme bude dosahovať desiatky až stovky terabajtov\footnote{$1 TB = 10^{12} B$} (TB). Takúto kapacitu dát nie je možne uchovať na jednom počítačovom systéme tvorenom z bežne dostupného hardvéru. Dáta uložené v systéme musia byť replikované, v prípade vzniku havárie niektorej z jeho časti. Nad uloženými emailovými správami je potrebné vykonávať výpočtovo náročné operácie ako generovanie štatistík a fultextové vyhľadávanie v reálnom čase. Tieto požiadavky prirodzene implikujú využitie distribuovaného databázového systému. Medzi hlavných kandidátov, vďaka ktorým sme tieto požiadavky schopní vyriešiť patria NoSQL databázové systémy, ktoré popíšeme v následujúcej kapitole.
 
 
 \subsection{Funkcionálne požiadavky}
@@ -882,6 +877,57 @@ NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s dátov
 
 \subsection{Relačný model}
 Relačný databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v tabuľkách. Štruktúra týchto záznamov je normalizovaná aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k dátam je možné použiť indexy.
+
+
+
+\begin{table}[hp]
+\begin{center}
+    \begin{tabular}{l|l|l|l}
+
+  Kľúč & Meno & Adresa & Telefón\\ \hline
+
+  1&Ján Mak & Zikova, Praha & 773234512 \\
+  2&John Smith  & Broodway, NYC & 14941234\\
+  3&Mary Novak & Vodickova, Praha & 603192301\\
+
+    \end{tabular}
+\end{center}
+\caption{Reprezentácia dát v relačnom modely}
+\label{tab:Nosql}
+\end{table}
+
+
+\begin{table}[hp]
+\begin{center}
+    \begin{tabular}{l|l}
+
+  Kľúč & Meno \\ \hline
+
+  1&Ján Mak  \\
+  2&John Smith\\
+  3&Mary Novak \\
+
+    \end{tabular}
+\end{center}
+\caption{Reprezentácia dát v sĺpcovom modely}
+\label{tab:Nosql}
+\end{table}
+
+\begin{table}[hp]
+\begin{center}
+    \begin{tabular}{l|l}
+
+  Kľúč &  Adresa\\ \hline
+
+  1&Zikova, Praha  \\
+  2&Broodway, NYC\\
+  3&Vodickova, Praha \\
+
+    \end{tabular}
+\end{center}
+\caption{Reprezentácia dát v sĺpcovom modely}
+\label{tab:Nosql}
+\end{table}
 
 %TODO: na vsetky DB ref??
 \subsection{Kľúč-hodnota}
