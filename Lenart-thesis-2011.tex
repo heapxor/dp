@@ -238,7 +238,9 @@ Taktiež sa chcem sa poďakovať svojim najbližším, bez ktorých podpory by t
 % The system was filled with roughly milion of email messages from the real environment. We found that deduplication saves about 65\% of the space.
 
 The aim of this thesis is to design an email archiving solution using a distributed database system, commonly known as NoSQL. We described the basic concepts that are used by distributed database systems. We made a strong analysis of requirements for the high capacity and fault tolerant storage of email messages, featuring attachment deduplication to provide an efficient space saving. We identified main criteria for high level comparison of modern NoSQL systems, then we chose two possible candidates that comply with requirements. Functions and architectures of Cassandra and HBase systems were described, subjects were thoroughly tested performance wise. We modeled and implemented the application prototype using Cassandra.
-The system was filled with roughly a million of email messages from the real environment. We found that deduplication saves around 65\% of the space.
+% The system was filled with roughly a million of email messages from the real environment. 
+
+% We found that deduplication saves around 65\% of the space.
 % Prace v cestine musi krome abstraktu v anglictine obsahovat i
 % abstrakt v cestine.
 \vglue45mm
@@ -247,7 +249,8 @@ The system was filled with roughly a million of email messages from the real env
 \vskip 2.75\baselineskip
 
 \noindent
-Cieľom práce je návrh riešenia pre archiváciu elektronickej pošty s~využitím distribuovaných databázových systémov, označovaných pod spoločným názvom NoSQL. V~práci sú popísané základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Analyzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z~dôvodu úspory diskového priestoru využívať deduplikáciu príloh. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z~ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implementovali prototyp aplikácie využívajúci systém Cassandra. Po naplnení systému približne miliónom emailových správ z~reálneho prostredia, sa vďaka použitiu deduplikácie dosiahlo cca 65\% úspory diskového priestoru.
+Cieľom práce je návrh riešenia pre archiváciu elektronickej pošty s~využitím distribuovaných databázových systémov, označovaných pod spoločným názvom NoSQL. V~práci sú popísané základné koncepty, ktoré sa využívajú pri tvorbe distribuovaných databázových systémov. Analyzovali sme požiadavky na veľkoobjemový a vysokodostupný archív emailových správ, ktorý bude z~dôvodu úspory diskového priestoru využívať deduplikáciu príloh. Stanovili sme základné kritéria na porovnanie NoSQL systémov, z~ktorých sme následne vybrali dvoch kandidátov, spĺňajúcich požiadavky systému. Popísali sme funkcionalitu systémov Cassandra a HBase, ktoré sme podrobili výkonnostným testom. Navrhli sme model a implementovali prototyp aplikácie využívajúci systém Cassandra. 
+% Po naplnení systému približne miliónom emailových správ z~reálneho prostredia, sa vďaka použitiu deduplikácie dosiahlo cca 65\% úspory diskového priestoru.
 
 %Navrhli sme model a pomocou systému Cassandra sme následne implemetovali prototyp aplikácie, u ktorého sme vďaka použitiu deduplikácie dosiahli 60\% úsporu diskového priestoru, pri naplnení systému približne miliónom emailových správ z reálneho prostredia.
 %aktuálne problémy, ktoré vznikajú pri ukladaní a spracúvani neustále narastajúceho objemu dát pomocou relačných databázových systémov. Na ich riešenie 
@@ -304,9 +307,9 @@ Od začiatku sedemdesiatych rokov 20. storočia sú v~tejto oblasti dominantou r
 
 Táto práca si kladie za cieľ viacero úloh a je rozdelená do dvoch logických častí. V~kapitole~2 popisujeme koncepty využívané pri tvorbe distribuovaných databázových systémov, ktoré zabezpečujú vysokú dostupnosť, spoľahlivosť a škálovateľnosť. Kapitola 3 definuje požiadavky na systém, schopný archivovať milióny emailových správ a tieto dáta ďalej spracúvať. Prehľad systémov NoSQL a kritéria pre ich porovnanie popisuje kapitola 4, ktorá v~závere doporučuje výber dvoch vhodných kandidátov, systém Cassandra a HBase. Architektonické princípy a vlastnosti, z~ktorých tieto systémy vychádzajú, sú popísané pre systém Cassandra v~kapitole 5 a pre HBase v~kapitole 6.
 %TODO: kapitola 8 + popis implementacie
-V~druhej časti práce sme v~kapitole 7 opísali výkonnostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému, výber vhodných nástrojov pre implementáciu prototypu aplikácie emailového úložiska a samotnú implementáciu popisuje kapitola 8. 
+V~druhej časti práce sme v~kapitole 7 opísali výkonnostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému, výber vhodných nástrojov pre implementáciu prototypu aplikácie emailového úložiska a samotnú implementáciu popisuje kapitola 8. Záverečná časť tejto kapitoly popisuje dosiahnuté výsledky a doporučuje vhodný systém pre riešenie danej úlohy.
 %TODO: pkokracovanie prace v buducnu
-Záverečná čast, ktorú tvorí kapitola 9, popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
+% Záverečná čast, ktorú tvorí kapitola 9, popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
 
 
 
@@ -627,16 +630,16 @@ MapReduce nie je vhodný na spracovanie dát v~reálnom čase. Je optimalizovan�
 % \subsection{Príklad}
 % ? histogram slov
 
-Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce zotriedené hodnoty $H$. Tieto dáta sa odošlú na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $Z$. Tieto operácie je možné popísať následovne:
+Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce zotriedené hodnoty $I$. Tieto dáta sa odošlú na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $I$. Tieto operácie je možné popísať následovne:
 
 \begin{verbatim}
-map(k, H) -> list(g, H)
-reduce(g, list(H)) -> list(Z)
+map(k, H) -> list(g, I)
+reduce(g, list(I)) -> list(I)
 \end{verbatim}
 
 \subsection*{Príklad}
 
-Uvažujme vstupné dáta popísané v~tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V~tomto prípade bude vstupom do funkcie \emph{map} ako kľúč $k$ číslo riadku v~tabuľke, hodnotu $H$ budú tvoriť jednotlivé stĺpce. Aplikáciou funkcie \emph{map} a využitím internej funkcie systému Hadoop \emph{shuffle} dostaneme následujúci výstup:
+Uvažujme vstupné dáta popísané v~tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V~tomto prípade bude vstupom do funkcie \emph{map} ako kľúč $k$ číslo riadku v~tabuľke, $H$ budú tvoriť jednotlivé hodnoty v stĺpcoch odpovedajúce riadku. Aplikáciou funkcie \emph{map}, ktorá v tomto prípade bude zabezpečovať výber hodnôt zo stĺpcov \emph{doména} a \emph{veľkosť} dostaneme následujúci výstup:
 
 \begin{verbatim}
 (d1.com, [12, 3])
@@ -644,7 +647,7 @@ Uvažujme vstupné dáta popísané v~tabuľke \ref{tab:mapred} Nad dátami chce
 (d3.sk, [12])
 \end{verbatim}
 
-Tieto záznamy následne spracuje funkcia reduce, kde kľúč $g$ bude reprezentovaný názvom domény a $list(H)$ budú tvoriť jednotlivé veľkosti emailových správ. Výstupom budú dvojice:
+Tieto záznamy následne spracuje funkcia \emph{reduce}, kde kľúč $g$ bude reprezentovaný názvom domény a $list(I)$ budú tvoriť jednotlivé veľkosti emailových správ. Výstupom budú dvojice:
 
 \begin{verbatim}
 (d1.com, 15)
@@ -652,7 +655,7 @@ Tieto záznamy následne spracuje funkcia reduce, kde kľúč $g$ bude reprezent
 (d3.sk, 12)
 \end{verbatim}
 
-Dáta obsiahnuté v~tabuľke sa môžu nachádzať na ľubovoľnom počte počítačov so systémom Hadoop, ktorý zabezpečí aby na jednotlivých uzloch bola vykonaná funkcia \emph{map} a jej výsledky sa pošlú na náhodné uzly vykonávajúce funkciu reduce. Týmto sa zabezpečí plne distribuovaný výpočet bez nutnosti preposielania zdrojových dát, čo môže efektívne znížiť zaťaženie siete a zvýšiť spoľahlivosť výpočtu.
+Dáta obsiahnuté v~tabuľke sa môžu nachádzať na ľubovoľnom počte počítačov so systémom Hadoop, ktorý zabezpečí aby na jednotlivých uzloch bola vykonaná funkcia \emph{map} a jej výsledky sa pošlú na náhodné uzly vykonávajúce funkciu \emph{reduce}. Týmto sa zabezpečí plne distribuovaný výpočet bez nutnosti preposielania zdrojových dát, čo môže efektívne znížiť zaťaženie siete a zvýšiť spoľahlivosť výpočtu.
 
 
 {\centering%
@@ -879,7 +882,7 @@ NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s~dátov
 % NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s dátovým modelom typu \uv{kľúč-hodnota} (Key-value). V následujúcej časti práce ich stručne popíšeme.
 
 \subsection{Relačný model}
-Pre porovnanie stručne popíšeme štandardný relačný model. Databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v~tabuľkách. Štruktúra týchto záznamov je normalizovaná, aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s~popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u~ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k~dátam je možné použiť indexy.
+Pre porovnanie stručne popíšeme štandardný relačný model. Databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v~tabuľkách. Štruktúra týchto záznamov je normalizovaná, aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s~popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u~ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k~dátam je možné použiť indexy. Tabuľka \ref{tab:relacnyModel} zachytáva ukážku tabuľky v relačnom databázovom systéme.
 
 
 
@@ -896,7 +899,7 @@ Pre porovnanie stručne popíšeme štandardný relačný model. Databázový mo
     \end{tabular}
 \end{center}
 \caption{Reprezentácia dát v~relačnom modeli}
-\label{tab:Nosql}
+\label{tab:relacnyModel}
 \end{table}
 
 % 
@@ -958,7 +961,7 @@ Medzi databázové systémy využívajúce model kľúč-hodnota patria Amazon D
 %obrazok?
 %abadiph.pdf
 
-V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné.
+V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné. Možný príklad fyzickej reprezentácie tabuľky \emph{Zamestnanec} zachytáva tabuľka~\ref{tab:columnModel}, stĺpce \emph{Kľúč} je možne vynechať, v tomto prípade v logickej reprezentácii budú riadky v rovnakom poradí zachytavať záznam.
 
 Riadkový model obsahuje v~jednom zázname dáta z~rôznych domén, čo spôsobuje vyššiu entropiu v~porovnaní so stĺpcovým modelom, kde sa predpokladá, že dáta v~danom stĺpci pochádzajú z~totožnej domény a sú si preto podobné. Táto vlasnosť umožňuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýhodou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií. Pre optimalizáciu operácií vykonávajúcich zápis sa používa dávkový zápis.
 
@@ -1005,7 +1008,7 @@ Tento model využívajú databázové systémy ako Google Bigtable, HBase, Hyper
 
 \end{tabular}
  \caption{Reprezentácia dát v~stĺpcovom modely}
- \label{tab:Nosql}
+ \label{tab:columnModel}
 
 \end{table}
 
@@ -1571,7 +1574,7 @@ Meranie sme vykonali v~troch konfiguráciách. Každá konfigurácia obsahovala 
  \item C - šesť uzlov slave s~faktorom replikácie tri
 \end{itemize}
 
-Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop. Pomocou techniky MapReduce, boli dáta do súborového systému zapisované jednou funkciou typu \emph{map}. V~tomto prípade prebiehal zápis lokálne na danom uzle. Počas jednotlivých testov sme na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Každý test bol vykonaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny tok pre zápis dát v~klastri.
+Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop. Počas jednotlivých testov sme na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Pomocou techniky MapReduce, sa na každom uzle lokálne zapisoval funkciou typu \emph{map} súbor o danej veľkosti a v prípade faktora replikácie bol replikovaný na zvyšné uzly.  Každý test bol vykonaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny tok pre zápis dát v~klastri.
 
 \begin{table}[hp]
 \begin{center}
@@ -1582,9 +1585,9 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 %\cline{2-3}
 
 & A~& B & C\\
-\hline 65 & 287 MB/s& 102 MB/s& 190 MB/s\\ 
-\hline 512 & 371 MB/s& 85 MB/s& 162 MB/s\\ 
-\hline 2048 & 433 MB/s& 85 MB/s& 163 MB/s\\ 
+\hline 65 & 247 MB/s& 134 MB/s& 186 MB/s\\ 
+\hline 512 & 389 MB/s& 135 MB/s& 188 MB/s\\ 
+\hline 2048 & 452 MB/s& 138 MB/s& 191 MB/s\\ 
 \hline
 \end{tabular} 
 \end{center}
@@ -1600,7 +1603,7 @@ Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kó
 % & A & B & C\\
 % 
 
-Na základe týchto hodnôt pozorujeme, že zvýšenie hodnoty replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z~výsledkov testovania je, že v~prípade, ak zvýšime dvojnásobne počet uzlov v~klastri (prípad klastrov v~konfigurácii B a C), jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
+Na základe týchto hodnôt pozorujeme, že zvýšenie hodnoty replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z~výsledkov testovania je, že v~prípade, ak zvýšime dvojnásobne počet uzlov v~klastri (prípad klastrov v~konfigurácii B a C), narastá priepustnosť pri zápise, čo potvrdzuje vysokú škálovateľnosť systému. HDFS je optimalizovaný pre zápis veľkých súborov rádovo v desiatkách GB a túto vlastnosť test potvrdil. Vo všetkých prípadoch bola hodnota zápisu väčšia ako 125 MB/s. 
 
 %TODO:                             , co zaroven preukazali vysledky testov
 %HDFS je optimalizovaný pre zápis veľkých súborov rádovo v desiatkách GB avšak z nameraných hodnôt vidíme, že najoptimálnejšie výsledky boli dosiahnuté, v prípade keď veľkosť súboru zodpovedala dvojnásobnej veľkosti bloku.
@@ -1837,7 +1840,7 @@ V~tejto kapitole popíšeme návrh systému, ktorý bude slúžiť na archiváci
 \section{Zdroj dát}
 %http://www.fi.muni.cz/~kas/p090/referaty/2011-jaro/ut/email.html
 Základným prvkom, ktorý budeme v~našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{Klensin:2001:SMT:RFC2821}. Tento objekt pozostáva z~SMTP obálky a emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerí príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v~textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z~roku 2001 pod názvom Formát Internetovej správy (Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z~roku 1982 (Standard for the Format of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v~hlavičke rozširujú štandardy, pod názvom MIME (Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046 \cite{Freed:1996:MIM:RFC2045,Freed:1996:MIM:RFC2046}, RFC 2047, RFC 2048 a RFC 2049. Tieto štandardy pridávajú možnosť použitia iných znakových sád (štandardná sada US-ASCII), ďalej umožňujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
-%TODO: aky font pre url?
+
 
 Zber emailových objektov budeme realizovať na unixových serveroch, ktoré používajú emailový server Qmail\footnote{http://cr.yp.to/qmail.html}. Tento server zároveň realizuje antispamovú kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v~jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný programom Qmail, ktorý volá obslužný modul \verb|qmail-scanner.pl| a následne dokončí doručenie správy. Tento modul sme vhodne modifikovali pre potreby našej aplikácie. Výstupom je súbor s~príponou \emph{.envelope}, ktorý obsahuje viacero štatistických údajov znázornených na obrázku \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese \url{http://qmail-scanner.sourceforge.net/}. Výstupom aplikácie Qmail je, v~prípade úspešného doručenia emailu, textový súbor reprezentujúci emailovú správu, ku ktorej je jednoznačne priradený súbor s~príponou \emph{.envelope}. Oba súbory sú spracúvané analyzátorom, ktorý popíšeme v~následujúcej časti. Súčasťou prílohy tejto práce je modifikovaný súbor \verb|qmail-scanner.pl|.
 
@@ -1909,7 +1912,7 @@ V~tejto schéme reprezentuje:
 
 %= paritioner
 %TODO lexikograf usporiadanie stlpcov pre zapis meta info o prilohach, popisat TIMEUUID
-%TODO v obrazku schemy fixnut u MEssagesAttachment typ links: na TypeLong, v Messages MEta DAta fixnut a,b,c zmazat int
+
 
 V~predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (blob), ktorých veľkosť presahuje 1 MB, avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512 kB. V~prípade ak dáta reprezentujúce telo emailovej správy alebo objekt s~prílohou presahujú veľkosť 1 MB, tak ich zapisujeme do samostatných stĺpcov o~veľkosti 512 kB. Toto rozdeľovanie dát na menšie bloky vykonávame na aplikačnej úrovni na strane klienta zapisujúceho dáta do databázového systému. Názvy stĺpcov číslujeme vzostupne v~intervale \emph{0-N}, kde \emph{N} je počet blokov. Spätnú rekonštrukciu dát vykonáva klient.
 
@@ -1923,7 +1926,7 @@ V~predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná p
 
 Výsledný návrh databázovej schémy ma viacero výhod. Metadáta, nad ktorými budeme vykonávať výpočet štatistík (messagesMetaData) budú uložené v~jednom súbore, čo zabezpečí ich efektívne spracovanie. V~tejto rodine stĺpcov ďalej využívame index s~názvom \emph{domainIdx}, vďaka ktorému sme schopný získať všetky emaily uložené v~systéme prináležiace určitej doméne, v~tvare napríklad \uv{cvut.cz}. 
 
-Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identifikovaný pomocou svojej emailovej adresy budú uložené v~jednom riadku v~rodine stĺpcov lastInbox. Názvy stĺpcov budú reprezentované pomocou \emph{TimeUUID}, čo zabezpečí ich zoradenie podľa času. Túto rodinu stĺpcov môžeme použiť v~aplikácii pre sprístupnenie obsahu emailového adresára koncovým užívateľom.
+Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identifikovaný pomocou svojej emailovej adresy budú uložené v~jednom riadku v~rodine stĺpcov lastInbox. Názvy stĺpcov budú reprezentované pomocou \emph{TimeUUID}, čo zabezpečí ich zoradenie podľa času. TimeUUID je univerzálny identifikátor (UUID) využivajúci časovú značku. Túto rodinu stĺpcov môžeme použiť v~aplikácii pre sprístupnenie obsahu emailového adresára koncovým užívateľom.
 
 
 
@@ -1931,7 +1934,7 @@ Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identif
 
 \section{Fulltextové vyhľadávanie}
 
-Fulltextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému elasticsearch\footnote{http://elasticsearch.org}. Hlavný index, ktorý obsahuje všetky indexované dáta ma názov \emph{emailArchive}, a delíme ho na dva typy s~názvom \emph{email} a \emph{envelope}. Schéma týchto typov obsahuje polia, podľa ktorých chceme v~emailovom archíve vyhľadávať, a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
+Fulltextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému ElasticSearch\footnote{http://elasticsearch.org}.  Hlavný index, ktorý obsahuje všetky indexované dáta ma názov \emph{emailArchive}, a delíme ho na dva typy s~názvom \emph{email} a \emph{envelope}. Schéma týchto typov obsahuje polia, podľa ktorých chceme v~emailovom archíve vyhľadávať, a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1962,7 +1965,7 @@ mappingsEnvelope = {
 \section{Implementácia}
 
 %Consistent rad - write    W  + R > RF
-V~programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a elasticsearch. Jednou z~najdôležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (quorum), ktorý zabezpečí zápis dát na $\lfloor N/2 \rfloor + 1$ replík a klient následne obdrží potvrdenie o~úspešnosti zápisu, inak sa zápis zopakuje. Tieto vlastnosti nám zabezpečujú v~prípade použitia faktoru replikácie tri (dáta sa v~databázovom systéme nachádzajú trikrát) silnú úroveň konzistencie na strane klienta a databázového systému. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahujú viacero jadier, čo môžeme využiť pre paralelné spracúvanie emailov, kde každé jadro CPU bude spracúvať jednu emailovú správu.
+V~programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a ElasticSearch. Jednou z~najdôležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (quorum), ktorý zabezpečí zápis dát na $\lfloor N/2 \rfloor + 1$ replík a klient následne obdrží potvrdenie o~úspešnosti zápisu, inak sa zápis zopakuje. Tieto vlastnosti nám zabezpečujú v~prípade použitia faktoru replikácie tri (dáta sa v~databázovom systéme nachádzajú trikrát) silnú úroveň konzistencie na strane klienta a databázového systému. Zápis do systému Cassandra využíval protokol Thrift a do systému ElasticSearch sa zapisovali dáta protokolom REST. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahujú viacero jadier, čo môžeme využiť pre paralelné spracúvanie emailov, kde každé jadro CPU bude spracúvať jednu emailovú správu.
 
 \subsection*{Celery}
 Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (workers) reprezentujú samostatné procesy (v~našom prípade proces pre analýzu a deduplikáciu emailu), ktoré môžu bežať paralelne. Ako sprostredkovateľ (broker) je použitá aplikácia RabbitMQ\footnote{http://www.rabbitmq.com}. Sprostredkovateľ obdrží od aplikácie qmail-scanner správu a uloží ju do fronty. Správa obsahuje identifikátor emailovej správy, v~tomto prípade cestu na lokálnom súborovom systéme k~súboru reprezentujúcemu email.
@@ -1981,7 +1984,7 @@ Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala približne 10,000
 
 \subsection{Klient}
 
-Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V~prípade, že je v~daný okamžik k~dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou analyzátora a následne zapísaná do databáze Cassandra a fulltextového systému elasticsearch. Na testovacie účely sme nemali k~dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailových správ.
+Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V~prípade, že je v~daný okamžik k~dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou analyzátora a následne zapísaná do databáze Cassandra a fulltextového systému ElasticSearch. Na testovacie účely sme nemali k~dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailových správ.
 
 
 \begin{figure}[h]
@@ -2026,7 +2029,7 @@ STORE maxSize into 'biggestEmailPerDomainDomain' using PigStorage(',');
 
 \subsection{Webové rozhranie}
 %TODO: def. dajngo - jakub dp
-Vďaka tomu, že klient pre prístup k~dátam, uloženým v~systéme Cassandra, bol vytvorený v~programovacom jazyku Python, sme pomocou Django vytvorili jednoduchú prezenčnú vrstvu, ktorou sme boli schopný pristupovať k~uloženým emailovým správam pomocou webového rozhrania.
+Vďaka tomu, že klient pre prístup k~dátam, uloženým v~systéme Cassandra, bol vytvorený v~programovacom jazyku Python, sme pomocou webového frameworku Django\footnote{www.djangoproject.com/} vytvorili jednoduchú prezenčnú vrstvu, ktorou sme boli schopný pristupovať k~uloženým emailovým správam pomocou webového rozhrania.
 
 %pouzitie do buducna pre koncoveho usera<?
 
@@ -2035,7 +2038,7 @@ Vďaka tomu, že klient pre prístup k~dátam, uloženým v~systéme Cassandra, 
 Pomocou vyššie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u~aplikácií Celery a RabbitMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s~autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s~verziou 0.7.0. Počas ukončovania tejto práce je k~dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
 
 
-Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme 2 geo datacen ... + hadoop... popisat
+Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme dve geograficky oddelené dátové centrá. Prvé centrum bude primárne slúžiť na obsluhu klientských požiadaviek, v druhom bude umiestnená tretia replika, ktorá bude slúžiť aj ako záloha a zároveň nad týmito dátami budú prebiehať MapReduce výpočty.
 
 \subsection*{Konfigurácia}
 Hardvérová konfigurácia bola totožná s~konfiguráciou z~kapitoly \ref{chapter:testovanie}. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu pre zápis dát, ktorú používala aplikácia Celery 2.6. V~úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
@@ -2050,10 +2053,20 @@ Klient, ktorý slúžil na čítanie dát z~databáze využíval mód kvóra, z~
 Dôležitým pozorovaním bol fakt, že z~celkového objemu emailových správ cca 300 GB sa po deduplikácií príloh tento objem znížil na cca 99 GB, teda došlo k~67\% úspore diskovej kapacity. Štruktúry, do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z~celkového objemu dát, čo je zanedbateľná položka.
 
 \noindent
-ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy nad objemom dát 300 GB tvorili XY GB.
+%ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy nad objemom dát 300 GB tvorili XY GB.
 
 \section{Doporúčenie najvhodnejšieho systému}
 % Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
+V závere tejto práce bol spoločnosťou Datastax uvoľnený open source projekt Brisk \cite{brisk}. Tento projekt kombinuje Hadoop, Hive a Cassandru. Jeho hlavnou výhodou je, že úplne eliminuje kritický bod výpadku u vrstvy HDFS. Ďalej maximálne uľahčuje správu tohto systému, pretože nie je potrebná inštalácia systému Hadoop, ZooKeeper a zvyšných aplikácií. Systém je maximálne decentralizovaný. Systém umožnuje súčasný beh aplikácií závislých na operáciach v reálnom čase a zároveň je možné vykonávať časovo náročné analytické operácie. Nie je potrebný žiadny prenos dát medzi viacerými systémami. Možnú architektúru použitia znázorňuje obrázok \ref{fig:brisk}, kde vďaka využitiu replikácii všetky uzly obsahujú rovnaké dáta. Prvá skupina uzlov obsluhuje aplikácie v reálnom čase, kdežto na druhej skupine prebiehajú nad týmito dátami náročné analytické operácie pomocou MapReduce. Podobnú architektúru sme navrhovali v našom riešení. \\
+\\
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=14cm]{./figures/brisk.png}
+ % topologies802154.png: 722x407 pixel, 72dpi, 25.47x14.36 cm, bb=0 0 722 407
+ \caption{Brisk, Zdroj: \cite{briskPic}}
+ \label{fig:brisk}
+\end{figure}
 
 
 %Rabbit rychlost
@@ -2084,13 +2097,13 @@ ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy n
 % pochvalit sa hlavne
 
 
-Cieľom tejto práce bolo vybrať vhodný distribuovaný databázový systém, ktorý bude schopný spracúvať milióny emailových správ a odolávať sieťovým prerušeniam. Následne navrhnúť model systému a implementovať prototyp riešenia. Prototyp je implementovaný v~jazyku Python, využíva systém Cassandra a bol naplnený približne miliónom emailových správ zreálneho prostredia, cieľ práce bol teda splnený. Práca pozostávala z~viacerých častí, ktoré boli dôkladne spracované.
+Cieľom tejto práce bolo vybrať vhodný distribuovaný databázový systém, ktorý bude schopný spracúvať milióny emailových správ a odolávať sieťovým prerušeniam. Následne navrhnúť model systému a implementovať prototyp riešenia. Prototyp je implementovaný v~jazyku Python, využíva systém Cassandra a bol naplnený približne miliónom emailových správ z reálneho prostredia, cieľ práce bol teda splnený. Práca pozostávala z~viacerých častí, ktoré boli dôkladne spracované.
 
 Klúčovým prvkom pre preniknutie do danej problematiky distribuovaných databázových systémov bolo štúdium dostupných materiálov, medzi ktoré patrili hlavne technické články. Hlavným teoretickým prínosom tejto časti je ucelené zhrnutie základných konceptov a možných problémov, ktoré je treba zvážiť pri návrhu aplikácií využívajúcich distribuované databázové systémy. Taktiež sme popísali kľúčové časti databázových systémov Cassandra a HBase, ktorých znalosť je nutnou podmienkou v~prípade ich použitia. Všetky použité zdroje zaoberajúce sa touto problematikou sú v~angličtine, čím táto práca napísaná v~slovenčine zapĺňa dieru v~tejto oblasti. Zásadným problémom bola nepostačujúca dokumentácia týchto systémov, keďže sa jedná o~relatívne mladé systémy, ktoré sú neustále vo vývoji. Množstvo informácií bolo preto diskutovaných v~mailinglistoch alebo priamo konzultovaných s~autormi daných systémov.
 
 Analýzou problému sme stanovili detailné požiadavky na tento systém s~tým, že pre spracovanie dát využijeme techniku MapReduce. Ako možných kandidátov pre realizáciu zadania sme zvolili distribuované databázové systémy Cassandra a HBase, ktoré sme nasadili na reálny klaster. V~tomto testovacom prostredí sme nad danými systémami vykonali výkonostné testy. Táto časť práce bola do značnej miery náročná a vyžadovala množstvo nastavení daných systémov pre ich stabilný beh. Z~výsledných systémov sme na základe viacerých vlastností popísaných v~kapitolách 4 a 7 vybrali systém Cassandra.
 
-Architektúra systému využíva viacero open source aplikácií, pri ktorých analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, zdôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
+Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
 
 
 

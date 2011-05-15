@@ -2,59 +2,57 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: Lenart-thesis-2011.aux
 The style file: abbrv.bst
 Database file #1: reference.bib
-Warning--entry type for "Freed:1996:MIM:RFC2045" isn't style-file defined
---line 237 of file reference.bib
-Warning--entry type for "Freed:1996:MIM:RFC2046" isn't style-file defined
---line 245 of file reference.bib
-Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
---line 253 of file reference.bib
-Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
---line 414 of file reference.bib
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
+Warning--empty author in Resnick:2001:IMF:RFC2822
+Warning--empty journal in Resnick:2001:IMF:RFC2822
+Warning--empty author in Klensin:2001:SMT:RFC2821
+Warning--empty journal in Klensin:2001:SMT:RFC2821
 Warning--empty journal in abadi2009
 Warning--can't use both volume and number fields in fox1997cluster
+Warning--empty journal in Freed:1996:MIM:RFC2045
+Warning--empty journal in Freed:1996:MIM:RFC2046
 Warning--can't use both volume and number fields in ghemawat2003google
 Warning--can't use both author and editor fields in Udell
-You've used 44 entries,
+You've used 46 entries,
             2118 wiz_defined-function locations,
-            752 strings with 10976 characters,
-and the built_in function-call counts, 14630 in all, are:
-= -- 1457
-> -- 642
+            761 strings with 11171 characters,
+and the built_in function-call counts, 15017 in all, are:
+= -- 1496
+> -- 650
 < -- 16
-+ -- 263
-- -- 214
-* -- 945
-:= -- 2305
-add.period$ -- 132
-call.type$ -- 44
-change.case$ -- 238
++ -- 267
+- -- 216
+* -- 969
+:= -- 2377
+add.period$ -- 140
+call.type$ -- 46
+change.case$ -- 246
 chr.to.int$ -- 0
-cite$ -- 50
-duplicate$ -- 571
-empty$ -- 1207
-format.name$ -- 214
-if$ -- 3155
+cite$ -- 58
+duplicate$ -- 597
+empty$ -- 1232
+format.name$ -- 216
+if$ -- 3225
 int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 37
-newline$ -- 213
-num.names$ -- 78
-pop$ -- 312
+int.to.str$ -- 46
+missing$ -- 41
+newline$ -- 225
+num.names$ -- 80
+pop$ -- 319
 preamble$ -- 1
-purify$ -- 197
+purify$ -- 203
 quote$ -- 0
-skip$ -- 452
+skip$ -- 463
 stack$ -- 0
-substring$ -- 847
-swap$ -- 158
+substring$ -- 857
+swap$ -- 156
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 166
-warning$ -- 6
-while$ -- 138
-width$ -- 46
-write$ -- 466
-(There were 10 warnings)
+type$ -- 174
+warning$ -- 12
+while$ -- 140
+width$ -- 48
+write$ -- 485
+(There were 12 warnings)
