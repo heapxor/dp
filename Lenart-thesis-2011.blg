@@ -10,7 +10,6 @@ Warning--entry type for "Klensin:2001:SMT:RFC2821" isn't style-file defined
 --line 253 of file reference.bib
 Warning--entry type for "Resnick:2001:IMF:RFC2822" isn't style-file defined
 --line 414 of file reference.bib
-Warning--I didn't find a database entry for "infodp"
 Warning--to sort, need author or key in Klensin:2001:SMT:RFC2821
 Warning--to sort, need author or key in Resnick:2001:IMF:RFC2822
 Warning--empty journal in abadi2009
@@ -19,7 +18,7 @@ Warning--can't use both volume and number fields in ghemawat2003google
 Warning--can't use both author and editor fields in Udell
 You've used 44 entries,
             2118 wiz_defined-function locations,
-            753 strings with 10982 characters,
+            752 strings with 10976 characters,
 and the built_in function-call counts, 14630 in all, are:
 = -- 1457
 > -- 642
@@ -58,4 +57,4 @@ warning$ -- 6
 while$ -- 138
 width$ -- 46
 write$ -- 466
-(There were 11 warnings)
+(There were 10 warnings)

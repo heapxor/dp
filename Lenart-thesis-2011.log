@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 15:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 18:41
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -814,7 +814,7 @@ Dodatok B.
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2158--2159
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 2157--2158
  [][] 
  []
 
@@ -822,27 +822,20 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 2158--2159
 
 ]
 Dodatok C.
+<figures/cdList.png, id=1090, 749.80125pt x 214.8025pt>
+File: figures/cdList.png Graphic file (type png)
 
-Package natbib Warning: Citation `infodp' on page 71 undefined on input line 21
-73.
-
-<figures/seznamcd.pdf, id=1089, 793.96625pt x 539.01375pt>
-File: figures/seznamcd.pdf Graphic file (type pdf)
-
-<use figures/seznamcd.pdf> [71 <./figures/seznamcd.pdf>] [72]
-
-Package natbib Warning: There were undefined citations.
-
+<use figures/cdList.png> [71 <./figures/cdList.png (PNG copy)>]
 (./Lenart-thesis-2011.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7524 strings out of 495018
- 103047 string characters out of 1180937
- 178266 words of memory out of 3000000
- 10221 multiletter control sequences out of 15000+50000
+ 7522 strings out of 495018
+ 103022 string characters out of 1180937
+ 178252 words of memory out of 3000000
+ 10220 multiletter control sequences out of 15000+50000
  73768 words of font info for 49 fonts, out of 3000000 for 9000
  42 hyphenation exceptions out of 8191
  38i,17n,36p,1692b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -859,9 +852,9 @@ exmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
 .pfb>
-Output written on Lenart-thesis-2011.pdf (90 pages, 1040270 bytes).
+Output written on Lenart-thesis-2011.pdf (89 pages, 1016201 bytes).
 PDF statistics:
- 1230 PDF objects out of 1440 (max. 8388607)
- 319 named destinations out of 1000 (max. 500000)
+ 1220 PDF objects out of 1440 (max. 8388607)
+ 318 named destinations out of 1000 (max. 500000)
  702 words of extra memory for PDF output out of 10000 (max. 10000000)
 

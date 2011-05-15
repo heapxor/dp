@@ -81,4 +81,4 @@
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{61}{chapter.9}
 \contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{67}{appendix.A}
 \contentsline {chapter}{\numberline {B}UML diagramy}{69}{appendix.B}
-\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{71}{appendix.C}
+\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho DVD}{71}{appendix.C}
