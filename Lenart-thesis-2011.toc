@@ -77,8 +77,8 @@
 \contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{58}{subsection.8.5.2}
 \contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{58}{subsection.8.5.3}
 \contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{58}{section.8.6}
+\contentsline {section}{\numberline {8.7}Dopor\IeC {\'u}\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{59}{section.8.7}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{61}{chapter.9}
 \contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{67}{appendix.A}
 \contentsline {chapter}{\numberline {B}UML diagramy}{69}{appendix.B}
-\contentsline {chapter}{\numberline {C}In\IeC {\v s}tala\IeC {\v c}n\IeC {\'a} a u\IeC {\v z}\IeC {\'\i }vate\IeC {\v l}sk\IeC {\'a} pr\IeC {\'\i }ru\IeC {\v c}ka}{71}{appendix.C}
-\contentsline {chapter}{\numberline {D}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{73}{appendix.D}
+\contentsline {chapter}{\numberline {C}Obsah prilo\IeC {\v z}en\IeC {\'e}ho CD}{71}{appendix.C}

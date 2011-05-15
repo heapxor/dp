@@ -25,6 +25,7 @@
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 % In case of problems with PDF fonts, one may try to uncomment this line:
 \usepackage{lmodern}
+\usepackage{url}
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 % Depending on your particular TeX distribution and version of conversion tools 
@@ -1835,10 +1836,10 @@ V~tejto kapitole popíšeme návrh systému, ktorý bude slúžiť na archiváci
 
 \section{Zdroj dát}
 %http://www.fi.muni.cz/~kas/p090/referaty/2011-jaro/ut/email.html
-Základným prvkom, ktorý budeme v~našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{Klensin:2001:SMT:RFC2821}. Tento objekt pozostáva z~SMTP obálky a emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerý príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v~textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z~roku 2001 pod názvom Formát Internetovej správy (Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z~roku 1982 (Standard for the Fromat of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v~hlavičke rozširujú štandardy, pod názvom MIME (Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046 \cite{Freed:1996:MIM:RFC2045,Freed:1996:MIM:RFC2046}, RFC 2047, RFC 2048 a RFC 2049. Tieto štandardy pridávajú možnosť použitia iných znakových sád (štandardná sada US-ASCII), ďalej umožňujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
+Základným prvkom, ktorý budeme v~našom systéme archivovať je emailový objekt, ktorý definuje dokument RFC 2821 \cite{Klensin:2001:SMT:RFC2821}. Tento objekt pozostáva z~SMTP obálky a emailovej správy. Obálka obsahuje informácie, ktoré sú potrebné pre korektné doručenie správy pomocou emailového servera a patria tam napríklad odosielateľ emailového objektu a jeden alebo viacerí príjemcovia. Emailová správa predstavuje semištrukturovaný dokument \cite{Udell} v~textovej podobe, ktorého syntax popisuje štandard RFC 2822 \cite{Resnick:2001:IMF:RFC2822} z~roku 2001 pod názvom Formát Internetovej správy (Internet Message Format). Dokument RFC 2822 nahradzuje a upravuje pôvodné RFC 822 pod názvom Štandard pre formát Internetových textových správ ARPA z~roku 1982 (Standard for the Format of ARPA Internet Text Messages). Obsah emailovej správy delíme na hlavičku a telo, ktoré sú od seba oddelené znakom reprezentujúcim prázdny riadok. Telo správy nie je povinné. Štruktúru tela správy a polia v~hlavičke rozširujú štandardy, pod názvom MIME (Multipurpose Internet Mail Extensions), RFC 2045, RFC 2046 \cite{Freed:1996:MIM:RFC2045,Freed:1996:MIM:RFC2046}, RFC 2047, RFC 2048 a RFC 2049. Tieto štandardy pridávajú možnosť použitia iných znakových sád (štandardná sada US-ASCII), ďalej umožňujú štruktúrovať telo správy (vnorené správy rfc822), definujú formát a typy pre zasielanie príloh atď.
 %TODO: aky font pre url?
 
-Zber emailových objektov budeme realizovať na unixových serveroch, ktoré používajú emailový server Qmail\footnote{http://cr.yp.to/qmail.html}. Tento server zároveň realizuje antispamovú kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v~jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný programom Qmail, ktorý volá obslužný modul \verb|qmail-scanner.pl| a následne dokončí doručenie správy. Tento modul sme vhodne modifikovali pre potreby našej aplikácie. Výstupom je súbor s~príponou \emph{.envelope}, ktorý obsahuje viacero štatistických údajov znázornených na obrázku \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese http://qmail-scanner.sourceforge.net/. Výstupom aplikácie Qmail je, v~prípade úspešného doručenia emailu, textový súbor reprezentujúci emailovú správu, ku ktorej je jednoznačne priradený súbor s~príponou \emph{.envelope}. Oba súbory sú spracúvané analyzátorom, ktorý popíšeme v~následujúcej časti. Súčasťou prílohy tejto práce je modifikovaný súbor \verb|qmail-scanner.pl|.
+Zber emailových objektov budeme realizovať na unixových serveroch, ktoré používajú emailový server Qmail\footnote{http://cr.yp.to/qmail.html}. Tento server zároveň realizuje antispamovú kontrolu pomocou modulu Qmail-scanner\footnote{http://qmail-scanner.sourceforge.net}, ktorý je naprogramovaný v~jazyku Perl\footnote{http://www.perl.org}. Po doručení emailového objektu na server je emailový objekt spracovaný programom Qmail, ktorý volá obslužný modul \verb|qmail-scanner.pl| a následne dokončí doručenie správy. Tento modul sme vhodne modifikovali pre potreby našej aplikácie. Výstupom je súbor s~príponou \emph{.envelope}, ktorý obsahuje viacero štatistických údajov znázornených na obrázku \ref{fig:envelope}. Detailný popis tejto štruktúry sa nachádza na webovej adrese \url{http://qmail-scanner.sourceforge.net/}. Výstupom aplikácie Qmail je, v~prípade úspešného doručenia emailu, textový súbor reprezentujúci emailovú správu, ku ktorej je jednoznačne priradený súbor s~príponou \emph{.envelope}. Oba súbory sú spracúvané analyzátorom, ktorý popíšeme v~následujúcej časti. Súčasťou prílohy tejto práce je modifikovaný súbor \verb|qmail-scanner.pl|.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1861,10 +1862,10 @@ Zo súboru s~príponou \emph{.envelope} sme použili následujúce údaje:
 
 
 \section{Analýza dát}
-Jedným z~hlavých požiadavkov systému je deduplikácia príloh emailových správ z~dôvodu úspory diskovej kapacity. Hlavička s~názvom \emph{Content-Type}, ktorú definuje RFC 2045 špecifikuje typ dát v~tele MIME správy. Jej hodnota je tvorená z~dvoch častí a to názov typu média (media type) a bližšie špecifikovaný podtyp, napríklad \emph{\uv{image/gif}}. Norma definuje päť základných typov médií a to text, image, audio, video a application. V~prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typ s~výnimkou typu \emph{\uv{text/plain}}, kde predpokladáme, že sa jedná o~bežnú textovú správu napísanú užívateľom.
+Jednou z~hlavných požiadaviek systému je deduplikácia príloh emailových správ z~dôvodu úspory diskovej kapacity. Hlavička s~názvom \emph{Content-Type}, ktorú definuje RFC 2045 špecifikuje typ dát v~tele MIME správy. Jej hodnota je tvorená z~dvoch častí a to názov typu média (media type) a bližšie špecifikovaný podtyp, napríklad \emph{\uv{image/gif}}. Norma definuje päť základných typov médií a to text, image, audio, video a application. V~prípade, našej aplikácie má zmysel využiť deduplikáciu na všetky tieto typy s~výnimkou typu \emph{\uv{text/plain}}, kde predpokladáme, že sa jedná o~bežnú textovú správu napísanú užívateľom. Obsah tejto správy bude slúžiť pre fulltextové vyhľadávanie.
 
 Program pre analýzu a deduplikáciu emailovej správy bol napísaný v~programovacom jazyku Python\footnote{http://python.org}. Tento program dodržiava špecifikáciu RFC 2822 a RFC2045. 
-Medzi povinné polia hlavičky emailu patria pole \emph{From} a \emph{Date}. Aj napriek tomu, že tieto polia sú definované už od roku 1982 v~RFC 1982 analýza nášho datasetu preukázala prítomnosť správ, ktoré tento požiadavok nespĺňali, jednalo sa hlavne o~správy typu spam. Z~množiny, ktorá obsahovala 980,000 emailových sprav bolo 0.022\% emailov, ktoré nespĺňali štruktúru definovanú normou RFC 2045. Metódu deduplikácie sme riešili nasledujúcim postupom:
+Medzi povinné polia hlavičky emailu patria pole \emph{From} a \emph{Date}. Aj napriek tomu, že tieto polia sú definované už od roku 1982 v~RFC 1982 analýza nášho testovacieho vzorku preukázala prítomnosť správ, ktoré túto požiadavku nespĺňali, jednalo sa hlavne o~správy typu spam. Z~množiny, ktorá obsahovala približne 1,000,000 emailových správ bolo 0.022\% emailov, ktoré nespĺňali štruktúru definovanú normou RFC 2045. Metódu deduplikácie sme riešili nasledujúcim postupom:
 
 \begin{itemize}
  \item programom pre analýzou emailu sme určili časti, v~ktorých sa nachádzajú prílohy
@@ -1875,20 +1876,20 @@ Medzi povinné polia hlavičky emailu patria pole \emph{From} a \emph{Date}. Aj 
 
 %ukazka tela s prilohami?
 
-TODO>:
-ukazka emailu s~prilohou + vysledok po deduplikacii
+%TODO>:
+% ukazka emailu s~prilohou + vysledok po deduplikacii
 \section{Databázová schéma}
 
-Databázovú schému sme navrhli s~ohľadom na to aké operácie nad danými dátami budeme vykonávať a pri návrhu sme využili poznatky získané štúdiom architektúry databázového systému Cassandra. Schéma je tvorená pomocou štyroch rodín stĺpcov a to:
+Databázovú schému sme navrhli s~ohľadom na to, aké operácie nad danými dátami budeme vykonávať a pri návrhu sme využili poznatky získané štúdiom architektúry databázového systému Cassandra. Schéma je tvorená pomocou štyroch rodín stĺpcov:
 
 \begin{itemize}
  \item \emph{messagesMetaData} - obsahuje meta informácie identifikované v~obálke emailového objektu a emailovej správy, nad ktorými budeme vykonávať štatistické výpočty pomocou metódy MapReduce
  \item \emph{messagesContent} - obsahuje obálku, hlavičku a telo správy
- \item \emph{messagesAttachment} - slúži na ukladanie deduplikovaných príloh emailov  
+ \item \emph{messagesAttachment} - slúži na ukladanie deduplikovaných príloh emailových správ  
  \item \emph{lastInbox} - v~chronologickom časovom poradí, podľa hodnoty poľa \emph{Date} v~hlavičke emailu, zaznamenáva správy daného užívateľa
 \end{itemize}
 
-Tradičné techniky pre popis databázových schémat nie je možné aplikovať na databázové systémy, ktoré vychádzajú z~konceptov Bigtable alebo Dynamo. Jedným z~dôvodom je, že na tieto schémy sa aplikuje denormalizácia, duplikácia dát a kľúče sú často komplexného charakteru. Dodnes neexistuje, žiadny štandard, ktorý by definoval popis týchto schémat. Článok pod názvom: \uv{Techniky pre definíciu štruktúr pomocou diagramov v~cloude a návrhové vzory} (Cloud data structure diagramming techniques and design patterns \cite{CloudDataStructureDiag}) definuje stereotypy pre diagramy v~jazyku UML a obsahuje vzory pre popis štruktúry týchto dát. Obrázok \ref{fig:Cschema} znázorňuje databázovú schému nášho modelu a využíva techniky popísané v~spomínanom článku.
+Tradičné techniky pre popis databázových schémat nie je možné aplikovať na databázové systémy, ktoré vychádzajú z~konceptov Bigtable alebo Dynamo. Jedným z~dôvodom je, že na tieto schémy sa aplikuje denormalizácia, duplikácia dát a kľúče sú často komplexného charakteru. Dodnes neexistuje žiadny štandard, ktorý by definoval popis týchto schémat. Článok pod názvom: \uv{Techniky pre definíciu štruktúr pomocou diagramov v~cloude a návrhové vzory} (Cloud data structure diagramming techniques and design patterns \cite{CloudDataStructureDiag}) definuje stereotypy pre diagramy v~jazyku UML a obsahuje vzory pre popis štruktúry týchto dát. Obrázok \ref{fig:Cschema} znázorňuje databázovú schému nášho modelu a využíva techniky popísané v~spomínanom článku.
 
 \noindent
 \\
@@ -1901,8 +1902,8 @@ Ako jedinečný identifikátor emailovej správy v~databáze využívame nasledu
 V~tejto schéme reprezentuje:
 \begin{itemize}
  \item \emph{uid} emailovú adresu príjemcu, v~tvare jan@mak.com
- \item \emph{MessageID} je ide identifikátor správy z~hlavičky daného emailu
- \item \emph{date} je časová značka reprezentujúca čas kedy bol email prijatý emailovým serverom (formát: rok, mesiac, deň, hodina, minúta, sekunda)
+ \item \emph{MessageID} je identifikátor správy z~hlavičky daného emailu
+ \item \emph{date} je časová značka reprezentujúca čas, kedy bol email prijatý emailovým serverom (formát: rok, mesiac, deň, hodina, minúta, sekunda)
  \item \emph{emailID} je výstup hašovacej funkcie SHA2 v~hexadecimálnom tvare
 \end{itemize}
 
@@ -1910,7 +1911,7 @@ V~tejto schéme reprezentuje:
 %TODO lexikograf usporiadanie stlpcov pre zapis meta info o prilohach, popisat TIMEUUID
 %TODO v obrazku schemy fixnut u MEssagesAttachment typ links: na TypeLong, v Messages MEta DAta fixnut a,b,c zmazat int
 
-V~predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (blob), ktorých veľkosť presahuje 1 MB avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512 kB. V~prípade ak dáta reprezentujúce telo emailovej správy alebo objekt s~prílohou presahujú veľkosť 1 MB, tak ich zapisujeme do samostatných stĺpcov o~veľkosti 512 kB. Toto rozdeľovanie dát na menšie bloky vykonávame na aplikačnej úrovni na strane klienta zapisujúceho dáta do databázového systému. Názvy stĺpcov číslujeme vzostupne v~intervale \emph{0-N}, kde \emph{N} je počet blokov. Spätnú rekonštrukciu dát vykonáva klient.
+V~predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná pre zápis blokov dát (blob), ktorých veľkosť presahuje 1 MB, avšak optimálne výsledky pre zápis dosahuje pri veľkosti blokov 512 kB. V~prípade ak dáta reprezentujúce telo emailovej správy alebo objekt s~prílohou presahujú veľkosť 1 MB, tak ich zapisujeme do samostatných stĺpcov o~veľkosti 512 kB. Toto rozdeľovanie dát na menšie bloky vykonávame na aplikačnej úrovni na strane klienta zapisujúceho dáta do databázového systému. Názvy stĺpcov číslujeme vzostupne v~intervale \emph{0-N}, kde \emph{N} je počet blokov. Spätnú rekonštrukciu dát vykonáva klient.
 
 \begin{figure}[h]
  \centering
@@ -1920,9 +1921,9 @@ V~predchádzajúcej kapitole sme zistili, že Cassandra nie je optimalizovaná p
  \label{fig:Cschema}
 \end{figure}
 
-Výsledný návrh databázovej schémy ma viacero výhod. Metadáta, nad ktorými budeme vykonávať výpočet štatistík (messagesMetaData) budú uložené v~jednom súbore, čo zabezpečí ich efektívne spracovanie. V~tejto rodine stĺpcov ďalej využívame index s~názvom DomainIdx, vďaka ktorému sme schopný získať všetky emaily uložené v~systéme prináležiace určitej doméne, v~tvare napríklad \uv{cvut.cz}. 
+Výsledný návrh databázovej schémy ma viacero výhod. Metadáta, nad ktorými budeme vykonávať výpočet štatistík (messagesMetaData) budú uložené v~jednom súbore, čo zabezpečí ich efektívne spracovanie. V~tejto rodine stĺpcov ďalej využívame index s~názvom \emph{domainIdx}, vďaka ktorému sme schopný získať všetky emaily uložené v~systéme prináležiace určitej doméne, v~tvare napríklad \uv{cvut.cz}. 
 
-Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identifikovaný pomocou svojej emailovej adresy budú uložené v~jednom riadku v~rodine stĺpcov lastInbox. Názvy stĺpcov budú reprezentované pomocou TimeUUID, čo zabezpečí ich zoradenie podľa času. Túto rodinu stĺpcov môžeme použiť v~aplikácii pre sprístupnenie obsahu emailového adresára koncovým užívateľom.
+Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identifikovaný pomocou svojej emailovej adresy budú uložené v~jednom riadku v~rodine stĺpcov lastInbox. Názvy stĺpcov budú reprezentované pomocou \emph{TimeUUID}, čo zabezpečí ich zoradenie podľa času. Túto rodinu stĺpcov môžeme použiť v~aplikácii pre sprístupnenie obsahu emailového adresára koncovým užívateľom.
 
 
 
@@ -1930,7 +1931,7 @@ Všetky emailové správy, ktoré prináležia užívateľovi, ktorý je identif
 
 \section{Fulltextové vyhľadávanie}
 
-Fulltextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému Elasticsearch\footnote{http://elasticsearch.org}. Hlavný index, ktorý obsahuje všetky indexované dáta ma názov \emph{emailArchive}, a delíme ho na dva typy s~názvom \emph{email} a \emph{envelope}. Schéma týchto typov obsahuje polia podľa, ktorých chceme v~emailovom archíve vyhľadávať a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
+Fulltextové vyhľadávanie realizujeme pomocou samostatného NoSQL systému elasticsearch\footnote{http://elasticsearch.org}. Hlavný index, ktorý obsahuje všetky indexované dáta ma názov \emph{emailArchive}, a delíme ho na dva typy s~názvom \emph{email} a \emph{envelope}. Schéma týchto typov obsahuje polia, podľa ktorých chceme v~emailovom archíve vyhľadávať, a jej reprezentáciu zapísanú vo formáte JSON znázorňuje obrázok \ref{fig:ESschema}.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -1961,10 +1962,10 @@ mappingsEnvelope = {
 \section{Implementácia}
 
 %Consistent rad - write    W  + R > RF
-V~programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a ElasticSearch. Jednou z~najdôležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (quorum), ktorý zabezpečí zápis dát na $N / 2 + 1$ replík a klient následne obdrží potvrdenie o~úspešnosti zápisu, inak sa zápis zopakuje. Tieto vlastnosti nám zabezpečujú, v~prípade použitia hodnoty replikácie tri (dáta sa v~databázovom systéme nachádzajú trikrát), silnú úroveň konzistencie na strane klienta a databázového systému. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahujú viacero jadier, tento fakt môžeme využiť pre paralelné spracúvanie emailov, teda každé jadro CPU bude spracúvať súčasne jednu emailovú správu.
+V~programovacom jazyku Python sme implementovali klienta pre zápis dát do databáze Cassandra a elasticsearch. Jednou z~najdôležitejších vlastností týchto klientov je voľba úrovne konzistencie pri zápise. Našou prioritou je integrita dát a od databáze požadujeme silnú konzistenciu. Zvolili sme mód kvóra (quorum), ktorý zabezpečí zápis dát na $\lfloor N/2 \rfloor + 1$ replík a klient následne obdrží potvrdenie o~úspešnosti zápisu, inak sa zápis zopakuje. Tieto vlastnosti nám zabezpečujú v~prípade použitia faktoru replikácie tri (dáta sa v~databázovom systéme nachádzajú trikrát) silnú úroveň konzistencie na strane klienta a databázového systému. Analýza emailovej správy a jej deduplikácia spotrebúva hlavne CPU zdroje. Moderné procesory obsahujú viacero jadier, čo môžeme využiť pre paralelné spracúvanie emailov, kde každé jadro CPU bude spracúvať jednu emailovú správu.
 
 \subsection*{Celery}
-Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (workers) reprezentujú samostatné procesy v~našom prípade proces pre analýzu a deduplikáciu emailu, ktoré môžu bežať paralelne. Ako sprostredkovateľ (broker) je použitá aplikácia RabbitMQ\footnote{http://www.rabbitmq.com}. Sprostredkovateľ obdrží od klienta správu a uloží ju do fronty. Správa obsahuje identifikátor emailovej správy, v~tomto prípade cestu na lokálnom súborovom systéme k~súboru reprezentujúcom email.
+Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónnej fronty úloh pod názvom Celery\footnote{http://celeryproject.org}, ktorá využíva architektúru distribuovaného predávania správ (distributed message passing). Architektúru znázorňuje obrázok \ref{fig:Celery}. \uv{Pracovníci} (workers) reprezentujú samostatné procesy (v~našom prípade proces pre analýzu a deduplikáciu emailu), ktoré môžu bežať paralelne. Ako sprostredkovateľ (broker) je použitá aplikácia RabbitMQ\footnote{http://www.rabbitmq.com}. Sprostredkovateľ obdrží od aplikácie qmail-scanner správu a uloží ju do fronty. Správa obsahuje identifikátor emailovej správy, v~tomto prípade cestu na lokálnom súborovom systéme k~súboru reprezentujúcemu email.
 
 %TODO:
 \begin{figure}[h]
@@ -1973,14 +1974,14 @@ Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónne
  \caption{Architektúra Celery, Zdroj: \cite{celery}}
  \label{fig:Celery}
 \end{figure}
-Táto správa je následne zaslaná ľubovoľnému pracovníkovi (v~našom prípade klient vykonávajúci analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná, dokáže odolávať chybám (napr. v~prípade výpadku elektrickej energie správy naďalej pretrvávajú vo fronte).
+Táto správa je následne zaslaná ľubovoľnému pracovníkovi (v~našom prípade klient vykonávajúci analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná a dokáže odolávať chybám (napr. v~prípade výpadku elektrickej energie správy naďalej pretrvávajú vo fronte).
 
 
-Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala XY operácií pre zápis a XY pre načítanie správ.
+Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala približne 10,000 operácií za sekundu pre zápis (publikovanie správ) a cca 5,000 operácií pre načítanie správ (konzumáciu správ).
 
 \subsection{Klient}
 
-Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V~prípade, že je v~daný okamžik k~dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou analyzátora a následne zapísaná do databáze Cassandra a fulltextového systému Elasticsearch. Na testovacie účely sme nemali k~dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailových správ.
+Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu na obrázku \ref{fig:Cseq}. Pri príchode nového emailu, ktorý je spracovaný emailovým serverom Qmail, je vytvorená nová úloha pomocou aplikácie Celery. Táto úloha uloží do sprostredkovateľa identifikátor emailu. V~prípade, že je v~daný okamžik k~dispozícií ľubovoľný pracovník, je emailová správa spracovaná pomocou analyzátora a následne zapísaná do databáze Cassandra a fulltextového systému elasticsearch. Na testovacie účely sme nemali k~dispozícii reálny dátový tok emailov. Vrstvu reprezentujúcu Qmail sme nahradili modulom, vytvárajúcim nové úlohy prechádzaním lokálneho súborového systému, ktorý obsahoval testovaciu množinu emailových správ.
 
 
 \begin{figure}[h]
@@ -1993,15 +1994,12 @@ Proces spracovania nového emailu je znázornený pomocou sekvenčného diagramu
 
 Pomocou klienta pyccassa\footnote{http://pycassa.github.com/pycassa/} sme implementovali aplikáciu pre prístup k~dátam uloženým v~databázovom systéme. Klient umožňuje následovné operácie:
 \begin{itemize}
- \item načítanie pôvodnej štruktúry emailu, ktorý sme uložili do systému, prípadná deduplikácia je nahradená dátami reprezentujúcimi prílohu
- \item načítanie voliteľného počtu emailov pre daného užívateľa, ktoré sú zoradené v~chronologicky od najstaršieho
+ \item načítanie pôvodnej štruktúry emailu, ktorý sme uložili do systému; prípadná deduplikácia je nahradená dátami reprezentujúcimi prílohu
+ \item načítanie voliteľného počtu emailov pre daného užívateľa, ktoré sú zoradené chronologicky od najstaršieho
  \item náhodný výpis definovaného počtu emailov pre daného užívateľa
  \item výpis stručných informácií reprezentujúcich email, konkrétne polia: odosielateľ, predmet, dátum, veľkosť emailu, počet príloh
 \end{itemize}
 
-
-TODO
-Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme 2 geo datacen ... + hadoop... popisat
 
 %deployment diagram ( oddelene datacentra - na tretej replikacii pocitat MR)ty?
 
@@ -2009,7 +2007,7 @@ Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasa
 
 %TODO PIG = kecy okolo 
 % a nepodporuje možnosť definície viackrokového dátového toku \cite{Gates:2009:BHD:1687553.1687568}
-Cassandra spolupracuje so systémom Hadoop, čo nám dáva do rúk mocný nástroj na masívne paralelné spracovanie dát pomocou techniky MapReduce. V~tomto prípade je potrebné na uzly, na ktorých je Cassandra nainštalovať aplikácie HDFS a Hadoop. Tvorba aplikácií v~tomto frameworku prebieha v~Jave, je náročná a okrem toho programový model MapReduce obsahuje viacero problémov. Model napríklad neobsahuje primitíva na filtrovanie, agregáciu, spájanie dát a je potrebná ich vlastná implementácia. Tieto nedostatky rieši nástroj Pig \cite{olston2008pig} vďaka, ktorému sme boli schopný efektívne spracúvať metadáta uložené v~databáze. Obrázok \ref{fig:PigExample} zobrazuje programovú ukážku, ktorá slúži na výpočet veľkosti najväčšieho emailu pre domény, ktorých emaily archivujeme. Pre jednoduchosť sme vynechali časti, ktoré slúžia na načítanie dát z~databáze a obsahujú užívateľsky definovanú funkciu v~programovacom jazyku Java, ktorá slúži na predprípravu vstupných dát. Podpora užívateľom definovaných funkcií je jednou z~ďalších výhod nástroja Pig.
+Cassandra spolupracuje so systémom Hadoop, čo nám dáva do rúk mocný nástroj na masívne paralelné spracovanie dát pomocou techniky MapReduce. V~tomto prípade je potrebné na uzly, na ktorých je Cassandra nainštalovať HDFS a Hadoop. Tvorba aplikácií v~tomto frameworku prebieha v~Jave, je náročná a okrem toho programový model MapReduce obsahuje viacero problémov. Model napríklad neobsahuje primitíva na filtrovanie, agregáciu, spájanie dát a je potrebná ich vlastná implementácia. Tieto nedostatky rieši nástroj Pig \cite{olston2008pig}, vďaka ktorému sme boli schopný efektívne spracúvať metadáta uložené v~databáze. Obrázok \ref{fig:PigExample} zobrazuje programovú ukážku, ktorá slúži na výpočet veľkosti najväčšieho emailu pre domény, ktorých emaily archivujeme. Pre jednoduchosť sme vynechali časti, ktoré slúžia na načítanie dát z~databáze a obsahujú užívateľsky definovanú funkciu v~programovacom jazyku Java, ktorá slúži na predprípravu vstupných dát. Podpora užívateľom definovaných funkcií je jednou z~ďalších výhod nástroja Pig.
 
 \begin{figure}[h]
 \begin{verbatim}
@@ -2028,30 +2026,33 @@ STORE maxSize into 'biggestEmailPerDomainDomain' using PigStorage(',');
 
 \subsection{Webové rozhranie}
 %TODO: def. dajngo - jakub dp
-Vďaka tomu, že klient pre prístup k~dátam bol vytvorený v~programovacom jazyku Python sme pomocou Django vytvorili jednoduchú prezenčnú vrstvu, ktorou sme boli schopný pristupovať k~uloženým emailovým správam pomocou webového rozhrania.
+Vďaka tomu, že klient pre prístup k~dátam, uloženým v systéme Cassandra, bol vytvorený v~programovacom jazyku Python, sme pomocou Django vytvorili jednoduchú prezenčnú vrstvu, ktorou sme boli schopný pristupovať k~uloženým emailovým správam pomocou webového rozhrania.
 
 %pouzitie do buducna pre koncoveho usera<?
 
 \section{Overenie návrhu}
 
-Pomocou vyššie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u~aplikácií Celery a RabbiMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s~autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s~verziou 0.7.0. Počas ukončovania tejto práce je k~dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
+Pomocou vyššie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u~aplikácií Celery a RabbitMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s~autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s~verziou 0.7.0. Počas ukončovania tejto práce je k~dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
+
+
+Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme 2 geo datacen ... + hadoop... popisat
 
 \subsection*{Konfigurácia}
 Hardvérová konfigurácia bola totožná s~konfiguráciou z~kapitoly \ref{chapter:testovanie}. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu pre zápis dát, ktorú používala aplikácia Celery 2.6. V~úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
 
 
 \subsection*{Overenie integrity dát}
-Databázový kluster sme naplnili testovacími dátami obsahujúcimi emaily o~objeme cca 300 GB. Tie isté dáta sme zároveň spracovali a zapísali do systému ElasticSearch. Následne sme simulovali prípad obnovy dát z~archívu, kde sme všetky emaily v~náhodnom poradí z~databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s~odtlačkom pôvodných dát uložených na pevnom disku. Tento test prebehol bez akejkoľvek chyby. 
+Databázový klaster sme naplnili testovacími dátami obsahujúcimi emaily o~objeme cca 300 GB. Tie isté dáta sme zároveň spracovali a zapísali do systému elasticsearch. Následne sme simulovali prípad obnovy dát z~archívu, kde sme všetky emaily v~náhodnom poradí z~databázy načítali, zostavili ich do pôvodného tvaru klientskou aplikáciou a porovnali sme ich odtlačok pomocou hašovacej funkcie MD5 s~odtlačkom pôvodných dát uložených na pevnom disku. Tento test prebehol bez akejkoľvek chyby. 
 Klient, ktorý slúžil na čítanie dát z~databáze využíval mód kvóra, z~dôvodu požiadavku na integritu dát.
 
 
 \subsection*{Dosiahnuté výsledky}
-Dôležitým pozorovaním bol fakt, že z~celkového objemu emailových správ cca 300 GB sa po deduplikácií príloh tento objem znížil na cca 99 GB, teda došlo k~67\% úspore diskovej kapacity. Štruktúry do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z~celkového objemu dát, čo je zanedbateľná položka.
+Dôležitým pozorovaním bol fakt, že z~celkového objemu emailových správ cca 300 GB sa po deduplikácií príloh tento objem znížil na cca 99 GB, teda došlo k~67\% úspore diskovej kapacity. Štruktúry, do ktorých sme ukladali dáta pre potrebu štatistík zaberali 0,4\% z~celkového objemu dát, čo je zanedbateľná položka.
 
 \noindent
 ElasticSearch rýchlosť pre fulltextové vyhľadávanie bola do XY ms, indexy nad objemom dát 300 GB tvorili XY GB.
 
-% \section{Doporúčenie najvhodnejšieho systému}
+\section{Doporúčenie najvhodnejšieho systému}
 % Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
 
 
@@ -2132,8 +2133,6 @@ Architektúra systému využíva viacero open source aplikácií, pri ktorých a
 
 \chapter{Zoznam použitých skratiek}
 \begin{description}
-\item[]
-
 \item[API] - Application Programming Interface
 \item[EB] - Exabyte
 \item[GC] - Garbage Collector
@@ -2163,8 +2162,8 @@ Architektúra systému využíva viacero open source aplikácií, pri ktorých a
 
 %*****************************************************************************
 
-\chapter{Inštalačná a užívateľská príručka}
-\textbf{\large Tato příloha velmi žádoucí zejména u~softwarových implementačních prací.}
+% \chapter{Inštalačná a užívateľská príručka}
+% \textbf{\large Tato příloha velmi žádoucí zejména u~softwarových implementačních prací.}
 
 %*****************************************************************************
 

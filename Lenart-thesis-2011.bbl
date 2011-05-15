@@ -79,9 +79,9 @@ G.~DeCandia, D.~Hastorun, M.~Jampani, G.~Kakulapati, A.~Lakshman, A.~Pilchin,
 
 \bibitem{neo4j}
 E.~Eifrem.
-\newblock Neo4j the benefits of graph databases.
-\newblock \\ \verb|http://wiki.neo4j.org/content/Presentations|, stav z
-  3.\,1.\,2011.
+\newblock Neo4j the benefits of graph databasesi [online].
+\newblock \\Dostupné z WWW:
+  <\verb|http://wiki.neo4j.org/content/Presentations|>, [cit. 2011-01-05].
 
 \bibitem{fox1997cluster}
 A.~Fox, S.~Gribble, Y.~Chawathe, E.~Brewer, and P.~Gauthier.
@@ -176,9 +176,11 @@ C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
 
 \bibitem{WhyArchiving}
 A.~O. R.~W. Paper.
-\newblock {Why Cloud-Based Security and Archiving Make Sense}, March 2010.
-\newblock \\ \verb|www.google.com/postini/pdf/why_cloud_based_wp.pdf|, stav z
-  28.\,2.\,2011.
+\newblock {Why Cloud-Based Security and Archiving Make Sense [online]}, March
+  2010.
+\newblock \\Dostupné z WWW:
+  <\verb|www.google.com/postini/pdf/why_cloud_based_wp.pdf|>, [cit.
+  2011-11-15].
 
 \bibitem{Pritchett:2008:BAA:1394127.1394128}
 D.~Pritchett.
@@ -193,9 +195,10 @@ T.~Segaran and J.~Hammerbacher.
 \bibitem{ebayShard}
 R.~Shoup.
 \newblock {The eBay Architecture, Striking a balance between site stability,
-  feature velocity, performance, and cost}, November 2006.
-\newblock \\ \verb|www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|,
-  stav z 28.\,2.\,2011.
+  feature velocity, performance, and cost [online]}, November 2006.
+\newblock \\Dostupné z WWW:
+  <\verb|addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf|>, [cit.
+  2011-02-28].
 
 \bibitem{stonebraker1986case}
 M.~Stonebraker.
@@ -221,19 +224,19 @@ W.~Vogels.
 \newblock {\em Communications of the ACM}, 52(1):40--44, 2009.
 
 \bibitem{cassandraW}
-Cassandra.
-\newblock \\ \verb|http://cassandra.apache.org/|, stav z 3.\,1.\,2011.
+Cassandra [online].
+\newblock \\Dostupné z WWW: <\verb|http://cassandra.apache.org/|>, [cit.
+  2010-12-21].
 
 \bibitem{celery}
-Celery introduction.
-\newblock \\
-  \verb|http://ask.github.com/celery/getting-started/introduction.html|, stav z
-  3.\,2.\,2011.
+Celery introduction [online].
+\newblock \\Dostupné z WWW:
+  <\verb|http://ask.github.com/celery/getting-started/|>, [cit. 2011-04-07].
 
 \bibitem{hbaseSec}
-Discretionary access control.
-\newblock \\ \verb|https://issues.apache.org/jira/browse/HBASE-1697|, stav z
-  3.\,5.\,2011.
+Discretionary access control [online].
+\newblock \\Dostupné z WWW:
+  <\verb|https://issues.apache.org/jira/browse/HBASE-1697|>, [cit. 2011-04-03].
 
 \bibitem{White:2009:HDG:1717298}
 T.~White.

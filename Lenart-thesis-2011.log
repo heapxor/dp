@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 04:31
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 15:02
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -326,6 +326,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -424,12 +428,7 @@ Package hyperref Info: Backreferencing OFF on input line 2995.
 
 Implicit mode ON; LaTeX internals redefined
 Package hyperref Info: Bookmarks ON on input line 3191.
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
-\Urlmuskip=\muskip10
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-)
 LaTeX Info: Redefining \url on input line 3428.
-
 (/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 
@@ -524,23 +523,23 @@ LaTeX Warning: Label `tab:Nosql' multiply defined.
 )
 \openout1 = `Lenart-thesis-2011.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 144.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 145.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -564,7 +563,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 144.
+Package hyperref Info: Link coloring ON on input line 145.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -574,8 +573,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count113
 )
-LaTeX Info: Redefining \ref on input line 144.
-LaTeX Info: Redefining \pageref on input line 144.
+LaTeX Info: Redefining \ref on input line 145.
+LaTeX Info: Redefining \pageref on input line 145.
 
 (./Lenart-thesis-2011.out) (./Lenart-thesis-2011.out)
 \@outlinefile=\write3
@@ -593,19 +592,19 @@ Nazev prace: Ve\IeC {\v l}koobjemov\IeC {\'e} \IeC {\'u}lo\IeC {\v z}isko email
 ov
 Vedouci prace: Ing. Jan \IeC {\v S}ediv\IeC {\'y}, CSc.
 ***************************************************
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 205.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 206.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 205
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 206
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 205.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 206.
  [1
 
 
@@ -668,9 +667,9 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
 Kapitola 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 302.
+(Font)              <9> on input line 303.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 302.
+(Font)              <5> on input line 303.
 [1
 
 ] [2
@@ -678,22 +677,22 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
 Kapitola 2.
 [3] [4] [5] [6] [7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 560--561
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 572--578
+Underfull \hbox (badness 10000) in paragraph at lines 573--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--586
+Underfull \hbox (badness 10000) in paragraph at lines 584--587
 
  []
 
 [12] [13]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 631.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 632.
 
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -722,7 +721,7 @@ File: ./figures/capDatabases.png Graphic file (type png)
 
 <use ./figures/capDatabases.png> [28 <./figures/capDatabases.png (PNG copy)>]
 [29]
-Overfull \hbox (30.91772pt too wide) in paragraph at lines 1172--1192
+Overfull \hbox (30.91772pt too wide) in paragraph at lines 1173--1193
  [][] 
  []
 
@@ -739,12 +738,12 @@ Kapitola 6.
 ]
 Kapitola 7.
 [43] [44] [45] [46]
-Overfull \hbox (27.70586pt too wide) in paragraph at lines 1712--1723
+Overfull \hbox (27.70586pt too wide) in paragraph at lines 1713--1724
  [] 
  []
 
 [47]
-Overfull \hbox (27.70586pt too wide) in paragraph at lines 1752--1763
+Overfull \hbox (27.70586pt too wide) in paragraph at lines 1753--1764
  [] 
  []
 
@@ -753,29 +752,29 @@ Kapitola 8.
 [51
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1847--1847
+Underfull \hbox (badness 10000) in paragraph at lines 1848--1848
 []\T1/lmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
 
-[52] [53] <./figures/cassandra.png, id=989, 831.105pt x 606.265pt>
+[52] [53] <./figures/cassandra.png, id=990, 831.105pt x 606.265pt>
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1917--1919
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1918--1920
  [][] 
  []
 
 [54 <./figures/cassandra.png (PNG copy)>] [55]
-<./figures/Celery.jpg, id=1005, 527.9725pt x 392.46625pt>
+<./figures/Celery.jpg, id=1006, 527.9725pt x 392.46625pt>
 File: ./figures/Celery.jpg Graphic file (type jpg)
 
 <use ./figures/Celery.jpg> [56 <./figures/Celery.jpg>]
-<./figures/emailProcessing.png, id=1015, 937.5025pt x 537.00626pt>
+<./figures/emailProcessing.png, id=1016, 937.5025pt x 537.00626pt>
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1988--1990
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1989--1991
  [][] 
  []
 
@@ -784,7 +783,7 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 1988--1990
 ]
 Kapitola 9.
 
-Overfull \hbox (1.33044pt too wide) in paragraph at lines 2086--2087
+Overfull \hbox (1.33044pt too wide) in paragraph at lines 2087--2088
 \T1/lmr/m/n/10.95 Cie©om tejto práce bolo vy-bra´ vhodný dis-tri-bu-ovaný da-ta
 -bá-zový sys-tém, ktorý bude schopný
  []
@@ -792,15 +791,15 @@ Overfull \hbox (1.33044pt too wide) in paragraph at lines 2086--2087
 (./Lenart-thesis-2011.bbl [61] [62
 
 ] [63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 194--199
-[]\T1/lmtt/m/n/10.95 www.addsimplicity.com/downloads/eBaySDForum2006-11-29.pdf\
-T1/lmr/m/n/10.95 , stav z
+Underfull \hbox (badness 1360) in paragraph at lines 178--184
+\T1/lmr/m/n/10.95 Dostupné z WWW: <[]\T1/lmtt/m/n/10.95 www.google.com/postini/
+pdf/why_cloud_based_wp.pdf\T1/lmr/m/n/10.95 >,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--232
-[]\T1/lmtt/m/n/10.95 http://ask.github.com/celery/getting-started/introduction.
-html\T1/lmr/m/n/10.95 , stav z
+Overfull \hbox (6.25684pt too wide) in paragraph at lines 196--202
+\T1/lmr/m/n/10.95 Dostupné z WWW: <[]\T1/lmtt/m/n/10.95 addsimplicity.com/downl
+oads/eBaySDForum2006-11-29.pdf\T1/lmr/m/n/10.95 >,
  []
 
 ) [65] [66
@@ -811,11 +810,11 @@ Dodatok A.
 
 ]
 Dodatok B.
-<./figures/deploy.png, id=1079, 1138.2525pt x 866.23625pt>
+<./figures/deploy.png, id=1080, 1138.2525pt x 866.23625pt>
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2159--2160
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 2158--2159
  [][] 
  []
 
@@ -823,18 +822,14 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 2159--2160
 
 ]
 Dodatok C.
-[71] [72
 
-]
-Dodatok D.
+Package natbib Warning: Citation `infodp' on page 71 undefined on input line 21
+73.
 
-Package natbib Warning: Citation `infodp' on page 73 undefined on input line 21
-74.
-
-<figures/seznamcd.pdf, id=1096, 793.96625pt x 539.01375pt>
+<figures/seznamcd.pdf, id=1089, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
 
-<use figures/seznamcd.pdf> [73 <./figures/seznamcd.pdf>] [74]
+<use figures/seznamcd.pdf> [71 <./figures/seznamcd.pdf>] [72]
 
 Package natbib Warning: There were undefined citations.
 
@@ -844,8 +839,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7526 strings out of 495018
- 103059 string characters out of 1180937
+ 7524 strings out of 495018
+ 103047 string characters out of 1180937
  178266 words of memory out of 3000000
  10221 multiletter control sequences out of 15000+50000
  73768 words of font info for 49 fonts, out of 3000000 for 9000
@@ -864,9 +859,9 @@ exmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
 .pfb>
-Output written on Lenart-thesis-2011.pdf (92 pages, 1040914 bytes).
+Output written on Lenart-thesis-2011.pdf (90 pages, 1040270 bytes).
 PDF statistics:
- 1238 PDF objects out of 1440 (max. 8388607)
- 321 named destinations out of 1000 (max. 500000)
+ 1230 PDF objects out of 1440 (max. 8388607)
+ 319 named destinations out of 1000 (max. 500000)
  702 words of extra memory for PDF output out of 10000 (max. 10000000)
 
