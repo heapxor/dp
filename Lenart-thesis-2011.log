@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 23:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  16 MAY 2011 01:10
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -836,7 +836,7 @@ File: figures/cdList.png Graphic file (type png)
 Here is how much of TeX's memory you used:
  7540 strings out of 495018
  103304 string characters out of 1180937
- 176429 words of memory out of 3000000
+ 175429 words of memory out of 3000000
  10233 multiletter control sequences out of 15000+50000
  73768 words of font info for 49 fonts, out of 3000000 for 9000
  42 hyphenation exceptions out of 8191
@@ -854,7 +854,7 @@ share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public
 mf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 o10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt10.pfb>
-Output written on Lenart-thesis-2011.pdf (89 pages, 1206384 bytes).
+Output written on Lenart-thesis-2011.pdf (89 pages, 1206539 bytes).
 PDF statistics:
  1234 PDF objects out of 1440 (max. 8388607)
  322 named destinations out of 1000 (max. 500000)
