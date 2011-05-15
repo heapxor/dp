@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  14 MAY 2011 23:29
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  15 MAY 2011 04:31
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -738,12 +738,22 @@ Kapitola 6.
 
 ]
 Kapitola 7.
-[43] [44] [45] [46] [47] [48] [49] [50]
+[43] [44] [45] [46]
+Overfull \hbox (27.70586pt too wide) in paragraph at lines 1712--1723
+ [] 
+ []
+
+[47]
+Overfull \hbox (27.70586pt too wide) in paragraph at lines 1752--1763
+ [] 
+ []
+
+[48] [49] [50]
 Kapitola 8.
 [51
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1831--1831
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1847
 []\T1/lmtt/m/n/10.95 Tue, 15 Mar 2011 10:12:09 CET Clear:RC:1(88.208.65.55):SA:
 1 0.007811 9508
  []
@@ -752,7 +762,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1831--1831
 File: ./figures/cassandra.png Graphic file (type png)
 
 <use ./figures/cassandra.png>
-Overfull \hbox (48.1817pt too wide) in paragraph at lines 1901--1903
+Overfull \hbox (48.1817pt too wide) in paragraph at lines 1917--1919
  [][] 
  []
 
@@ -765,7 +775,7 @@ File: ./figures/Celery.jpg Graphic file (type jpg)
 File: ./figures/emailProcessing.png Graphic file (type png)
 
 <use ./figures/emailProcessing.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 1972--1974
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 1988--1990
  [][] 
  []
 
@@ -774,7 +784,7 @@ Overfull \hbox (19.72894pt too wide) in paragraph at lines 1972--1974
 ]
 Kapitola 9.
 
-Overfull \hbox (1.33044pt too wide) in paragraph at lines 2070--2071
+Overfull \hbox (1.33044pt too wide) in paragraph at lines 2086--2087
 \T1/lmr/m/n/10.95 Cie©om tejto práce bolo vy-bra´ vhodný dis-tri-bu-ovaný da-ta
 -bá-zový sys-tém, ktorý bude schopný
  []
@@ -805,7 +815,7 @@ Dodatok B.
 File: ./figures/deploy.png Graphic file (type png)
 
 <use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2142--2143
+Overfull \hbox (19.72894pt too wide) in paragraph at lines 2159--2160
  [][] 
  []
 
@@ -819,7 +829,7 @@ Dodatok C.
 Dodatok D.
 
 Package natbib Warning: Citation `infodp' on page 73 undefined on input line 21
-57.
+74.
 
 <figures/seznamcd.pdf, id=1096, 793.96625pt x 539.01375pt>
 File: figures/seznamcd.pdf Graphic file (type pdf)
@@ -836,11 +846,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  7526 strings out of 495018
  103059 string characters out of 1180937
- 177266 words of memory out of 3000000
+ 178266 words of memory out of 3000000
  10221 multiletter control sequences out of 15000+50000
  73768 words of font info for 49 fonts, out of 3000000 for 9000
  42 hyphenation exceptions out of 8191
- 38i,17n,36p,1750b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,17n,36p,1692b,534s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -854,7 +864,7 @@ exmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
 .pfb>
-Output written on Lenart-thesis-2011.pdf (92 pages, 1039252 bytes).
+Output written on Lenart-thesis-2011.pdf (92 pages, 1040914 bytes).
 PDF statistics:
  1238 PDF objects out of 1440 (max. 8388607)
  321 named destinations out of 1000 (max. 500000)
