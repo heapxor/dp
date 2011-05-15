@@ -639,7 +639,7 @@ reduce(g, list(I)) -> list(I)
 
 \subsection*{Príklad}
 
-Uvažujme vstupné dáta popísané v~tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V~tomto prípade bude vstupom do funkcie \emph{map} ako kľúč $k$ číslo riadku v~tabuľke, $H$ budú tvoriť jednotlivé hodnoty v stĺpcoch odpovedajúce riadku. Aplikáciou funkcie \emph{map}, ktorá v tomto prípade bude zabezpečovať výber hodnôt zo stĺpcov \emph{doména} a \emph{veľkosť} dostaneme následujúci výstup:
+Uvažujme vstupné dáta popísané v~tabuľke \ref{tab:mapred} Nad dátami chceme spočítať celkovú veľkosť emailových správ, ktoré prináležia jednotlivým doménam. V~tomto prípade bude vstupom do funkcie \emph{map} ako kľúč $k$ číslo riadku v~tabuľke, $H$ budú tvoriť jednotlivé hodnoty v~stĺpcoch odpovedajúce riadku. Aplikáciou funkcie \emph{map}, ktorá v~tomto prípade bude zabezpečovať výber hodnôt zo stĺpcov \emph{doména} a \emph{veľkosť} dostaneme následujúci výstup:
 
 \begin{verbatim}
 (d1.com, [12, 3])
@@ -882,7 +882,7 @@ NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s~dátov
 % NoSQL systémy delíme na dokumentové, grafové, stĺpcové a systémy s dátovým modelom typu \uv{kľúč-hodnota} (Key-value). V následujúcej časti práce ich stručne popíšeme.
 
 \subsection{Relačný model}
-Pre porovnanie stručne popíšeme štandardný relačný model. Databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v~tabuľkách. Štruktúra týchto záznamov je normalizovaná, aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s~popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u~ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k~dátam je možné použiť indexy. Tabuľka \ref{tab:relacnyModel} zachytáva ukážku tabuľky v relačnom databázovom systéme.
+Pre porovnanie stručne popíšeme štandardný relačný model. Databázový model reprezentuje dáta pomocou relácií, ktoré tvoria riadky uložené v~tabuľkách. Štruktúra týchto záznamov je normalizovaná, aby sa predišlo ich duplikácii. Pre zabezpečenie referenčnej integrity jednotlivých entít sa využívajú cudzie kľúče. Tabuľky s~popisom názvov stĺpcov a vzťahy medzi nimi nazývame databázovou schémou. Záznamy sú sekvenčne ukladané na pevný disk. Tento model je vhodný pre systémy, u~ktorých sú dominantné operácie vykonávajúce zápis. Relačné databázové systémy sú teda optimalizované pre zápis. Pre efektívny prístup k~dátam je možné použiť indexy. Tabuľka \ref{tab:relacnyModel} zachytáva ukážku tabuľky v~relačnom databázovom systéme.
 
 
 
@@ -961,7 +961,7 @@ Medzi databázové systémy využívajúce model kľúč-hodnota patria Amazon D
 %obrazok?
 %abadiph.pdf
 
-V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné. Možný príklad fyzickej reprezentácie tabuľky \emph{Zamestnanec} zachytáva tabuľka~\ref{tab:columnModel}, stĺpce \emph{Kľúč} je možne vynechať, v tomto prípade v logickej reprezentácii budú riadky v rovnakom poradí zachytavať záznam.
+V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Data reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~riadkových databáz, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné. Možný príklad fyzickej reprezentácie tabuľky \emph{Zamestnanec} zachytáva tabuľka~\ref{tab:columnModel}, stĺpce \emph{Kľúč} je možne vynechať, v~tomto prípade v~logickej reprezentácii budú riadky v~rovnakom poradí zachytavať záznam.
 
 Riadkový model obsahuje v~jednom zázname dáta z~rôznych domén, čo spôsobuje vyššiu entropiu v~porovnaní so stĺpcovým modelom, kde sa predpokladá, že dáta v~danom stĺpci pochádzajú z~totožnej domény a sú si preto podobné. Táto vlasnosť umožňuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýhodou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií. Pre optimalizáciu operácií vykonávajúcich zápis sa používa dávkový zápis.
 
@@ -1245,9 +1245,9 @@ print tokens(K)
 Štandardne Cassandra využíva \emph{RandomPartitioner}, u~ktorého výstup hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určuje uzol, do ktorého sa zapíšu dáta. Týmto sa zabezpečí rovnomerné rozdelenie dát a záťaže na každom uzle v~klastri. K~dispozícii je taktiež \emph{OrderPreservingPartitioner}, u~ktorého je každý uzol zodpovedný za interval kľúčov. Napríklad v~prípade kľúčov začínajúcich začiatočným písmenom abecedy, môže byť rozdelenie na troch uzloch následovné:
 \begin{verbatim}
  1. uzol: a - e
- 2. uzol: e - k
- 3. uzol: k - z
-\end{verbatim}
+ 2. uzol: e -
+k~3. uzol: k~-
+z~\end{verbatim}
 
 Táto metóda nezaručuje rovnomerne rozdelenie dát a záťaže.
 %TODO Obrazok kruhu
@@ -1574,10 +1574,7 @@ Meranie sme vykonali v~troch konfiguráciách. Každá konfigurácia obsahovala 
  \item C - šesť uzlov slave s~faktorom replikácie tri
 \end{itemize}
 
-Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop. Počas jednotlivých testov sme na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Pomocou techniky MapReduce, sa na každom uzle zapisoval funkciou typu \emph{map} súbor o danej veľkosti.
-
-
-Pomocou techniky MapReduce, boli dáta do súborového systému zapisované jednou funkciou typu \emph{map}. V~tomto prípade prebiehal zápis lokálne na danom uzle. Počas jednotlivých testov sme na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Každý test bol vykonaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny tok pre zápis dát v~klastri.
+Testy boli vykonané nástrojom TestDFSIO, ktorý je súčasťou zdrojových kódov systému Hadoop. Počas jednotlivých testov sme na HDFS zapisovali tri rôzne veľkosti súborov a bola zachovaná štandardná veľkosť bloku 65 MB. Pomocou techniky MapReduce, sa na každom uzle lokálne zapisoval funkciou typu \emph{map} súbor o~danej veľkosti a v~prípade faktora replikácie tri bol replikovaný na zvyšné uzly. Každý test bol vykonaný trikrát a výsledná hodnota bola určená ako aritmetický priemer. Výsledky testu, ktoré zobrazuje tabuľka \ref{tab:HDFSperformance}, reprezentujú maximálny tok pre zápis dát v~klastri.
 
 \begin{table}[hp]
 \begin{center}
@@ -1606,7 +1603,7 @@ Pomocou techniky MapReduce, boli dáta do súborového systému zapisované jedn
 % & A & B & C\\
 % 
 
-Na základe týchto hodnôt pozorujeme, že zvýšenie hodnoty replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z~výsledkov testovania je, že v~prípade, ak zvýšime dvojnásobne počet uzlov v~klastri (prípad klastrov v~konfigurácii B a C), jeho výkonnosť vzrastie lineárne, čo potvrdzuje vysokú škálovateľnosť systému. 
+Na základe týchto hodnôt pozorujeme, že zvýšenie hodnoty replikácie ma zásadný negatívny vplyv na celkový výkon distribuovaného súborového systému. Dôležitý fakt, ktorý vyplynul z~výsledkov testovania je, že v~prípade, ak zvýšime dvojnásobne počet uzlov v~klastri (prípad klastrov v~konfigurácii B a C), narastá priepustnosť pri zápise, čo potvrdzuje vysokú škálovateľnosť systému. HDFS je optimalizovaný pre zápis veľkých súborov rádovo v~desiatkách GB a túto vlastnosť test potvrdil. Vo všetkých prípadoch bola hodnota zápisu väčšia ako 125 MB/s. 
 
 %TODO:                             , co zaroven preukazali vysledky testov
 %HDFS je optimalizovaný pre zápis veľkých súborov rádovo v desiatkách GB avšak z nameraných hodnôt vidíme, že najoptimálnejšie výsledky boli dosiahnuté, v prípade keď veľkosť súboru zodpovedala dvojnásobnej veľkosti bloku.
@@ -2041,7 +2038,7 @@ Vďaka tomu, že klient pre prístup k~dátam, uloženým v~systéme Cassandra, 
 Pomocou vyššie popísaného návrhu a implementovaných nástrojov sme overili funkčnosť nami navrhovaného modelu. Vhodná voľba daných verzií u~aplikácií Celery a RabbitMQ bola určená počas písania a ladenia aplikácie. Všetky tieto aplikácie sú neustále vo vývoji, to isté platí pre databázu Cassandra a systém Hadoop. Počas písania tejto práce prebehlo viacero rozhovorov s~autormi týchto aplikácii. Konkrétne databáza Cassandra na začiatku práce neobsahovala takmer žiadnu ucelenú dokumentáciu, počas začiatkov experimentov sme začínali s~verziou 0.7.0. Počas ukončovania tejto práce je k~dispozícii aktuálna verzia 0.7.5 a medzitým vznikla kvalitná online dokumentácia od spoločnosti Datastax\footnote{https://datastax.com}. 
 
 
-Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme dve geograficky oddelené dátové centrá. Prvé centrum bude primárne slúžiť na obsluhu klientských požiadaviek, v druhom bude umiestnená tretia replika, ktorá bude slúžiť aj ako záloha a zároveň nad týmito dátami budú prebiehať MapReduce výpočty.
+Návrh možnej realizácie daného riešenia je zachytený pomocou diagramu nasadenia na obrázku \ref{fig:Deployment}. V~tomto prípade uvažujeme dve geograficky oddelené dátové centrá. Prvé centrum bude primárne slúžiť na obsluhu klientských požiadaviek, v~druhom bude umiestnená tretia replika, ktorá bude slúžiť aj ako záloha a zároveň nad týmito dátami budú prebiehať MapReduce výpočty.
 
 \subsection*{Konfigurácia}
 Hardvérová konfigurácia bola totožná s~konfiguráciou z~kapitoly \ref{chapter:testovanie}. Na šiestich serveroch bola nainštalovaná databáza Cassandra 0.7.3, Hadoop 0.20.2, dvojica serverov obsahovala klientskú aplikáciu pre zápis dát, ktorú používala aplikácia Celery 2.6. V~úlohe sprostredkovateľa bola použitá aplikácia RabbitMQ 2.1.1, ktorá bola nainštalovaná na samostatnom serveri.
@@ -2060,7 +2057,7 @@ Dôležitým pozorovaním bol fakt, že z~celkového objemu emailových správ c
 
 \section{Doporúčenie najvhodnejšieho systému}
 % Pouzit Brisk - nastupca Cassandry s nativnou podporou Hadoop-u, alebo nejaky key-value (to by bolo ale treba zanalyzovať a zmerat performance, je nutne to teda vobec spominat?)
-V závere tejto práce bol spoločnosťou Datastax uvoľnený open source projekt Brisk \cite{brisk}. Tento projekt kombinuje Hadoop, Hive a Cassandru. Jeho hlavnou výhodou je, že úplne eliminuje kritický bod výpadku u vrstvy HDFS. Ďalej maximálne uľahčuje správu tohto systému, pretože nie je potrebná inštalácia systému Hadoop, ZooKeeper a zvyšných aplikácií. Systém je maximálne decentralizovaný. Systém umožnuje súčasný beh aplikácií závislých na operáciach v reálnom čase a zároveň je možné vykonávať časovo náročné analytické operácie. Nie je potrebný žiadny prenos dát medzi viacerými systémami. Možnú architektúru použitia znázorňuje obrázok \ref{fig:brisk}, kde vďaka využitiu replikácii všetky uzly obsahujú rovnaké dáta. Prvá skupina uzlov obsluhuje aplikácie v reálnom čase, kdežto na druhej skupine prebiehajú nad týmito dátami náročné analytické operácie pomocou MapReduce. Podobnú architektúru sme navrhovali v našom riešení. \\
+V~závere tejto práce bol spoločnosťou Datastax uvoľnený open source projekt Brisk \cite{brisk}. Tento projekt kombinuje Hadoop, Hive a Cassandru. Jeho hlavnou výhodou je, že úplne eliminuje kritický bod výpadku u~vrstvy HDFS. Ďalej maximálne uľahčuje správu tohto systému, pretože nie je potrebná inštalácia systému Hadoop, ZooKeeper a zvyšných aplikácií. Systém je maximálne decentralizovaný. Systém umožnuje súčasný beh aplikácií závislých na operáciach v~reálnom čase a zároveň je možné vykonávať časovo náročné analytické operácie. Nie je potrebný žiadny prenos dát medzi viacerými systémami. Možnú architektúru použitia znázorňuje obrázok \ref{fig:brisk}, kde vďaka využitiu replikácii všetky uzly obsahujú rovnaké dáta. Prvá skupina uzlov obsluhuje aplikácie v~reálnom čase, kdežto na druhej skupine prebiehajú nad týmito dátami náročné analytické operácie pomocou MapReduce. Podobnú architektúru sme navrhovali v~našom riešení. \\
 \\
 
 \begin{figure}[h]
@@ -2100,13 +2097,13 @@ V závere tejto práce bol spoločnosťou Datastax uvoľnený open source projek
 % pochvalit sa hlavne
 
 
-Cieľom tejto práce bolo vybrať vhodný distribuovaný databázový systém, ktorý bude schopný spracúvať milióny emailových správ a odolávať sieťovým prerušeniam. Následne navrhnúť model systému a implementovať prototyp riešenia. Prototyp je implementovaný v~jazyku Python, využíva systém Cassandra a bol naplnený približne miliónom emailových správ z reálneho prostredia, cieľ práce bol teda splnený. Práca pozostávala z~viacerých častí, ktoré boli dôkladne spracované.
+Cieľom tejto práce bolo vybrať vhodný distribuovaný databázový systém, ktorý bude schopný spracúvať milióny emailových správ a odolávať sieťovým prerušeniam. Následne navrhnúť model systému a implementovať prototyp riešenia. Prototyp je implementovaný v~jazyku Python, využíva systém Cassandra a bol naplnený približne miliónom emailových správ z~reálneho prostredia, cieľ práce bol teda splnený. Práca pozostávala z~viacerých častí, ktoré boli dôkladne spracované.
 
 Klúčovým prvkom pre preniknutie do danej problematiky distribuovaných databázových systémov bolo štúdium dostupných materiálov, medzi ktoré patrili hlavne technické články. Hlavným teoretickým prínosom tejto časti je ucelené zhrnutie základných konceptov a možných problémov, ktoré je treba zvážiť pri návrhu aplikácií využívajúcich distribuované databázové systémy. Taktiež sme popísali kľúčové časti databázových systémov Cassandra a HBase, ktorých znalosť je nutnou podmienkou v~prípade ich použitia. Všetky použité zdroje zaoberajúce sa touto problematikou sú v~angličtine, čím táto práca napísaná v~slovenčine zapĺňa dieru v~tejto oblasti. Zásadným problémom bola nepostačujúca dokumentácia týchto systémov, keďže sa jedná o~relatívne mladé systémy, ktoré sú neustále vo vývoji. Množstvo informácií bolo preto diskutovaných v~mailinglistoch alebo priamo konzultovaných s~autormi daných systémov.
 
 Analýzou problému sme stanovili detailné požiadavky na tento systém s~tým, že pre spracovanie dát využijeme techniku MapReduce. Ako možných kandidátov pre realizáciu zadania sme zvolili distribuované databázové systémy Cassandra a HBase, ktoré sme nasadili na reálny klaster. V~tomto testovacom prostredí sme nad danými systémami vykonali výkonostné testy. Táto časť práce bola do značnej miery náročná a vyžadovala množstvo nastavení daných systémov pre ich stabilný beh. Z~výsledných systémov sme na základe viacerých vlastností popísaných v~kapitolách 4 a 7 vybrali systém Cassandra.
 
-Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
+Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z~dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
 
 
 
