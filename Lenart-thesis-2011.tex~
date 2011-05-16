@@ -2123,7 +2123,7 @@ Kľúčovým prvkom pre preniknutie do danej problematiky distribuovaných datab
 
 Analýzou problému sme stanovili detailné požiadavky na tento systém s~tým, že pre spracovanie dát využijeme techniku MapReduce. Ako možných kandidátov pre realizáciu zadania sme zvolili distribuované databázové systémy Cassandra a HBase, ktoré sme nasadili na reálny klaster. V~tomto testovacom prostredí sme nad danými systémami vykonali výkonnostné testy. Táto časť práce bola do značnej miery náročná a vyžadovala množstvo nastavení daných systémov pre ich stabilný beh. Z~výsledných systémov sme na základe viacerých vlastností popísaných v~kapitolách 4 a 7 vybrali systém Cassandra.
 
-Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z~dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
+Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z~dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu miesta. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
 
 
 
@@ -2187,7 +2187,7 @@ Architektúra systému využíva viacero open source aplikácií. Pri analýze s
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=16cm]{./figures/deploy.png}
+ \includegraphics[width=15cm]{./figures/deploy.png}
  \caption{Diagram nasadenia aplikácie}
  \label{fig:Deployment}
 \end{figure}
