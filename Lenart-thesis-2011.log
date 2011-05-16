@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  16 MAY 2011 06:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.5.14)  16 MAY 2011 07:01
 entering extended mode
  %&-line parsing enabled.
 **Lenart-thesis-2011.tex
@@ -809,12 +809,7 @@ Dodatok B.
 <./figures/deploy.png, id=1093, 1138.2525pt x 866.23625pt>
 File: ./figures/deploy.png Graphic file (type png)
 
-<use ./figures/deploy.png>
-Overfull \hbox (19.72894pt too wide) in paragraph at lines 2190--2191
- [][] 
- []
-
-[69 <./figures/deploy.png (PNG copy)>] [70
+<use ./figures/deploy.png> [69 <./figures/deploy.png (PNG copy)>] [70
 
 ]
 Dodatok C.
@@ -844,7 +839,7 @@ share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public
 mf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
 o10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fo
 nts/type1/public/lm/lmtt10.pfb>
-Output written on Lenart-thesis-2011.pdf (89 pages, 1207023 bytes).
+Output written on Lenart-thesis-2011.pdf (89 pages, 1207199 bytes).
 PDF statistics:
  1234 PDF objects out of 1440 (max. 8388607)
  323 named destinations out of 1000 (max. 500000)
