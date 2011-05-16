@@ -639,7 +639,7 @@ MapReduce nie je vhodný na spracovanie dát v~reálnom čase. Je optimalizovan�
 % \subsection{Príklad}
 % ? histogram slov
 
-Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce hodnoty $I$. Tieto dáta sú zoskupené a zoradené podľa kľúčov a následne odoslané na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $I$. Tieto operácie je možné popísať následovne:
+Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce hodnoty $I$. Tieto dáta sú zoskupené a zoradené podľa kľúčov a následne odoslané na uzly vykonávajúce užívateľom definovanú funkciu \emph{reduce}. Funkcia \emph{reduce} vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $I$. Tieto operácie je možné popísať následovne:
 
 \begin{verbatim}
 map(k, H) -> list(g, I)
@@ -1266,9 +1266,9 @@ print tokens(K)
 Štandardne Cassandra využíva \emph{RandomPartitioner}, u~ktorého výstup hašovacej funkcie MD5 aplikovaný na hodnotu kľúča určuje uzol, do ktorého sa zapíšu dáta. Týmto sa zabezpečí rovnomerné rozdelenie dát a záťaže na každom uzle v~klastri. K~dispozícii je taktiež \emph{OrderPreservingPartitioner}, u~ktorého je každý uzol zodpovedný za interval kľúčov. Napríklad v~prípade kľúčov začínajúcich začiatočným písmenom abecedy, môže byť rozdelenie na troch uzloch následovné:
 \begin{verbatim}
  1. uzol: a - e
- 2. uzol: e -
-k~3. uzol: k~-
-z~\end{verbatim}
+ 2. uzol: e - k
+ 3. uzol: k - z
+\end{verbatim}
 
 Táto metóda nezaručuje rovnomerne rozdelenie dát a záťaže.
 %TODO Obrazok kruhu
@@ -2123,7 +2123,7 @@ Kľúčovým prvkom pre preniknutie do danej problematiky distribuovaných datab
 
 Analýzou problému sme stanovili detailné požiadavky na tento systém s~tým, že pre spracovanie dát využijeme techniku MapReduce. Ako možných kandidátov pre realizáciu zadania sme zvolili distribuované databázové systémy Cassandra a HBase, ktoré sme nasadili na reálny klaster. V~tomto testovacom prostredí sme nad danými systémami vykonali výkonnostné testy. Táto časť práce bola do značnej miery náročná a vyžadovala množstvo nastavení daných systémov pre ich stabilný beh. Z~výsledných systémov sme na základe viacerých vlastností popísaných v~kapitolách 4 a 7 vybrali systém Cassandra.
 
-Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z~dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 65\% úsporu miesta. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
+Architektúra systému využíva viacero open source aplikácií. Pri analýze sme dbali na ich budúce využitie v~reálnom nasadení. Zásadným bodom návrhu bolo využitie deduplikácie emailových správ, z~dôvodu čo najefektívnejšieho využitia diskového priestoru. Systém bol implementovaný a vďaka metóde deduplikácie sme na vzorku z~reálneho prostredia o~veľkosti približne milión emailových správ dosiahli 67\% úsporu miesta. V~budúcnosti by bolo vhodné skúsiť dané riešenie pomocou systému Brisk, ktorý bol oficiálne zverejnený pri dopísaní tejto diplomovej práce. Tento systém integruje framework MapReduce priamo so systémom Cassandra, čím by sa dosiahla maximálna decentralizácia celého riešenia.
 
 
 

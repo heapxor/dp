@@ -316,7 +316,7 @@ Od začiatku sedemdesiatych rokov 20. storočia sú v~tejto oblasti dominantou r
 Táto práca si kladie za cieľ viacero úloh a je rozdelená do dvoch logických častí. V~kapitole~2 popisujeme koncepty využívané pri tvorbe distribuovaných databázových systémov, ktoré zabezpečujú vysokú dostupnosť, spoľahlivosť a škálovateľnosť. Kapitola 3 definuje požiadavky na systém, schopný archivovať milióny emailových správ a tieto dáta ďalej spracúvať. Prehľad systémov NoSQL a kritéria pre ich porovnanie popisuje kapitola 4, ktorá v~závere doporučuje výber dvoch vhodných kandidátov, systém Cassandra a HBase. Architektonické princípy a vlastnosti, z~ktorých tieto systémy vychádzajú, sú popísané pre systém Cassandra v~kapitole 5 a pre HBase v~kapitole 6.
 %TODO: kapitola 8 + popis implementacie
 V~druhej časti práce sme v~kapitole~7 opísali výkonnostné porovnanie týchto dvoch systémov zamerané na operáciu zápisu dát. Návrh modelu systému,
-nástroje pre implementáciu prototypu aplikácie emailového úložiska a samotnú implementáciu popisuje kapitola 8. Záver kapitoly tvorí overenie návrhu a doporúčenie najvhodnejšieho systému. Záverečná kapitola popisuje dosiahnuté výsledky a možné pokračovanie práce v budúcnosti.
+nástroje pre implementáciu prototypu aplikácie emailového úložiska a samotnú implementáciu popisuje kapitola 8. Záver kapitoly tvorí overenie návrhu a doporučenie najvhodnejšieho systému. Záverečná kapitola popisuje dosiahnuté výsledky a možné pokračovanie práce v~budúcnosti.
 %TODO: pkokracovanie prace v buducnu
 % Záverečná čast, ktorú tvorí kapitola 9, popisuje dosiahnuté výsledky a doporučuje systém pre riešenie danej úlohy.
 
@@ -540,7 +540,7 @@ V~distribuovanom systéme nie je možné súčasne zaručiť vlasnosť konzisten
 V~prípade výberu možnosti číslo 1 zabezpečíme neustálu dostupnosť systému, naopak v~prípade možnosti číslo 2 jeho konzistenciu. Nie je možný súčasný výber oboch možností.
 
 \subsubsection*{CP}
-Ak od daného systému tolerujúceho sieťové prerušenia požadujeme konzistenciu na úkor dostupnosti jedná sa o~alternatívu CP. Takýto systém zabezpečí konzistentnosť operácií pre zápis a čítanie dát a zároveň sa môže stať, že na určité požiadavky nebude schopný reagovať (v prípade možnosti číslo 2). Medzi takéto systémy môžeme zaradiť distribuovaný databázový systém Google Bigtable alebo systém využívajúci dvojfázový potvrdzovací protokol.
+Ak od daného systému tolerujúceho sieťové prerušenia požadujeme konzistenciu na úkor dostupnosti jedná sa o~alternatívu CP. Takýto systém zabezpečí konzistentnosť operácií pre zápis a čítanie dát a zároveň sa môže stať, že na určité požiadavky nebude schopný reagovať (v~prípade možnosti číslo 2). Medzi takéto systémy môžeme zaradiť distribuovaný databázový systém Google Bigtable alebo systém využívajúci dvojfázový potvrdzovací protokol.
 
 \subsubsection*{AP}
 V~prípade, že poľavíme na požiadavku konzistencie tak takýto systém bude vždy dostupný aj napriek sieťovým prerušeniam. V~tomto prípade sa jedná o~alternatívu AP. Je možné, že v~takomto systéme bude dochádzať ku konfliktným zápisom alebo operácie čítania budú po určitú dobu vracať nekonzistentné výsledky. Tieto problémy s~konzistenciou sa v~distribuovaných databázových systémoch riešia napríklad pomocou metódy \uv{vektorových hodín} (Vector clock) \cite{decandia2007dynamo} a na aplikačnej úrovni na strane klienta. Príkladom systému patriaceho do tejto kategórie je Amazon Dynamo.
@@ -595,7 +595,7 @@ Model eventuálnej konzistencie ma viacero variácií:\\
 
 \noindent 
 \\
-\emph{Monotonic read consistency} - v~prípade, že proces načítal hodnotu dátovej jednotky, tak pri každom následujúcom prístupe k jednotke, už nemôže vrátiť jej staršiu hodnotu. \\
+\emph{Monotonic read consistency} - v~prípade, že proces načítal hodnotu dátovej jednotky, tak pri každom následujúcom prístupe k~jednotke, už nemôže vrátiť jej staršiu hodnotu. \\
 
 
 
@@ -639,7 +639,7 @@ MapReduce nie je vhodný na spracovanie dát v~reálnom čase. Je optimalizovan�
 % \subsection{Príklad}
 % ? histogram slov
 
-Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce hodnoty $I$. Tieto dáta sú zoskupené a zoradené podľa kľúčov a následne odoslané na uzly vykonávajúce užívateľom definovanú funkciu reduce. Funkcia reduce vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $I$. Tieto operácie je možné popísať následovne:
+Pre použitie tohoto nástroja musí programátor zadefinovať dve funkcie pod názvom \emph{map} a \emph{reduce}. Funkcia \emph{map} na jednotlivých uzloch systému, transformuje vstupné dáta na základe zadefinovaného kľúča $k$ a k~nemu prináležiacim hodnotám $H$ na medzivýsledok, ktorý obsahuje nové kľúče $g_1,...,g_n$ a k~ním odpovedajúce hodnoty $I$. Tieto dáta sú zoskupené a zoradené podľa kľúčov a následne odoslané na uzly vykonávajúce užívateľom definovanú funkciu \emph{reduce}. Funkcia \emph{reduce} vykoná nad hodnotami priradenými ku kľúčom $g_1,...,g_n$ požadovanú operáciu, ktorej typickým výsledkom je jedna výsledná hodnota, poprípade viacero hodnôt $I$. Tieto operácie je možné popísať následovne:
 
 \begin{verbatim}
 map(k, H) -> list(g, I)
@@ -981,10 +981,10 @@ Medzi databázové systémy využívajúce model kľúč-hodnota patria Amazon D
 %obrazok?
 %abadiph.pdf
 
-V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Dáta reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~relačných databázových systémoch, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné. Možný príklad reprezentácie tabuľky \emph{Zamestnanec} zachytáva tabuľka~\ref{tab:columnModel}, stĺpce \emph{Kľúč} je možne vynechať. V tomto prípade budú v logickej reprezentácii jednotlivé položky záznamov tvorené dátami na rovnakých pozíciach v daných stĺpcoch.
+V~dnešnej dobe existuje veľký počet aplikácií, u~ktorých prevládajú operácie čítania nad zápisom. Patria sem dátové sklady, systémy pre vyťažovanie dát alebo analytické aplikácie pracujúce s~obrovským objemom dát. Pre potreby týchto aplikácií a ich reprezentáciu dát je vhodné použiť stĺpcový model \cite{abadi2009column, abadi2009}, ktorý je optimalizovaný pre operácie čítania dát. Dáta reprezentujúce stĺpce sú uložené na pevnom disku v~samostatných a súvislých blokoch. Načítanie dát do pamäti a následná práca s~nimi je efektívnejšia ako u~relačných databázových systémoch, kde je potrebné načítať celý záznam obsahujúci aj hodnoty stĺpcov, ktoré sú v~daný moment irelevantné. Možný príklad reprezentácie tabuľky \emph{Zamestnanec} zachytáva tabuľka~\ref{tab:columnModel}, stĺpce \emph{Kľúč} je možne vynechať. V~tomto prípade budú v~logickej reprezentácii jednotlivé položky záznamov tvorené dátami na rovnakých pozíciach v~daných stĺpcoch.
 % V~tomto prípade, v~logickej reprezentácii budú riadky uložené v~rovnakom poradí reprezentovať jeden záznam.
 
-Relačný model obsahuje v~jednom zázname dáta z~rôznych domén, čo spôsobuje vyššiu entropiu v~porovnaní so stĺpcovým modelom, kde sa predpokladá, že dáta v~danom stĺpci pochádzajú z~totožnej domény a sú si preto podobné. Táto vlasnosť umožňuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýhodou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií, z dôvodu že stĺpce môžu byť fyzicky reprezentované ako samostatné súbory. Pre optimalizáciu operácií vykonávajúcich zápis sa používa dávkový zápis.
+Relačný model obsahuje v~jednom zázname dáta z~rôznych domén, čo spôsobuje vyššiu entropiu v~porovnaní so stĺpcovým modelom, kde sa predpokladá, že dáta v~danom stĺpci pochádzajú z~totožnej domény a sú si preto podobné. Táto vlasnosť umožňuje efektívnu komprimáciu dát, ktorá znižuje počet diskových operácií. Nevýhodou tohto modelu je zápis dát, ktorý spôsobuje vyššiu záťaž diskových operácií, z~dôvodu že stĺpce môžu byť fyzicky reprezentované ako samostatné súbory. Pre optimalizáciu operácií vykonávajúcich zápis sa používa dávkový zápis.
 
 % obrazok ?
 %\subsubsection*{Stĺpcovo orientovaný model v NoSQL}
@@ -2000,7 +2000,7 @@ Paralelizáciu našej aplikácie sme zabezpečili pomocou využitia asynchrónne
 Táto správa je následne zaslaná ľubovoľnému pracovníkovi (v~našom prípade klient vykonávajúci analýzu a deduplikáciu emailu), ktorý ju spracuje. Táto architektúra je plne distribuovaná a dokáže odolávať chybám (napr. v~prípade výpadku elektrickej energie správy naďalej pretrvávajú vo fronte).
 
 
-Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala približne 10,000 operácií za sekundu pre zápis (publikovanie správ) a cca 5,000 operácií pre načítanie správ (konzumáciu správ). Bolo by vhodné zvážiť výber inej fronty, pretože počet daných operácií može spôsobovať úzke hrdlo systému. Ak predpokladáme veľkosť emailovej správy 1 kB, pri dátovom toku 1 Gbit je možné zapísať 128,000 emailov.
+Frontu RabbitMQ sme podrobili výkonnostnému testu, zvládala približne 10,000 operácií za sekundu pre zápis (publikovanie správ) a cca 5,000 operácií pre načítanie správ (konzumáciu správ). Bolo by vhodné zvážiť výber inej fronty, pretože počet daných operácií môže spôsobovať úzke hrdlo systému. Ak predpokladáme veľkosť emailovej správy 1 kB, pri dátovom toku 1 Gbit je možné zapísať 128,000 emailov.
 
 \subsection{Klient}
 
