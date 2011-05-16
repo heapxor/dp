@@ -1,3 +1,4 @@
+\select@language {slovak}
 \select@language {english}
 \select@language {slovak}
 \addvspace {10\p@ }
@@ -12,7 +13,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {8.1}{\ignorespaces Obsah ob\IeC {\'a}lky z~programu Qmail-scanner}}{52}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{54}{figure.8.2}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma syst\IeC {\'e}mu}}{54}{figure.8.2}
 \contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fulltextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{55}{figure.8.3}
 \contentsline {figure}{\numberline {8.4}{\ignorespaces Architekt\IeC {\'u}ra Celery, Zdroj: \cite {celery}}}{56}{figure.8.4}
 \contentsline {figure}{\numberline {8.5}{\ignorespaces Spracovanie emailu}}{57}{figure.8.5}

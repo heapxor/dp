@@ -72,11 +72,6 @@ J.~Dean and S.~Ghemawat.
 \newblock {MapReduce: Simplified data processing on large clusters}.
 \newblock {\em Communications of the ACM}, 51(1):107--113, 2008.
 
-\bibitem{Dean:2008:MSD:1327452.1327492}
-J.~Dean and S.~Ghemawat.
-\newblock Mapreduce: simplified data processing on large clusters.
-\newblock {\em Commun. ACM}, 51:107--113, January 2008.
-
 \bibitem{decandia2007dynamo}
 G.~DeCandia, D.~Hastorun, M.~Jampani, G.~Kakulapati, A.~Lakshman, A.~Pilchin,
   S.~Sivasubramanian, P.~Vosshall, and W.~Vogels.
@@ -245,10 +240,25 @@ Celery introduction [online].
 \newblock \\Dostupné z WWW:
   <\verb|http://ask.github.com/celery/getting-started/|>, [cit. 2011-04-07].
 
+\bibitem{hadoopW}
+Hadoop [online].
+\newblock \\Dostupné z WWW: <\verb|http://hadoop.apache.org/|>, [cit.
+  2010-12-01].
+
+\bibitem{hbaseW}
+Hbase [online].
+\newblock \\Dostupné z WWW: <\verb|http://hbase.apache.org/|>, [cit.
+  2011-10-21].
+
 \bibitem{hbaseSec}
 Discretionary access control [online].
 \newblock \\Dostupné z WWW:
   <\verb|https://issues.apache.org/jira/browse/HBASE-1697|>, [cit. 2011-04-03].
+
+\bibitem{hypertableW}
+Hypertable [online].
+\newblock \\Dostupné z WWW: <\verb|http://www.hypertable.org/|>, [cit.
+  2010-11-04].
 
 \bibitem{White:2009:HDG:1717298}
 T.~White.

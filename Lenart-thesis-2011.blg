@@ -14,45 +14,45 @@ Warning--empty journal in Freed:1996:MIM:RFC2045
 Warning--empty journal in Freed:1996:MIM:RFC2046
 Warning--can't use both volume and number fields in ghemawat2003google
 Warning--can't use both author and editor fields in Udell
-You've used 46 entries,
+You've used 48 entries,
             2118 wiz_defined-function locations,
-            761 strings with 11171 characters,
-and the built_in function-call counts, 15017 in all, are:
-= -- 1496
-> -- 650
+            771 strings with 11361 characters,
+and the built_in function-call counts, 15155 in all, are:
+= -- 1503
+> -- 640
 < -- 16
-+ -- 267
-- -- 216
-* -- 969
-:= -- 2377
-add.period$ -- 140
-call.type$ -- 46
-change.case$ -- 246
++ -- 265
+- -- 212
+* -- 956
+:= -- 2370
+add.period$ -- 143
+call.type$ -- 48
+change.case$ -- 253
 chr.to.int$ -- 0
-cite$ -- 58
-duplicate$ -- 597
-empty$ -- 1232
-format.name$ -- 216
-if$ -- 3225
+cite$ -- 60
+duplicate$ -- 607
+empty$ -- 1275
+format.name$ -- 212
+if$ -- 3275
 int.to.chr$ -- 0
-int.to.str$ -- 46
-missing$ -- 41
-newline$ -- 225
-num.names$ -- 80
-pop$ -- 319
+int.to.str$ -- 48
+missing$ -- 40
+newline$ -- 232
+num.names$ -- 78
+pop$ -- 346
 preamble$ -- 1
-purify$ -- 203
+purify$ -- 208
 quote$ -- 0
-skip$ -- 463
+skip$ -- 476
 stack$ -- 0
-substring$ -- 857
-swap$ -- 156
+substring$ -- 842
+swap$ -- 158
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 174
+type$ -- 182
 warning$ -- 12
-while$ -- 140
-width$ -- 48
-write$ -- 485
+while$ -- 136
+width$ -- 50
+write$ -- 495
 (There were 12 warnings)

@@ -15,6 +15,10 @@
 \global \let \hyper@last\relax 
 \fi
 
+\select@language{slovak}
+\@writefile{toc}{\select@language{slovak}}
+\@writefile{lof}{\select@language{slovak}}
+\@writefile{lot}{\select@language{slovak}}
 \select@language{english}
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
@@ -69,10 +73,10 @@
 \citation{gifford1979weighted}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Syst\IeC {\'e}mov\IeC {\'a} konzistencia}{12}{subsection.2.7.2}}
 \newlabel{section:Consistency}{{2.7.2}{12}{Systémová konzistencia\relax }{subsection.2.7.2}{}}
-\citation{dean2008mapreduce}
 \citation{ghemawat2003google}
+\citation{hadoopW}
 \@writefile{toc}{\contentsline {section}{\numberline {2.8}MapReduce}{13}{section.2.8}}
-\newlabel{tab:001}{{2.8}{14}{Príklad\relax }{section*.11}{}}
+\newlabel{tab:001}{{2.8}{15}{Príklad\relax }{section*.11}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Vstupn\IeC {\'e} d\IeC {\'a}ta pre funkciu \emph  {map}}}{15}{table.2.1}}
 \newlabel{tab:mapred}{{2.1}{15}{Vstupné dáta pre funkciu \emph {map}\relax }{table.2.1}{}}
 \citation{Gantz_Mcarthur_Minton_2007}
@@ -97,17 +101,19 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v~rela\IeC {\v c}nom modeli}}{24}{table.4.1}}
 \newlabel{tab:relacnyModel}{{4.1}{24}{Reprezentácia dát v~relačnom modeli\relax }{table.4.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}K\IeC {\v l}\IeC {\'u}\IeC {\v c}-hodnota}{24}{subsection.4.1.2}}
+\citation{hbaseW}
+\citation{hypertableW}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}St\IeC {\'l}pcovo orientovan\IeC {\'y} model}{25}{subsection.4.1.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v~st\IeC {\'l}pcovom modely}}{25}{table.4.2}}
-\newlabel{tab:columnModel}{{4.2}{25}{Reprezentácia dát v~stĺpcovom modely\relax }{table.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Reprezent\IeC {\'a}cia d\IeC {\'a}t v~st\IeC {\'l}pcovom modeli}}{25}{table.4.2}}
+\newlabel{tab:columnModel}{{4.2}{25}{Reprezentácia dát v~stĺpcovom modeli\relax }{table.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Dokumentov\IeC {\'y} model}{25}{subsection.4.1.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.5}Grafov\IeC {\'y} model}{25}{subsection.4.1.5}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{26}{section.4.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{26}{subsection.4.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{26}{subsection.4.2.2}}
 \citation{segaran2009beautiful}
 \citation{neo4j}
 \citation{neo4j}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{27}{subsection.4.2.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Poz\IeC {\'\i }cia d\IeC {\'a}tov\IeC {\'e}ho modelu z~poh\IeC {\v l}adu \IeC {\v s}k\IeC {\'a}lovania pod\IeC {\v l}a ve\IeC {\v l}kosti a komplexnosti. Zdroj: \cite  {neo4j}}}{27}{figure.4.1}}
 \newlabel{fig:scalling}{{4.1}{27}{Pozícia dátového modelu z~pohľadu škálovania podľa veľkosti a komplexnosti. Zdroj: \cite {neo4j}\relax }{figure.4.1}{}}
 \citation{hewitt2010cassandra}
@@ -115,15 +121,14 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{28}{subsection.4.2.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Rozdelenie datab\IeC {\'a}zov\IeC {\'y}ch syst\IeC {\'e}mov pod\IeC {\v l}a CAP, Zdroj: \cite  {hewitt2010cassandra}}}{28}{figure.4.2}}
 \newlabel{fig:scalling2}{{4.2}{28}{Rozdelenie databázových systémov podľa CAP, Zdroj: \cite {hewitt2010cassandra}\relax }{figure.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{28}{subsection.4.2.5}}
 \citation{barina}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{29}{subsection.4.2.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{29}{subsection.4.2.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{29}{section.4.3}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Stru\IeC {\v c}n\IeC {\'y} preh\IeC {\v l}ad vlastnost\IeC {\'\i } st\IeC {\'l}pcovo orientovan\IeC {\'y}ch syst\IeC {\'e}mov NoSQL}}{30}{table.4.3}}
 \newlabel{tab:Nosql}{{4.3}{30}{Stručný prehľad vlastností stĺpcovo orientovaných systémov NoSQL\relax }{table.4.3}{}}
 \citation{cassandraW}
 \citation{decandia2007dynamo}
-\citation{chang2008bigtable}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Cassandra}{31}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -142,7 +147,6 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.10}Bezpe\IeC {\v c}nos\IeC {\v t}}{35}{section.5.10}}
 \citation{Thusoo:2010:DWA:1807167.1807278}
 \citation{Ghemawat:2003:GFS:945445.945450}
-\citation{Dean:2008:MSD:1327452.1327492}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}HBase}{37}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -198,8 +202,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {8.2}Anal\IeC {\'y}za d\IeC {\'a}t}{52}{section.8.2}}
 \citation{CloudDataStructureDiag}
 \@writefile{toc}{\contentsline {section}{\numberline {8.3}Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}{53}{section.8.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma}}{54}{figure.8.2}}
-\newlabel{fig:Cschema}{{8.2}{54}{Databázová schéma\relax }{figure.8.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Datab\IeC {\'a}zov\IeC {\'a} sch\IeC {\'e}ma syst\IeC {\'e}mu}}{54}{figure.8.2}}
+\newlabel{fig:Cschema}{{8.2}{54}{Databázová schéma systému\relax }{figure.8.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {8.4}Fulltextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}{55}{section.8.4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces JSON sch\IeC {\'e}ma pre fulltextov\IeC {\'e} vyh\IeC {\v l}ad\IeC {\'a}vanie}}{55}{figure.8.3}}
 \newlabel{fig:ESschema}{{8.3}{55}{JSON schéma pre fulltextové vyhľadávanie\relax }{figure.8.3}{}}
@@ -215,10 +219,10 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Programov\IeC {\'a} uk\IeC {\'a}\IeC {\v z}ka v~jazyku Pig}}{58}{figure.8.6}}
 \newlabel{fig:PigExample}{{8.6}{58}{Programová ukážka v~jazyku Pig\relax }{figure.8.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{58}{subsection.8.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{58}{section.8.6}}
 \citation{brisk}
-\@writefile{toc}{\contentsline {section}{\numberline {8.7}Doporu\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{59}{section.8.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{59}{section.8.6}}
 \citation{briskPic}
+\@writefile{toc}{\contentsline {section}{\numberline {8.7}Doporu\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{60}{section.8.7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces Brisk, Zdroj: \cite  {briskPic}}}{60}{figure.8.7}}
 \newlabel{fig:brisk}{{8.7}{60}{Brisk, Zdroj: \cite {briskPic}\relax }{figure.8.7}{}}
 \bibstyle{abbrv}
@@ -240,38 +244,40 @@
 \bibcite{briskPic}{{12}{}{{}}{{}}}
 \bibcite{CloudDataStructureDiag}{{13}{}{{}}{{}}}
 \bibcite{dean2008mapreduce}{{14}{}{{}}{{}}}
-\bibcite{Dean:2008:MSD:1327452.1327492}{{15}{}{{}}{{}}}
-\bibcite{decandia2007dynamo}{{16}{}{{}}{{}}}
-\bibcite{neo4j}{{17}{}{{}}{{}}}
-\bibcite{fox1997cluster}{{18}{}{{}}{{}}}
-\bibcite{Freed:1996:MIM:RFC2045}{{19}{}{{}}{{}}}
-\bibcite{Freed:1996:MIM:RFC2046}{{20}{}{{}}{{}}}
-\bibcite{ganesh2003peer}{{21}{}{{}}{{}}}
-\bibcite{Gantz_Chute_Manfrediz_Minton_Reinsel_Schlichting_Toncheva_2008}{{22}{}{{}}{{}}}
-\bibcite{Gantz_Mcarthur_Minton_2007}{{23}{}{{}}{{}}}
-\bibcite{ghemawat2003google}{{24}{}{{}}{{}}}
-\bibcite{Ghemawat:2003:GFS:945445.945450}{{25}{}{{}}{{}}}
-\bibcite{gifford1979weighted}{{26}{}{{}}{{}}}
-\bibcite{Gilbert:2002:BCF:564585.564601}{{27}{}{{}}{{}}}
-\bibcite{gray1981transaction}{{28}{}{{}}{{}}}
-\bibcite{haerder1983principles}{{29}{}{{}}{{}}}
-\bibcite{hayashibara2004}{{30}{}{{}}{{}}}
-\bibcite{hewitt2010cassandra}{{31}{}{{}}{{}}}
-\bibcite{Karger:1997:CHR:258533.258660}{{32}{}{{}}{{}}}
-\bibcite{olston2008pig}{{33}{}{{}}{{}}}
-\bibcite{WhyArchiving}{{34}{}{{}}{{}}}
-\bibcite{Pritchett:2008:BAA:1394127.1394128}{{35}{}{{}}{{}}}
-\bibcite{segaran2009beautiful}{{36}{}{{}}{{}}}
-\bibcite{ebayShard}{{37}{}{{}}{{}}}
-\bibcite{stonebraker1986case}{{38}{}{{}}{{}}}
-\bibcite{Thusoo:2010:DWA:1807167.1807278}{{39}{}{{}}{{}}}
-\bibcite{Udell}{{40}{}{{}}{{}}}
-\bibcite{vogels2009eventually}{{41}{}{{}}{{}}}
-\bibcite{brisk}{{42}{}{{}}{{}}}
-\bibcite{cassandraW}{{43}{}{{}}{{}}}
-\bibcite{celery}{{44}{}{{}}{{}}}
-\bibcite{hbaseSec}{{45}{}{{}}{{}}}
-\bibcite{White:2009:HDG:1717298}{{46}{}{{}}{{}}}
+\bibcite{decandia2007dynamo}{{15}{}{{}}{{}}}
+\bibcite{neo4j}{{16}{}{{}}{{}}}
+\bibcite{fox1997cluster}{{17}{}{{}}{{}}}
+\bibcite{Freed:1996:MIM:RFC2045}{{18}{}{{}}{{}}}
+\bibcite{Freed:1996:MIM:RFC2046}{{19}{}{{}}{{}}}
+\bibcite{ganesh2003peer}{{20}{}{{}}{{}}}
+\bibcite{Gantz_Chute_Manfrediz_Minton_Reinsel_Schlichting_Toncheva_2008}{{21}{}{{}}{{}}}
+\bibcite{Gantz_Mcarthur_Minton_2007}{{22}{}{{}}{{}}}
+\bibcite{ghemawat2003google}{{23}{}{{}}{{}}}
+\bibcite{Ghemawat:2003:GFS:945445.945450}{{24}{}{{}}{{}}}
+\bibcite{gifford1979weighted}{{25}{}{{}}{{}}}
+\bibcite{Gilbert:2002:BCF:564585.564601}{{26}{}{{}}{{}}}
+\bibcite{gray1981transaction}{{27}{}{{}}{{}}}
+\bibcite{haerder1983principles}{{28}{}{{}}{{}}}
+\bibcite{hayashibara2004}{{29}{}{{}}{{}}}
+\bibcite{hewitt2010cassandra}{{30}{}{{}}{{}}}
+\bibcite{Karger:1997:CHR:258533.258660}{{31}{}{{}}{{}}}
+\bibcite{olston2008pig}{{32}{}{{}}{{}}}
+\bibcite{WhyArchiving}{{33}{}{{}}{{}}}
+\bibcite{Pritchett:2008:BAA:1394127.1394128}{{34}{}{{}}{{}}}
+\bibcite{segaran2009beautiful}{{35}{}{{}}{{}}}
+\bibcite{ebayShard}{{36}{}{{}}{{}}}
+\bibcite{stonebraker1986case}{{37}{}{{}}{{}}}
+\bibcite{Thusoo:2010:DWA:1807167.1807278}{{38}{}{{}}{{}}}
+\bibcite{Udell}{{39}{}{{}}{{}}}
+\bibcite{vogels2009eventually}{{40}{}{{}}{{}}}
+\bibcite{brisk}{{41}{}{{}}{{}}}
+\bibcite{cassandraW}{{42}{}{{}}{{}}}
+\bibcite{celery}{{43}{}{{}}{{}}}
+\bibcite{hadoopW}{{44}{}{{}}{{}}}
+\bibcite{hbaseW}{{45}{}{{}}{{}}}
+\bibcite{hbaseSec}{{46}{}{{}}{{}}}
+\bibcite{hypertableW}{{47}{}{{}}{{}}}
+\bibcite{White:2009:HDG:1717298}{{48}{}{{}}{{}}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{67}{appendix.A}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}

@@ -1,3 +1,4 @@
+\select@language {slovak}
 \select@language {english}
 \select@language {slovak}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{1}{chapter.1}
@@ -29,10 +30,10 @@
 \contentsline {subsection}{\numberline {4.1.5}Grafov\IeC {\'y} model}{25}{subsection.4.1.5}
 \contentsline {section}{\numberline {4.2}Porovnanie NoSQL syst\IeC {\'e}mov}{26}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}D\IeC {\'a}tov\IeC {\'y} a dotazovac\IeC {\'\i } model}{26}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{26}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}\IeC {\v S}k\IeC {\'a}lovate\IeC {\v l}nos\IeC {\v t} a schopnos\IeC {\v t} odol\IeC {\'a}va\IeC {\v t} chyb\IeC {\'a}m}{27}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Elastickos\IeC {\v t}}{28}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Konzistencia d\IeC {\'a}t}{28}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{28}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.5}Prostredie behu}{29}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Bezpe\IeC {\v c}nos\IeC {\v t}}{29}{subsection.4.2.6}
 \contentsline {section}{\numberline {4.3}V\IeC {\'y}ber NoSQL syst\IeC {\'e}mov}{29}{section.4.3}
 \contentsline {chapter}{\numberline {5}Cassandra}{31}{chapter.5}
@@ -76,8 +77,8 @@
 \contentsline {subsection}{\numberline {8.5.1}Klient}{57}{subsection.8.5.1}
 \contentsline {subsection}{\numberline {8.5.2}V\IeC {\'y}po\IeC {\v c}et \IeC {\v s}tatist\IeC {\'\i }k}{58}{subsection.8.5.2}
 \contentsline {subsection}{\numberline {8.5.3}Webov\IeC {\'e} rozhranie}{58}{subsection.8.5.3}
-\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{58}{section.8.6}
-\contentsline {section}{\numberline {8.7}Doporu\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{59}{section.8.7}
+\contentsline {section}{\numberline {8.6}Overenie n\IeC {\'a}vrhu}{59}{section.8.6}
+\contentsline {section}{\numberline {8.7}Doporu\IeC {\v c}enie najvhodnej\IeC {\v s}ieho syst\IeC {\'e}mu}{60}{section.8.7}
 \contentsline {chapter}{\numberline {9}Z\IeC {\'a}ver}{61}{chapter.9}
 \contentsline {chapter}{\numberline {A}Zoznam pou\IeC {\v z}it\IeC {\'y}ch skratiek}{67}{appendix.A}
 \contentsline {chapter}{\numberline {B}UML diagramy}{69}{appendix.B}
